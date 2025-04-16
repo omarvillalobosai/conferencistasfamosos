@@ -1,4 +1,3 @@
-
 import { StarIcon, ThumbsUp, Award, TrendingUp, LightbulbIcon, BrainCircuit } from 'lucide-react';
 
 export interface Speaker {
@@ -51,7 +50,7 @@ export const speakers: Speaker[] = [
   {
     id: 5,
     name: 'César Lozano',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/cesar-lozano-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//cesar%20lozano%20conferencista.png',
     specialty: 'Actitud y Calidad de Vida',
     shortBio: 'Médico, conductor y conferencista experto en bienestar emocional y calidad de vida',
     tags: ['Actitud', 'Bienestar', 'Felicidad'],
@@ -60,7 +59,7 @@ export const speakers: Speaker[] = [
   {
     id: 6,
     name: 'Ismael Cala',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/ismael-cala-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//ismael-cala-conferencistas%20famosos.png',
     specialty: 'Liderazgo y Mindfulness',
     shortBio: 'Periodista, autor y conferencista especializado en mindfulness y liderazgo consciente',
     tags: ['Mindfulness', 'Liderazgo', 'Bienestar'],
@@ -87,7 +86,7 @@ export const speakers: Speaker[] = [
   {
     id: 9,
     name: 'Adriana Macías',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/adriana-macias-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//adriana-macias-conferenicstas-famosos.png',
     specialty: 'Superación y Motivación',
     shortBio: 'Abogada, escritora y conferencista, experta en superación personal y resiliencia',
     tags: ['Superación', 'Resiliencia', 'Inclusión'],
@@ -114,7 +113,7 @@ export const speakers: Speaker[] = [
   {
     id: 12,
     name: 'Marisa Lazo',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/marisa-lazo-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//marisa-lazo-conferencistas-famosos.png',
     specialty: 'Emprendimiento y Liderazgo',
     shortBio: 'Empresaria, fundadora de Pastelerías Marisa y conferencista sobre emprendimiento femenino',
     tags: ['Emprendimiento', 'Negocios', 'Liderazgo'],
@@ -132,7 +131,7 @@ export const speakers: Speaker[] = [
   {
     id: 14,
     name: 'Claudia Lizaldi',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/claudia-lizaldi-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//claudia-lizaldi-conferencistas-famosos.png',
     specialty: 'Bienestar Integral y Mindfulness',
     shortBio: 'Conductora, escritora y conferencista enfocada en bienestar, meditación y vida consciente',
     tags: ['Bienestar', 'Mindfulness', 'Desarrollo Personal'],
