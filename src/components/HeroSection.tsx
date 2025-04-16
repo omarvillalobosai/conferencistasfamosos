@@ -1,10 +1,18 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import QuoteWizard from './QuoteWizard';
 
 const HeroSection = () => {
+  const [wizardOpen, setWizardOpen] = useState(false);
+
+  const handleQuoteClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setWizardOpen(true);
+  };
+
   return (
     <>
       <Helmet>
@@ -53,11 +61,11 @@ const HeroSection = () => {
                   Conoce a nuestros expertos
                 </Button>
               </a>
-              <Link to="/#destacado">
+              <a href="#" onClick={handleQuoteClick} className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white w-full sm:w-auto">
                   Solicita a Omar Villalobos
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
           
@@ -70,6 +78,8 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
+
+      <QuoteWizard open={wizardOpen} onClose={() => setWizardOpen(false)} />
     </>
   );
 };
