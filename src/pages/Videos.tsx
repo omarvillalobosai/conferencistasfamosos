@@ -8,38 +8,43 @@ import { PlayCircle, Video } from 'lucide-react';
 const featuredVideos = [
   {
     id: 1,
-    title: "Cosas que hacemos cuando tenemos mala autoestima",
+    title: "Autoestima sin filtros: lo que nadie te dijo y todos sentimos",
     youtubeId: "0GqmrL-aBf8",
     speaker: "Yordi Rosado",
-    category: "Autoestima"
+    category: "Autoestima",
+    description: "Yordi desnuda las inseguridades con la empatía de un amigo y la verdad de un espejo."
   },
   {
     id: 2,
-    title: "Ir más allá",
+    title: "Ir más allá: el arte de reinventarte cuando ya lo diste todo",
     youtubeId: "vjh1KQyPwI8",
     speaker: "Gaby Vargas",
-    category: "Desarrollo Personal"
+    category: "Desarrollo Personal",
+    description: "Gaby te lleva a cruzar esa frontera invisible entre lo que eres… y lo que puedes llegar a ser."
   },
   {
     id: 3,
-    title: "El tiempo es ahora",
+    title: "El tiempo es ahora: deja de sobrevivir y empieza a incendiar tu propósito",
     youtubeId: "4lG-bneYEtg",
     speaker: "Daniel Javid",
-    category: "Motivación"
+    category: "Motivación",
+    description: "Daniel no da discursos, da sacudidas. Esto no es motivación barata, es una llamada de emergencia al alma."
   },
   {
     id: 4,
-    title: "Indeleble",
+    title: "Indeleble: las huellas que deja una mujer que no pidió permiso para brillar",
     youtubeId: "u_lj7Ux1eKE",
     speaker: "Vilma Núñez",
-    category: "Documental"
+    category: "Documental",
+    description: "No es solo un documental, es un manifiesto de poder, cicatrices y victoria."
   },
   {
     id: 5,
-    title: "Te educaron para ser chingón",
+    title: "Te educaron para ser chingón: ahora aprende a ser libre",
     youtubeId: "iJkkjNubmsE",
     speaker: "Omar Villalobos",
-    category: "Superación Personal"
+    category: "Superación Personal",
+    description: "Omar no viene a darte consejos, viene a hackearte el alma. Si no estás listo para cambiar, mejor no le des play."
   },
   {
     id: 6,
@@ -67,6 +72,9 @@ const VideoCard: React.FC<{video: typeof featuredVideos[0]}> = ({ video }) => {
       <div className="p-4">
         <h3 className="font-bold text-lg mb-1">{video.title}</h3>
         <p className="text-orange-500">{video.speaker}</p>
+        {video.description && (
+          <p className="text-gray-300 text-sm mt-2 italic">{video.description}</p>
+        )}
         <span className="inline-block mt-2 bg-gray-800 text-xs px-2 py-1 rounded-full">
           {video.category}
         </span>
@@ -107,10 +115,16 @@ const Videos = () => {
                   width="100%"
                   height="100%"
                   src="https://www.youtube.com/embed/0GqmrL-aBf8"
-                  title="Cosas que hacemos cuando tenemos mala autoestima"
+                  title="Autoestima sin filtros: lo que nadie te dijo y todos sentimos"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
+              </div>
+              <div className="max-w-4xl mx-auto mt-4">
+                <h3 className="text-xl font-bold text-orange-500">Yordi Rosado</h3>
+                <p className="text-gray-300 mt-2 italic">
+                  {featuredVideos[0].description}
+                </p>
               </div>
             </div>
             
