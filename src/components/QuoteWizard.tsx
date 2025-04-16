@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,6 +14,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
+import ReactConfetti from 'react-confetti';
 
 interface QuoteWizardProps {
   open: boolean;
@@ -37,7 +38,34 @@ const QuoteWizard = ({ open, onClose }: QuoteWizardProps) => {
     budget: '',
     pitch: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   const { toast } = useToast();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (showConfetti) {
+      const timer = setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showConfetti]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -78,29 +106,80 @@ const QuoteWizard = ({ open, onClose }: QuoteWizardProps) => {
     setStep((prevStep) => prevStep + 1);
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    toast({
-      title: "Solicitud enviada",
-      description: "Tu información ha sido recibida. Nos pondremos en contacto contigo pronto.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      socialMedia: '',
-      eventType: '',
-      eventTypeOther: '',
-      speakerFocus: '',
-      specificObjectives: [],
-      specificObjectivesOther: '',
-      eventIntentions: [],
-      budget: '',
-      pitch: '',
-    });
-    setStep(1);
-    onClose();
+  const handleSubmit = async () => {
+    try {
+      setIsSubmitting(true);
+      
+      // Prepare the data for the webhook
+      const webhookData = {
+        nombre: formData.name,
+        email: formData.email,
+        whatsapp: formData.phone,
+        empresa: formData.company,
+        "redes o web": formData.socialMedia,
+        "TIPO DE EVENTO": formData.eventType === 'Otro' ? formData.eventTypeOther : formData.eventType,
+        enfoque: formData.speakerFocus,
+        intencion: formData.eventIntentions.join(', '),
+        "objetivo especifico": formData.specificObjectives.includes('Otro') 
+          ? [...formData.specificObjectives.filter(obj => obj !== 'Otro'), formData.specificObjectivesOther].join(', ')
+          : formData.specificObjectives.join(', '),
+        presupuesto: formData.budget,
+        "sobre tu evento": formData.pitch
+      };
+      
+      console.log('Submitting data to webhook:', webhookData);
+      
+      // Send data to webhook
+      const response = await fetch('https://hook.us2.make.com/zp37js1lpc28c5id5ne8d0kaw8b6a6z6', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(webhookData),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario');
+      }
+      
+      console.log('Form submitted successfully');
+      setShowConfetti(true);
+      toast({
+        title: "Solicitud enviada",
+        description: "Tu información ha sido recibida. Nos pondremos en contacto contigo pronto.",
+      });
+      
+      // Reset form and close dialog after delay
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          socialMedia: '',
+          eventType: '',
+          eventTypeOther: '',
+          speakerFocus: '',
+          specificObjectives: [],
+          specificObjectivesOther: '',
+          eventIntentions: [],
+          budget: '',
+          pitch: '',
+        });
+        setStep(1);
+        onClose();
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error al enviar",
+        description: "Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStepIndicator = () => {
@@ -401,9 +480,14 @@ const QuoteWizard = ({ open, onClose }: QuoteWizardProps) => {
             </p>
             <Button 
               onClick={handleSubmit} 
+              disabled={isSubmitting}
               className="mt-8 bg-orange-500 hover:bg-orange-600 text-lg px-8 py-6 h-auto"
             >
-              🚀 Enviar mi solicitud exclusiva <Rocket className="ml-2" />
+              {isSubmitting ? 'Enviando...' : (
+                <>
+                  🚀 Enviar mi solicitud exclusiva <Rocket className="ml-2" />
+                </>
+              )}
             </Button>
           </div>
         );
@@ -414,15 +498,26 @@ const QuoteWizard = ({ open, onClose }: QuoteWizardProps) => {
   };
 
   return (
-    <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-hidden">
-        <DialogHeader>
-          <DialogTitle className="sr-only">Formulario de cotización</DialogTitle>
-        </DialogHeader>
-        {renderStepIndicator()}
-        {renderStep()}
-      </DialogContent>
-    </Dialog>
+    <>
+      {showConfetti && (
+        <ReactConfetti
+          width={windowDimensions.width}
+          height={windowDimensions.height}
+          recycle={false}
+          numberOfPieces={500}
+          tweenDuration={5000}
+        />
+      )}
+      <Dialog open={open} onOpenChange={onClose}>
+        <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-hidden">
+          <DialogHeader>
+            <DialogTitle className="sr-only">Formulario de cotización</DialogTitle>
+          </DialogHeader>
+          {renderStepIndicator()}
+          {renderStep()}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
