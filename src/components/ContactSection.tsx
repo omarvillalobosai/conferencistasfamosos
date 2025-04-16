@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Calendar as CalendarIcon, Mail, Phone } from 'lucide-react';
+import { Calendar as CalendarIcon, Mail, Phone, Check } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
 import {
   Popover,
