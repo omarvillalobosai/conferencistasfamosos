@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -11,7 +10,7 @@ const speakers = [
   {
     id: 1,
     name: 'Omar Villalobos',
-    image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//omar%20villalobos%20photo%20conferencistas%20famosos.svg',
     specialty: 'Alto Impacto y Transformación Personal',
     shortBio: 'Reconocido como el conferencista #1 de habla hispana con Récord Guinness',
     tags: ['Motivación', 'Liderazgo', 'Éxito'],
