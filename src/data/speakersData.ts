@@ -24,7 +24,7 @@ export const speakers: Speaker[] = [
   {
     id: 2,
     name: 'Yordi Rosado',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/yordi%20rosado%20conferencias.png',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//yordi-rosado-conferencista-famoso.png',
     specialty: 'Comunicación y Desarrollo Personal',
     shortBio: 'Reconocido conductor, escritor y conferencista especializado en relaciones personales',
     tags: ['Comunicación', 'Juventud', 'Relaciones'],
@@ -69,7 +69,7 @@ export const speakers: Speaker[] = [
   {
     id: 7,
     name: 'Carlos Páez',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//carlos-paez-conferencistas-famosos.png',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//carlos-paez-conferencista-famosos.png',
     specialty: 'Resiliencia y Supervivencia',
     shortBio: 'Sobreviviente de la Tragedia de los Andes y conferencista sobre resiliencia extrema',
     tags: ['Resiliencia', 'Supervivencia', 'Trabajo en equipo'],
