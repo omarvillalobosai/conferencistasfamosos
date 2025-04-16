@@ -1,0 +1,151 @@
+
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { StarIcon, ThumbsUp, Award, Trending, LightbulbIcon, BrainCircuit } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const speakers = [
+  {
+    id: 1,
+    name: 'Omar Villalobos',
+    image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    specialty: 'Alto Impacto y Transformación Personal',
+    shortBio: 'Reconocido como el conferencista #1 de habla hispana con Récord Guinness',
+    tags: ['Motivación', 'Liderazgo', 'Éxito'],
+    featured: true
+  },
+  {
+    id: 2,
+    name: 'Carolina Mendoza',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80',
+    specialty: 'Liderazgo Femenino',
+    shortBio: 'Experta en empoderamiento y desarrollo de liderazgo para mujeres ejecutivas',
+    tags: ['Empoderamiento', 'Mujeres', 'Ejecutivas'],
+    featured: false
+  },
+  {
+    id: 3,
+    name: 'Ricardo Velázquez',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    specialty: 'Estrategia Empresarial',
+    shortBio: 'Consultor de grandes corporaciones en transformación organizacional',
+    tags: ['Negocios', 'Estrategia', 'Corporativo'],
+    featured: false
+  },
+  {
+    id: 4,
+    name: 'Ana María Torres',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+    specialty: 'Bienestar y Productividad',
+    shortBio: 'Psicóloga y experta en wellness corporativo y balance vida-trabajo',
+    tags: ['Bienestar', 'Productividad', 'Balance'],
+    featured: false
+  },
+  {
+    id: 5,
+    name: 'Javier Montero',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    specialty: 'Innovación y Tecnología',
+    shortBio: 'Futurista y consultor en transformación digital para empresas',
+    tags: ['Innovación', 'Tecnología', 'Futuro'],
+    featured: false
+  },
+  {
+    id: 6,
+    name: 'Gabriela Reyes',
+    image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+    specialty: 'Comunicación Efectiva',
+    shortBio: 'Experta en oratoria y comunicación para líderes y equipos',
+    tags: ['Comunicación', 'Oratoria', 'Persuasión'],
+    featured: false
+  }
+];
+
+const SpeakersSection = () => {
+  return (
+    <section id="conferencistas" className="section-padding bg-white">
+      <div className="container mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="section-title">Nuestros Conferencistas</h2>
+          <p className="text-lg text-gray-700">
+            Representamos a los mejores talentos de habla hispana en diversas especialidades para cualquier tipo de evento.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {speakers.map((speaker) => (
+            <Card key={speaker.id} className={`overflow-hidden transition-all duration-300 hover:shadow-xl ${
+              speaker.featured ? 'border-2 border-orange-500 ring-2 ring-orange-300' : 'border border-gray-200'
+            }`}>
+              <div className="relative h-64 w-full">
+                <img 
+                  src={speaker.image} 
+                  alt={speaker.name} 
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                {speaker.featured && (
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 flex items-center">
+                      <StarIcon className="mr-1 h-4 w-4" /> Destacado
+                    </Badge>
+                  </div>
+                )}
+              </div>
+              
+              <CardHeader className="pb-2">
+                <CardTitle className="text-xl font-bold">{speaker.name}</CardTitle>
+                <p className="text-orange-500 font-medium">{speaker.specialty}</p>
+              </CardHeader>
+              
+              <CardContent className="pb-4">
+                <p className="text-gray-700 mb-3">{speaker.shortBio}</p>
+                <div className="flex flex-wrap gap-2">
+                  {speaker.tags.map((tag, index) => (
+                    <span key={index} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+              
+              <CardFooter>
+                <Link to={speaker.featured ? '/#destacado' : '/#contacto'} className="w-full">
+                  <Button 
+                    className={
+                      speaker.featured 
+                        ? "w-full bg-orange-500 hover:bg-orange-600"
+                        : "w-full bg-gray-800 hover:bg-gray-900"
+                    }
+                  >
+                    Solicitar información
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="mt-16 max-w-3xl mx-auto bg-gradient-to-r from-orange-50 to-red-50 p-8 rounded-lg shadow-md border border-orange-100">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+            <ThumbsUp className="text-orange-500 h-16 w-16 flex-shrink-0" />
+            <div>
+              <h3 className="text-xl font-bold mb-2">¿No sabes a quién elegir?</h3>
+              <p className="text-gray-700 mb-4">
+                Si estás buscando transformar tu evento pero no estás seguro de qué conferencista se adaptaría mejor a tus necesidades, Omar Villalobos puede ayudarte a encontrar la solución perfecta o ser él mismo quien lleve tu evento al siguiente nivel.
+              </p>
+              <Link to="/#destacado">
+                <Button className="bg-gradient-primary hover:opacity-90">
+                  Hablar con Omar Villalobos
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SpeakersSection;
