@@ -24,7 +24,7 @@ export const speakers: Speaker[] = [
   {
     id: 2,
     name: 'Yordi Rosado',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/yordi-rosado-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/yordi%20rosado%20conferencias.png',
     specialty: 'Comunicación y Desarrollo Personal',
     shortBio: 'Reconocido conductor, escritor y conferencista especializado en relaciones personales',
     tags: ['Comunicación', 'Juventud', 'Relaciones'],
