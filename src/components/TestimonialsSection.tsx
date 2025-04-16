@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { 
   Carousel,
   CarouselContent,
@@ -9,12 +9,67 @@ import {
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const clients = [
   "Google", "Microsoft", "Santander", "Bimbo", "Telefónica", 
   "BBVA", "Coca-Cola", "Pemex", "Banamex", "Walmart", 
   "Ford", "Universidad Nacional", "Liverpool", "AT&T", "Sony"
 ];
+
+// Array of client logo images from the supabase storage
+const clientLogos = [
+  "/Logos/Clientes_omv/logo-bbva.png",
+  "/Logos/Clientes_omv/logo-coca-cola.png",
+  "/Logos/Clientes_omv/logo-ford.png",
+  "/Logos/Clientes_omv/logo-google.png",
+  "/Logos/Clientes_omv/logo-microsoft.png",
+  "/Logos/Clientes_omv/logo-liverpool.png",
+  "/Logos/Clientes_omv/logo-santander.png",
+  "/Logos/Clientes_omv/logo-sony.png",
+  "/Logos/Clientes_omv/logo-telefonica.png",
+  "/Logos/Clientes_omv/logo-walmart.png",
+  "/Logos/Clientes_omv/logo-bimbo.png",
+  "/Logos/Clientes_omv/logo-pemex.png",
+  "/Logos/Clientes_omv/logo-banamex.png",
+  "/Logos/Clientes_omv/logo-att.png",
+  "/Logos/Clientes_omv/logo-unam.png",
+];
+
+const LogoSlider = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    dragFree: true,
+    containScroll: "trimSnaps",
+    align: "start",
+    slidesToScroll: 1
+  }, [
+    Autoplay({ delay: 2000, stopOnInteraction: false })
+  ]);
+  
+  return (
+    <div className="w-full overflow-hidden" ref={emblaRef}>
+      <div className="flex">
+        {clientLogos.map((logo, index) => (
+          <div 
+            key={index} 
+            className="flex-none w-1/2 sm:w-1/3 md:w-1/5 px-4 flex items-center justify-center"
+          >
+            <div className="h-24 w-full bg-white rounded-md shadow-sm border border-gray-100 flex items-center justify-center p-4">
+              <img 
+                src={logo} 
+                alt={`Cliente ${index + 1}`} 
+                className="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const TestimonialsSection = () => {
   return (
@@ -66,15 +121,9 @@ const TestimonialsSection = () => {
         <div>
           <h3 className="text-2xl font-bold text-center mb-8">Empresas que confían en nosotros</h3>
           
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-6 md:gap-8">
-            {clients.map((client, index) => (
-              <div 
-                key={index} 
-                className="flex items-center justify-center h-16 bg-white rounded-md shadow-sm border border-gray-100"
-              >
-                <span className="text-gray-400 font-medium">{client}</span>
-              </div>
-            ))}
+          {/* Replace the grid with the logo slider */}
+          <div className="mb-4">
+            <LogoSlider />
           </div>
         </div>
       </div>
