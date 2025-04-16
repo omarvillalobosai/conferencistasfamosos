@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { Badge } from '@/components/ui/badge';
 import { StarIcon, ThumbsUp, Award, TrendingUp, LightbulbIcon, BrainCircuit } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const speakers = [
   {
@@ -83,88 +84,115 @@ const speakers = [
 
 const SpeakersSection = () => {
   return (
-    <section id="conferencistas" className="section-padding bg-white">
-      <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="section-title">Nuestros Conferencistas</h2>
-          <p className="text-lg text-gray-700">
-            Representamos a los mejores talentos de habla hispana en diversas especialidades para cualquier tipo de evento.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {speakers.map((speaker) => (
-            <Card key={speaker.id} className={`overflow-hidden transition-all duration-300 hover:shadow-xl ${
-              speaker.featured ? 'border-2 border-orange-500 ring-2 ring-orange-300' : 'border border-gray-200'
-            }`}>
-              <div className="relative h-64 w-full">
-                <img 
-                  src={speaker.image} 
-                  alt={speaker.name} 
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                {speaker.featured && (
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 flex items-center">
-                      <StarIcon className="mr-1 h-4 w-4" /> Destacado
-                    </Badge>
-                  </div>
-                )}
-              </div>
-              
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xl font-bold">{speaker.name}</CardTitle>
-                <p className="text-orange-500 font-medium">{speaker.specialty}</p>
-              </CardHeader>
-              
-              <CardContent className="pb-4">
-                <p className="text-gray-700 mb-3">{speaker.shortBio}</p>
-                <div className="flex flex-wrap gap-2">
-                  {speaker.tags.map((tag, index) => (
-                    <span key={index} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "itemListElement": [
+                ${speakers.map((speaker, index) => `
+                {
+                  "@type": "ListItem",
+                  "position": ${index + 1},
+                  "item": {
+                    "@type": "Person",
+                    "name": "${speaker.name}",
+                    "description": "${speaker.shortBio}",
+                    "image": "${speaker.image}",
+                    "jobTitle": "Conferencista",
+                    "specialty": "${speaker.specialty}"
+                  }
+                }`).join(',')}
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
+      <section id="conferencistas" className="section-padding bg-white">
+        <div className="container mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="section-title">Nuestros Conferencistas</h2>
+            <p className="text-lg text-gray-700">
+              Representamos a los mejores talentos de habla hispana en diversas especialidades para cualquier tipo de evento.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {speakers.map((speaker) => (
+              <Card key={speaker.id} className={`overflow-hidden transition-all duration-300 hover:shadow-xl ${
+                speaker.featured ? 'border-2 border-orange-500 ring-2 ring-orange-300' : 'border border-gray-200'
+              }`}>
+                <div className="relative h-64 w-full">
+                  <img 
+                    src={speaker.image} 
+                    alt={speaker.name} 
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  {speaker.featured && (
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 flex items-center">
+                        <StarIcon className="mr-1 h-4 w-4" /> Destacado
+                      </Badge>
+                    </div>
+                  )}
                 </div>
-              </CardContent>
-              
-              <CardFooter>
-                <Link to={speaker.featured ? '/#destacado' : '/#contacto'} className="w-full">
-                  <Button 
-                    className={
-                      speaker.featured 
-                        ? "w-full bg-orange-500 hover:bg-orange-600"
-                        : "w-full bg-gray-800 hover:bg-gray-900"
-                    }
-                  >
-                    Solicitar información
+                
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-xl font-bold">{speaker.name}</CardTitle>
+                  <p className="text-orange-500 font-medium">{speaker.specialty}</p>
+                </CardHeader>
+                
+                <CardContent className="pb-4">
+                  <p className="text-gray-700 mb-3">{speaker.shortBio}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {speaker.tags.map((tag, index) => (
+                      <span key={index} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+                
+                <CardFooter>
+                  <Link to={speaker.featured ? '/#destacado' : '/#contacto'} className="w-full">
+                    <Button 
+                      className={
+                        speaker.featured 
+                          ? "w-full bg-orange-500 hover:bg-orange-600"
+                          : "w-full bg-gray-800 hover:bg-gray-900"
+                      }
+                    >
+                      Solicitar información
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="mt-16 max-w-3xl mx-auto bg-gradient-to-r from-orange-50 to-red-50 p-8 rounded-lg shadow-md border border-orange-100">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+              <ThumbsUp className="text-orange-500 h-16 w-16 flex-shrink-0" />
+              <div>
+                <h3 className="text-xl font-bold mb-2">¿No sabes a quién elegir?</h3>
+                <p className="text-gray-700 mb-4">
+                  Si estás buscando transformar tu evento pero no estás seguro de qué conferencista se adaptaría mejor a tus necesidades, Omar Villalobos puede ayudarte a encontrar la solución perfecta o ser él mismo quien lleve tu evento al siguiente nivel.
+                </p>
+                <Link to="/#destacado">
+                  <Button className="bg-gradient-primary hover:opacity-90">
+                    Hablar con Omar Villalobos
                   </Button>
                 </Link>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-        
-        <div className="mt-16 max-w-3xl mx-auto bg-gradient-to-r from-orange-50 to-red-50 p-8 rounded-lg shadow-md border border-orange-100">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <ThumbsUp className="text-orange-500 h-16 w-16 flex-shrink-0" />
-            <div>
-              <h3 className="text-xl font-bold mb-2">¿No sabes a quién elegir?</h3>
-              <p className="text-gray-700 mb-4">
-                Si estás buscando transformar tu evento pero no estás seguro de qué conferencista se adaptaría mejor a tus necesidades, Omar Villalobos puede ayudarte a encontrar la solución perfecta o ser él mismo quien lleve tu evento al siguiente nivel.
-              </p>
-              <Link to="/#destacado">
-                <Button className="bg-gradient-primary hover:opacity-90">
-                  Hablar con Omar Villalobos
-                </Button>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
 export default SpeakersSection;
-
