@@ -33,7 +33,7 @@ export const speakers: Speaker[] = [
   {
     id: 3,
     name: 'Daniel Habif',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/daniel-habif-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/daniel%20habif%20conferencista%20famosos.png',
     specialty: 'Mentalidad y Superación',
     shortBio: 'Escritor, conferencista y creador de contenido motivacional con millones de seguidores',
     tags: ['Inspiración', 'Mentalidad', 'Superación'],
@@ -42,7 +42,7 @@ export const speakers: Speaker[] = [
   {
     id: 4,
     name: 'Odin Dupeyron',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/odin-dupeyron-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/odin%20dupeyron%20conferencistas%20famosos.svg',
     specialty: 'Creatividad y Desarrollo Humano',
     shortBio: 'Actor, director y conferencista especializado en creatividad y crecimiento personal',
     tags: ['Creatividad', 'Teatro', 'Desarrollo'],
@@ -69,7 +69,7 @@ export const speakers: Speaker[] = [
   {
     id: 7,
     name: 'Carlos Páez',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/carlos-paez-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/carlos-paez-conferencistas-famosos.png',
     specialty: 'Resiliencia y Supervivencia',
     shortBio: 'Sobreviviente de la Tragedia de los Andes y conferencista sobre resiliencia extrema',
     tags: ['Resiliencia', 'Supervivencia', 'Trabajo en equipo'],
@@ -78,7 +78,7 @@ export const speakers: Speaker[] = [
   {
     id: 8,
     name: 'Victor Kuppers',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/victor-kuppers-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/Victor-Kuppers-conferencistas-famosos.png',
     specialty: 'Entusiasmo y Actitud Positiva',
     shortBio: 'Docente, conferenciante y formador especializado en valores, actitud y entusiasmo',
     tags: ['Entusiasmo', 'Valores', 'Actitud'],
