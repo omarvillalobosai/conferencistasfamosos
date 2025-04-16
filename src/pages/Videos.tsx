@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -7,38 +8,38 @@ import { PlayCircle, Video } from 'lucide-react';
 const featuredVideos = [
   {
     id: 1,
-    title: "Cómo Comunicarse Efectivamente en las Relaciones",
+    title: "Cosas que hacemos cuando tenemos mala autoestima",
     youtubeId: "0GqmrL-aBf8",
     speaker: "Yordi Rosado",
-    category: "Comunicación"
+    category: "Autoestima"
   },
   {
     id: 2,
-    title: "Impulsa tu Crecimiento Profesional",
+    title: "Ir más allá",
     youtubeId: "vjh1KQyPwI8",
-    speaker: "Carlos Páez",
-    category: "Desarrollo Profesional"
+    speaker: "Gaby Vargas",
+    category: "Desarrollo Personal"
   },
   {
     id: 3,
-    title: "Estrategias para Enfrentar la Adversidad",
+    title: "El tiempo es ahora",
     youtubeId: "4lG-bneYEtg",
-    speaker: "Omar Villalobos",
-    category: "Resiliencia"
-  },
-  {
-    id: 4,
-    title: "Cómo Desarrollar una Mentalidad de Éxito",
-    youtubeId: "u_lj7Ux1eKE",
-    speaker: "Ricardo Velázquez",
+    speaker: "Daniel Javid",
     category: "Motivación"
   },
   {
+    id: 4,
+    title: "Indeleble",
+    youtubeId: "u_lj7Ux1eKE",
+    speaker: "Vilma Núñez",
+    category: "Documental"
+  },
+  {
     id: 5,
-    title: "Construyendo Equipos de Alto Rendimiento",
+    title: "Te educaron para ser chingón",
     youtubeId: "iJkkjNubmsE",
-    speaker: "Ana María Torres",
-    category: "Liderazgo"
+    speaker: "Omar Villalobos",
+    category: "Superación Personal"
   },
   {
     id: 6,
@@ -106,7 +107,7 @@ const Videos = () => {
                   width="100%"
                   height="100%"
                   src="https://www.youtube.com/embed/0GqmrL-aBf8"
-                  title="Cómo Comunicarse Efectivamente en las Relaciones"
+                  title="Cosas que hacemos cuando tenemos mala autoestima"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
