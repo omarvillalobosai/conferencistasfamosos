@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -8,62 +7,41 @@ import { PlayCircle, Video } from 'lucide-react';
 const featuredVideos = [
   {
     id: 1,
-    title: "Omar Villalobos - Activa Tu Mente y Alcanza el Éxito",
-    youtubeId: "V34T8UhaI9A",
-    speaker: "Omar Villalobos",
-    category: "Motivación"
-  },
-  {
-    id: 2,
-    title: "Cómo transformar desafíos en oportunidades",
-    youtubeId: "uLOB6hj3M_Q",
-    speaker: "Omar Villalobos",
-    category: "Superación Personal"
-  },
-  {
-    id: 3,
-    title: "Las 3 claves del éxito duradero",
-    youtubeId: "WKfcS4IHhUY", 
-    speaker: "Omar Villalobos",
-    category: "Liderazgo"
-  },
-  {
-    id: 4,
-    title: "Comunicación efectiva en las relaciones",
+    title: "Cómo Comunicarse Efectivamente en las Relaciones",
     youtubeId: "0GqmrL-aBf8",
     speaker: "Yordi Rosado",
     category: "Comunicación"
   },
   {
-    id: 5,
+    id: 2,
     title: "Impulsa tu Crecimiento Profesional",
     youtubeId: "vjh1KQyPwI8",
     speaker: "Carlos Páez",
     category: "Desarrollo Profesional"
   },
   {
-    id: 6,
+    id: 3,
     title: "Estrategias para Enfrentar la Adversidad",
     youtubeId: "4lG-bneYEtg",
     speaker: "Omar Villalobos",
     category: "Resiliencia"
   },
   {
-    id: 7,
+    id: 4,
     title: "Cómo Desarrollar una Mentalidad de Éxito",
     youtubeId: "u_lj7Ux1eKE",
     speaker: "Ricardo Velázquez",
     category: "Motivación"
   },
   {
-    id: 8,
+    id: 5,
     title: "Construyendo Equipos de Alto Rendimiento",
     youtubeId: "iJkkjNubmsE",
     speaker: "Ana María Torres",
     category: "Liderazgo"
   },
   {
-    id: 9,
+    id: 6,
     title: "La Fórmula del Emprendimiento Exitoso",
     youtubeId: "K0VIqh0DpoI",
     speaker: "Gabriela Reyes",
@@ -127,8 +105,8 @@ const Videos = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/V34T8UhaI9A"
-                  title="Omar Villalobos - Activa Tu Mente y Alcanza el Éxito"
+                  src="https://www.youtube.com/embed/0GqmrL-aBf8"
+                  title="Cómo Comunicarse Efectivamente en las Relaciones"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
