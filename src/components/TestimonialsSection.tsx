@@ -21,21 +21,23 @@ const clients = [
 
 // Array of client logo images from the supabase storage
 const clientLogos = [
-  "/Logos/Clientes_omv/logo-bbva.png",
-  "/Logos/Clientes_omv/logo-coca-cola.png",
-  "/Logos/Clientes_omv/logo-ford.png",
-  "/Logos/Clientes_omv/logo-google.png",
-  "/Logos/Clientes_omv/logo-microsoft.png",
-  "/Logos/Clientes_omv/logo-liverpool.png",
-  "/Logos/Clientes_omv/logo-santander.png",
-  "/Logos/Clientes_omv/logo-sony.png",
-  "/Logos/Clientes_omv/logo-telefonica.png",
-  "/Logos/Clientes_omv/logo-walmart.png",
-  "/Logos/Clientes_omv/logo-bimbo.png",
-  "/Logos/Clientes_omv/logo-pemex.png",
-  "/Logos/Clientes_omv/logo-banamex.png",
-  "/Logos/Clientes_omv/logo-att.png",
-  "/Logos/Clientes_omv/logo-unam.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/bayer.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/bmw.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/bnl.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/cfe.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/coppel.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/hcwellness.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/itesm.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/kiosko.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/marista.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/OMV-LOGO-11.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/oxxo.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/pan.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/pepsi.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/tvazteca.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/udg.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/uvm.png",
+  "https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/product-images/Logos/Clientes_omv/televisa.png"
 ];
 
 const LogoSlider = () => {
