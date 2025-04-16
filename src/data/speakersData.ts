@@ -15,7 +15,7 @@ export const speakers: Speaker[] = [
   {
     id: 1,
     name: 'Omar Villalobos',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/omar%20villalobos%20photo%20conferencistas%20famosos.svg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//a_photo_of_omv%20(14).png',
     specialty: 'Alto Impacto y Transformación Personal',
     shortBio: 'Reconocido como el conferencista #1 de habla hispana con Récord Guinness',
     tags: ['Motivación', 'Liderazgo', 'Éxito'],

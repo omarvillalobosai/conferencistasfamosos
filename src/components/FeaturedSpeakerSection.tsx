@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check, Award, Users, Globe, PlayCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -145,14 +146,12 @@ const FeaturedSpeakerSection = () => {
             </div>
             
             <div className="text-center">
-              <a 
-                href="https://www.youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/videos" 
                 className="text-orange-500 hover:text-orange-400 font-medium transition-colors"
               >
-                Ver todos los videos en YouTube →
-              </a>
+                Ver todos los videos →
+              </Link>
             </div>
           </TabsContent>
           
