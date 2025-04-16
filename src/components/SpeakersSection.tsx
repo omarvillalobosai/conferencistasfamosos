@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -17,47 +18,65 @@ const speakers = [
   },
   {
     id: 2,
-    name: 'Carolina Mendoza',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80',
-    specialty: 'Liderazgo Femenino',
-    shortBio: 'Experta en empoderamiento y desarrollo de liderazgo para mujeres ejecutivas',
-    tags: ['Empoderamiento', 'Mujeres', 'Ejecutivas'],
+    name: 'Yordi Rosado',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    specialty: 'Comunicación y Desarrollo Personal',
+    shortBio: 'Reconocido conductor, escritor y conferencista especializado en relaciones personales',
+    tags: ['Comunicación', 'Juventud', 'Relaciones'],
     featured: false
   },
   {
     id: 3,
-    name: 'Ricardo Velázquez',
+    name: 'Daniel Habif',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
-    specialty: 'Estrategia Empresarial',
-    shortBio: 'Consultor de grandes corporaciones en transformación organizacional',
-    tags: ['Negocios', 'Estrategia', 'Corporativo'],
+    specialty: 'Mentalidad y Superación',
+    shortBio: 'Escritor, conferencista y creador de contenido motivacional con millones de seguidores',
+    tags: ['Inspiración', 'Mentalidad', 'Superación'],
     featured: false
   },
   {
     id: 4,
-    name: 'Ana María Torres',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
-    specialty: 'Bienestar y Productividad',
-    shortBio: 'Psicóloga y experta en wellness corporativo y balance vida-trabajo',
-    tags: ['Bienestar', 'Productividad', 'Balance'],
+    name: 'Odin Dupeyron',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80',
+    specialty: 'Creatividad y Desarrollo Humano',
+    shortBio: 'Actor, director y conferencista especializado en creatividad y crecimiento personal',
+    tags: ['Creatividad', 'Teatro', 'Desarrollo'],
     featured: false
   },
   {
     id: 5,
-    name: 'Javier Montero',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
-    specialty: 'Innovación y Tecnología',
-    shortBio: 'Futurista y consultor en transformación digital para empresas',
-    tags: ['Innovación', 'Tecnología', 'Futuro'],
+    name: 'César Lozano',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+    specialty: 'Actitud y Calidad de Vida',
+    shortBio: 'Médico, conductor y conferencista experto en bienestar emocional y calidad de vida',
+    tags: ['Actitud', 'Bienestar', 'Felicidad'],
     featured: false
   },
   {
     id: 6,
-    name: 'Gabriela Reyes',
+    name: 'Ismael Cala',
     image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
-    specialty: 'Comunicación Efectiva',
-    shortBio: 'Experta en oratoria y comunicación para líderes y equipos',
-    tags: ['Comunicación', 'Oratoria', 'Persuasión'],
+    specialty: 'Liderazgo y Mindfulness',
+    shortBio: 'Periodista, autor y conferencista especializado en mindfulness y liderazgo consciente',
+    tags: ['Mindfulness', 'Liderazgo', 'Bienestar'],
+    featured: false
+  },
+  {
+    id: 7,
+    name: 'Carlos Páez',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    specialty: 'Resiliencia y Supervivencia',
+    shortBio: 'Sobreviviente de la Tragedia de los Andes y conferencista sobre resiliencia extrema',
+    tags: ['Resiliencia', 'Supervivencia', 'Trabajo en equipo'],
+    featured: false
+  },
+  {
+    id: 8,
+    name: 'Victor Kuppers',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+    specialty: 'Entusiasmo y Actitud Positiva',
+    shortBio: 'Docente, conferenciante y formador especializado en valores, actitud y entusiasmo',
+    tags: ['Entusiasmo', 'Valores', 'Actitud'],
     featured: false
   }
 ];
@@ -148,3 +167,4 @@ const SpeakersSection = () => {
 };
 
 export default SpeakersSection;
+
