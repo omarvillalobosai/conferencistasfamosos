@@ -33,6 +33,41 @@ const featuredVideos = [
     youtubeId: "0GqmrL-aBf8",
     speaker: "Yordi Rosado",
     category: "Comunicación"
+  },
+  {
+    id: 5,
+    title: "Impulsa tu Crecimiento Profesional",
+    youtubeId: "vjh1KQyPwI8",
+    speaker: "Carlos Páez",
+    category: "Desarrollo Profesional"
+  },
+  {
+    id: 6,
+    title: "Estrategias para Enfrentar la Adversidad",
+    youtubeId: "4lG-bneYEtg",
+    speaker: "Omar Villalobos",
+    category: "Resiliencia"
+  },
+  {
+    id: 7,
+    title: "Cómo Desarrollar una Mentalidad de Éxito",
+    youtubeId: "u_lj7Ux1eKE",
+    speaker: "Ricardo Velázquez",
+    category: "Motivación"
+  },
+  {
+    id: 8,
+    title: "Construyendo Equipos de Alto Rendimiento",
+    youtubeId: "iJkkjNubmsE",
+    speaker: "Ana María Torres",
+    category: "Liderazgo"
+  },
+  {
+    id: 9,
+    title: "La Fórmula del Emprendimiento Exitoso",
+    youtubeId: "K0VIqh0DpoI",
+    speaker: "Gabriela Reyes",
+    category: "Emprendimiento"
   }
 ];
 
