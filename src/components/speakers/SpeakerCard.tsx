@@ -19,11 +19,11 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
         speaker.featured ? 'border-2 border-orange-500 ring-2 ring-orange-300' : 'border border-gray-200'
       }`}
     >
-      <div className="relative h-64 w-full">
+      <div className="relative h-64 w-full overflow-hidden">
         <img 
           src={speaker.image} 
           alt={speaker.name} 
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           loading="lazy"
         />
         {speaker.featured && (
