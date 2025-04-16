@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check, Award, Users, Globe, PlayCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -49,7 +48,7 @@ const FeaturedSpeakerSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+              src="https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//omarvillalobos%20conferencista%20famosos%201.png" 
               alt="Omar Villalobos en conferencia" 
               className="rounded-lg shadow-2xl object-cover w-full h-[500px]"
             />

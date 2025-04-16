@@ -1,3 +1,4 @@
+
 import { StarIcon, ThumbsUp, Award, TrendingUp, LightbulbIcon, BrainCircuit } from 'lucide-react';
 
 export interface Speaker {
@@ -32,7 +33,7 @@ export const speakers: Speaker[] = [
   {
     id: 3,
     name: 'Daniel Habif',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/daniel%20habif%20conferencista%20famosos.png',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//daniel%20habif%20conferencista%20famosos.png',
     specialty: 'Mentalidad y Superación',
     shortBio: 'Escritor, conferencista y creador de contenido motivacional con millones de seguidores',
     tags: ['Inspiración', 'Mentalidad', 'Superación'],
@@ -41,7 +42,7 @@ export const speakers: Speaker[] = [
   {
     id: 4,
     name: 'Odin Dupeyron',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/odin%20dupeyron%20conferencistas%20famosos.svg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//odin%20dupeyron%20conferencistas%20famosos.svg',
     specialty: 'Creatividad y Desarrollo Humano',
     shortBio: 'Actor, director y conferencista especializado en creatividad y crecimiento personal',
     tags: ['Creatividad', 'Teatro', 'Desarrollo'],
@@ -68,7 +69,7 @@ export const speakers: Speaker[] = [
   {
     id: 7,
     name: 'Carlos Páez',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/carlos-paez-conferencistas-famosos.png',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//carlos-paez-conferencistas-famosos.png',
     specialty: 'Resiliencia y Supervivencia',
     shortBio: 'Sobreviviente de la Tragedia de los Andes y conferencista sobre resiliencia extrema',
     tags: ['Resiliencia', 'Supervivencia', 'Trabajo en equipo'],
@@ -77,7 +78,7 @@ export const speakers: Speaker[] = [
   {
     id: 8,
     name: 'Victor Kuppers',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/Victor-Kuppers-conferencistas-famosos.png',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//Victor-Kuppers-conferencistas-famosos.png',
     specialty: 'Entusiasmo y Actitud Positiva',
     shortBio: 'Docente, conferenciante y formador especializado en valores, actitud y entusiasmo',
     tags: ['Entusiasmo', 'Valores', 'Actitud'],
@@ -95,7 +96,7 @@ export const speakers: Speaker[] = [
   {
     id: 10,
     name: 'Gaby Vargas',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/gaby-vargas-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//gaby-varfas-conferencista-famosa.png',
     specialty: 'Imagen y Desarrollo Personal',
     shortBio: 'Escritora, consultora de imagen y conferencista especializada en comportamiento humano',
     tags: ['Imagen', 'Comunicación', 'Autoestima'],
@@ -104,7 +105,7 @@ export const speakers: Speaker[] = [
   {
     id: 11,
     name: 'Elsa Punset',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/elsa-punset-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//ElsaPunset_conferencista.png',
     specialty: 'Inteligencia Emocional',
     shortBio: 'Escritora y divulgadora especializada en inteligencia emocional y educación positiva',
     tags: ['Emociones', 'Educación', 'Bienestar'],
@@ -122,7 +123,7 @@ export const speakers: Speaker[] = [
   {
     id: 13,
     name: 'Vilma Núñez',
-    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos/vilma-nunez-conferencista.jpg',
+    image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//vilma-nunez-conferencista-famosos.png',
     specialty: 'Marketing Digital',
     shortBio: 'Consultora, conferencista y experta en marketing digital y estrategias de contenidos',
     tags: ['Marketing', 'Digital', 'Redes Sociales'],
