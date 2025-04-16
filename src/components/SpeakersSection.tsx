@@ -79,6 +79,60 @@ const speakers = [
     shortBio: 'Docente, conferenciante y formador especializado en valores, actitud y entusiasmo',
     tags: ['Entusiasmo', 'Valores', 'Actitud'],
     featured: false
+  },
+  {
+    id: 9,
+    name: 'Adriana Macías',
+    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+    specialty: 'Superación y Motivación',
+    shortBio: 'Abogada, escritora y conferencista, experta en superación personal y resiliencia',
+    tags: ['Superación', 'Resiliencia', 'Inclusión'],
+    featured: false
+  },
+  {
+    id: 10,
+    name: 'Gaby Vargas',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1687&q=80',
+    specialty: 'Imagen y Desarrollo Personal',
+    shortBio: 'Escritora, consultora de imagen y conferencista especializada en comportamiento humano',
+    tags: ['Imagen', 'Comunicación', 'Autoestima'],
+    featured: false
+  },
+  {
+    id: 11,
+    name: 'Elsa Punset',
+    image: 'https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+    specialty: 'Inteligencia Emocional',
+    shortBio: 'Escritora y divulgadora especializada en inteligencia emocional y educación positiva',
+    tags: ['Emociones', 'Educación', 'Bienestar'],
+    featured: false
+  },
+  {
+    id: 12,
+    name: 'Marisa Lazo',
+    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    specialty: 'Emprendimiento y Liderazgo',
+    shortBio: 'Empresaria, fundadora de Pastelerías Marisa y conferencista sobre emprendimiento femenino',
+    tags: ['Emprendimiento', 'Negocios', 'Liderazgo'],
+    featured: false
+  },
+  {
+    id: 13,
+    name: 'Vilma Núñez',
+    image: 'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+    specialty: 'Marketing Digital',
+    shortBio: 'Consultora, conferencista y experta en marketing digital y estrategias de contenidos',
+    tags: ['Marketing', 'Digital', 'Redes Sociales'],
+    featured: false
+  },
+  {
+    id: 14,
+    name: 'Claudia Lizaldi',
+    image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1727&q=80',
+    specialty: 'Bienestar Integral y Mindfulness',
+    shortBio: 'Conductora, escritora y conferencista enfocada en bienestar, meditación y vida consciente',
+    tags: ['Bienestar', 'Mindfulness', 'Desarrollo Personal'],
+    featured: false
   }
 ];
 
