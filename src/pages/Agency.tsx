@@ -88,8 +88,8 @@ const Agency = () => {
                   el estándar de las conferencias y eventos en Latinoamérica y el mundo.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
-                  Con más de 15 años de experiencia como conferencista internacional, Omar comprende perfectamente 
-                  las necesidades tanto de los oradores como de las organizaciones que los contratan. 
+                  Con más de 30 años de experiencia como conferencista internacional y habiendo trabajado con más de 900 clientes satisfechos, 
+                  Omar comprende perfectamente las necesidades tanto de los oradores como de las organizaciones que los contratan. 
                 </p>
                 <p className="text-lg text-gray-700">
                   Bajo su liderazgo, nuestro equipo se compromete personalmente en velar y garantizar que se cumpla 
@@ -98,9 +98,9 @@ const Agency = () => {
               </div>
               <div className="md:w-1/2">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                  src="https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//omar%20villalobos%20photo%20conferencistas%20famosos.svg" 
                   alt="Omar Villalobos - CEO de Conferencistas Famosos" 
-                  className="rounded-lg shadow-xl w-full object-cover h-96"
+                  className="rounded-lg shadow-xl w-full object-cover h-auto"
                 />
               </div>
             </div>

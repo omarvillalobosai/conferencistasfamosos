@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { getSpeakerSlug } from '@/utils/speakerUtils';
 
 const Footer = () => {
   return (
@@ -62,19 +63,19 @@ const Footer = () => {
             <h4 className="text-white text-lg font-medium mb-6">Conferencistas</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/speaker/omar-villalobos" className="hover:text-orange-500 transition-colors font-medium">Omar Villalobos</Link>
+                <Link to={`/speaker/${getSpeakerSlug("Omar Villalobos")}`} className="hover:text-orange-500 transition-colors font-medium">Omar Villalobos</Link>
               </li>
               <li>
-                <Link to="/speaker/yordi-rosado" className="hover:text-orange-500 transition-colors">Yordi Rosado</Link>
+                <Link to={`/speaker/${getSpeakerSlug("Yordi Rosado")}`} className="hover:text-orange-500 transition-colors">Yordi Rosado</Link>
               </li>
               <li>
-                <Link to="/speaker/daniel-habif" className="hover:text-orange-500 transition-colors">Daniel Habif</Link>
+                <Link to={`/speaker/${getSpeakerSlug("Daniel Habif")}`} className="hover:text-orange-500 transition-colors">Daniel Habif</Link>
               </li>
               <li>
-                <Link to="/speaker/gaby-vargas" className="hover:text-orange-500 transition-colors">Gaby Vargas</Link>
+                <Link to={`/speaker/${getSpeakerSlug("Gaby Vargas")}`} className="hover:text-orange-500 transition-colors">Gaby Vargas</Link>
               </li>
               <li>
-                <Link to="/speaker/vilma-nunez" className="hover:text-orange-500 transition-colors">Vilma Núñez</Link>
+                <Link to={`/speaker/${getSpeakerSlug("Vilma Núñez")}`} className="hover:text-orange-500 transition-colors">Vilma Núñez</Link>
               </li>
             </ul>
           </div>
