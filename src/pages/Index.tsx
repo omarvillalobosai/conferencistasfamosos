@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -7,7 +6,7 @@ import AboutSection from '@/components/AboutSection';
 import SpeakersSection from '@/components/SpeakersSection';
 import FeaturedSpeakerSection from '@/components/FeaturedSpeakerSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import ContactSection from '@/components/ContactSection';
+import ContactSection from '@/components/contact/ContactSection';
 import BlogSection from '@/components/BlogSection';
 import Footer from '@/components/Footer';
 
