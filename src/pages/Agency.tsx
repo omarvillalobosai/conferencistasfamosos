@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Buildings, CheckCircle, User, MessageSquare } from 'lucide-react';
+import { Building, CheckCircle, User, MessageSquare } from 'lucide-react';
 
 const Agency = () => {
   return (
@@ -35,7 +35,7 @@ const Agency = () => {
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="md:w-1/2">
                 <div className="flex items-center mb-4">
-                  <Buildings className="text-orange-500 mr-3" size={32} />
+                  <Building className="text-orange-500 mr-3" size={32} />
                   <h2 className="text-3xl font-bold">Nuestra Agencia</h2>
                 </div>
                 <p className="text-lg text-gray-700 mb-6">
