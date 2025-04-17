@@ -20,3 +20,11 @@ export interface TabData {
   icon: React.ReactNode;
   content: TabContent;
 }
+
+export interface CourseCategory {
+  id: string;
+  title: string;
+  description: string;
+  playlistId: string;
+  ctaText: string;
+}
