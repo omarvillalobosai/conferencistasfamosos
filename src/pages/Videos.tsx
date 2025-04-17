@@ -113,16 +113,16 @@ const Videos = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/https://youtu.be/0GqmrL-aBf8"
-                  title="La educación en Latinoamérica: ¿Nos enseñaron a obedecer o a pensar?"
+                  src="https://www.youtube.com/embed/V34T8UhaI9A"
+                  title="Video Destacado"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
               <div className="mt-4 max-w-4xl mx-auto">
-                <h3 className="text-xl font-bold">{featuredVideos[0].title}</h3>
-                <p className="text-orange-500">{featuredVideos[0].speaker}</p>
-                <p className="mt-2">{featuredVideos[0].description}</p>
+                <h3 className="text-xl font-bold">Video Destacado</h3>
+                <p className="text-orange-500">Conferenciante Destacado</p>
+                <p className="mt-2">Descripción del video destacado</p>
               </div>
             </div>
             
