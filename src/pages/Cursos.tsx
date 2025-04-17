@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import CursosHero from '@/components/cursos/CursosHero';
 import CoursesTabs from '@/components/cursos/CoursesTabs';
 import SoyConferencistaSection from '@/components/cursos/SoyConferencistaSection';
+import CursosPremium from '@/components/cursos/CursosPremium';
 import CursosCta from '@/components/cursos/CursosCta';
 import Footer from '@/components/Footer';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -29,6 +30,7 @@ const Cursos: React.FC = () => {
         <CursosHero />
         <CoursesTabs />
         <SoyConferencistaSection />
+        <CursosPremium />
         <CursosCta />
       </main>
       
