@@ -12,16 +12,8 @@ export interface SpeakerNavItem {
 
 export const mainNavItems: NavigationItem[] = [
   {
-    title: "Quiénes Somos",
-    path: "/#quienes-somos",
-  },
-  {
-    title: "Omar Villalobos",
-    path: "/#destacado",
-  },
-  {
-    title: "Testimonios",
-    path: "/#testimonios",
+    title: "Agencia",
+    path: "/agencia",
   },
   {
     title: "Videos",
@@ -34,10 +26,6 @@ export const mainNavItems: NavigationItem[] = [
 ];
 
 export const speakerNavItems: SpeakerNavItem[] = [
-  {
-    name: "Omar Villalobos",
-    slug: "omar-villalobos",
-  },
   {
     name: "Yordi Rosado",
     slug: "yordi-rosado",
