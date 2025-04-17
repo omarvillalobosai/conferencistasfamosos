@@ -54,5 +54,40 @@ export const speakerNavItems: SpeakerNavItem[] = [
     name: "Vilma Núñez",
     slug: "vilma-nunez",
   },
+  {
+    name: "Elsa Punset",
+    slug: "elsa-punset",
+  },
+  {
+    name: "Claudia Lizaldi",
+    slug: "claudia-lizaldi",
+  },
+  {
+    name: "César Lozano",
+    slug: "cesar-lozano",
+  },
+  {
+    name: "Ismael Cala",
+    slug: "ismael-cala",
+  },
+  {
+    name: "Carlos Páez",
+    slug: "carlos-paez",
+  },
+  {
+    name: "Adriana Macías",
+    slug: "adriana-macias",
+  },
+  {
+    name: "Marisa Lazo",
+    slug: "marisa-lazo",
+  },
+  {
+    name: "Odin Dupeyron",
+    slug: "odin-dupeyron",
+  },
+  {
+    name: "Victor Kuppers",
+    slug: "victor-kuppers",
+  }
 ];
-

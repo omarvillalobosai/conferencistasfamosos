@@ -1,3 +1,4 @@
+
 import React, { useMemo } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -8,7 +9,6 @@ import { Avatar } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { Youtube, BookOpen, Award, MessageCircle, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext } from '@/components/ui/pagination';
 
 const SpeakerDetail = () => {
   const { slug } = useParams();
@@ -46,10 +46,29 @@ const SpeakerDetail = () => {
     "Motivación y superación personal"
   ];
   
-  // Example video ID - in a real app, this would come from a database
-  const featuredVideoId = speaker.name === "Yordi Rosado" 
-    ? "vjh1KQyPwI8" 
-    : "V34T8UhaI9A";
+  // YouTube video IDs for each speaker
+  const getVideoIdForSpeaker = (speakerName: string) => {
+    const videoMap: {[key: string]: string} = {
+      "Omar Villalobos": "V34T8UhaI9A",
+      "Yordi Rosado": "vjh1KQyPwI8",
+      "Daniel Habif": "8P1z2K3Zv6g",
+      "Odin Dupeyron": "IvTio0FJf6Y",
+      "César Lozano": "pI3EgEamWWA",
+      "Ismael Cala": "yjIAshJsVBc",
+      "Carlos Páez": "hVAkxJqQdHE",
+      "Victor Kuppers": "V34T8UhaI9A", // Default video as none was provided
+      "Adriana Macías": "i5X0HF6W_6Y",
+      "Gaby Vargas": "gUTQMINYcGg",
+      "Elsa Punset": "VNWFw8eojv8",
+      "Marisa Lazo": "kuC1HC3HFZA",
+      "Vilma Núñez": "NrySFQYz1-k",
+      "Claudia Lizaldi": "Ex4zG2bF5ks"
+    };
+    
+    return videoMap[speakerName] || "V34T8UhaI9A"; // Default if not found
+  };
+  
+  const featuredVideoId = getVideoIdForSpeaker(speaker.name);
 
   return (
     <>
@@ -66,33 +85,6 @@ const SpeakerDetail = () => {
       </Helmet>
       <Navbar />
       <main>
-        {/* Speaker Navigation */}
-        <div className="bg-gray-100 py-4">
-          <div className="container mx-auto px-4">
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious 
-                    href={`/speaker/${prevSpeakerSlug}`} 
-                    aria-label={`Ver ${speakers[prevSpeakerIndex].name}`}
-                  />
-                </PaginationItem>
-                <PaginationItem className="hidden md:inline-flex">
-                  <span className="flex h-9 items-center justify-center px-4 font-medium">
-                    {speakerIndex + 1} de {speakers.length}
-                  </span>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext 
-                    href={`/speaker/${nextSpeakerSlug}`} 
-                    aria-label={`Ver ${speakers[nextSpeakerIndex].name}`}
-                  />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
-        </div>
-        
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-gray-900 to-black text-white py-20 md:py-28">
           <div className="container mx-auto px-4">
