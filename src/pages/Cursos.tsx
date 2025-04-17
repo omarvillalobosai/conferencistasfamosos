@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import CursosHero from '@/components/cursos/CursosHero';
 import CoursesTabs from '@/components/cursos/CoursesTabs';
+import SoyConferencistaSection from '@/components/cursos/SoyConferencistaSection';
 import CursosCta from '@/components/cursos/CursosCta';
 import Footer from '@/components/Footer';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -27,6 +28,7 @@ const Cursos: React.FC = () => {
       <main>
         <CursosHero />
         <CoursesTabs />
+        <SoyConferencistaSection />
         <CursosCta />
       </main>
       

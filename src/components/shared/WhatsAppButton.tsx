@@ -4,7 +4,7 @@ import { MessageCircle } from 'lucide-react';
 import { Button, ButtonProps } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-interface WhatsAppButtonProps extends React.ButtonHTMLAttributes<HTMLAnchorElement> {
+interface WhatsAppButtonProps {
   phoneNumber?: string;
   message?: string;
   variant?: ButtonProps['variant'];
@@ -36,12 +36,12 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
         className
       )}
       asChild
-      {...props}
     >
       <a 
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        {...props}
       >
         {showIcon && <MessageCircle className="h-5 w-5" />}
         {children || 'Enviar mensaje por WhatsApp'}
