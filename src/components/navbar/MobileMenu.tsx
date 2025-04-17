@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SpeakersDropdown from './SpeakersDropdown';
+import { mainNavItems } from '@/config/navigation';
 
 type MobileMenuProps = {
   isOpen: boolean;
@@ -18,13 +19,16 @@ const MobileMenu = ({ isOpen, onClose, onQuoteClick }: MobileMenuProps) => {
   return (
     <div className="md:hidden bg-white shadow-lg animate-fade-in">
       <div className="container mx-auto py-4 space-y-4">
-        <Link 
-          to="/#quienes-somos" 
-          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
-          onClick={onClose}
-        >
-          Quiénes Somos
-        </Link>
+        {mainNavItems.map((item, index) => (
+          <Link 
+            key={index}
+            to={item.path} 
+            className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
+            onClick={onClose}
+          >
+            {item.title}
+          </Link>
+        ))}
         
         <SpeakersDropdown 
           showDropdown={showSpeakersDropdown} 
@@ -33,34 +37,6 @@ const MobileMenu = ({ isOpen, onClose, onQuoteClick }: MobileMenuProps) => {
           onNavItemClick={onClose}
         />
         
-        <Link 
-          to="/#destacado" 
-          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
-          onClick={onClose}
-        >
-          Omar Villalobos
-        </Link>
-        <Link 
-          to="/#testimonios" 
-          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
-          onClick={onClose}
-        >
-          Testimonios
-        </Link>
-        <Link 
-          to="/videos" 
-          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
-          onClick={onClose}
-        >
-          Videos
-        </Link>
-        <Link 
-          to="/blog" 
-          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
-          onClick={onClose}
-        >
-          Blog
-        </Link>
         <a 
           href="#contacto"
           onClick={(e) => {
