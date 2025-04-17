@@ -5,7 +5,16 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { PlayCircle, Video } from 'lucide-react';
 
-const featuredVideos = [
+const featuredVideo = {
+  id: 1,
+  title: "Autoestima sin filtros: lo que nadie te dijo y todos sentimos",
+  youtubeId: "0GqmrL-aBf8",
+  speaker: "Yordi Rosado",
+  category: "Autoestima",
+  description: "Yordi desnuda las inseguridades con la empatía de un amigo y la verdad de un espejo."
+};
+
+const moreVideos = [
   {
     id: 1,
     title: "Autoestima sin filtros: lo que nadie te dijo y todos sentimos",
@@ -26,7 +35,7 @@ const featuredVideos = [
     id: 3,
     title: "El tiempo es ahora: deja de sobrevivir y empieza a incendiar tu propósito",
     youtubeId: "4lG-bneYEtg",
-    speaker: "Daniel Javid",
+    speaker: "Daniel Habif",
     category: "Motivación",
     description: "Daniel no da discursos, da sacudidas. Esto no es motivación barata, es una llamada de emergencia al alma."
   },
@@ -45,17 +54,10 @@ const featuredVideos = [
     speaker: "Omar Villalobos",
     category: "Superación Personal",
     description: "Omar no viene a darte consejos, viene a hackearte el alma. Si no estás listo para cambiar, mejor no le des play."
-  },
-  {
-    id: 6,
-    title: "La Fórmula del Emprendimiento Exitoso",
-    youtubeId: "K0VIqh0DpoI",
-    speaker: "Gabriela Reyes",
-    category: "Emprendimiento"
   }
 ];
 
-const VideoCard: React.FC<{video: typeof featuredVideos[0]}> = ({ video }) => {
+const VideoCard: React.FC<{video: typeof moreVideos[0]}> = ({ video }) => {
   return (
     <div className="bg-black/30 rounded-lg overflow-hidden">
       <div className="relative aspect-video">
@@ -114,16 +116,16 @@ const Videos = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/0GqmrL-aBf8"
-                  title="Autoestima sin filtros: lo que nadie te dijo y todos sentimos"
+                  src={`https://www.youtube.com/embed/${featuredVideo.youtubeId}`}
+                  title={featuredVideo.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
               <div className="max-w-4xl mx-auto mt-4">
-                <h3 className="text-xl font-bold text-orange-500">Yordi Rosado</h3>
+                <h3 className="text-xl font-bold text-orange-500">{featuredVideo.speaker}</h3>
                 <p className="text-gray-300 mt-2 italic">
-                  {featuredVideos[0].description}
+                  {featuredVideo.description}
                 </p>
               </div>
             </div>
@@ -131,7 +133,7 @@ const Videos = () => {
             <div>
               <h2 className="text-2xl font-bold mb-6">Más Videos</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {featuredVideos.slice(1).map(video => (
+                {moreVideos.map(video => (
                   <VideoCard key={video.id} video={video} />
                 ))}
               </div>
