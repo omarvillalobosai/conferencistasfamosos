@@ -31,6 +31,11 @@ export const premiumCourseCategories: PremiumCourseCategory[] = [
         title: 'Tipos de conferencistas',
         description: 'Conoce los diferentes perfiles de conferencistas y cuándo contratar cada uno.',
         videoId: 'G7Zxt2X7ggU'
+      },
+      {
+        title: 'Nuevo curso para clientes',
+        description: 'Información adicional sobre cómo trabajar con conferencistas.',
+        videoId: 'xaO9GiKenP4'
       }
     ]
   },
