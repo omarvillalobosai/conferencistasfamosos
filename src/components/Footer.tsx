@@ -1,10 +1,42 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { getSpeakerSlug } from '@/utils/speakerUtils';
 
 const Footer = () => {
+  const whatsappNumber = '523324166849';
+  const prefilledMessage = encodeURIComponent('Me interesa más información sobre ConferencistasFamosos.');
+  const emailAddress = 'agencia@conferencistasfamosos.com';
+  
+  const shareOnSocial = (platform: string) => {
+    const url = window.location.href;
+    const text = "Descubre a los mejores conferencistas para tu próximo evento en ConferencistasFamosos.com";
+    
+    let shareUrl = '';
+    
+    switch(platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+        break;
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        break;
+      case 'instagram':
+        // Instagram doesn't have a direct sharing URL, can only open Instagram
+        shareUrl = 'https://www.instagram.com/';
+        break;
+      case 'youtube':
+        // YouTube doesn't have a direct sharing URL, can only open YouTube
+        shareUrl = 'https://www.youtube.com/';
+        break;
+    }
+    
+    window.open(shareUrl, '_blank');
+  };
+
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
       <div className="container mx-auto">
@@ -17,19 +49,19 @@ const Footer = () => {
               Conectamos a los mejores conferencistas de habla hispana con los eventos más importantes de Latinoamérica y el mundo.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('facebook'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('instagram'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('twitter'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('linkedin'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('youtube'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
                 <Youtube size={20} />
               </a>
             </div>
@@ -85,14 +117,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-3 text-orange-500 flex-shrink-0 mt-0.5" />
-                <a href="mailto:info@conferencistasfamosos.com" className="hover:text-orange-500 transition-colors">
-                  info@conferencistasfamosos.com
+                <a href={`mailto:${emailAddress}`} className="hover:text-orange-500 transition-colors">
+                  {emailAddress}
                 </a>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-orange-500 flex-shrink-0 mt-0.5" />
-                <a href="tel:+525512345678" className="hover:text-orange-500 transition-colors">
-                  +52 55 1234 5678
+                <a 
+                  href={`https://wa.me/${whatsappNumber}?text=${prefilledMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="hover:text-orange-500 transition-colors"
+                >
+                  +52 332 416 6849
                 </a>
               </li>
               <li className="flex items-start">

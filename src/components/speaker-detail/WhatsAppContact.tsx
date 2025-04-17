@@ -39,4 +39,3 @@ const WhatsAppContact: React.FC = () => {
 };
 
 export default WhatsAppContact;
-

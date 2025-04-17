@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -34,6 +33,10 @@ const ContactSection = () => {
     speakerType: 'omar',
     message: ''
   });
+
+  const whatsappNumber = '523324166849';
+  const prefilledMessage = encodeURIComponent('Me interesa más información sobre ConferencistasFamosos.');
+  const emailAddress = 'agencia@conferencistasfamosos.com';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -240,8 +243,8 @@ const ContactSection = () => {
                     <Mail className="text-orange-500 mr-3 mt-1 h-5 w-5" />
                     <div>
                       <p className="font-medium">Correo electrónico</p>
-                      <a href="mailto:info@conferencistasfamosos.com" className="text-orange-500 hover:underline">
-                        info@conferencistasfamosos.com
+                      <a href={`mailto:${emailAddress}`} className="text-orange-500 hover:underline">
+                        {emailAddress}
                       </a>
                     </div>
                   </div>
@@ -249,9 +252,14 @@ const ContactSection = () => {
                   <div className="flex items-start">
                     <Phone className="text-orange-500 mr-3 mt-1 h-5 w-5" />
                     <div>
-                      <p className="font-medium">Teléfono</p>
-                      <a href="tel:+525512345678" className="text-orange-500 hover:underline">
-                        +52 55 1234 5678
+                      <p className="font-medium">WhatsApp</p>
+                      <a 
+                        href={`https://wa.me/${whatsappNumber}?text=${prefilledMessage}`}
+                        target="_blank"
+                        rel="noopener noreferrer" 
+                        className="text-orange-500 hover:underline"
+                      >
+                        +52 332 416 6849
                       </a>
                     </div>
                   </div>
