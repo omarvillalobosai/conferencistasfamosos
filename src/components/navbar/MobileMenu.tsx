@@ -1,0 +1,79 @@
+
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import SpeakersDropdown from './SpeakersDropdown';
+
+type MobileMenuProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  onQuoteClick: (e: React.MouseEvent) => void;
+};
+
+const MobileMenu = ({ isOpen, onClose, onQuoteClick }: MobileMenuProps) => {
+  const [showSpeakersDropdown, setShowSpeakersDropdown] = useState(false);
+  
+  if (!isOpen) return null;
+  
+  return (
+    <div className="md:hidden bg-white shadow-lg animate-fade-in">
+      <div className="container mx-auto py-4 space-y-4">
+        <Link 
+          to="/#quienes-somos" 
+          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
+          onClick={onClose}
+        >
+          Quiénes Somos
+        </Link>
+        
+        <SpeakersDropdown 
+          showDropdown={showSpeakersDropdown} 
+          setShowDropdown={setShowSpeakersDropdown} 
+          isMobile={true}
+          onNavItemClick={onClose}
+        />
+        
+        <Link 
+          to="/#destacado" 
+          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
+          onClick={onClose}
+        >
+          Omar Villalobos
+        </Link>
+        <Link 
+          to="/#testimonios" 
+          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
+          onClick={onClose}
+        >
+          Testimonios
+        </Link>
+        <Link 
+          to="/videos" 
+          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
+          onClick={onClose}
+        >
+          Videos
+        </Link>
+        <Link 
+          to="/blog" 
+          className="block font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
+          onClick={onClose}
+        >
+          Blog
+        </Link>
+        <a 
+          href="#contacto"
+          onClick={(e) => {
+            onQuoteClick(e);
+            onClose();
+          }}
+          className="block"
+        >
+          <Button className="w-full bg-orange-500 hover:bg-orange-600">Cotizar ahora</Button>
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default MobileMenu;
