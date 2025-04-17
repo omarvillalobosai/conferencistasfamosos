@@ -27,6 +27,10 @@ export const mainNavItems: NavigationItem[] = [
 
 export const speakerNavItems: SpeakerNavItem[] = [
   {
+    name: "Omar Villalobos",
+    slug: "omar-villalobos",
+  },
+  {
     name: "Yordi Rosado",
     slug: "yordi-rosado",
   },
