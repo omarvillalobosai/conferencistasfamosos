@@ -1,9 +1,15 @@
-
 import React from 'react';
 import { ArrowRight, Award, Globe, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getSpeakerSlug } from '@/utils/speakerUtils';
 
 const AboutSection = () => {
+  const navigate = useNavigate();
+
+  const handleOmarClick = () => {
+    navigate(`/speaker/${getSpeakerSlug('Omar Villalobos')}`);
+  };
+
   return (
     <section id="quienes-somos" className="section-padding bg-gray-50">
       <div className="container mx-auto">
@@ -56,9 +62,12 @@ const AboutSection = () => {
               <p className="text-gray-700 mb-4">
                 <strong>Omar Villalobos</strong>, reconocido internacionalmente como uno de los conferencistas más influyentes del mundo hispano, fundó esta agencia con la visión de elevar el nivel de los eventos corporativos y masivos en Latinoamérica.
               </p>
-              <Link to="/#destacado" className="inline-flex items-center text-orange-500 font-medium hover:text-orange-600 transition-colors">
+              <button 
+                onClick={handleOmarClick} 
+                className="inline-flex items-center text-orange-500 font-medium hover:text-orange-600 transition-colors"
+              >
                 Conoce más sobre Omar <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
