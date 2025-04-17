@@ -18,15 +18,18 @@ interface CourseCategoryProps {
 }
 
 const CourseCategory: React.FC<CourseCategoryProps> = ({ category }) => {
+  // Select a recommended video from the first course in the category
+  const recommendedVideo = category.courses[0];
+
   return (
     <>
       <div className="bg-slate-800/50 p-6 rounded-lg mb-8">
         <h2 className="text-2xl font-bold mb-2">{category.title}</h2>
-        <p className="text-gray-300 mb-4">Playlist completa con todo nuestro contenido premium para esta categoría.</p>
+        <p className="text-gray-300 mb-4">Video recomendado de la categoría</p>
         <div className="aspect-video rounded-lg overflow-hidden">
           <iframe
             className="w-full h-full"
-            src={`https://www.youtube.com/embed/videoseries?list=${category.playlistId}`}
+            src={`https://www.youtube.com/embed/${recommendedVideo.videoId}`}
             title={category.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -63,3 +66,4 @@ const CourseCategory: React.FC<CourseCategoryProps> = ({ category }) => {
 };
 
 export default CourseCategory;
+
