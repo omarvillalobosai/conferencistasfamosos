@@ -66,4 +66,3 @@ const CourseCategory: React.FC<CourseCategoryProps> = ({ category }) => {
 };
 
 export default CourseCategory;
-
