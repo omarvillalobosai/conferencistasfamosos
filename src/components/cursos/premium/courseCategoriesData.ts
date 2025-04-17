@@ -1,4 +1,3 @@
-
 export interface PremiumCourse {
   title: string;
   description: string;
@@ -21,17 +20,17 @@ export const premiumCourseCategories: PremiumCourseCategory[] = [
       {
         title: 'Cómo elegir al conferencista ideal',
         description: 'Aprende a seleccionar el conferencista perfecto para tu evento según tus objetivos y audiencia.',
-        videoId: 'e-kHJ3J2ZTQ'
+        videoId: 'yq5TlCGLsZ4'
       },
       {
         title: 'Tips para organizar un evento de alto impacto',
         description: 'Estrategias probadas para crear eventos que dejen huella en tu audiencia.',
-        videoId: 'Rkzv8fJTA4k'
+        videoId: '2ZaWF_Ls2Nc'
       },
       {
         title: 'Tipos de conferencistas',
         description: 'Conoce los diferentes perfiles de conferencistas y cuándo contratar cada uno.',
-        videoId: 'WHPLOFiSHJ0'
+        videoId: 'G7Zxt2X7ggU'
       }
     ]
   },
