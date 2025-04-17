@@ -113,7 +113,7 @@ const Videos = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/0GqmrL-aBf8"
+                  src="https://www.youtube.com/embed/https://youtu.be/0GqmrL-aBf8"
                   title="La educación en Latinoamérica: ¿Nos enseñaron a obedecer o a pensar?"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
