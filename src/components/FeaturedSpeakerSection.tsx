@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check, Award, Users, Globe, PlayCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,12 +6,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const achievements = [
-  "Record Guinness por la conferencia de superación personal más grande del mundo",
-  "Más de 1 millón de asistentes en eventos presenciales",
-  "Presencia en 25 países de América Latina, Estados Unidos y España",
-  "Autor de 5 bestsellers internacionales",
-  "Más de 500 empresas Fortune 500 transformadas",
-  "15+ años de experiencia en escenarios internacionales"
+  "Record Guinness por el abrazo más grande del mundo",
+  "Creador del movimiento de Abrazoterapia.tv",
+  "Creador del movimiento Es posible lo imposible en TEDx",
+  "Autor latino con más participaciones en el movimiento TED",
+  "Autor de dos bestsellers internacionales",
+  "Más de 900 empresas han contratado sus servicios",
+  "Más de 10 empresas de Fortune 500",
+  "Más de 30 años de experiencia en escenarios internacionales",
+  "Más de 2 millones de personas han asistido a eventos en vivo"
 ];
 
 const testimonials = [
@@ -59,7 +61,7 @@ const FeaturedSpeakerSection = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Biografía</h3>
               <p className="text-gray-300 mb-4">
-                Omar Villalobos es considerado el conferencista de alto impacto más importante de habla hispana. Con una trayectoria de más de 15 años transformando la vida de personas y organizaciones en todo el mundo, Omar ha llevado su mensaje de superación, liderazgo y excelencia a más de 25 países.
+                Omar Villalobos es considerado el conferencista de alto impacto más importante de habla hispana. Con una trayectoria de más de 30 años transformando la vida de personas y organizaciones en todo el mundo, Omar ha llevado su mensaje de superación, liderazgo y excelencia a más de 25 países.
               </p>
               <p className="text-gray-300">
                 Su experiencia trabajando con empresas Fortune 500, gobiernos y eventos masivos le ha permitido desarrollar una metodología única que combina la psicología del éxito, estrategias de alto rendimiento y técnicas de transformación personal que generan resultados inmediatos y medibles.
