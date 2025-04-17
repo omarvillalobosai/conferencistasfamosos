@@ -14,6 +14,7 @@ import SpeakerDetail from "./pages/SpeakerDetail";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import TravelPolicies from "./pages/TravelPolicies";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<Blog />} />

@@ -39,22 +39,22 @@ const Footer = () => {
             <h4 className="text-white text-lg font-medium mb-6">Enlaces rápidos</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/#quienes-somos" className="hover:text-orange-500 transition-colors">Quiénes somos</Link>
+                <Link to="/" className="hover:text-orange-500 transition-colors">Quiénes somos</Link>
               </li>
               <li>
-                <Link to="/#conferencistas" className="hover:text-orange-500 transition-colors">Conferencistas</Link>
+                <Link to="/" className="hover:text-orange-500 transition-colors">Conferencistas</Link>
               </li>
               <li>
-                <Link to="/#destacado" className="hover:text-orange-500 transition-colors">Omar Villalobos</Link>
+                <Link to="/" className="hover:text-orange-500 transition-colors">Omar Villalobos</Link>
               </li>
               <li>
-                <Link to="/#testimonios" className="hover:text-orange-500 transition-colors">Testimonios</Link>
+                <Link to="/" className="hover:text-orange-500 transition-colors">Testimonios</Link>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-orange-500 transition-colors">Blog</Link>
               </li>
               <li>
-                <Link to="/#contacto" className="hover:text-orange-500 transition-colors">Contacto</Link>
+                <Link to="/" className="hover:text-orange-500 transition-colors">Contacto</Link>
               </li>
             </ul>
           </div>
