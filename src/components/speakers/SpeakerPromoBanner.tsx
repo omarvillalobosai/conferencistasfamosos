@@ -12,11 +12,11 @@ const SpeakerPromoBanner: React.FC = () => {
         <div>
           <h3 className="text-xl font-bold mb-2">¿No sabes a quién elegir?</h3>
           <p className="text-gray-700 mb-4">
-            Si estás buscando transformar tu evento pero no estás seguro de qué conferencista se adaptaría mejor a tus necesidades, Omar Villalobos puede ayudarte a encontrar la solución perfecta o ser él mismo quien lleve tu evento al siguiente nivel.
+            Si estás buscando al conferencista perfecto pero no sabes por dónde empezar, tenemos cursos especializados que te ayudarán a tomar la mejor decisión.
           </p>
-          <Link to="/#destacado">
+          <Link to="/cursos">
             <Button className="bg-gradient-primary hover:opacity-90">
-              Hablar con Omar Villalobos
+              Explorar Cursos de Selección
             </Button>
           </Link>
         </div>
