@@ -1,10 +1,8 @@
 
 import React from 'react';
+import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 const CallToActionSection: React.FC = () => {
-  const whatsappNumber = '523324166849';
-  const prefilledMessage = encodeURIComponent('Me interesa más información sobre ConferencistasFamosos.');
-  
   return (
     <section className="py-16 bg-orange-600 text-white">
       <div className="container mx-auto px-4 text-center">
@@ -13,14 +11,12 @@ const CallToActionSection: React.FC = () => {
           Contacta con nosotros hoy mismo y déjanos ayudarte a encontrar al conferencista perfecto
           que garantice el éxito de tu evento con resultados medibles.
         </p>
-        <a 
-          className="inline-block bg-white text-orange-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors"
-          href={`https://wa.me/${whatsappNumber}?text=${prefilledMessage}`}
-          target="_blank"
-          rel="noopener noreferrer"
+        <WhatsAppButton
+          className="bg-white text-orange-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors"
+          variant="outline"
         >
           Contáctanos por WhatsApp
-        </a>
+        </WhatsAppButton>
       </div>
     </section>
   );

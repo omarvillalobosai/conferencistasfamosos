@@ -3,7 +3,8 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 interface ContactInfoStepProps {
   formData: {
@@ -18,8 +19,7 @@ interface ContactInfoStepProps {
 }
 
 const ContactInfoStep = ({ formData, onInputChange, onNext }: ContactInfoStepProps) => {
-  const whatsappNumber = '523324166849';
-  const prefilledMessage = encodeURIComponent('Me interesa solicitar una cotización para un conferencista.');
+  const prefilledMessage = 'Me interesa solicitar una cotización para un conferencista.';
   
   return (
     <div className="space-y-6">
@@ -95,15 +95,13 @@ const ContactInfoStep = ({ formData, onInputChange, onNext }: ContactInfoStepPro
           👉 Siguiente <ArrowRight className="ml-2" />
         </Button>
         
-        <a 
-          href={`https://wa.me/${whatsappNumber}?text=${prefilledMessage}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-green-500 text-white hover:bg-green-600 font-bold py-2 px-6 rounded-md transition-colors"
+        <WhatsAppButton 
+          message={prefilledMessage}
+          className="font-bold py-2 px-6 rounded-md"
+          variant="default"
         >
-          <MessageCircle size={20} />
           Prefiero contactar por WhatsApp
-        </a>
+        </WhatsAppButton>
       </div>
     </div>
   );

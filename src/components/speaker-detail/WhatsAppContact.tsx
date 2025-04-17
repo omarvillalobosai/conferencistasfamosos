@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
+import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 const WhatsAppContact: React.FC = () => {
-  const whatsappNumber = '523324166849';
-  const prefilledMessage = encodeURIComponent('Me interesa contratar los servicios de un Conferencista.');
+  const prefilledMessage = 'Me interesa contratar los servicios de un Conferencista.';
 
   return (
     <section className="py-16">
@@ -22,15 +22,13 @@ const WhatsAppContact: React.FC = () => {
             <p className="text-lg text-gray-700 mb-8">
               En conferencistasfamosos.com, creemos en ti y en tu evento!
             </p>
-            <a 
-              href={`https://wa.me/${whatsappNumber}?text=${prefilledMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition-colors"
+            <WhatsAppButton 
+              message={prefilledMessage} 
+              className="font-bold py-3 px-8 rounded-full" 
+              size="lg"
             >
-              <MessageCircle size={20} />
               Enviar mensaje
-            </a>
+            </WhatsAppButton>
           </div>
         </div>
       </div>

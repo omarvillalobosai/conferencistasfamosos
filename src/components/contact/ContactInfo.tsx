@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Mail, Phone } from 'lucide-react';
+import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 const ContactInfo: React.FC = () => {
   const whatsappNumber = '523324166849';

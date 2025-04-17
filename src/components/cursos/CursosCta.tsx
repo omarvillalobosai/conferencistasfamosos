@@ -1,11 +1,10 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { MessageCircle } from 'lucide-react';
+import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 const CursosCta: React.FC = () => {
-  const whatsappNumber = '523324166849';
-  const prefilledMessage = encodeURIComponent('Me interesa más información sobre los cursos de ConferencistasFamosos.');
+  const prefilledMessage = 'Me interesa más información sobre los cursos de ConferencistasFamosos.';
   
   return (
     <section className="py-16 bg-gradient-to-r from-orange-500 to-red-500 text-white">
@@ -26,22 +25,13 @@ const CursosCta: React.FC = () => {
             <a href="#cursos">Accede ahora</a>
           </Button>
           
-          <Button 
-            size="lg" 
-            variant="default" 
-            className="bg-green-500 text-white hover:bg-green-600 font-semibold text-lg px-8"
-            asChild
+          <WhatsAppButton
+            message={prefilledMessage}
+            className="font-semibold text-lg px-8"
+            size="lg"
           >
-            <a 
-              href={`https://wa.me/${whatsappNumber}?text=${prefilledMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2"
-            >
-              <MessageCircle className="mr-1" size={20} />
-              Consultar por WhatsApp
-            </a>
-          </Button>
+            Consultar por WhatsApp
+          </WhatsAppButton>
         </div>
       </div>
     </section>
