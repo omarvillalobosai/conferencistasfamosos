@@ -62,22 +62,19 @@ const Footer = () => {
             <h4 className="text-white text-lg font-medium mb-6">Conferencistas</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/#destacado" className="hover:text-orange-500 transition-colors font-medium">Omar Villalobos</Link>
+                <Link to="/speaker/omar-villalobos" className="hover:text-orange-500 transition-colors font-medium">Omar Villalobos</Link>
               </li>
               <li>
-                <Link to="/#conferencistas" className="hover:text-orange-500 transition-colors">Carolina Mendoza</Link>
+                <Link to="/speaker/yordi-rosado" className="hover:text-orange-500 transition-colors">Yordi Rosado</Link>
               </li>
               <li>
-                <Link to="/#conferencistas" className="hover:text-orange-500 transition-colors">Ricardo Velázquez</Link>
+                <Link to="/speaker/daniel-habif" className="hover:text-orange-500 transition-colors">Daniel Habif</Link>
               </li>
               <li>
-                <Link to="/#conferencistas" className="hover:text-orange-500 transition-colors">Ana María Torres</Link>
+                <Link to="/speaker/gaby-vargas" className="hover:text-orange-500 transition-colors">Gaby Vargas</Link>
               </li>
               <li>
-                <Link to="/#conferencistas" className="hover:text-orange-500 transition-colors">Javier Montero</Link>
-              </li>
-              <li>
-                <Link to="/#conferencistas" className="hover:text-orange-500 transition-colors">Gabriela Reyes</Link>
+                <Link to="/speaker/vilma-nunez" className="hover:text-orange-500 transition-colors">Vilma Núñez</Link>
               </li>
             </ul>
           </div>
@@ -119,8 +116,8 @@ const Footer = () => {
               <Link to="/privacidad" className="hover:text-orange-500 transition-colors">
                 Política de privacidad
               </Link>
-              <Link to="/cookies" className="hover:text-orange-500 transition-colors">
-                Política de cookies
+              <Link to="/politicas-viaje" className="hover:text-orange-500 transition-colors">
+                Políticas de viaje
               </Link>
             </div>
           </div>

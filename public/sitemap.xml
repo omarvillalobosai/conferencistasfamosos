@@ -3,49 +3,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://conferencistasfamosos.com/</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://conferencistasfamosos.com/blog</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://conferencistasfamosos.com/videos</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://conferencistasfamosos.com/terminos</loc>
+    <lastmod>2025-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://conferencistasfamosos.com/privacidad</loc>
+    <lastmod>2025-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://conferencistasfamosos.com/politicas-viaje</loc>
+    <lastmod>2025-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://conferencistasfamosos.com/speaker/omar-villalobos</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://conferencistasfamosos.com/speaker/yordi-rosado</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://conferencistasfamosos.com/speaker/daniel-habif</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://conferencistasfamosos.com/speaker/gaby-vargas</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://conferencistasfamosos.com/speaker/vilma-nunez</loc>
-    <lastmod>2025-04-16</lastmod>
+    <lastmod>2025-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

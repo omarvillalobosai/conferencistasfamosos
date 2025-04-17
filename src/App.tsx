@@ -10,6 +10,9 @@ import Blog from "./pages/Blog";
 import Videos from "./pages/Videos";
 import NotFound from "./pages/NotFound";
 import SpeakerDetail from "./pages/SpeakerDetail";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import TravelPolicies from "./pages/TravelPolicies";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +28,9 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/videos" element={<Videos />} />
             <Route path="/speaker/:slug" element={<SpeakerDetail />} />
+            <Route path="/terminos" element={<Terms />} />
+            <Route path="/privacidad" element={<Privacy />} />
+            <Route path="/politicas-viaje" element={<TravelPolicies />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
