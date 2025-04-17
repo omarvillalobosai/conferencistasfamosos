@@ -1,22 +1,36 @@
-
-import React from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { speakers } from '@/data/speakersData';
 import { Avatar } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
-import { Youtube, BookOpen, Award, MessageCircle, Star } from 'lucide-react';
+import { Youtube, BookOpen, Award, MessageCircle, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext } from '@/components/ui/pagination';
 
 const SpeakerDetail = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   
   // Find the speaker by converting the slug to a name format and matching
-  const speaker = speakers.find(s => {
-    const speakerSlug = s.name.toLowerCase().replace(/\s+/g, '-');
-    return speakerSlug === slug;
-  });
+  const speakerIndex = useMemo(() => {
+    return speakers.findIndex(s => {
+      const speakerSlug = s.name.toLowerCase().replace(/\s+/g, '-');
+      return speakerSlug === slug;
+    });
+  }, [slug]);
+  
+  const speaker = speakerIndex !== -1 ? speakers[speakerIndex] : null;
+  
+  // Calculate previous and next speaker indices
+  const prevSpeakerIndex = speakerIndex > 0 ? speakerIndex - 1 : speakers.length - 1;
+  const nextSpeakerIndex = speakerIndex < speakers.length - 1 ? speakerIndex + 1 : 0;
+  
+  // Get previous and next speaker slugs
+  const prevSpeakerSlug = speakers[prevSpeakerIndex].name.toLowerCase().replace(/\s+/g, '-');
+  const nextSpeakerSlug = speakers[nextSpeakerIndex].name.toLowerCase().replace(/\s+/g, '-');
   
   // If speaker not found, redirect to 404
   if (!speaker) {
@@ -52,6 +66,33 @@ const SpeakerDetail = () => {
       </Helmet>
       <Navbar />
       <main>
+        {/* Speaker Navigation */}
+        <div className="bg-gray-100 py-4">
+          <div className="container mx-auto px-4">
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious 
+                    href={`/speaker/${prevSpeakerSlug}`} 
+                    aria-label={`Ver ${speakers[prevSpeakerIndex].name}`}
+                  />
+                </PaginationItem>
+                <PaginationItem className="hidden md:inline-flex">
+                  <span className="flex h-9 items-center justify-center px-4 font-medium">
+                    {speakerIndex + 1} de {speakers.length}
+                  </span>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext 
+                    href={`/speaker/${nextSpeakerSlug}`} 
+                    aria-label={`Ver ${speakers[nextSpeakerIndex].name}`}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        </div>
+        
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-gray-900 to-black text-white py-20 md:py-28">
           <div className="container mx-auto px-4">
@@ -185,7 +226,7 @@ const SpeakerDetail = () => {
           </div>
         </section>
         
-        {/* WhatsApp Contact Section - Replacing Previous Events Section */}
+        {/* WhatsApp Contact Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-12 text-center flex items-center justify-center">
@@ -214,6 +255,33 @@ const SpeakerDetail = () => {
             </div>
           </div>
         </section>
+        
+        {/* Bottom Navigation */}
+        <div className="bg-gray-100 py-6">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-between items-center">
+              <Button 
+                variant="outline" 
+                className="flex items-center gap-2"
+                onClick={() => navigate(`/speaker/${prevSpeakerSlug}`)}
+              >
+                <ChevronLeft size={16} />
+                <span className="hidden md:inline">{speakers[prevSpeakerIndex].name}</span>
+                <span className="md:hidden">Anterior</span>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="flex items-center gap-2"
+                onClick={() => navigate(`/speaker/${nextSpeakerSlug}`)}
+              >
+                <span className="hidden md:inline">{speakers[nextSpeakerIndex].name}</span>
+                <span className="md:hidden">Siguiente</span>
+                <ChevronRight size={16} />
+              </Button>
+            </div>
+          </div>
+        </div>
       </main>
       <Footer />
     </>
