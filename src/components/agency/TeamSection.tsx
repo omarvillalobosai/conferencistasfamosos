@@ -13,31 +13,31 @@ const team: TeamMember[] = [
   {
     name: "Sandra Navarro",
     role: "Directora de Eventos",
-    email: "sandran@omarvillalobos.tv",
+    email: "sandra@conferencistasfamosos.com",
     initials: "SN",
   },
   {
     name: "Alejandra Ramirez",
     role: "Relaciones Públicas",
-    email: "alejandra@omarvillalobos.tv",
+    email: "alejandra@conferencistasfamosos.com",
     initials: "AR",
   },
   {
     name: "Paola Siordia",
     role: "Redes Sociales",
-    email: "paola@omarvillalobos.tv",
+    email: "paola@conferencistasfamosos.com",
     initials: "PS",
   },
   {
     name: "Ernesto Loza",
     role: "Webmaster y experto en AI",
-    email: "ernesto@omarvillalobos.tv",
+    email: "neto@conferencistasfamosos.com",
     initials: "EL",
   },
   {
     name: "Dalai Villalobos",
     role: "Marketing",
-    email: "ventas@omarvillalobos.tv",
+    email: "agencia@conferencistasfamosos.com",
     initials: "DV",
   }
 ];
