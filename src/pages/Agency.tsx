@@ -7,6 +7,7 @@ import AgencyHero from '@/components/agency/AgencyHero';
 import AboutAgencySection from '@/components/agency/AboutAgencySection';
 import ClientsSection from '@/components/agency/ClientsSection';
 import CeoSection from '@/components/agency/CeoSection';
+import TeamSection from '@/components/agency/TeamSection';
 import FaqSection from '@/components/agency/FaqSection';
 import CallToActionSection from '@/components/agency/CallToActionSection';
 
@@ -21,16 +22,15 @@ const Agency = () => {
         />
       </Helmet>
       <Navbar />
-      
       <main className="pt-16">
         <AgencyHero />
         <AboutAgencySection />
         <ClientsSection />
         <CeoSection />
+        <TeamSection />
         <FaqSection />
         <CallToActionSection />
       </main>
-      
       <Footer />
     </>
   );
