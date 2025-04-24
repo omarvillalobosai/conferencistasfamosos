@@ -62,7 +62,7 @@ const HeroSection = () => {
               </a>
               <a href="#" onClick={handleQuoteClick} className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white w-full sm:w-auto">
-                  Solicita a Omar Villalobos
+                  Solicitar a un Speaker
                 </Button>
               </a>
             </div>
@@ -84,3 +84,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
