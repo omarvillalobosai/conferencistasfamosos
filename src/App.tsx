@@ -17,6 +17,7 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import TravelPolicies from "./pages/TravelPolicies";
 import ScrollToTop from "./components/ScrollToTop";
+import Spa2 from "./pages/Spa2";
 
 const queryClient = new QueryClient();
 
