@@ -51,13 +51,15 @@ const SpeakerDetail = () => {
   return (
     <>
       <Helmet>
-        <title>{speaker.name} | Conferencista Famoso | ConferencistasFamosos.com</title>
-        <meta 
-          name="description" 
-          content={`${speaker.name} es un conferencista especializado en ${speaker.specialty}. Contrata a ${speaker.name} para tu próximo evento corporativo o conferencia.`} 
+        <title>{`${speaker.name} | Conferencista`}</title>
+        <meta
+          name="description"
+          content={`${speaker.name}, conferencista en ${speaker.specialty}. Contrátalo para tu próximo evento.`}
         />
-        <meta property="og:title" content={`${speaker.name} | Conferencista Famoso`} />
+        <link rel="canonical" href={`https://conferencistasfamosos.com/speaker/${slug}`} />
+        <meta property="og:title" content={`${speaker.name} | Conferencista`} />
         <meta property="og:description" content={`${speaker.shortBio}`} />
+        <meta property="og:url" content={`https://conferencistasfamosos.com/speaker/${slug}`} />
         <meta property="og:image" content={speaker.image} />
         <meta name="keywords" content={`${speaker.name}, conferencista, ${speaker.tags.join(', ')}, conferencias, eventos, charlas`} />
       </Helmet>
