@@ -1,0 +1,26 @@
+# ConferencistasFamosos.com
+
+> Agencia representante de los mejores conferencistas y speakers de habla hispana para eventos corporativos en Latinoamérica.
+
+## Pages
+
+- [Inicio](/): Conferencistas destacados, testimonios y solicitud de cotización.
+- [Agencia](/agencia): Quiénes somos, equipo y clientes que confían en nosotros.
+- [Blog](/blog): Artículos sobre conferencistas, eventos y motivación.
+- [Videos](/videos): Videos destacados de conferencias y speakers.
+- [Cursos](/cursos): Cursos para contratar conferencistas o convertirte en uno.
+- [SpeakerPro.AI](/spa2): Academia de marca personal con inteligencia artificial de Omar Villalobos.
+
+## Speakers
+
+- [Omar Villalobos](/speaker/omar-villalobos): Liderazgo y transformación personal.
+- [Yordi Rosado](/speaker/yordi-rosado): Autoestima y comunicación.
+- [Daniel Habif](/speaker/daniel-habif): Motivación y propósito.
+- [Gaby Vargas](/speaker/gaby-vargas): Reinvención y crecimiento personal.
+- [Vilma Núñez](/speaker/vilma-nunez): Marketing digital y liderazgo femenino.
+
+## Optional
+
+- [Términos](/terminos)
+- [Privacidad](/privacidad)
+- [Políticas de viaje](/politicas-viaje)
