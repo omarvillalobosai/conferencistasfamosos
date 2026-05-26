@@ -9,8 +9,12 @@ const Privacy = () => {
   return (
     <>
       <Helmet>
-        <title>Política de Privacidad | ConferencistasFamosos.com</title>
-        <meta name="description" content="Política de privacidad y cookies de ConferencistasFamosos.com. Conoce cómo recopilamos, utilizamos y protegemos tu información personal." />
+        <title>Política de Privacidad | ConferencistasFamosos</title>
+        <meta name="description" content="Cómo recopilamos, utilizamos y protegemos tu información personal." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/privacidad" />
+        <meta property="og:title" content="Política de Privacidad | ConferencistasFamosos" />
+        <meta property="og:description" content="Privacidad y cookies de ConferencistasFamosos.com." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/privacidad" />
       </Helmet>
 
       <Navbar />

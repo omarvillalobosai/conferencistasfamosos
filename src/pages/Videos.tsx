@@ -86,11 +86,12 @@ const Videos = () => {
   return (
     <>
       <Helmet>
-        <title>Videos de Conferencias | ConferencistasFamosos.com</title>
-        <meta 
-          name="description" 
-          content="Videos de los mejores conferencistas de habla hispana. Conferencias motivacionales, de liderazgo y desarrollo personal." 
-        />
+        <title>Videos de Conferencias | ConferencistasFamosos</title>
+        <meta name="description" content="Videos de los mejores conferencistas de habla hispana: motivación, liderazgo y desarrollo personal." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/videos" />
+        <meta property="og:title" content="Videos de Conferencias | ConferencistasFamosos" />
+        <meta property="og:description" content="Los mejores momentos de nuestros conferencistas en video." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/videos" />
       </Helmet>
       <Navbar />
       <main>

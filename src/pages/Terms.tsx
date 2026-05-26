@@ -9,8 +9,12 @@ const Terms = () => {
   return (
     <>
       <Helmet>
-        <title>Términos y Condiciones | ConferencistasFamosos.com</title>
-        <meta name="description" content="Términos y condiciones para la contratación de conferencistas famosos. Conoce las condiciones legales que aplican al contratar nuestros servicios." />
+        <title>Términos y Condiciones | ConferencistasFamosos</title>
+        <meta name="description" content="Términos y condiciones para la contratación de conferencistas famosos." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/terminos" />
+        <meta property="og:title" content="Términos y Condiciones | ConferencistasFamosos" />
+        <meta property="og:description" content="Condiciones legales para contratar nuestros servicios." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/terminos" />
       </Helmet>
 
       <Navbar />
