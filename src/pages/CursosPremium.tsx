@@ -22,11 +22,12 @@ const CursosPremium: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Cursos Premium | Conferencistas Famosos</title>
-        <meta 
-          name="description" 
-          content="Accede a nuestro contenido exclusivo para desarrollar habilidades específicas según tu rol o aspiración" 
-        />
+        <title>Cursos Premium | ConferencistasFamosos</title>
+        <meta name="description" content="Contenido exclusivo para desarrollar habilidades específicas según tu rol o aspiración como speaker." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/cursos-premium" />
+        <meta property="og:title" content="Cursos Premium | ConferencistasFamosos" />
+        <meta property="og:description" content="Contenido exclusivo para desarrollar habilidades de conferencista." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/cursos-premium" />
       </Helmet>
       
       <Navbar />

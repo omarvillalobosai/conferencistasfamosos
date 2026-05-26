@@ -9,8 +9,12 @@ const TravelPolicies = () => {
   return (
     <>
       <Helmet>
-        <title>Políticas de Viaje | ConferencistasFamosos.com</title>
-        <meta name="description" content="Políticas de viaje para la contratación de conferencistas. Conoce las condiciones de viaje, alojamiento y traslados para nuestros conferencistas." />
+        <title>Políticas de Viaje | ConferencistasFamosos</title>
+        <meta name="description" content="Condiciones de viaje, alojamiento y traslados para nuestros conferencistas." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/politicas-viaje" />
+        <meta property="og:title" content="Políticas de Viaje | ConferencistasFamosos" />
+        <meta property="og:description" content="Viaje, alojamiento y traslados para conferencistas." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/politicas-viaje" />
       </Helmet>
 
       <Navbar />

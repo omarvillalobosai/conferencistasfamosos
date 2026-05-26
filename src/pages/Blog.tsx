@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -69,6 +70,14 @@ const categories = ["Todos", "Conferencias", "Eventos", "Tendencias", "Técnicas
 const Blog = () => {
   return (
     <>
+      <Helmet>
+        <title>Blog de Conferencistas | ConferencistasFamosos</title>
+        <meta name="description" content="Recursos, consejos y tendencias sobre conferencistas y eventos de impacto." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/blog" />
+        <meta property="og:title" content="Blog de Conferencistas | ConferencistasFamosos" />
+        <meta property="og:description" content="Consejos y tendencias sobre conferencistas y eventos de impacto." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/blog" />
+      </Helmet>
       <Navbar />
       <main className="min-h-screen pt-24">
         <section className="bg-gray-50 py-12 md:py-20">

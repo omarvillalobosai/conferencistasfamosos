@@ -15,11 +15,12 @@ const Agency = () => {
   return (
     <>
       <Helmet>
-        <title>Agencia | ConferencistasFamosos.com</title>
-        <meta 
-          name="description" 
-          content="Somos una agencia que garantiza el resultado efectivo del evento y la calidad del conferencista para agregar verdadero valor con resultados medibles." 
-        />
+        <title>Agencia de Conferencistas | ConferencistasFamosos</title>
+        <meta name="description" content="Agencia que garantiza el resultado del evento y la calidad del conferencista, con resultados medibles para tu marca." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/agencia" />
+        <meta property="og:title" content="Agencia de Conferencistas | ConferencistasFamosos" />
+        <meta property="og:description" content="Garantizamos el resultado de tu evento con conferencistas de alto impacto." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/agencia" />
       </Helmet>
       <Navbar />
       <main className="pt-16">

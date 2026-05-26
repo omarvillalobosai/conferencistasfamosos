@@ -15,10 +15,13 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ConferencistasFamosos.com | Los Mejores Conferencistas de Latinoamérica</title>
-        <meta name="description" content="Agencia representante de los mejores speakers de habla hispana. Omar Villalobos, conferencistas motivacionales y expertos de alto impacto para tu evento." />
+        <title>Conferencistas Famosos | Speakers de Latinoamérica</title>
+        <meta name="description" content="Agencia representante de los mejores speakers de habla hispana. Omar Villalobos y conferencistas de alto impacto para tu evento." />
         <meta name="keywords" content="conferencistas, speakers, Omar Villalobos, motivación, liderazgo, conferencias, eventos corporativos" />
         <link rel="canonical" href="https://conferencistasfamosos.com/" />
+        <meta property="og:title" content="Conferencistas Famosos | Speakers de Latinoamérica" />
+        <meta property="og:description" content="Agencia representante de los mejores speakers de habla hispana." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/" />
         <meta name="robots" content="index, follow" />
       </Helmet>
       <Navbar />
