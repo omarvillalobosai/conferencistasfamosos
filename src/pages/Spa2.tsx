@@ -17,10 +17,11 @@ const Spa2 = () => {
     <>
       <Helmet>
         <title>SpeakerPro.AI | Omar Villalobos</title>
-        <meta 
-          name="description" 
-          content="La primera academia donde tu marca personal no la diseñas tú… la construyes con inteligencia (artificial + emocional)" 
-        />
+        <meta name="description" content="Academia donde construyes tu marca personal con inteligencia artificial y emocional, creada por Omar Villalobos." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/spa2" />
+        <meta property="og:title" content="SpeakerPro.AI | Omar Villalobos" />
+        <meta property="og:description" content="Construye tu marca personal con IA junto a Omar Villalobos." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/spa2" />
       </Helmet>
 
       <Navbar />

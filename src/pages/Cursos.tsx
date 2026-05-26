@@ -16,11 +16,12 @@ const Cursos: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Cursos | Conferencistas Famosos</title>
-        <meta 
-          name="description" 
-          content="Aprende a contratar conferencistas profesionales o conviértete en uno con nuestros cursos especializados" 
-        />
+        <title>Cursos para Speakers | ConferencistasFamosos</title>
+        <meta name="description" content="Aprende a contratar conferencistas profesionales o conviértete en uno con nuestros cursos especializados." />
+        <link rel="canonical" href="https://conferencistasfamosos.com/cursos" />
+        <meta property="og:title" content="Cursos para Speakers | ConferencistasFamosos" />
+        <meta property="og:description" content="Cursos especializados para contratar o convertirte en conferencista profesional." />
+        <meta property="og:url" content="https://conferencistasfamosos.com/cursos" />
       </Helmet>
       
       <Navbar />
