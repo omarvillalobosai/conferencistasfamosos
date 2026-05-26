@@ -6,7 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import SpeakersSection from '@/components/SpeakersSection';
 import FeaturedSpeakerSection from '@/components/FeaturedSpeakerSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+
 import BlogSection from '@/components/BlogSection';
 import RequestQuoteSection from '@/components/RequestQuoteSection';
 import Footer from '@/components/Footer';
