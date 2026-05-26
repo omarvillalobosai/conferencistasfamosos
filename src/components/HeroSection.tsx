@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
 import QuoteWizard from './QuoteWizard';
+import heroBg from '@/assets/hero-speakers-latam.jpg';
 
 const HeroSection = () => {
   const [wizardOpen, setWizardOpen] = useState(false);
@@ -37,12 +38,21 @@ const HeroSection = () => {
           `}
         </script>
       </Helmet>
-      <section className="relative min-h-screen flex items-center bg-gradient-to-b from-gray-900 to-black overflow-hidden">
-        {/* Background overlay with subtle pattern */}
-        <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
-        
-        {/* Decorative element */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background image */}
+        <img
+          src={heroBg}
+          alt="Conferencista influyente de Latinoamérica frente a una audiencia masiva"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        {/* Dark overlay for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/85 z-0"></div>
+
+        {/* Decorative accent */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/20 to-transparent z-0"></div>
+
         
         <div className="container mx-auto relative z-10 pt-20">
           <div className="text-center space-y-6 max-w-3xl mx-auto">
