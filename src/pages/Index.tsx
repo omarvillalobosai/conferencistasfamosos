@@ -30,7 +30,7 @@ const Index = () => {
         <AboutSection />
         <SpeakersSection />
         <FeaturedSpeakerSection />
-        <TestimonialsSection />
+        
         <BlogSection />
         <RequestQuoteSection />
       </main>
