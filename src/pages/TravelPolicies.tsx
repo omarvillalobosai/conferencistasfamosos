@@ -161,7 +161,17 @@ const TravelPolicies = () => {
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
                 <li>Email: viajes@conferencistasfamosos.com</li>
-                <li>Teléfono: +52 55 1234 5678</li>
+                <li>
+                  WhatsApp:{" "}
+                  <a
+                    href="https://wa.me/523324166849?text=Me%20interesa%20más%20información%20sobre%20las%20políticas%20de%20viaje."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-orange-500 hover:underline"
+                  >
+                    +52 332 416 6849
+                  </a>
+                </li>
                 <li>Persona de contacto: Coordinador de Logística</li>
               </ul>
             </section>
