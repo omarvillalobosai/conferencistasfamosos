@@ -17,7 +17,7 @@ export const speakers: Speaker[] = [
     name: 'Omar Villalobos',
     image: 'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//a_photo_of_omv%20(14).png',
     specialty: 'Alto Impacto y Transformación Personal',
-    shortBio: 'Reconocido como el conferencista #1 de habla hispana con Récord Guinness',
+    shortBio: 'Reconocido como top 3 mejores speakers de Latam, Récord Guinness Oficial, Doctor Honoris Causa',
     tags: ['Motivación', 'Liderazgo', 'Éxito'],
     featured: true
   },
