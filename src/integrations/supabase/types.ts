@@ -38,6 +38,24 @@ export type Database = {
         }
         Relationships: []
       }
+      admin_allowlist: {
+        Row: {
+          added_by: string | null
+          created_at: string
+          email: string
+        }
+        Insert: {
+          added_by?: string | null
+          created_at?: string
+          email: string
+        }
+        Update: {
+          added_by?: string | null
+          created_at?: string
+          email?: string
+        }
+        Relationships: []
+      }
       admin_settings: {
         Row: {
           description: string | null
@@ -159,6 +177,60 @@ export type Database = {
           source?: string | null
         }
         Relationships: []
+      }
+      blog_newsletter_schedule: {
+        Row: {
+          category_id: string | null
+          created_at: string
+          error: string | null
+          id: string
+          post_id: string
+          recipients_count: number | null
+          sent_at: string | null
+          sent_order: number | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          category_id?: string | null
+          created_at?: string
+          error?: string | null
+          id?: string
+          post_id: string
+          recipients_count?: number | null
+          sent_at?: string | null
+          sent_order?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          category_id?: string | null
+          created_at?: string
+          error?: string | null
+          id?: string
+          post_id?: string
+          recipients_count?: number | null
+          sent_at?: string | null
+          sent_order?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_newsletter_schedule_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "blog_categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "blog_newsletter_schedule_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: true
+            referencedRelation: "youtube_blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       blog_post_comments: {
         Row: {
@@ -435,6 +507,51 @@ export type Database = {
           required_likes_given?: number | null
           required_likes_received?: number | null
           xp_required?: number
+        }
+        Relationships: []
+      }
+      consultation_unlocks: {
+        Row: {
+          completed_lessons: number
+          course_slug: string
+          created_at: string
+          id: string
+          required_module_ids: string[]
+          schedule_url: string | null
+          total_required_lessons: number
+          unlock_email_sent_at: string | null
+          unlocked: boolean
+          unlocked_at: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_lessons?: number
+          course_slug: string
+          created_at?: string
+          id?: string
+          required_module_ids: string[]
+          schedule_url?: string | null
+          total_required_lessons?: number
+          unlock_email_sent_at?: string | null
+          unlocked?: boolean
+          unlocked_at?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_lessons?: number
+          course_slug?: string
+          created_at?: string
+          id?: string
+          required_module_ids?: string[]
+          schedule_url?: string | null
+          total_required_lessons?: number
+          unlock_email_sent_at?: string | null
+          unlocked?: boolean
+          unlocked_at?: string | null
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
@@ -1227,6 +1344,36 @@ export type Database = {
         }
         Relationships: []
       }
+      ebook_leads: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          life_area: string | null
+          name: string
+          source: string
+          subscribed_newsletter: boolean
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          life_area?: string | null
+          name: string
+          source?: string
+          subscribed_newsletter?: boolean
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          life_area?: string | null
+          name?: string
+          source?: string
+          subscribed_newsletter?: boolean
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string
@@ -1271,6 +1418,7 @@ export type Database = {
       }
       email_sequence_steps: {
         Row: {
+          channel: string
           created_at: string | null
           delay_hours: number | null
           html_body: string
@@ -1279,8 +1427,11 @@ export type Database = {
           sequence_id: string | null
           step_order: number
           subject: string
+          text_body: string | null
+          whatsapp_body: string | null
         }
         Insert: {
+          channel?: string
           created_at?: string | null
           delay_hours?: number | null
           html_body: string
@@ -1289,8 +1440,11 @@ export type Database = {
           sequence_id?: string | null
           step_order: number
           subject: string
+          text_body?: string | null
+          whatsapp_body?: string | null
         }
         Update: {
+          channel?: string
           created_at?: string | null
           delay_hours?: number | null
           html_body?: string
@@ -1299,6 +1453,8 @@ export type Database = {
           sequence_id?: string | null
           step_order?: number
           subject?: string
+          text_body?: string | null
+          whatsapp_body?: string | null
         }
         Relationships: [
           {
@@ -1312,36 +1468,51 @@ export type Database = {
       }
       email_sequences: {
         Row: {
+          audience: string | null
           created_at: string | null
+          created_by: string | null
+          default_channel: string
           description: string | null
+          goal: string | null
           id: string
           is_active: boolean | null
           lead_score_max: number | null
           lead_score_min: number | null
           name: string
           service_type: string | null
+          tone: string | null
           updated_at: string | null
         }
         Insert: {
+          audience?: string | null
           created_at?: string | null
+          created_by?: string | null
+          default_channel?: string
           description?: string | null
+          goal?: string | null
           id?: string
           is_active?: boolean | null
           lead_score_max?: number | null
           lead_score_min?: number | null
           name: string
           service_type?: string | null
+          tone?: string | null
           updated_at?: string | null
         }
         Update: {
+          audience?: string | null
           created_at?: string | null
+          created_by?: string | null
+          default_channel?: string
           description?: string | null
+          goal?: string | null
           id?: string
           is_active?: boolean | null
           lead_score_max?: number | null
           lead_score_min?: number | null
           name?: string
           service_type?: string | null
+          tone?: string | null
           updated_at?: string | null
         }
         Relationships: []
@@ -1561,7 +1732,13 @@ export type Database = {
           enrolled_at: string
           id: string
           last_email_at: string | null
+          last_error: string | null
+          lead_email: string | null
+          lead_name: string | null
+          lead_phone: string | null
+          lead_source: string | null
           next_email_at: string | null
+          paused_at: string | null
           sequence_id: string
           status: string
           updated_at: string
@@ -1573,7 +1750,13 @@ export type Database = {
           enrolled_at?: string
           id?: string
           last_email_at?: string | null
+          last_error?: string | null
+          lead_email?: string | null
+          lead_name?: string | null
+          lead_phone?: string | null
+          lead_source?: string | null
           next_email_at?: string | null
+          paused_at?: string | null
           sequence_id: string
           status?: string
           updated_at?: string
@@ -1585,7 +1768,13 @@ export type Database = {
           enrolled_at?: string
           id?: string
           last_email_at?: string | null
+          last_error?: string | null
+          lead_email?: string | null
+          lead_name?: string | null
+          lead_phone?: string | null
+          lead_source?: string | null
           next_email_at?: string | null
+          paused_at?: string | null
           sequence_id?: string
           status?: string
           updated_at?: string
@@ -1603,6 +1792,66 @@ export type Database = {
             columns: ["sequence_id"]
             isOneToOne: false
             referencedRelation: "email_sequences"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      funnel_send_log: {
+        Row: {
+          channel: string
+          enrollment_id: string
+          error: string | null
+          id: string
+          preview: string | null
+          recipient: string | null
+          sent_at: string
+          sent_by: string | null
+          status: string
+          step_id: string | null
+          step_order: number
+          subject: string | null
+        }
+        Insert: {
+          channel: string
+          enrollment_id: string
+          error?: string | null
+          id?: string
+          preview?: string | null
+          recipient?: string | null
+          sent_at?: string
+          sent_by?: string | null
+          status?: string
+          step_id?: string | null
+          step_order: number
+          subject?: string | null
+        }
+        Update: {
+          channel?: string
+          enrollment_id?: string
+          error?: string | null
+          id?: string
+          preview?: string | null
+          recipient?: string | null
+          sent_at?: string
+          sent_by?: string | null
+          status?: string
+          step_id?: string | null
+          step_order?: number
+          subject?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "funnel_send_log_enrollment_id_fkey"
+            columns: ["enrollment_id"]
+            isOneToOne: false
+            referencedRelation: "funnel_enrollments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "funnel_send_log_step_id_fkey"
+            columns: ["step_id"]
+            isOneToOne: false
+            referencedRelation: "email_sequence_steps"
             referencedColumns: ["id"]
           },
         ]
@@ -1842,6 +2091,50 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      lead_source_funnel_mapping: {
+        Row: {
+          created_at: string
+          enabled: boolean
+          id: string
+          retroactive_count: number | null
+          retroactive_done_at: string | null
+          sequence_id: string | null
+          source_label: string
+          source_table: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          retroactive_count?: number | null
+          retroactive_done_at?: string | null
+          sequence_id?: string | null
+          source_label: string
+          source_table: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          retroactive_count?: number | null
+          retroactive_done_at?: string | null
+          sequence_id?: string | null
+          source_label?: string
+          source_table?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_source_funnel_mapping_sequence_id_fkey"
+            columns: ["sequence_id"]
+            isOneToOne: false
+            referencedRelation: "email_sequences"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       learning_stages: {
         Row: {
@@ -3800,6 +4093,18 @@ export type Database = {
         }
         Relationships: []
       }
+      vw_all_leads: {
+        Row: {
+          captured_at: string | null
+          email: string | null
+          id: string | null
+          name: string | null
+          phone: string | null
+          source: string | null
+          source_label: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       award_user_xp: {
@@ -3831,6 +4136,25 @@ export type Database = {
         Args: never
         Returns: Database["public"]["Enums"]["app_role"]
       }
+      get_lead_capture_timeseries: {
+        Args: { p_days?: number }
+        Returns: {
+          count: number
+          day: string
+          source: string
+        }[]
+      }
+      get_lead_source_stats: {
+        Args: never
+        Returns: {
+          last_24h: number
+          last_30d: number
+          last_7d: number
+          source: string
+          source_label: string
+          total: number
+        }[]
+      }
       get_live_event_stream: {
         Args: { _event_id: string }
         Returns: {
@@ -3850,6 +4174,10 @@ export type Database = {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
+        Returns: boolean
+      }
+      recompute_speaker_pro_consultation_unlock: {
+        Args: { p_user_id: string }
         Returns: boolean
       }
       track_video_watch: {
