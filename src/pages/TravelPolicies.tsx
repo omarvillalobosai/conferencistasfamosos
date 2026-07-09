@@ -169,7 +169,7 @@ const TravelPolicies = () => {
                     rel="noopener noreferrer"
                     className="text-orange-500 hover:underline"
                   >
-                    +52 332 416 6849
+                    52 3324166849
                   </a>
                 </li>
                 <li>Persona de contacto: Coordinador de Logística</li>
