@@ -307,6 +307,61 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2020-07-01',
     category: 'Mentalidad',
   },
+  {
+    slug: 'vilma-nunez-documente-mi-dia-como-speaker',
+    speakerId: 'vilma-nunez',
+    speakerName: 'Vilma Núñez',
+    title: 'Documenté mi día como speaker y la vida me saboteó | Vilma Núñez',
+    description:
+      'Vilma Núñez comparte un vlog íntimo detrás de bambalinas de un día como speaker, mostrando los retos reales y los aprendizajes de la vida empresarial.',
+    youtubeId: '-nDJeEEAu80',
+    publishedAt: '2024-05-01',
+    category: 'Emprendimiento',
+  },
+  {
+    slug: 'vilma-nunez-lo-que-nadie-ve-exitos-y-desafios',
+    speakerId: 'vilma-nunez',
+    speakerName: 'Vilma Núñez',
+    title: 'Lo que nadie ve: mi semana de éxitos y desafíos | Vilma Núñez',
+    description:
+      'Vilma Núñez abre las puertas de su semana como empresaria: los éxitos, los desafíos y las decisiones clave que marcan la diferencia en un negocio.',
+    youtubeId: '3ssVoLR5Jig',
+    publishedAt: '2024-05-15',
+    category: 'Emprendimiento',
+  },
+  {
+    slug: 'vilma-nunez-un-dia-multifacetico-trabajando-desde-casa',
+    speakerId: 'vilma-nunez',
+    speakerName: 'Vilma Núñez',
+    title: 'Un día multifacético trabajando desde casa | Vilma Núñez',
+    description:
+      'Vilma Núñez muestra cómo balancea múltiples roles trabajando desde casa: estrategia, creación de contenido y liderazgo de equipos remotos.',
+    youtubeId: 'fY8N-aErqhQ',
+    publishedAt: '2024-06-01',
+    category: 'Productividad',
+  },
+  {
+    slug: 'vilma-nunez-10-horas-consultoria-mentalidad-de-dinero',
+    speakerId: 'vilma-nunez',
+    speakerName: 'Vilma Núñez',
+    title: '10 horas de consultoría y mentalidad de dinero | Vilma Núñez',
+    description:
+      'Vilma Núñez comparte una jornada intensa de consultoría enfocada en mentalidad de dinero y estrategias para escalar negocios digitales.',
+    youtubeId: 'Adm5nJDNSf0',
+    publishedAt: '2024-06-15',
+    category: 'Negocios',
+  },
+  {
+    slug: 'vilma-nunez-un-lunes-consultora-y-speaker',
+    speakerId: 'vilma-nunez',
+    speakerName: 'Vilma Núñez',
+    title: 'Un lunes siendo consultora y speaker | Vilma Núñez',
+    description:
+      'Vilma Núñez nos lleva por un lunes típico combinando su rol de consultora y speaker internacional, con foco en marketing digital y ventas.',
+    youtubeId: 'PPNnwnebVXY',
+    publishedAt: '2024-07-01',
+    category: 'Emprendimiento',
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
