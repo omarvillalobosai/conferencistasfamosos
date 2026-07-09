@@ -72,7 +72,7 @@ const SpeakerDetail = () => {
         <FeaturedVideo videoId={featuredVideoId} speakerName={speaker.name} />
         
         {/* Biography Section */}
-        <Biography speakerName={speaker.name} specialty={speaker.specialty} />
+        <Biography speakerName={speaker.name} specialty={speaker.specialty} fullBio={speaker.fullBio} />
         
         {/* Conference Topics Section */}
         <ConferenceTopics topics={topics} />
