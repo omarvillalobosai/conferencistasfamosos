@@ -7,6 +7,7 @@ export interface Speaker {
   image: string;
   specialty: string;
   shortBio: string;
+  fullBio?: string;
   tags: string[];
   featured: boolean;
 }
