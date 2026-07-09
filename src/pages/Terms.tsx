@@ -102,7 +102,7 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">5. Propiedad Intelectual</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">6. Propiedad Intelectual</h2>
               <p className="text-gray-700 mb-4">
                 Todos los contenidos de las conferencias son propiedad intelectual del conferencista. No se permite la grabación, reproducción o distribución sin autorización expresa.
               </p>
@@ -115,7 +115,7 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">6. Limitación de Responsabilidad</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">7. Limitación de Responsabilidad</h2>
               <p className="text-gray-700 mb-4">
                 ConferencistasFamosos.com actúa como intermediario y no será responsable por:
               </p>
@@ -128,7 +128,7 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">7. Modificaciones</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">8. Modificaciones</h2>
               <p className="text-gray-700 mb-4">
                 Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en el sitio web.
               </p>
@@ -138,7 +138,7 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">8. Ley Aplicable</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">9. Ley Aplicable</h2>
               <p className="text-gray-700 mb-4">
                 Estos términos y condiciones se rigen por las leyes de México, sin consideración a las disposiciones sobre conflicto de leyes.
               </p>
@@ -148,7 +148,7 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">9. Contacto</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">10. Contacto</h2>
               <p className="text-gray-700 mb-4">
                 Si tienes preguntas sobre estos términos y condiciones, puedes contactarnos a través de:
               </p>
