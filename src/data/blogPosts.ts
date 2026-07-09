@@ -362,6 +362,83 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-07-01',
     category: 'Emprendimiento',
   },
+  {
+    slug: 'elsa-punset-los-malos-pensamientos-tus-miedos',
+    speakerId: 'elsa-punset',
+    speakerName: 'Elsa Punset',
+    title: 'Los malos pensamientos: ¿cuáles son tus miedos? | Elsa Punset',
+    description:
+      'Elsa Punset nos ayuda a identificar los malos pensamientos y los miedos que nos limitan, con herramientas prácticas para gestionarlos.',
+    youtubeId: 'VNWFw8eojv8',
+    publishedAt: '2021-01-15',
+    category: 'Inteligencia Emocional',
+  },
+  {
+    slug: 'elsa-punset-conversaciones-dificiles',
+    speakerId: 'elsa-punset',
+    speakerName: 'Elsa Punset',
+    title: 'Cómo gestionar conversaciones difíciles | Elsa Punset',
+    description:
+      'Elsa Punset comparte claves prácticas para gestionar conversaciones difíciles con empatía, asertividad y sin dañar la relación.',
+    youtubeId: 'cLEt9nIQCGg',
+    publishedAt: '2021-02-10',
+    category: 'Comunicación',
+  },
+  {
+    slug: 'elsa-punset-estimular-el-cerebro-lama-tulku-lobsang',
+    speakerId: 'elsa-punset',
+    speakerName: 'Elsa Punset',
+    title: 'Estimular el cerebro para sentirnos bien - Lama Tulku Lobsang | Elsa Punset',
+    description:
+      'Elsa Punset conversa con Lama Tulku Lobsang sobre cómo estimular el cerebro y las prácticas ancestrales que nos ayudan a sentirnos mejor.',
+    youtubeId: '_g9mPNCBst0',
+    publishedAt: '2021-03-05',
+    category: 'Bienestar',
+  },
+  {
+    slug: 'elsa-punset-un-minuto-para-meditar',
+    speakerId: 'elsa-punset',
+    speakerName: 'Elsa Punset',
+    title: 'Un minuto para meditar | Elsa Punset',
+    description:
+      'Elsa Punset nos propone un ejercicio breve de meditación de un minuto para volver al presente y recuperar la calma en medio del día.',
+    youtubeId: 'loEsatFPt-A',
+    publishedAt: '2021-04-01',
+    category: 'Mindfulness',
+  },
+  {
+    slug: 'elsa-punset-buenas-conversaciones',
+    speakerId: 'elsa-punset',
+    speakerName: 'Elsa Punset',
+    title: 'Pistas para tener buenas conversaciones | Elsa Punset',
+    description:
+      'Elsa Punset revela las pistas fundamentales para tener buenas conversaciones que fortalezcan nuestros vínculos personales y profesionales.',
+    youtubeId: '2XM3v_Mse2c',
+    publishedAt: '2021-05-01',
+    category: 'Comunicación',
+  },
+  {
+    slug: 'elsa-punset-transformar-la-tristeza',
+    speakerId: 'elsa-punset',
+    speakerName: 'Elsa Punset',
+    title: 'Transformar la tristeza | Elsa Punset',
+    description:
+      'Elsa Punset nos guía a entender y transformar la tristeza en una emoción aliada que nos conecta con lo que realmente nos importa.',
+    youtubeId: 'p0gWXDRk5TU',
+    publishedAt: '2021-06-01',
+    category: 'Inteligencia Emocional',
+  },
+  {
+    slug: 'elsa-punset-secretos-de-parejas-felices',
+    speakerId: 'elsa-punset',
+    speakerName: 'Elsa Punset',
+    title: 'Dos secretos de las parejas felices | Elsa Punset',
+    description:
+      'Elsa Punset comparte dos secretos respaldados por la ciencia que distinguen a las parejas felices y cómo aplicarlos en tu relación.',
+    youtubeId: 'PBLbDuJQZNQ',
+    publishedAt: '2021-07-01',
+    category: 'Relaciones',
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
