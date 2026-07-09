@@ -439,6 +439,116 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2021-07-01',
     category: 'Relaciones',
   },
+  {
+    slug: 'cesar-lozano-como-dejar-de-procrastinar',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Cómo dejar de procrastinar | Dr. César Lozano',
+    description:
+      'El Dr. César Lozano comparte estrategias prácticas para vencer la procrastinación y recuperar el control de tu tiempo y productividad.',
+    youtubeId: 'Cvjd543JL1A',
+    publishedAt: '2023-01-15',
+    category: 'Productividad',
+  },
+  {
+    slug: 'cesar-lozano-sindrome-del-impostor',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: '¿Padeces del síndrome del impostor? | Dr. César Lozano',
+    description:
+      'Aprende a identificar el síndrome del impostor y descubre cómo superar la sensación de no merecer tus logros.',
+    youtubeId: '_j93OKPhHm0',
+    publishedAt: '2023-02-15',
+    category: 'Desarrollo Personal',
+  },
+  {
+    slug: 'cesar-lozano-test-para-descubrir-tus-talentos',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Test para descubrir tus talentos | Dr. César Lozano',
+    description:
+      'En entrevista con Gilda García, el Dr. César Lozano presenta un test para identificar tus talentos naturales y potenciarlos.',
+    youtubeId: '2ISYuP8nQgs',
+    publishedAt: '2023-03-15',
+    category: 'Desarrollo Personal',
+  },
+  {
+    slug: 'cesar-lozano-5-tips-para-dejar-de-ser-indeciso',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: '5 Tips para dejar de ser indeciso | Dr. César Lozano',
+    description:
+      'Cinco consejos claros del Dr. César Lozano para tomar decisiones con seguridad y superar la indecisión.',
+    youtubeId: 'ISgjPFot9rU',
+    publishedAt: '2023-04-15',
+    category: 'Desarrollo Personal',
+  },
+  {
+    slug: 'cesar-lozano-como-hacer-que-te-guste-tu-trabajo',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Cómo hacer que te guste tu trabajo | Dr. César Lozano',
+    description:
+      'Entrevista con Gilda García donde el Dr. César Lozano explica cómo cambiar tu perspectiva y disfrutar más tu trabajo.',
+    youtubeId: 'MXJaC0128vE',
+    publishedAt: '2023-05-15',
+    category: 'Vida Laboral',
+  },
+  {
+    slug: 'cesar-lozano-jefe-o-companero-insoportable',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Cómo tratar con un jefe o compañero insoportable | Dr. César Lozano',
+    description:
+      'El Dr. César Lozano comparte estrategias para manejar relaciones laborales difíciles y proteger tu bienestar emocional.',
+    youtubeId: 'jGdr4KAwEpA',
+    publishedAt: '2023-06-15',
+    category: 'Vida Laboral',
+  },
+  {
+    slug: 'cesar-lozano-tu-trabajo-te-esta-enfermando',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Señales de que tu trabajo te está enfermando | Dr. César Lozano',
+    description:
+      'Entrevista con Jaime Leal sobre las señales físicas y emocionales que indican que tu trabajo está afectando tu salud.',
+    youtubeId: 'EYXbMCPh7Gw',
+    publishedAt: '2023-07-15',
+    category: 'Bienestar',
+  },
+  {
+    slug: 'cesar-lozano-conectar-con-la-energia-del-dinero',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Aprende a conectar con la energía del dinero | Dr. César Lozano',
+    description:
+      'Entrevista con Martha Oliveira sobre cómo transformar tu relación con el dinero y atraer abundancia a tu vida.',
+    youtubeId: 'zm8t79w3QN0',
+    publishedAt: '2023-08-15',
+    category: 'Abundancia',
+  },
+  {
+    slug: 'cesar-lozano-3-peores-enemigos-del-exito',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Los 3 peores enemigos que frenan tu éxito | Dr. César Lozano',
+    description:
+      'Entrevista con Coral Mujaes que revela los tres bloqueos internos más comunes que impiden alcanzar el éxito.',
+    youtubeId: 'AcQ9GB5W3b0',
+    publishedAt: '2023-09-15',
+    category: 'Éxito',
+  },
+  {
+    slug: 'cesar-lozano-vida-con-abundancia',
+    speakerId: 'cesar-lozano',
+    speakerName: 'César Lozano',
+    title: 'Cómo tener una vida con abundancia | Dr. César Lozano',
+    description:
+      'El Dr. César Lozano comparte principios prácticos para vivir con abundancia en todas las áreas de tu vida.',
+    youtubeId: 'LYHRUfNqieQ',
+    publishedAt: '2023-10-15',
+    category: 'Abundancia',
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
