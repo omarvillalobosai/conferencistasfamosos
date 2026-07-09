@@ -38,7 +38,23 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">2. Servicios</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">2. Información sobre los Conferencistas</h2>
+              <p className="text-gray-700 mb-4">
+                La información publicada proviene de fuentes públicas o de información proporcionada por el propio conferencista o sus representantes.
+              </p>
+              <p className="text-gray-700 mb-4">
+                La publicación no implica una representación exclusiva del conferencista.
+              </p>
+              <p className="text-gray-700 mb-4">
+                El sitio puede retirar o actualizar cualquier perfil cuando sea solicitado.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Si un conferencista considera que existe información incorrecta, podrá solicitar su modificación o eliminación.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">3. Servicios</h2>
               <p className="text-gray-700 mb-4">
                 Nuestros servicios incluyen:
               </p>
