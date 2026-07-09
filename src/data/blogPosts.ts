@@ -230,6 +230,83 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2018-07-01',
     category: 'On The Road',
   },
+  {
+    slug: 'gaby-vargas-inteligencia-del-corazon',
+    speakerId: 'gaby-vargas',
+    speakerName: 'Gaby Vargas',
+    title: '¿De qué trata el curso "La Inteligencia del Corazón"? | Gaby Vargas',
+    description:
+      'Gaby Vargas nos presenta su curso "La Inteligencia del Corazón", una invitación a conectar con la sabiduría interna para tomar mejores decisiones de vida.',
+    youtubeId: 'QTEQrqRtzQ8',
+    publishedAt: '2020-01-15',
+    category: 'Desarrollo Personal',
+  },
+  {
+    slug: 'gaby-vargas-dignidad-interior',
+    speakerId: 'gaby-vargas',
+    speakerName: 'Gaby Vargas',
+    title: 'Dignidad interior | Gaby Vargas',
+    description:
+      'Gaby Vargas nos habla de la dignidad interior como base para relacionarnos con nosotros mismos y con los demás desde el respeto y el amor propio.',
+    youtubeId: 'Npeq8RHyJ-g',
+    publishedAt: '2020-02-10',
+    category: 'Autoestima',
+  },
+  {
+    slug: 'gaby-vargas-la-vida-te-ama',
+    speakerId: 'gaby-vargas',
+    speakerName: 'Gaby Vargas',
+    title: 'Date cuenta: la vida te ama | Gaby Vargas',
+    description:
+      'Una reflexión de Gaby Vargas para reconocer las señales cotidianas que nos muestran que la vida está de nuestro lado y nos ama profundamente.',
+    youtubeId: 'tXJK0uWAAgk',
+    publishedAt: '2020-03-05',
+    category: 'Inspiración',
+  },
+  {
+    slug: 'gaby-vargas-credibilidad-energetica',
+    speakerId: 'gaby-vargas',
+    speakerName: 'Gaby Vargas',
+    title: '¿Credibilidad energética? | Gaby Vargas',
+    description:
+      'Gaby Vargas explica el concepto de credibilidad energética y cómo la coherencia entre lo que sentimos, decimos y hacemos define la confianza que generamos.',
+    youtubeId: 'ybBHJjzlljU',
+    publishedAt: '2020-04-01',
+    category: 'Comunicación',
+  },
+  {
+    slug: 'gaby-vargas-hay-que-crear-ritos',
+    speakerId: 'gaby-vargas',
+    speakerName: 'Gaby Vargas',
+    title: 'Hay que crear ritos | Gaby Vargas',
+    description:
+      'Gaby Vargas nos invita a crear ritos personales y familiares que doten de sentido y profundidad a los momentos importantes de nuestra vida.',
+    youtubeId: 'ZqFD4zZuASI',
+    publishedAt: '2020-05-01',
+    category: 'Bienestar',
+  },
+  {
+    slug: 'gaby-vargas-que-es-ser-sexy',
+    speakerId: 'gaby-vargas',
+    speakerName: 'Gaby Vargas',
+    title: '¿Qué es ser sexy? | Gaby Vargas',
+    description:
+      'Gaby Vargas redefine el concepto de "sexy" desde la seguridad interior, la actitud y la presencia auténtica, más allá de lo físico.',
+    youtubeId: 'UJwrNjDlzac',
+    publishedAt: '2020-06-01',
+    category: 'Autoestima',
+  },
+  {
+    slug: 'gaby-vargas-el-poder-de-la-certeza',
+    speakerId: 'gaby-vargas',
+    speakerName: 'Gaby Vargas',
+    title: 'El poder de la certeza | Gaby Vargas',
+    description:
+      'Gaby Vargas comparte cómo la certeza interna se convierte en una fuerza que nos permite avanzar con claridad y firmeza en cualquier área de la vida.',
+    youtubeId: 'DSTCYY8ZC6Y',
+    publishedAt: '2020-07-01',
+    category: 'Mentalidad',
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
