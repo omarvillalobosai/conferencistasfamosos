@@ -67,7 +67,7 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">3. Proceso de Contratación</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">4. Proceso de Contratación</h2>
               <p className="text-gray-700 mb-4">
                 El proceso de contratación de un conferencista a través de nuestra plataforma sigue los siguientes pasos:
               </p>
@@ -84,7 +84,7 @@ const Terms = () => {
             </section>
 
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900">4. Pagos y Cancelaciones</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">5. Pagos y Cancelaciones</h2>
               <p className="text-gray-700 mb-4">
                 La contratación de un conferencista requiere el pago de un anticipo no reembolsable del 50% del total acordado.
               </p>
