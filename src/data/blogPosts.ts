@@ -120,6 +120,39 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2017-10-04',
     category: 'Inspiración',
   },
+  {
+    slug: 'yordi-rosado-trabajo-mucho-culpable-con-mis-hijos',
+    speakerId: 'yordi-rosado',
+    speakerName: 'Yordi Rosado',
+    title: 'Trabajo mucho y me siento culpable con mis hijos | Yordi Rosado',
+    description:
+      'Yordi Rosado aborda la culpa de los padres que trabajan mucho y comparte cómo transformar el tiempo con los hijos en presencia real y de calidad.',
+    youtubeId: '9moVS_iBBBw',
+    publishedAt: '2024-01-01',
+    category: 'Familia',
+  },
+  {
+    slug: 'yordi-rosado-te-graduas-como-papa',
+    speakerId: 'yordi-rosado',
+    speakerName: 'Yordi Rosado',
+    title: '¿Te gradúas como Papá? | Yordi Rosado',
+    description:
+      'Yordi Rosado reflexiona sobre la paternidad como un proceso continuo: nunca te gradúas de ser papá, siempre hay algo nuevo que aprender de tus hijos.',
+    youtubeId: 'GCDWY-_LgEs',
+    publishedAt: '2024-02-01',
+    category: 'Paternidad',
+  },
+  {
+    slug: 'yordi-rosado-cuidar-de-un-hijo-es-un-privilegio',
+    speakerId: 'yordi-rosado',
+    speakerName: 'Yordi Rosado',
+    title: 'Cuidar de un hijo no es una carga, ¡es un privilegio! | Yordi Rosado',
+    description:
+      'Yordi Rosado invita a cambiar la perspectiva sobre la crianza: cuidar a un hijo no es un peso, es uno de los mayores privilegios que da la vida.',
+    youtubeId: 'NhqlkZiRLPI',
+    publishedAt: '2024-03-01',
+    category: 'Familia',
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
