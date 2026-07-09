@@ -153,6 +153,83 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-03-01',
     category: 'Familia',
   },
+  {
+    slug: 'daniel-habif-empotrado-en-un-sillon',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'Empotrado en un Sillón | Daniel Habif',
+    description:
+      'Daniel Habif nos sacude con una reflexión poderosa sobre salir de la comodidad y dejar de vivir empotrados en un sillón para perseguir nuestro propósito.',
+    youtubeId: 'seOEOJKLZFw',
+    publishedAt: '2018-01-15',
+    category: 'Motivación',
+  },
+  {
+    slug: 'daniel-habif-cuando-me-entierren',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'Cuando Me Entierren | Daniel Habif',
+    description:
+      'Un mensaje profundo de Daniel Habif sobre el legado, la muerte y cómo vivir hoy para dejar huella cuando ya no estemos.',
+    youtubeId: '7QJLun0PUqY',
+    publishedAt: '2018-02-10',
+    category: 'Inspiración',
+  },
+  {
+    slug: 'daniel-habif-en-el-nombre-del-amor',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'En el nombre del amor | Daniel Habif',
+    description:
+      'Daniel Habif comparte una reflexión emotiva sobre el amor como motor transformador de nuestra vida y nuestras relaciones.',
+    youtubeId: 'FqrUHzyaPmM',
+    publishedAt: '2018-03-05',
+    category: 'Relaciones',
+  },
+  {
+    slug: 'daniel-habif-on-the-road-exma',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'On The Road / EXMA | Daniel Habif',
+    description:
+      'Daniel Habif nos lleva tras bambalinas de su participación en EXMA, uno de los eventos empresariales más importantes de Latinoamérica.',
+    youtubeId: '9FDLXt4d8Ig',
+    publishedAt: '2018-04-01',
+    category: 'On The Road',
+  },
+  {
+    slug: 'daniel-habif-el-amor-todo-lo-puede-xalapa',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'El Amor Todo Lo Puede - On The Road / Xalapa | Daniel Habif',
+    description:
+      'Desde Xalapa, Daniel Habif nos regala un mensaje contundente: el amor tiene el poder de transformar cualquier realidad.',
+    youtubeId: 'qfD3al6tgHs',
+    publishedAt: '2018-05-01',
+    category: 'On The Road',
+  },
+  {
+    slug: 'daniel-habif-on-the-road-republica-dominicana',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'On The Road / República Dominicana / Premios Soberano | Daniel Habif',
+    description:
+      'Daniel Habif nos comparte su experiencia en República Dominicana durante los Premios Soberano, un recorrido lleno de inspiración.',
+    youtubeId: 'bL_rMZkmVOI',
+    publishedAt: '2018-06-01',
+    category: 'On The Road',
+  },
+  {
+    slug: 'daniel-habif-on-the-road-miami',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'On The Road / MIAMI | Daniel Habif',
+    description:
+      'Daniel Habif desde Miami: un vistazo íntimo a su gira internacional y a los mensajes que están tocando corazones alrededor del mundo.',
+    youtubeId: 'Q2BTln2NE4E',
+    publishedAt: '2018-07-01',
+    category: 'On The Road',
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
