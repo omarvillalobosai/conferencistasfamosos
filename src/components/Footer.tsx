@@ -129,7 +129,7 @@ const Footer = () => {
                   rel="noopener noreferrer" 
                   className="hover:text-orange-500 transition-colors"
                 >
-                  +52 332 416 6849
+                  52 3324166849
                 </a>
               </li>
               <li className="flex items-start">

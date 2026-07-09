@@ -59,7 +59,7 @@ const ContactInfoStep = ({ formData, onInputChange, onNext }: ContactInfoStepPro
             name="phone"
             value={formData.phone}
             onChange={onInputChange}
-            placeholder="+52 332 416 6849"
+            placeholder="52 3324166849"
             required
           />
         </div>
