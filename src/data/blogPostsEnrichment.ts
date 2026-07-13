@@ -609,6 +609,40 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:12:54Z",
   },
+  "elsa-punset-secretos-de-parejas-felices": {
+    summary: "Elsa Punset explora los mecanismos psicológicos que sustentan las relaciones duraderas, destacando que el declive de la pasión inicial es un proceso biológico natural debido al alto consumo energético del cerebro ante la novedad. Para contrarrestar la rutina, la autora propone la integración estratégica de actividades sorprendentes y variadas, las cuales generan un impacto neuroquímico positivo similar al del enamoramiento temprano.\n\nEl contenido subraya la importancia de dos pilares fundamentales: la novedad compartida y el apoyo entusiasta ante los éxitos del otro. Mantener una relación feliz no requiere esfuerzos heroicos, sino una gestión inteligente de las emociones que combine la estabilidad necesaria con dosis semanales de diversión imprevista y un reconocimiento activo de los logros de la pareja para fortalecer los cimientos del vínculo.",
+    keyPoints: [
+      "El cerebro reduce la intensidad de los sentimientos iniciales para ahorrar energía tras los dos primeros años de relación.",
+      "La novedad y el factor sorpresa son potentes activadores químicos que revitalizan el interés y la sensación de vitalidad.",
+      "Las actividades activas y sorprendentes son más eficaces para el disfrute conyugal que las actividades agradables pero rutinarias.",
+      "Solo 90 minutos semanales de actividades divertidas durante diez semanas pueden generar un cambio positivo medible.",
+      "La forma en que una pareja celebra los éxitos es más determinante para la salud del vínculo que cómo enfrenta las dificultades.",
+      "Brindar apoyo en los malos momentos evita la degradación, pero celebrar lo bueno construye activamente la relación.",
+      "La inteligencia emocional aplicada permite equilibrar la estabilidad con el descubrimiento y el placer imprevisto.",
+    ],
+    quotes: [
+      "El factor sorpresa es muy potente en nuestras vidas.",
+      "Cómo una pareja celebra sus éxitos es aún más importante que cómo se enfrenta a sus dificultades.",
+      "Cuando celebras algo bueno, estás activamente construyendo pareja.",
+      "Sé su mayor fan. Felicita y celebra conciencia vuestros logros y buenos momentos.",
+      "No es magia, es inteligencia emocional.",
+    ],
+    exercises: [
+      {
+        title: "Dosis de novedad semanal",
+        description: "Dedica al menos 90 minutos a la semana a realizar una actividad activa y sorprendente fuera de la rutina, como bailar o practicar un deporte nuevo.",
+      },
+      {
+        title: "El club de fans personal",
+        description: "Identifica un logro reciente de tu pareja, por pequeño que sea, y organice una celebración consciente para reforzar los cimientos de la relación.",
+      },
+      {
+        title: "Auditoría de rutina vs. sorpresa",
+        description: "Analiza las actividades compartidas y sustituye una salida rutinaria, como ir al cine, por una experiencia imprevista que fomente el descubrimiento mutuo.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:13:33Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
