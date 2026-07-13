@@ -17,23 +17,6 @@ const achievements = [
   "Más de 2 millones de personas han asistido a eventos en vivo"
 ];
 
-const testimonials = [
-  {
-    name: "María González",
-    position: "Directora de RH, Grupo Bimbo",
-    text: "Omar transformó por completo la mentalidad de nuestro equipo directivo. Su conferencia generó un impacto medible en nuestros resultados trimestrales."
-  },
-  {
-    name: "Carlos Fuentes",
-    position: "CEO, Banco Azteca",
-    text: "Nunca había visto a mi equipo tan motivado como después de la intervención de Omar. Su energía es contagiosa y su mensaje, transformador."
-  },
-  {
-    name: "Ana Patricia Botín",
-    position: "Presidenta, Grupo Santander",
-    text: "Omar tiene la capacidad única de conectar con audiencias diversas y entregar mensajes profundos que impulsan al cambio real y sostenible."
-  }
-];
 
 const FeaturedSpeakerSection = () => {
   return (
