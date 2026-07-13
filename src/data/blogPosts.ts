@@ -549,6 +549,61 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2023-10-15',
     category: 'Abundancia',
   },
+  {
+    slug: 'marisa-lazo-tour-pastelerias-shark-tank',
+    speakerId: 'marisa-lazo',
+    speakerName: 'Marisa Lazo',
+    title: '¡Conoce más sobre Marisa Lazo! | Tour por Pastelerías Marisa | Shark Tank México',
+    description:
+      'Recorre con Marisa Lazo el corazón de Pastelerías Marisa y descubre la historia detrás de una de las empresarias más reconocidas de México.',
+    youtubeId: 'JN7-mkXBsfQ',
+    publishedAt: '2022-05-01',
+    category: 'Emprendimiento',
+  },
+  {
+    slug: 'marisa-lazo-shark-tank-equidad-genero',
+    speakerId: 'marisa-lazo',
+    speakerName: 'Marisa Lazo',
+    title: 'Marisa Lazo | Shark Tank, equidad de género y crecer sin inversión',
+    description:
+      'Marisa Lazo habla sobre su paso por Shark Tank, equidad de género, cómo crecer un negocio sin inversión y aprender a callar opiniones.',
+    youtubeId: 'XdNOAcfVlu4',
+    publishedAt: '2023-01-15',
+    category: 'Emprendimiento',
+  },
+  {
+    slug: 'marisa-lazo-pensar-diferente-ataque',
+    speakerId: 'marisa-lazo',
+    speakerName: 'Marisa Lazo',
+    title: '¿Por qué cada vez que alguien piensa diferente siento que me atacan?',
+    description:
+      'Marisa Lazo reflexiona sobre cómo manejar las diferencias de opinión sin sentirlas como un ataque personal.',
+    youtubeId: 'n5ol-vMT0hk',
+    publishedAt: '2024-03-01',
+    category: 'Liderazgo',
+  },
+  {
+    slug: 'marisa-lazo-cultivar-confianza-organizaciones',
+    speakerId: 'marisa-lazo',
+    speakerName: 'Marisa Lazo',
+    title: 'Cultivar la confianza construye organizaciones humanas',
+    description:
+      'Marisa Lazo comparte por qué la confianza es la base para construir organizaciones más humanas y productivas.',
+    youtubeId: 'LuZ4m1Zfo4A',
+    publishedAt: '2024-06-01',
+    category: 'Liderazgo',
+  },
+  {
+    slug: 'marisa-lazo-invertir-mas-alla-del-dinero',
+    speakerId: 'marisa-lazo',
+    speakerName: 'Marisa Lazo',
+    title: 'Lo que nadie te dice sobre invertir (y no hablo solo de dinero)',
+    description:
+      'Marisa Lazo revela lecciones clave sobre invertir en la vida, más allá del dinero: tiempo, relaciones y crecimiento personal.',
+    youtubeId: 'lLgEUxaraPY',
+    publishedAt: '2024-09-01',
+    category: 'Emprendimiento',
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
