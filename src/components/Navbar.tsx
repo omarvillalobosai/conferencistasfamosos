@@ -43,13 +43,13 @@ const Navbar = () => {
           <NavLogo isScrolled={isScrolled} />
           
           {/* Desktop Navigation */}
-          <DesktopNav onQuoteClick={handleQuoteClick} />
+          <DesktopNav onQuoteClick={handleQuoteClick} isScrolled={isScrolled} />
           
           {/* Mobile Navigation Toggle */}
           <div className="md:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-orange-500"
+              className={`hover:text-orange-500 transition-colors ${isScrolled ? 'text-gray-700' : 'text-white drop-shadow-md'}`}
               aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
