@@ -12,6 +12,7 @@ import Videos from "./pages/Videos";
 import Agency from "./pages/Agency";
 import Cursos from "./pages/Cursos";
 import CursosPremium from "./pages/CursosPremium";
+import CoursePost from "./pages/CoursePost";
 import NotFound from "./pages/NotFound";
 import SpeakerDetail from "./pages/SpeakerDetail";
 import Terms from "./pages/Terms";
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/videos" element={<Videos />} />
             <Route path="/agencia" element={<Agency />} />
             <Route path="/cursos" element={<Cursos />} />
+            <Route path="/cursos/:slug" element={<CoursePost />} />
             <Route path="/cursos-premium" element={<CursosPremium />} />
             <Route path="/speaker/:slug" element={<SpeakerDetail />} />
             <Route path="/terminos" element={<Terms />} />
