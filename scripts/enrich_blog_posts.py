@@ -326,10 +326,11 @@ def main():
         print(f"[{i}/{len(posts)}] {slug}: fetching transcript…")
         transcript = fetch_transcript(post["youtubeId"])
         if not transcript or len(transcript) < 200:
-            print(f"    no usable transcript, skip")
-            skipped += 1
-            continue
-        print(f"    transcript ok ({len(transcript)} chars), calling AI…")
+            print(f"    no transcript, falling back to metadata-only generation")
+            transcript = None
+        else:
+            print(f"    transcript ok ({len(transcript)} chars)")
+        print(f"    calling AI…")
         try:
             raw = call_ai(post, transcript)
             enrich = clamp(raw)
