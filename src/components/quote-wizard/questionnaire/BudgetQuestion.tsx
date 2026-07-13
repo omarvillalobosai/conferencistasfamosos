@@ -27,7 +27,7 @@ const BudgetQuestion = ({ budget, setFormData }: BudgetQuestionProps) => {
           { label: 'Estoy listo para invertir en calidad', value: 'quality-investment' }
         ].map((option) => (
           <div key={option.value} className={`flex items-center space-x-2 border p-4 rounded-md cursor-pointer hover:border-orange-500 ${budget === option.value ? 'border-orange-500 bg-orange-50' : 'border-gray-200'}`}>
-            <DollarSign className={budget === option.value ? 'text-orange-500' : 'text-gray-400'} />
+            <DollarSign className={budget === option.value ? 'text-orange-500' : 'text-gray-600'} />
             <RadioGroupItem value={option.value} id={`budget-${option.value}`} className="sr-only" />
             <Label htmlFor={`budget-${option.value}`} className="cursor-pointer w-full">{option.label}</Label>
           </div>
