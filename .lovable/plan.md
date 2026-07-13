@@ -1,54 +1,53 @@
-## Blog de videos por speaker (fase 1: Omar Villalobos)
+## Objetivo
 
-Convertir el blog actual en un sistema de posts de video, cada uno con página propia, empezando con 10 videos de Omar Villalobos desde su playlist de YouTube.
+Rediseñar la sección `/cursos` para que funcione como un sistema de **video-posts** basado en playlists de YouTube (mismo patrón que ya usa el blog), respetando los dos conceptos existentes:
 
-### Estructura de datos
+- **Soy cliente** → videos para quienes van a contratar conferencistas.
+- **Quiero ser conferencista** → videos para quienes quieren desarrollarse como speaker.
 
-Crear `src/data/blogPosts.ts` con la interfaz:
+## Alcance de este paso
 
-```ts
-interface BlogPost {
-  id: string;              // slug único, ej: "omar-villalobos-como-vender-mas"
-  speakerId: string;       // "omar-villalobos" (matches speakersData)
-  speakerName: string;     // "Omar Villalobos"
-  title: string;           // título del video
-  description: string;     // 1-2 frases
-  youtubeId: string;       // ID del video de YouTube
-  publishedAt: string;     // fecha ISO
-  category: string;        // ej: "Ventas", "Liderazgo", "Motivación"
-}
+Arrancamos con la pestaña **"Quiero ser conferencista"** usando la playlist de Omar Villalobos que compartiste (15 videos). La pestaña **"Soy cliente"** queda lista estructuralmente pero vacía hasta que envíes su playlist. Después iremos agregando más playlists conforme las mandes.
+
+## Qué se construye
+
+1. **Nueva data source** `src/data/coursePosts.ts`
+   - Interfaz `CoursePost { slug, category: 'cliente' | 'conferencista', speakerId, youtubeId, title, description, publishedAt }`.
+   - Sembrado con los 15 videos de Omar Villalobos en categoría `conferencista`.
+
+2. **Nueva ruta dinámica** `/cursos/:slug` → `src/pages/CoursePost.tsx`
+   - Reproductor embebido de YouTube, título, descripción, CTA de cotización (`QuoteWizard`), videos relacionados de la misma categoría, y SEO con `VideoObject` JSON-LD.
+   - Registrada en `src/App.tsx` antes del catch-all.
+
+3. **Refactor de `/cursos`** (`src/pages/Cursos.tsx` + `src/components/cursos/CoursesTabs.tsx`)
+   - Reemplazar el contenido actual estático de cursos por un grid de tarjetas de video (thumbnail de YouTube + título + speaker) filtradas por la pestaña activa (`cliente` / `conferencista`).
+   - Buscador simple por título (como en el Blog).
+   - Cada tarjeta linkea a `/cursos/:slug`.
+   - Se conservan `CursosHero`, `SoyConferencistaSection` y `CursosCta`.
+   - Se elimina el flujo de registro/gate premium (`CourseRegistrationDialog`, `useCourseRegistration`, confetti) de esta sección para que la experiencia sea la misma del blog: acceso directo al video. `/cursos-premium` no se toca.
+
+4. **SEO**
+   - Agregar las 15 URLs `/cursos/omar-villalobos-...` a `public/sitemap.xml`.
+   - `<Helmet>` por post con canonical y OG únicos.
+
+## Detalles técnicos
+
+- Slug: `omar-villalobos-<slug-del-titulo>` (kebab-case, sin acentos, truncado ~60 chars) — mismo esquema del blog.
+- Los componentes actuales de "cursos premium" (`CursosPremium.tsx`, `premium/*`, `courseCategories.ts`) **no** se modifican.
+- Descripciones: para arrancar uso los títulos como descripción corta; podemos enriquecerlas después si quieres.
+
+## Diagrama
+
+```text
+/cursos
+ ├── Hero
+ ├── Tabs [Soy cliente | Quiero ser conferencista]
+ │     └── Grid de VideoPostCard (filtrado por categoría)
+ │           └── click → /cursos/:slug
+ ├── SoyConferencistaSection
+ └── CursosCta
 ```
 
-10 posts iniciales de Omar Villalobos, obteniendo títulos y IDs desde la playlist `PLaM11WLrfXP1r_ylcd6hEVt8qLwORQh1T` vía scraping público (sin API key).
+## Pregunta abierta (no bloqueante)
 
-### Cambios de rutas
-
-- `/blog` → grid de tarjetas de video (thumbnail de YouTube + título + speaker + categoría). Mantener el buscador existente y agregar filtro por speaker.
-- `/blog/:slug` → **nueva página** con:
-  - Video de YouTube embebido (responsive 16:9)
-  - Título, fecha, categoría, badge del speaker
-  - Descripción
-  - Link al perfil del speaker (`/speaker/omar-villalobos`)
-  - Botón "Contratar a este speaker" que abre `QuoteWizard`
-  - Sección "Más videos de [Speaker]" con 3 posts relacionados
-  - Helmet con title/description/canonical/OG únicos
-
-### Archivos a tocar
-
-- **Nuevo:** `src/data/blogPosts.ts` — datos de los 10 posts
-- **Nuevo:** `src/pages/BlogPost.tsx` — página de detalle
-- **Modificar:** `src/pages/Blog.tsx` — reemplazar contenido actual por grid de videos con filtro por speaker
-- **Modificar:** `src/App.tsx` — agregar ruta `/blog/:slug`
-- **Modificar:** `public/sitemap.xml` — agregar las 10 URLs de blog posts
-
-### SEO
-
-- Cada post: title `<60 chars`, description `<160 chars`, canonical, OG tags, JSON-LD `VideoObject` con thumbnail, embedUrl y uploadDate.
-
-### Fase 2 (después de aprobar)
-
-Cuando envíes los canales de los otros speakers, agrego más posts a `blogPosts.ts` reutilizando el mismo sistema — sin cambios de código.
-
-### Nota
-
-Voy a extraer los títulos reales de la playlist de YouTube al implementar. Si algún video no tiene descripción clara, escribo una breve basada en el título.
+La pestaña "Soy cliente" quedará vacía hasta que me pases su playlist. ¿La dejo con un placeholder ("Próximamente") o la oculto por ahora?
