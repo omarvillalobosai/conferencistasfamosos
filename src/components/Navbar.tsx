@@ -40,7 +40,7 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto flex justify-between items-center">
-          <NavLogo />
+          <NavLogo isScrolled={isScrolled} />
           
           {/* Desktop Navigation */}
           <DesktopNav onQuoteClick={handleQuoteClick} />
