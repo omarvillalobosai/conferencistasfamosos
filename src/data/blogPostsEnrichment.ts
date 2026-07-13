@@ -461,6 +461,44 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:11:23Z",
   },
+  "yordi-rosado-cuidar-de-un-hijo-es-un-privilegio": {
+    summary: "Yordi Rosado comparte una reflexión íntima que surgió tras una noche de insomnio provocada por el cuidado de su hijo menor. A pesar del cansancio físico de despertarse a mitad de la noche para aliviar un dolor de crecimiento, un simple agradecimiento de su hijo transformó su perspectiva. Lo que inicialmente parecía un sacrificio o una interrupción del descanso, se convirtió en una revelación sobre la importancia de estar presentes en los momentos vulnerables de nuestros hijos.\n\nEl mensaje central subraya que la crianza no debe verse como una carga pesada, sino como un privilegio exclusivo de influencia y protección. Rosado advierte que, si los padres no están disponibles para ofrecer consuelo, guía o auxilio en situaciones críticas como dudas sobre sexualidad o problemas con el alcohol, los hijos buscarán inevitablemente ese apoyo en fuentes externas que podrían no ser bienintencionadas. Estar ahí, incluso en el cansancio, es la mejor inversión emocional para el futuro de los hijos.",
+    keyPoints: [
+      "La crianza no es una carga pesada, sino el mayor privilegio que la vida otorga a un padre.",
+      "Los momentos de vulnerabilidad nocturna son oportunidades para fortalecer el vínculo emocional con los hijos.",
+      "Si un padre no está disponible para guiar, el hijo buscará la información o ayuda en personas externas.",
+      "El agradecimiento genuino de un hijo compensa cualquier sacrificio físico o falta de sueño.",
+      "Estar cerca físicamente permite reaccionar con prontitud ante cualquier emergencia o necesidad del hijo.",
+      "Las acciones sencillas de cuidado diario son las que dejan una huella imborrable en la memoria del niño.",
+      "Ser la primera referencia de consulta ante un problema es una posición de gran responsabilidad y valor.",
+    ],
+    quotes: [
+      "¡Qué privilegio que tú tengas la manera de estar cerca de ellos!",
+      "Muchas cosas se olvidan, pero jamás se olvidan de cuando estuviste ahí.",
+      "Si no eres tú el que lo rescata de un mal día... él va a buscar a alguien más que lo saque adelante o lo hunda más.",
+      "Qué privilegio poder ser yo al que hoy en la noche le pasó que le doliera la pierna y que yo pudiera ayudarlo.",
+      "Qué privilegio que mañana esté cansado en la chamba porque pude dejarle algo a mi hijo.",
+    ],
+    exercises: [
+      {
+        title: "Reencuadre del Cansancio",
+        description: "La próxima vez que debas interrumpir tu descanso por una necesidad de tu hijo, repite mentalmente que es un privilegio ser su puerto seguro en lugar de verlo como una carga.",
+      },
+      {
+        title: "Disponibilidad Proactiva",
+        description: "Dedica un momento del día para validar los sentimientos de tus hijos, asegurándoles que eres la primera persona a la que pueden acudir sin miedo al juicio.",
+      },
+      {
+        title: "Diario de Privilegios",
+        description: "Al finalizar el día, anota una situación cotidiana donde pudiste ayudar a tu hijo, reconociendo el valor de haber estado presente en ese momento específico.",
+      },
+      {
+        title: "Escucha de Emergencia",
+        description: "Cuando tu hijo te busque por una 'tontería', detén tus actividades y bríndale toda tu atención para consolidarte como su fuente confiable de información.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:11:31Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>

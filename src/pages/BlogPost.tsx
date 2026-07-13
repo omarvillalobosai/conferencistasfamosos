@@ -53,11 +53,11 @@ const BlogPost = () => {
     <>
       <Helmet>
         <title>{`${post.title} | ${post.speakerName}`}</title>
-        <meta name="description" content={post.description} />
+        <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="video.other" />
         <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.description} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={thumbnail} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
