@@ -20,7 +20,7 @@ const ValueProposition = () => {
       <div className="bg-white p-6 rounded-lg shadow-md">
         <Users className="text-orange-500 mb-4 h-10 w-10" />
         <h4 className="font-bold text-lg mb-2">Impacto</h4>
-        <p className="text-gray-600 text-sm">Más de 10 millones de vidas transformadas en eventos.</p>
+        <p className="text-gray-600 text-sm">Más de 1 millon de vidas transformadas en eventos.</p>
       </div>
     </div>
   );
