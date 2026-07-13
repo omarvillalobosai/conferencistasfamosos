@@ -8,42 +8,43 @@ import QuoteWizard from '@/components/QuoteWizard';
 
 type DesktopNavProps = {
   onQuoteClick: (e: React.MouseEvent) => void;
+  isScrolled?: boolean;
 };
 
-const DesktopNav = ({ onQuoteClick }: DesktopNavProps) => {
+const DesktopNav = ({ onQuoteClick, isScrolled = false }: DesktopNavProps) => {
   const [showSpeakersDropdown, setShowSpeakersDropdown] = useState(false);
   const [wizardOpen, setWizardOpen] = useState(false);
-  
+
   const handleQuoteClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setWizardOpen(true);
-    // Still call the original handler for any other behavior it might have
     onQuoteClick(e);
   };
-  
+
+  const linkClass = `font-medium hover:text-orange-500 transition-colors ${
+    isScrolled ? 'text-gray-700' : 'text-white drop-shadow-md'
+  }`;
+
   return (
     <>
       <nav className="hidden md:flex items-center space-x-8">
         {mainNavItems.map((item, index) => (
-          <Link 
-            key={index} 
-            to={item.path} 
-            className="font-medium text-gray-700 hover:text-orange-500 transition-colors"
-          >
+          <Link key={index} to={item.path} className={linkClass}>
             {item.title}
           </Link>
         ))}
-        
-        <SpeakersDropdown 
-          showDropdown={showSpeakersDropdown} 
-          setShowDropdown={setShowSpeakersDropdown} 
+
+        <SpeakersDropdown
+          showDropdown={showSpeakersDropdown}
+          setShowDropdown={setShowSpeakersDropdown}
+          isScrolled={isScrolled}
         />
-        
+
         <a href="#contacto" onClick={handleQuoteClick}>
-          <Button className="bg-orange-500 hover:bg-orange-600">Cotizar ahora</Button>
+          <Button className="bg-orange-500 hover:bg-orange-600 text-white">Cotizar ahora</Button>
         </a>
       </nav>
-      
+
       <QuoteWizard open={wizardOpen} onClose={() => setWizardOpen(false)} />
     </>
   );
