@@ -1,106 +1,49 @@
 ## Objetivo
 
-Crear una nueva página dedicada — `/management` — enfocada a conferencistas que buscan **management de carrera**: manejo profesional, difusión de contenido, alianzas y colaboraciones. Va dirigida tanto a **speakers establecidos** que quieren un partner que potencie su carrera, como a **speakers nuevos** que necesitan apoyo integral para arrancar y crecer.
+Enriquecer los posts del blog (`src/data/blogPosts.ts`) con contenido generado por IA a partir de la transcripción real de cada video de YouTube: resumen ejecutivo, puntos clave, frases memorables y ejercicios prácticos. Todo se genera una sola vez con un script y queda guardado como datos estáticos.
 
-Además, se enlaza desde la sección "Soy conferencista" en `/cursos` y desde el Navbar.
+## Cómo funcionará
 
-## Propuesta de contenido de la página
+1. **Ampliar el tipo `BlogPost`** con campos opcionales:
+   - `summary: string` (2-3 párrafos)
+   - `keyPoints: string[]` (5-7 bullets)
+   - `quotes: string[]` (3-5 frases)
+   - `exercises: { title: string; description: string }[]` (3-5)
+   - `aiGeneratedAt: string` para saber qué posts ya fueron procesados
 
-Landing profesional orientada a captar aplicaciones de speakers:
+2. **Script `scripts/enrich-blog-posts.ts`** (se corre localmente con `bun`, no en runtime):
+   - Recorre `blogPosts`.
+   - Para cada `youtubeId`, intenta descargar la transcripción automática con `youtube-transcript` (npm). Si no hay transcripción, marca el post como `skipped` y sigue.
+   - Envía la transcripción + título + speaker a Lovable AI Gateway (`google/gemini-3-flash-preview`) usando `generateText` con `Output.object` (schema sin bounds; límites en el prompt).
+   - Guarda el resultado directamente en `src/data/blogPosts.ts` regenerando el archivo con el nuevo contenido, respetando los posts que ya tienen `aiGeneratedAt` (idempotente, no regenera lo ya hecho salvo con flag `--force`).
+   - Delay entre requests para evitar rate limits (429) y manejo explícito de 402 (créditos).
 
-1. **Hero**
-   - Título: *"Management para conferencistas de habla hispana"*
-   - Subtítulo: *"Impulsamos tu carrera como speaker — ya sea que estés empezando o que quieras llegar al siguiente nivel."*
-   - CTA principal: "Postúlate ahora" → scroll al formulario.
-   - CTA secundario: WhatsApp.
+3. **Renderizar en `src/pages/BlogPost.tsx`**:
+   - Debajo del video y la descripción, si el post tiene `summary`, agregar secciones:
+     - "Resumen" (párrafos)
+     - "Puntos clave" (lista con checks)
+     - "Frases memorables" (blockquotes con estilo naranja)
+     - "Ejercicios para aplicar" (cards numeradas)
+   - Extender el JSON-LD `VideoObject` con `description` enriquecida para SEO.
+   - Los posts sin contenido IA siguen mostrándose igual que ahora (sin romper nada).
 
-2. **Para quién es** (2 columnas destacadas)
-   - **Speakers establecidos** → escalar bookings, expandir a nuevos mercados, contenido y alianzas estratégicas.
-   - **Speakers emergentes / nuevos** → construcción de carrera desde cero: posicionamiento, marca personal, primeras conferencias, mentoría.
+4. **Documentación breve en `README.md`** con cómo correr el script:
+   ```
+   LOVABLE_API_KEY=... bun run scripts/enrich-blog-posts.ts
+   bun run scripts/enrich-blog-posts.ts --only=daniel-habif-on-the-road-exma
+   bun run scripts/enrich-blog-posts.ts --force
+   ```
 
-3. **¿Qué incluye el management?** (grid de 6 tarjetas con iconos)
-   - Representación ante clientes corporativos.
-   - Estrategia de carrera y posicionamiento.
-   - Publicación de tu perfil y contenido en la plataforma.
-   - Difusión en blog, redes y newsletter.
-   - Alianzas con marcas y colaboraciones con otros speakers.
-   - Mentoría y formación (para speakers nuevos).
+## Detalles técnicos
 
-4. **Cómo trabajamos** (proceso en 4 pasos)
-   Aplicas → Evaluamos perfil → Diseñamos plan de management → Activamos tu carrera y contenido.
+- **Fuente de transcripción**: `youtube-transcript` (npm). Solo depende del ID público; si YouTube no expone subtítulos para ese video, se salta.
+- **Modelo**: `google/gemini-3-flash-preview` vía Lovable AI Gateway (default, económico y con contexto grande para transcripciones largas).
+- **Schema `Output.object`**: plano, todos los campos requeridos y `nullable()` cuando aplique; los límites de cantidad ("5-7 puntos") van en el prompt y se recortan en código.
+- **Dónde vive `LOVABLE_API_KEY`**: el script se corre en el sandbox de desarrollo donde ya está disponible; no se expone al cliente.
+- **Idempotencia**: el script sólo escribe posts nuevos o con `--force`; el resto se preserva byte a byte.
 
-5. **Modalidades de management** (3 tracks, sin precios)
-   - **Management integral** — gestión completa, exclusiva.
-   - **Management por proyecto** — colaboración caso por caso / por evento.
-   - **Programa Speaker Nuevo** — onboarding + mentoría + primeros bookings para speakers emergentes.
+## Alcance de esta iteración
 
-6. **Beneficios concretos** (bullets, con números placeholder que confirmarás luego).
-
-7. **Testimonios cortos** (placeholder — se llenan después).
-
-8. **Formulario de aplicación** — corazón de la página. Campos:
-   - Nombre completo
-   - Email
-   - WhatsApp
-   - País / ciudad
-   - Nivel de experiencia: *Emergente / En crecimiento / Establecido* (select)
-   - Años de experiencia
-   - Sitio web / redes principales (URL)
-   - Temas / especialidad
-   - Link a video de conferencia (YouTube)
-   - Modalidad de management de interés (checkboxes: integral / por proyecto / programa speaker nuevo / alianza de contenido)
-   - Mensaje libre (textarea)
-   - Envío → guarda en Supabase (`speaker_management_applications`) + toast de éxito.
-
-9. **FAQ corto** (4–6 preguntas: ¿tiene costo?, ¿tiempo de respuesta?, ¿acepto speakers sin experiencia?, ¿puedo mantener otros representantes?, etc.).
-
-10. **CTA final** con WhatsApp.
-
-## Backend (Supabase)
-
-Nueva tabla `public.speaker_management_applications`:
-
-- `id uuid pk`, `created_at timestamptz default now()`
-- `full_name text not null`, `email text not null`, `whatsapp text`, `country text`
-- `experience_level text` (`emergente` | `crecimiento` | `establecido`)
-- `experience_years text`
-- `website text`, `topics text`
-- `video_url text`
-- `management_types text[]`
-- `message text`
-- `status text default 'new'`
-
-Políticas RLS:
-- INSERT abierto a `anon` (formulario público).
-- SELECT solo con rol admin (reutiliza `has_role` + `user_roles`).
-- GRANTs: `INSERT` a `anon` y `authenticated`, `ALL` a `service_role`.
-
-## Cambios en código
-
-1. Crear `src/pages/SpeakerManagement.tsx`.
-2. Componentes bajo `src/components/management/`:
-   - `ManagementHero.tsx`
-   - `WhoIsItFor.tsx` (speakers establecidos vs emergentes)
-   - `WhatWeOffer.tsx`
-   - `HowWeWork.tsx`
-   - `ManagementTracks.tsx`
-   - `ManagementFAQ.tsx`
-   - `ManagementApplicationForm.tsx` (react-hook-form + zod, insert a Supabase).
-3. Ruta `/management` en `src/App.tsx` antes del catch-all.
-4. Enlaces:
-   - Botón "Ver todos los cursos" en `SoyConferencistaSection.tsx` → cambia a "Aplicar a Management" (a `/management`).
-   - Nuevo item **"Management"** en `mainNavItems` (`src/config/navigation.ts`).
-5. Agregar `/management` a `public/sitemap.xml` y a `public/llms.txt`.
-6. `<Helmet>` con título, meta description, canonical y OG únicos.
-
-## Diseño
-
-- Paleta actual: naranja / blanco / gris, tipografía Montserrat.
-- Hero con imagen o gradiente sutil naranja. Sin morados.
-- Cards con la misma estética del resto del sitio (bordes suaves, hover elevado).
-
-## Preguntas abiertas
-
-1. ¿Las aplicaciones deben notificarse también por correo/WhatsApp automáticamente (edge function), o basta con revisarlas desde Supabase?
-2. ¿Agrego "Management" al menú principal (Navbar) o solo desde la sección de conferencistas?
-3. Testimonios y beneficios numéricos: ¿placeholder o me pasas los reales antes?
+- Se ejecuta el script sobre los posts existentes (Omar, Yordi, Daniel, Gaby, Vilma, Elsa, César, Marisa).
+- No se agrega panel admin, ni tabla en Supabase, ni generación bajo demanda (queda para una fase futura si lo pides).
+- Los cursos (`coursePosts.ts`) quedan fuera de esta iteración; se puede replicar el mismo patrón después si te sirve.
