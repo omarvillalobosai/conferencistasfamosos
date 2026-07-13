@@ -19,8 +19,8 @@ const CallToActionSection: React.FC = () => {
           Cuéntanos sobre tu evento y te conectaremos con el conferencista perfecto en menos de 24 horas.
         </p>
         <WhatsAppButton
-          className="inline-block bg-orange-500 hover:bg-white text-white hover:text-black font-black uppercase tracking-widest px-12 py-6 text-base md:text-lg transition-all duration-500 shadow-[0_0_40px_rgba(249,115,22,0.4)] transform hover:-translate-y-1"
-          variant="outline"
+          size="lg"
+          className="h-auto bg-orange-500 hover:bg-white text-white hover:text-black font-black uppercase tracking-widest px-12 py-6 text-base md:text-lg transition-all duration-500 shadow-[0_0_40px_rgba(249,115,22,0.4)] transform hover:-translate-y-1"
         >
           Iniciar conversación
         </WhatsAppButton>
