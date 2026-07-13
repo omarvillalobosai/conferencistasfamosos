@@ -1,9 +1,10 @@
 import React from 'react';
-import { Check, Award, Users, Globe, PlayCircle } from 'lucide-react';
+import { Check, PlayCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { blogPosts } from '@/data/blogPosts';
 
 const achievements = [
   "Record Guinness por el abrazo más grande del mundo",
