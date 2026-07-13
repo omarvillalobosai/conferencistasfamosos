@@ -385,6 +385,44 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:11:08Z",
   },
+  "yordi-rosado-trabajo-mucho-culpable-con-mis-hijos": {
+    summary: "En esta charla, Yordi Rosado aborda uno de los sentimientos más comunes y retadores de la paternidad moderna: la culpa por las largas jornadas laborales. Rosado enfatiza que el trabajo no debe verse como un abandono, sino como una forma directa de proveer las necesidades básicas de los hijos, como hogar y sustento. El conferencista invita a los padres a transformar la percepción de la ausencia laboral en un acto de servicio y amor hacia la familia.\n\nLa clave para mitigar esta culpa reside en la transición del tiempo cuantitativo al tiempo de calidad. Rosado propone que es posible convertir 20 minutos de convivencia en el equivalente a varias horas si el padre se sumerge genuinamente en el mundo de sus hijos, realizando actividades que a ellos les apasionen en lugar de imponer sus propios gustos. La presencia emocional, el contacto visual y la escucha activa son los pilares para fortalecer el vínculo familiar a pesar de las limitaciones de agenda.\n\nFinalmente, el mensaje subraya la importancia de pequeños gestos diarios, como una llamada telefónica por la tarde, para mantener la conexión. El objetivo es que los hijos sientan que sus padres están presentes y pendientes de sus vidas, demostrando que 20 minutos bien invertidos y enfocados en sus intereses personales son mucho más valiosos que pasar horas físicamente cerca pero emocionalmente distantes.",
+    keyPoints: [
+      "El trabajo es una forma de cuidar a los hijos al cubrir sus necesidades básicas de techo, comida y vestido.",
+      "La calidad del tiempo es más impactante que la cantidad de horas pasadas en el mismo espacio.",
+      "Debemos interesarnos e involucrarnos en lo que a los hijos les gusta hacer, no en lo que nosotros queremos imponer.",
+      "Convertir 20 minutos en dos horas de valor requiere presencia plena, contacto visual y escucha atenta.",
+      "Una simple llamada telefónica diaria marca una diferencia profunda al hacer sentir al hijo que su padre está pendiente.",
+      "Es preferible tener poco tiempo bien aprovechado que estar presente físicamente pero distraído emocionalmente.",
+      "El adolescente valora más tomar sus propias decisiones que seguir consejos externos, por lo que la conexión debe ser empática.",
+    ],
+    quotes: [
+      "Ese tiempo también se lo estás dando a tus hijos, porque estás trabajando para que tengan casa, comida y vestido.",
+      "Podemos convertir 20 minutos en una hora, en dos o en tres haciendo lo que ellos tienen ganas de hacer.",
+      "20 minutos bien hechos son mucho más valiosos que tres horas mal hechas.",
+      "Mértete a su mundo: juega con él, platica con él, comenta con él lo que él ama hacer.",
+      "Esa llamada todos los días los hace sentir que estás ahí, que estás pendiente.",
+    ],
+    exercises: [
+      {
+        title: "Inmersión en su mundo",
+        description: "Dedica al menos 20 minutos a realizar una actividad que tu hijo elija (videojuegos, dibujo o música) sin intentar cambiar la dinámica o proponer otra cosa.",
+      },
+      {
+        title: "La llamada de conexión",
+        description: "Establece una alarma diaria para llamar a tus hijos por teléfono durante tu jornada laboral, simplemente para preguntarles cómo va su día y que sientan tu presencia.",
+      },
+      {
+        title: "Presencia visual activa",
+        description: "Cuando llegues a casa, deja el celular de lado y asegúrate de mirar a tus hijos directamente a los ojos mientras te cuentan sus anécdotas del día.",
+      },
+      {
+        title: "Cero imposiciones de descanso",
+        description: "Evita forzar a tus hijos a ver programas o películas solo porque tú quieres descansar; mejor acompáñalos en lo que ellos realmente disfrutan y hazlo con entusiasmo.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:11:17Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>

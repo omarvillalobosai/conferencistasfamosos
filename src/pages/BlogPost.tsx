@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Calendar, ArrowLeft, User, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowLeft, User, ArrowRight, CheckCircle2, Quote, Sparkles } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -13,6 +13,7 @@ import {
   getYoutubeThumbnail,
   formatBlogDate,
 } from '@/data/blogPosts';
+import { getPostEnrichment } from '@/data/blogPostsEnrichment';
 
 const BASE_URL = 'https://conferencistasfamosos.com';
 
