@@ -50,6 +50,9 @@ const Navbar = () => {
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-orange-500"
+              aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
