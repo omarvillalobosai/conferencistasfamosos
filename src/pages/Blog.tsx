@@ -64,6 +64,7 @@ const Blog = () => {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Buscar por speaker, tema o título..."
+                  aria-label="Buscar posts del blog por speaker, tema o título"
                   className="pl-10 pr-4 py-2 rounded-full border-gray-300"
                 />
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600 h-5 w-5" />
