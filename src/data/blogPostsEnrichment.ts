@@ -14,7 +14,46 @@ export interface BlogPostEnrichment {
   aiGeneratedAt: string;
 }
 
-export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {};
+export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
+  "omar-villalobos-liderazgo-omvlog-1": {
+    summary: "Omar Villalobos reactiva su canal de YouTube tras superar sus propias excusas y bloqueos mentales, impulsado por el deseo de ofrecer una voz constructiva frente a la saturación de contenido vacío en internet. El conferencista enfatiza que el desarrollo humano es el camino para convertirse en una mejor persona, destacando el autocontrol emocional y la responsabilidad personal como pilares fundamentales para alcanzar el éxito y la felicidad.\n\nA través de esta nueva serie, Villalobos propone transformar el liderazgo tradicional basado en el dolor por uno centrado en el refuerzo positivo y la programación lingüística consciente. Además, subraya la importancia de la lectura como herramienta para acceder al conocimiento de grandes mentores y líderes mundiales por un costo mínimo, invitando a su audiencia a tomar el control total de sus pensamientos y emociones para diseñar el futuro que desean.",
+    keyPoints: [
+      "Las historias que nos inventamos en la mente suelen ser el mayor obstáculo para iniciar proyectos importantes.",
+      "El desarrollo humano consiste en absorber conscientemente información que te convierta en una mejor persona cada día.",
+      "El autocontrol emocional es el valor más importante y la base para manejar el impacto de las circunstancias externas.",
+      "Los libros son una forma accesible de tener a los líderes más exitosos del mundo como mentores personales.",
+      "Motivar mediante el refuerzo positivo y el sarcasmo inteligente es más efectivo que utilizar la humillación o el grito.",
+      "La mente no distingue entre la realidad y la fantasía, por lo que visualizar el éxito es un paso real hacia su logro.",
+      "La felicidad y el sufrimiento son elecciones personales de las que cada individuo es enteramente responsable.",
+    ],
+    quotes: [
+      "Somos muy creativos para inventarnos historias para detenernos.",
+      "El valor más importante de los seres humanos es el autocontrol, el manejo de mi capacidad emocional.",
+      "A un ser humano se le motiva todo lo contrario al dolor; se utiliza el refuerzo y la programación positiva.",
+      "Tu mente no distingue diferencia entre realidad y fantasía, imagínate que vas a llegar al nivel que quieres.",
+      "Dejemos de hacer responsables a los demás de lo que nos pasa, hagámonos responsables a nosotros mismos.",
+    ],
+    exercises: [
+      {
+        title: "Programación Positiva Diaria",
+        description: "Identifica una cualidad que desees ver en otra persona y elógiala específicamente por esa virtud, incluso si aún no la domina por completo, para reforzar ese comportamiento.",
+      },
+      {
+        title: "Mentores de Papel",
+        description: "Elige a un líder o empresario que admires y consume su bibliografía diariamente durante 15 minutos para integrar sus patrones de pensamiento en tu toma de decisiones.",
+      },
+      {
+        title: "Visualización Creativa",
+        description: "Cierra los ojos y respira profundo mientras imaginas con detalles vívidos cómo has logrado tus metas más importantes en el próximo año.",
+      },
+      {
+        title: "Perdón Acelerado",
+        description: "Ante un conflicto, elige perdonar rápidamente en lugar de acumular rencor, asumiendo que tu paz emocional depende de tu reacción y no de la acción del otro.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:09:51Z",
+  },
+};
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
   blogPostsEnrichment[slug];
