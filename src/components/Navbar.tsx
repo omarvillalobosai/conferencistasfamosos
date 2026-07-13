@@ -43,7 +43,7 @@ const Navbar = () => {
           <NavLogo isScrolled={isScrolled} />
           
           {/* Desktop Navigation */}
-          <DesktopNav onQuoteClick={handleQuoteClick} />
+          <DesktopNav onQuoteClick={handleQuoteClick} isScrolled={isScrolled} />
           
           {/* Mobile Navigation Toggle */}
           <div className="md:hidden">
