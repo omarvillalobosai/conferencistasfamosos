@@ -30,6 +30,53 @@
     <meta name="twitter:description" content="Agencia representante de los mejores speakers de habla hispana." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1557425955-df376b5903c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" />
 
+    <!-- Structured data: Organization + LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://conferencistasfamosos.com/#organization",
+          "name": "ConferencistasFamosos.com",
+          "url": "https://conferencistasfamosos.com",
+          "email": "agencia@conferencistasfamosos.com",
+          "telephone": "+52 332 416 6849",
+          "sameAs": [
+            "https://www.facebook.com/conferencistasfamosos",
+            "https://www.instagram.com/conferencistasfamosos",
+            "https://twitter.com/conferencistasfamosos",
+            "https://www.linkedin.com/company/conferencistasfamosos",
+            "https://www.youtube.com/@conferencistasfamosos"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://conferencistasfamosos.com/#localbusiness",
+          "name": "ConferencistasFamosos.com",
+          "url": "https://conferencistasfamosos.com",
+          "image": "https://conferencistasfamosos.com/placeholder.svg",
+          "email": "agencia@conferencistasfamosos.com",
+          "telephone": "+52 332 416 6849",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ciudad de México",
+            "addressCountry": "MX"
+          },
+          "areaServed": "Latinoamérica"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://conferencistasfamosos.com/#website",
+          "url": "https://conferencistasfamosos.com",
+          "name": "ConferencistasFamosos.com",
+          "publisher": { "@id": "https://conferencistasfamosos.com/#organization" }
+        }
+      ]
+    }
+    </script>
+
     <!-- Font preloading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
