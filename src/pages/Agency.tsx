@@ -23,7 +23,7 @@ const Agency = () => {
         <meta property="og:url" content="https://conferencistasfamosos.com/agencia" />
       </Helmet>
       <Navbar />
-      <main className="pt-16">
+      <main className="bg-[#0a0a0a]">
         <AgencyHero />
         <AboutAgencySection />
         <ClientsSection />
@@ -34,6 +34,7 @@ const Agency = () => {
       </main>
       <Footer />
     </>
+
   );
 };
 

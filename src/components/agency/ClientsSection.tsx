@@ -1,18 +1,21 @@
-
 import React from 'react';
 import { ClientsSlider } from '@/components/ClientsSlider';
 
 const ClientsSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-4">Empresas que confían en nosotros</h2>
-          <p className="text-lg text-gray-700">
-            Las empresas e instituciones más importantes de Latinoamérica han confiado en nuestros conferencistas
+    <section className="py-24 bg-[#070707] border-y border-neutral-900">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <p className="text-orange-500 uppercase tracking-[0.4em] text-xs font-bold mb-4">
+            En cartelera
           </p>
+          <h2 className="text-3xl md:text-4xl font-black uppercase text-white tracking-tighter">
+            Marcas que confían en <span className="text-orange-500">nuestra visión</span>
+          </h2>
         </div>
-        <ClientsSlider />
+        <div className="grayscale invert opacity-70 hover:opacity-100 transition-opacity duration-500">
+          <ClientsSlider />
+        </div>
       </div>
     </section>
   );

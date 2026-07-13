@@ -1,106 +1,64 @@
-
 import React from 'react';
-import { MessageSquare } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+const faqs = [
+  {
+    q: '¿Por qué contratar un conferencista a través de su agencia?',
+    a: 'Obtienes un servicio integral: asesoría personalizada, selección del conferencista ideal, gestión logística completa y garantía de satisfacción. Nos enfocamos en el ROI real de tu evento.',
+  },
+  {
+    q: '¿Cómo aseguran que el conferencista sea el adecuado?',
+    a: 'Analizamos objetivos, perfil de audiencia y resultados esperados. Recomendamos únicamente conferencistas con experiencia comprobada en contextos similares.',
+  },
+  {
+    q: '¿Qué incluye el servicio de contratación?',
+    a: 'Asesoría en selección, coordinación de agenda, gestión de contratos, requisitos técnicos, traslados y hospedaje, material promocional y seguimiento post-evento. Solución llave en mano.',
+  },
+  {
+    q: '¿Cómo garantizan el éxito de la conferencia?',
+    a: 'Con nuestro proceso de 4 pasos: diagnóstico, selección, preparación personalizada del contenido y medición post-evento. Respaldado personalmente por nuestro CEO.',
+  },
+  {
+    q: '¿Trabajan con conferencistas internacionales?',
+    a: 'Sí. Contamos con red global en múltiples idiomas y gestionamos toda la logística internacional: traslados, visas, hospedaje y requisitos técnicos.',
+  },
+  {
+    q: '¿Cómo miden el retorno de inversión del evento?',
+    a: 'Definimos KPIs relevantes antes del evento: encuestas pre/post, cambios comportamentales, métricas de productividad, leads y conversiones según el caso.',
+  },
+  {
+    q: '¿Ofrecen precios para contrataciones múltiples?',
+    a: 'Sí. Diseñamos paquetes corporativos con beneficios económicos y seguimiento integral para programas continuos de capacitación.',
+  },
+];
 
 const FaqSection: React.FC = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center mb-4">
-            <MessageSquare className="text-orange-500 mr-3" size={32} />
-            <h2 className="text-3xl font-bold">Preguntas Frecuentes</h2>
-          </div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Resolvemos tus dudas sobre nuestra agencia y el proceso de contratación de conferencistas
-          </p>
+    <section className="py-32 bg-[#050505] text-white">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <span className="text-orange-500 uppercase tracking-[0.4em] text-xs font-bold">Créditos finales</span>
+          <h2 className="text-4xl md:text-5xl font-black uppercase mt-4 tracking-tighter">
+            Consultas <span className="text-orange-500">frecuentes</span>
+          </h2>
         </div>
-        
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left">
-                ¿Por qué debería contratar un conferencista a través de su agencia?
+
+        <Accordion type="single" collapsible className="w-full space-y-2">
+          {faqs.map((item, i) => (
+            <AccordionItem
+              key={i}
+              value={`item-${i}`}
+              className="border-b border-neutral-800 border-t-0"
+            >
+              <AccordionTrigger className="text-left font-bold uppercase text-sm tracking-widest text-white hover:text-orange-500 hover:no-underline py-6">
+                {item.q}
               </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
-                Contratando a través de Conferencistas Famosos obtienes un servicio integral que incluye asesoría personalizada,
-                selección del conferencista ideal para tu evento, gestión logística completa y garantía de satisfacción.
-                Además, nos enfocamos en el ROI de tu evento, asegurándonos que la inversión realizada genere resultados tangibles para tu organización.
+              <AccordionContent className="text-gray-400 leading-relaxed pb-6">
+                {item.a}
               </AccordionContent>
             </AccordionItem>
-            
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left">
-                ¿Cómo aseguran que el conferencista seleccionado sea el adecuado para mi evento?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
-                Realizamos un análisis detallado de las necesidades específicas de tu evento, incluyendo objetivos, 
-                perfil de la audiencia y resultados esperados. Con esta información, recomendamos únicamente conferencistas 
-                que tienen experiencia comprobada generando impacto en contextos similares, asegurando así la mejor elección para tus objetivos.
-              </AccordionContent>
-            </AccordionItem>
-            
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left">
-                ¿Qué incluye su servicio de contratación de conferencistas?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
-                Nuestro servicio incluye asesoría completa en la selección del conferencista, coordinación de agenda,
-                gestión de contratos, requisitos técnicos, traslados y hospedaje cuando corresponda, material promocional
-                para tu evento, y seguimiento post-evento para evaluar resultados y satisfacción. Ofrecemos una solución llave en mano.
-              </AccordionContent>
-            </AccordionItem>
-            
-            <AccordionItem value="item-4">
-              <AccordionTrigger className="text-left">
-                ¿Cómo garantizan el éxito de la conferencia?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
-                Garantizamos el éxito a través de nuestro proceso de cuatro pasos: 1) Diagnóstico detallado de necesidades,
-                2) Selección del conferencista con la experiencia y enfoque adecuados, 3) Preparación personalizada del contenido
-                en colaboración con el cliente, y 4) Medición de resultados post-evento para asegurar que se cumplieron los objetivos propuestos.
-                Además, ofrecemos una garantía de satisfacción respaldada personalmente por nuestro CEO.
-              </AccordionContent>
-            </AccordionItem>
-            
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left">
-                ¿Trabajan con conferencistas internacionales?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
-                Sí, contamos con una red global de conferencistas de primer nivel en múltiples idiomas.
-                Gestionamos todos los aspectos logísticos incluyendo traslados internacionales, visas de trabajo cuando son necesarias,
-                hospedaje y requisitos técnicos específicos. Nuestra experiencia internacional asegura una coordinación perfecta
-                sin importar el origen del conferencista o la ubicación del evento.
-              </AccordionContent>
-            </AccordionItem>
-            
-            <AccordionItem value="item-6">
-              <AccordionTrigger className="text-left">
-                ¿Cómo miden el retorno de inversión de un evento con conferencistas?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
-                Implementamos diversas metodologías de medición según los objetivos específicos del evento:
-                para eventos corporativos utilizamos encuestas pre y post evento, evaluación de cambios comportamentales,
-                métricas de desempeño y productividad. Para eventos comerciales, medimos leads generados, conversiones y ventas.
-                Trabajamos con cada cliente para establecer KPIs relevantes y medibles antes del evento.
-              </AccordionContent>
-            </AccordionItem>
-            
-            <AccordionItem value="item-7">
-              <AccordionTrigger className="text-left">
-                ¿Ofrecen precios especiales para contrataciones múltiples o programas continuos?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
-                Sí, diseñamos paquetes personalizados para organizaciones que requieren múltiples conferencistas o
-                programas continuos de capacitación. Estos paquetes no solo ofrecen beneficios económicos, sino también
-                una mayor coherencia en los contenidos, seguimiento más efectivo y un acompañamiento integral que potencia
-                los resultados a largo plazo. Consultanos sobre nuestros paquetes corporativos.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
