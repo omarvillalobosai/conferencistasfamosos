@@ -45,6 +45,8 @@ const HeroSection = () => {
           alt="Conferencista influyente de Latinoamérica frente a una audiencia masiva"
           width={1920}
           height={1080}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
         {/* Dark overlay for legibility */}
