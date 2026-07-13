@@ -3,7 +3,6 @@ import { Check, PlayCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { blogPosts } from '@/data/blogPosts';
 
 const achievements = [
