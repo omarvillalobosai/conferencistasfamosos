@@ -71,8 +71,10 @@ const SpeakersDropdown = ({
   // Desktop dropdown
   return (
     <div className="relative group">
-      <button 
-        className="font-medium text-gray-700 hover:text-orange-500 transition-colors flex items-center"
+      <button
+        className={`font-medium hover:text-orange-500 transition-colors flex items-center ${
+          isScrolled ? 'text-gray-700' : 'text-white drop-shadow-md'
+        }`}
         onClick={() => setShowDropdown(!showDropdown)}
         onMouseEnter={() => setShowDropdown(true)}
         onMouseLeave={() => setShowDropdown(false)}
