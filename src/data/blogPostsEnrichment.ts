@@ -53,6 +53,301 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:09:51Z",
   },
+  "omar-villalobos-secreto-vivir-feliz-en-pareja": {
+    summary: "En esta sesión, Omar Villalobos explora la intersección entre la bioenergética, el manejo de las emociones y la psicología práctica aplicada a las relaciones. El conferencista explica cómo el movimiento físico influye directamente en el pensamiento y el bienestar emocional, enfatizando que el afecto físico es un nutriente esencial para el alma y la salud mental, especialmente dentro de la pareja. Su mensaje desafía las nociones tradicionales sobre el ego, proponiendo un 'egoísmo inteligente' como base de la armonía social y familiar.\n\nEl núcleo de su discurso se centra en la reciprocidad y la autorresponsabilidad. Villalobos sostiene que cuidarse a uno mismo implica, necesariamente, cuidar a los demás; si tratas bien a tu entorno, recibes bienestar de vuelta. Finalmente, ofrece una clave espiritual y práctica para la convivencia: el perdón preventivo y sin condiciones. Al perdonar el futuro, se libera a la pareja de las limitaciones del rencor, permitiendo una conexión más profunda y libre basada en el afecto constante y la comprensión de las diferencias psicológicas entre géneros.",
+    keyPoints: [
+      "La bioenergética conecta el movimiento del cuerpo con la gestión de las emociones y la claridad del pensamiento.",
+      "El cuerpo emocional necesita nutrirse diariamente a través del afecto y el contacto físico sin connotaciones negativas.",
+      "Existe una solución espiritual para cada problema humano si aprendemos a cambiar nuestra perspectiva mental.",
+      "El egoísmo inteligente consiste en cuidar a los demás para garantizar nuestro propio bienestar y paz mental.",
+      "La agresión hacia la pareja siempre tiene un retorno negativo, por lo que el buen trato es una inversión personal.",
+      "Las mujeres poseen una estructura cerebral con mayor memoria emocional que requiere una comunicación más hábil por parte del hombre.",
+      "El secreto para la felicidad en pareja es perdonar incondicionalmente, incluso los errores que aún no han sucedido.",
+    ],
+    quotes: [
+      "Soy tan egoísta que no agredo a nadie porque me van a agredir de vuelta y, como me quiero tanto, no me chingo a nadie.",
+      "El afecto es alimento para nuestro alma, para nuestro espíritu y para el cuerpo emocional.",
+      "Si eres inteligente y eres egoísta, te vas a cuidar a ti cuidando a los que están a tu alrededor.",
+      "¿Quién quiere el secreto para ser feliz y vivir eternamente enamorado de su pareja? Perdónale hoy el futuro.",
+      "Cuando perdono con condición se llama conveniencia; en el amor, no ponga condiciones.",
+    ],
+    exercises: [
+      {
+        title: "Sacudida Bioenergética",
+        description: "Realiza movimientos enérgicos con las manos y el cuerpo mientras repites en voz alta frases para liberar el miedo y las emociones negativas acumuladas.",
+      },
+      {
+        title: "Dieta de Afecto Diario",
+        description: "Practica el contacto físico no sexual, como palmadas o caricias, para nutrir el cuerpo emocional de tu pareja y seres queridos.",
+      },
+      {
+        title: "Práctica de Egoísmo Inteligente",
+        description: "Antes de reaccionar con ira, detente y elige tratar bien a la otra persona pensando exclusivamente en el beneficio y la paz que recibirás tú de vuelta.",
+      },
+      {
+        title: "Perdón al Futuro",
+        description: "Toma la decisión consciente de perdonar a tu pareja por cualquier error futuro, eliminando las condiciones y los reproches preventivos en la relación.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:06Z",
+  },
+  "omar-villalobos-ser-mejor-aunque-duela": {
+    summary: "En este video grabado desde la histórica Ciudad de Antigua Guatemala, Omar Villalobos reflexiona sobre la maestría personal y profesional a través de las anécdotas de un barbero local con 48 años de experiencia. El mensaje central se enfoca en que la excelencia no es un golpe de suerte, sino el resultado de la práctica deliberada y la repetición constante, tal como sucede con las figuras más exitosas del mundo en el deporte y la tecnología.",
+    keyPoints: [
+      "La maestría se alcanza a través de la práctica incesante y el paso del tiempo.",
+      "El talento se perfecciona cuando se repite la misma actividad durante décadas.",
+      "El éxito de los grandes líderes y atletas comparte el mismo patrón de práctica disciplinada.",
+      "Es fundamental eliminar las excusas y los pretextos para obtener resultados reales.",
+      "La práctica debe realizarse incluso en el tiempo libre para evitar errores frente a los clientes.",
+      "Existe un compromiso necesario de querer ser mejor cada día, aunque el proceso resulte doloroso.",
+      "El crecimiento personal abarca todas las áreas: el alma, el espíritu, el corazón y las habilidades técnicas.",
+    ],
+    quotes: [
+      "¿Cómo me vuelvo bueno en algo? Practicando, güey.",
+      "Deja de poner pretextos: o tienes excusas o tienes resultados.",
+      "El alma, el espíritu, el corazón, a mí todo me crece rápido.",
+      "Prometo ser mejor, aunque me duela.",
+    ],
+    exercises: [
+      {
+        title: "Simulación en casa",
+        description: "Practica tus cierres de venta o presentaciones con un familiar o frente al espejo para pulir tu técnica antes de enfrentar a un cliente real.",
+      },
+      {
+        title: "Eliminación de pretextos",
+        description: "Haz una lista de las tres excusas que más usas para no avanzar y reemplázalas hoy mismo por una acción de práctica directa.",
+      },
+      {
+        title: "Entrenamiento en tiempo libre",
+        description: "Dedica al menos 30 minutos de tu tiempo personal a estudiar o repasar los sistemas y procesos que actualmente te generan dificultad.",
+      },
+      {
+        title: "El reto de la repetición",
+        description: "Elige una sola habilidad y ejecútala repetidamente hasta que logres hacerla 'a pulso' y con la precisión de un experto.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:13Z",
+  },
+  "omar-villalobos-una-noche-antes-del-record-guinness": {
+    summary: "Este post documenta los momentos previos al histórico Récord Guinness del abrazo grupal más grande del mundo en Ayacucho, Perú, liderado por el conferencista motivacional Omar Villalobos. El relato comienza destacando la faceta humana de Villalobos, su conexión con su familia y el significado profundo detrás de los nombres de sus seis hijos, subrayando que su misión principal es hacer del mundo un lugar más feliz a través del amor y la inspiración positiva. La narrativa refleja el impacto inmediato de sus conferencias en el público peruano, quienes manifiestan un cambio de mentalidad hacia el optimismo y la seguridad personal.\n\nEl video también muestra la efervescencia cultural y social en Lima y Ayacucho, donde la comunidad se une bajo el pretexto de un abrazo para reivindicar su espíritu colectivo. Más allá del evento masivo y los preparativos técnicos, la obra resalta el oficio del conferencista como un viajero incansable que documenta la vida, celebrando el afecto como una fuerza revolucionaria. La jornada culmina con una invitación a la acción inmediata: utilizar el abrazo no solo como un récord, sino como una herramienta de conexión humana auténtica en la vida cotidiana.",
+    keyPoints: [
+      "La esencia del conferencista es ser un ser humano cuyo propósito es hacer del mundo un lugar más feliz.",
+      "El éxito y la motivación comienzan con la decisión personal de adoptar una mentalidad positiva ante la vida.",
+      "La familia y el afecto personal son los pilares que inspiran la trayectoria profesional y espiritual.",
+      "Un evento de Récord Guinness sirve como pretexto ideológico para unir a una comunidad y celebrar la identidad.",
+      "El afecto auténtico es una fuerza poderosa capaz de generar cambios inmediatos en el estado de ánimo de las personas.",
+      "Documentar y compartir las experiencias de vida permite preservar momentos de alegría total y aprendizaje constante.",
+    ],
+    quotes: [
+      "Omar es por encima de todo un ser humano que se propuso hacer de este mundo un lugar más feliz.",
+      "Por el amor de luchar por lo que queremos, felicidades a todos.",
+      "A veces se necesitan de pretextos ideológicos para celebrar, a veces es solo atreverse a creer en algo.",
+      "Dale cariño auténtico a alguien y solo allí encontrarás la respuesta.",
+      "¿Por qué tanto alboroto por un abrazo? Inténtalo ahora mismo.",
+    ],
+    exercises: [
+      {
+        title: "El abrazo consciente",
+        description: "Busca a una persona de tu entorno cercano hoy mismo y bríndale un abrazo auténtico de al menos seis segundos para experimentar la conexión real.",
+      },
+      {
+        title: "Reencuadre positivo diario",
+        description: "Al salir de una actividad o reunión, identifica un pensamiento positivo sobre ti mismo que haya cambiado tras esa interacción, tal como lo hicieron los asistentes en Lima.",
+      },
+      {
+        title: "Legado con significado",
+        description: "Escribe el origen o el propósito de tus proyectos o relaciones actuales, buscando una raíz profunda y personal similar a la inspiración de los nombres de los hijos de Omar.",
+      },
+      {
+        title: "Diario de momentos inolvidables",
+        description: "Documenta mediante fotos o texto una pequeña victoria del día para entrenar tu mente en la apreciación de las 'alegrías totales' del presente.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:21Z",
+  },
+  "omar-villalobos-autoestima-de-rockstar": {
+    summary: "En esta conferencia desde Los Ángeles, Omar Villalobos explora la esencia de la autoestima, definiéndola como un autoconcepto que trasciende la riqueza, el estatus social o la preparación académica. A través de una anécdota personal sobre un encuentro con un niño en Argentina, el ponente ilustra que la verdadera valoración personal radica en la capacidad de establecer límites y no aceptar migajas, demostrando que el respeto propio es una decisión interna y no una consecuencia de las circunstancias externas.\n\nEl mensaje central se enfoca en tres pilares para alcanzar el éxito y la libertad personal: el liderazgo basado en la valentía, el entrenamiento continuo de la mente y la capacidad de perdonar a quienes critican o intentan obstaculizar nuestros sueños. Villalobos hace un llamado a la acción para que cada individuo asuma la responsabilidad de su propio valor, invitando a la audiencia a romper sus propios límites físicos y mentales para recibir el futuro con determinación.",
+    keyPoints: [
+      "La autoestima no depende de la riqueza ni del nivel sociocultural, sino de la definición que uno tiene de sí mismo.",
+      "Tener una autoestima sólida implica no aceptar las sobras o migajas que otros intentan ofrecerte.",
+      "El liderazgo personal requiere el coraje de avanzar a pesar de las críticas y las ofensas de los demás.",
+      "La capacidad de perdonar es fundamental para evitar que las opiniones ajenas roben tus sueños e ideas.",
+      "Invertir tiempo y dinero en entrenar la mente es esencial para enfrentar los retos del mundo exterior.",
+      "Debes ser capaz de aceptarte con virtudes y defectos, entendiendo que no siempre le caerás bien a todo el mundo.",
+      "El tiempo es la moneda de cambio más valiosa para disfrutar de los pequeños detalles de la vida.",
+    ],
+    quotes: [
+      "Autoestima significa amarme a mí, quererme a mí, disfrutarme a mí por lo que soy.",
+      "Si me vas a dar algo no me des las sobras, dame algo de verdad.",
+      "Nada ni nadie me roba mis sueños.",
+      "Autoestima es la capacidad de autodefinirse; no es por culpa de tu papá, ni de tu mamá, ni de Dios, se llama autoestima.",
+      "Gasta parte de lo que ganas y méteselo a tu cerebro para que esté más preparado ante cada situación.",
+    ],
+    exercises: [
+      {
+        title: "Filtro de merecimiento",
+        description: "Ante cualquier oferta o situación, pregúntate si estás aceptando 'sobras' o algo que realmente valoras, practicando decir 'no' a lo que no cumple con tu estándar personal.",
+      },
+      {
+        title: "Blindaje de sueños",
+        description: "Identifica una crítica reciente que haya afectado tu motivación y practica el perdón consciente hacia esa persona para liberar el peso emocional.",
+      },
+      {
+        title: "Inversión en conocimiento",
+        description: "Destina un pequeño porcentaje de tus ingresos mensuales exclusivamente para comprar libros o cursos que mejoren tus habilidades mentales y profesionales.",
+      },
+      {
+        title: "Afirmación de identidad",
+        description: "Repite diariamente frente al espejo: 'Yo soy fuerte, yo soy libre, yo soy nada y si tú no me amas, yo me amaré', reforzando tu autoconcepto.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:28Z",
+  },
+  "omar-villalobos-entrevista-feria-del-libro": {
+    summary: "Omar Villalobos presenta su visión sobre el potencial humano y la capacidad de las personas para convertirse en su mejor versión, utilizando como base su libro 'Ser chingón sin ir a Harvard'. Durante la entrevista en la Feria del Libro, explica que el éxito no depende únicamente de la formación académica formal, sino de identificar patrones de conducta positivos, alcanzar metas por amor propio y entender la dualidad del cerebro humano, el cual opera principalmente bajo los principios de dolor y placer.\n\nEl conferencista destaca la importancia de renovarse constantemente para no quedar obsoletos, comparando la energía humana con la carga de un celular. Villalobos comparte sus métodos personales de actualización a través de la literatura, el cine y la interacción directa con el público en eventos en vivo, subrayando que el futuro no es algo predeterminado, sino una creación que se inventa en el presente mediante las decisiones y acciones que tomamos hoy.",
+    keyPoints: [
+      "La capacidad de alcanzar metas propias con esfuerzo personal es lo que define a una persona exitosa o 'chingona'.",
+      "El cerebro funciona bajo un sistema binario de dolor y placer, asociando experiencias según estos dos estímulos.",
+      "El futuro no existe por sí mismo; es una invención que cada persona construye a partir del día de hoy.",
+      "Para mantenerse actualizado, es fundamental consumir literatura, analizar el talento en el cine y vivir nuevas experiencias.",
+      "Las personas necesitan recargar su energía emocional, de forma similar a como se carga la batería de un dispositivo móvil.",
+      "La interacción en eventos en vivo genera una magia emocional y terapéutica que no se puede replicar totalmente a través de una pantalla.",
+      "Transmitir motivación y esperanza es un proceso de intercambio emocional donde el conferencista absorbe y alimenta la energía del público.",
+    ],
+    quotes: [
+      "Tu futuro no existe y el futuro tú lo puedes inventar hoy.",
+      "Me dedico a crear en un escenario una emoción psicológica, una emoción terapéutica de alegría, de motivación, de paz y de esperanza.",
+      "Yo busco enseñanzas de películas y también ahí me actualizo.",
+      "El público te alimenta... quiero que el escenario me tiña las canas.",
+      "El cerebro tiene dos vías: el dolor y el placer, punto.",
+    ],
+    exercises: [
+      {
+        title: "Inventa tu mañana",
+        description: "Dedica diez minutos hoy a escribir una acción específica que rompa con tu pasado y defina el nuevo futuro que deseas construir.",
+      },
+      {
+        title: "Carga de batería emocional",
+        description: "Identifica una actividad que te genere 'placer terapéutico' (como leer o ir al cine) y realízala esta semana para recargar tu energía.",
+      },
+      {
+        title: "Análisis de patrones",
+        description: "Observa a una persona que admires y anota tres comportamientos recurrentes que la hacen exitosa para intentar replicarlos en tu vida.",
+      },
+      {
+        title: "Práctica de presencia",
+        description: "Realiza el ejercicio de respiración profunda y movimiento de manos mencionado en el video mientras afirmas en voz alta que te sientes bien y a gusto.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:36Z",
+  },
+  "omar-villalobos-verdadero-poder-pachuca": {
+    summary: "En esta vibrante conferencia desde Pachuca, Hidalgo, Omar Villalobos nos invita a cuestionar nuestra percepción convencional sobre el poder y el liderazgo. A través de dinámicas energéticas y anécdotas personales, el ponente resalta que la verdadera fuerza no reside en la capacidad de agredir o dominar a los demás, sino en la nobleza de espíritu y en el control de nuestras propias reacciones impulsivas frente a la adversidad.\n\nEl núcleo del mensaje se centra en el perdón como la herramienta más liberadora del ser humano. Utilizando la historia de su hijo, un joven cinta negra que elige la compasión sobre la violencia al enfrentar a un bully, Villalobos demuestra que el mayor acto de heroísmo es saber detener una agresión con bondad. La conferencia concluye con un llamado urgente a abandonar el rencor acumulado durante años para alcanzar una vida auténtica y feliz.",
+    keyPoints: [
+      "La verdadera fuerza personal no se manifiesta a través de la violencia física o verbal, sino a través del autocontrol.",
+      "El rencor actúa como una carga innecesaria que nos roba libertad y felicidad durante años.",
+      "El perdón no debe ser un proceso lento; la clave para la plenitud es perdonar de manera rápida y constante.",
+      "Tener la capacidad técnica o física para dañar a otros nos da la responsabilidad de elegir el camino de la paz.",
+      "El heroísmo moderno consiste en convertir conflictos potenciales en oportunidades de amistad y reconciliación.",
+      "Vivir de forma auténtica requiere liberarse de las ofensas pasadas para poder disfrutar el presente.",
+      "La nobleza de corazón suele ser la guía más confiable para tomar decisiones en momentos de crisis.",
+    ],
+    quotes: [
+      "Perdona rápido. Entre más rápido perdones más libre eres y más auténtico vives.",
+      "Eso no te hace ser superhéroe, te hace ser un animal que descarga testosterona; perdonar es lo que te hace chingón.",
+      "Tú eres mejor ser humano que yo, haz lo que te nace de tu corazón porque eres más noble y más bueno.",
+      "¿Quién te enseñó a guardar coraje por un año, cinco o diez años? Ya perdónalo.",
+      "La verdadera oportunidad es demostrar por qué eres un maestro del perdón cuando alguien te ataca.",
+    ],
+    exercises: [
+      {
+        title: "Dinámica de Afirmación y Contacto",
+        description: "Choca las manos con fuerza con las personas a tu alrededor y repite frases de autoafirmación positiva para elevar tu energía vital.",
+      },
+      {
+        title: "Análisis de Reacción 'Dalay'",
+        description: "Ante una provocación, detente y analiza tus opciones. Elige conscientemente la respuesta que evite el conflicto, priorizando el perdón sobre la revancha.",
+      },
+      {
+        title: "Auditoría de Rencores",
+        description: "Haz una lista de personas a las que guardas rencor desde hace tiempo y decide perdonarlas hoy mismo para recuperar tu libertad emocional.",
+      },
+      {
+        title: "El Reto del Perdón Rápido",
+        description: "Cuando alguien te ofenda, practica perdonar en menos de cinco minutos en lugar de rumiar la ofensa durante todo el día.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:43Z",
+  },
+  "omar-villalobos-eterno-viaje-cochabamba": {
+    summary: "En este episodio de su videoblog, Omar Villalobos documenta la travesía física y mental que implica llevar su mensaje de transformación a distintas latitudes, específicamente en su viaje hacia Cochabamba, Bolivia. A través de largas escalas en Panamá y traslados que superan las 30 horas, el conferencista ilustra cómo el propósito profesional trasciende el cansancio físico, convirtiendo la espera y el trayecto en una oportunidad para la observación y el disfrute del entorno.",
+    keyPoints: [
+      "El compromiso con una misión personal requiere paciencia ante los trayectos largos y las esperas en los aeropuertos.",
+      "La energía que emitimos como seres humanos es lo que nos permite reflejarnos y existir ante los demás.",
+      "El miedo más profundo del ser humano radica en la oscuridad o la ausencia de luz interior.",
+      "La perseverancia es fundamental cuando el destino final implica más de 30 horas de viaje para una sola presentación.",
+      "Es importante valorar y disfrutar las vistas y los lugares nuevos que el trabajo nos permite conocer.",
+      "La luz interior no es solo un concepto simbólico, sino una energía real que nos define como personas.",
+    ],
+    quotes: [
+      "Nosotros nos debemos a la luz, a esa luz que tenemos por dentro.",
+      "El miedo más profundo es la oscuridad, la ausencia de luz.",
+      "Sin la luz dejaríamos de reflejarnos, dejaríamos de existir.",
+      "Imagínate qué chévere, más de treinta y tantas horas viajando para llegar a una ciudad a dar una charla.",
+    ],
+    exercises: [
+      {
+        title: "Visualización de Luz Interior",
+        description: "Dedica 5 minutos por la mañana a visualizar tu energía interna como una luz que emites hacia los demás para reafirmar tu presencia.",
+      },
+      {
+        title: "Gestión de la Espera Activa",
+        description: "Durante tu próxima espera larga, enfócate en observar los detalles de tu entorno y encontrar un aprendizaje en el momento presente.",
+      },
+      {
+        title: "Persistencia de Propósito",
+        description: "Escribe una meta que valga la pena el esfuerzo de viajar o trabajar por más de 30 horas consecutivas para fortalecer tu compromiso.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:49Z",
+  },
+  "omar-villalobos-tecnologia-que-no-sirve": {
+    summary: "Este registro audiovisual captura la vertiginosa vida del conferencista internacional Omar Villalobos durante su gira por diversas ciudades de México, como Córdoba, Villahermosa y Monterrey. A través de un formato de videoblog, se muestra el detrás de escena de su labor profesional, desde las ruedas de prensa y las entrevistas radiales hasta el caos del tráfico antes de una presentación multitudinaria. El objetivo central de su trabajo es despertar en las personas la pasión por estar vivos y generar una transformación genuina mediante una propuesta única de entretenimiento educativo.\n\nEl video subraya la importancia de la conexión humana por encima de los artificios técnicos. Villalobos describe su espectáculo como comedia inteligente, diseñada no solo para provocar risas, sino para dejar una huella profunda en la vida personal de los asistentes. El mensaje culmina con una crítica directa al uso excesivo de dispositivos tecnológicos que no aportan un valor real, sugiriendo que la acumulación de herramientas digitales sin un propósito claro puede resultar inútil para la esencia del crecimiento personal.",
+    keyPoints: [
+      "La labor fundamental de un conferencista es despertar la pasión colectiva por la vida.",
+      "El humor y la risa son vehículos poderosos para lograr una transformación personal profunda.",
+      "La paciencia del público frente a los imprevistos logísticos se compensa con mensajes de gran valor e inspiración.",
+      "El impacto de un mensaje se potencia cuando se combina la comedia con inteligencia y objetivos claros.",
+      "La autenticidad cultural de las regiones visitadas enriquece la experiencia del conferencista.",
+      "Contar con demasiada tecnología no garantiza utilidad si esta no cumple una función significativa.",
+      "La vida de un conferencista implica una movilidad constante para conectar con audiencias diversas en todo el país.",
+    ],
+    quotes: [
+      "Mi objetivo es despertar la pasión por estar vivos.",
+      "Prometo dejar, además de risa, entusiasmo e inspiración, algún mensaje de profundidad para tu vida personal.",
+      "Es un show de comedia inteligente con un objetivo final: dejar huella.",
+      "Mucha tecnología, ¿pero por qué tanta si no sirve?",
+    ],
+    exercises: [
+      {
+        title: "Humor con Propósito",
+        description: "Al final del día, identifica una situación tensa que hayas vivido e intenta relatarla con un toque de comedia para encontrarle un aprendizaje positivo.",
+      },
+      {
+        title: "Auditoría Tecnológica",
+        description: "Revisa las aplicaciones y dispositivos que usas a diario y elimina aquellos que representen 'tecnología que no sirve' o que te distraigan de lo esencial.",
+      },
+      {
+        title: "Conexión en Movimiento",
+        description: "Durante tus traslados diarios, practica estar presente y saludar con sinceridad a las personas de tu entorno, emulando la apertura del conferencista con su público.",
+      },
+      {
+        title: "Mensaje de Valor",
+        description: "Antes de cualquier reunión importante, define cuál es la 'huella' o el mensaje profundo que deseas dejar en los demás más allá de la información técnica.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:10:56Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
