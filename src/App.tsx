@@ -20,6 +20,7 @@ import Privacy from "./pages/Privacy";
 import TravelPolicies from "./pages/TravelPolicies";
 import ScrollToTop from "./components/ScrollToTop";
 import Spa2 from "./pages/Spa2";
+import SpeakerManagement from "./pages/SpeakerManagement";
 
 const queryClient = new QueryClient();
 
