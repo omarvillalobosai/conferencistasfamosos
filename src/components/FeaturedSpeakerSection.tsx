@@ -135,65 +135,6 @@ const FeaturedSpeakerSection = () => {
               ))}
           </div>
         </div>
-        
-        <Tabs defaultValue="videos" className="max-w-4xl mx-auto">
-          <TabsList className="grid grid-cols-2 mb-8">
-            <TabsTrigger value="videos" className="text-lg">Videos</TabsTrigger>
-            <TabsTrigger value="testimonios" className="text-lg">Testimonios</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="videos" className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="aspect-video bg-black/50 rounded-lg flex items-center justify-center relative overflow-hidden">
-                <PlayCircle className="h-16 w-16 text-orange-500 absolute z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1560523159-4a9692d222f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1236&q=80"
-                  alt="Conferencia Omar Villalobos"
-                  className="absolute inset-0 h-full w-full object-cover opacity-60"
-                />
-                <p className="absolute bottom-4 left-4 right-4 text-white font-medium">Las 3 claves del éxito duradero</p>
-              </div>
-              
-              <div className="aspect-video bg-black/50 rounded-lg flex items-center justify-center relative overflow-hidden">
-                <PlayCircle className="h-16 w-16 text-orange-500 absolute z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-                  alt="Conferencia Omar Villalobos"
-                  className="absolute inset-0 h-full w-full object-cover opacity-60"
-                />
-                <p className="absolute bottom-4 left-4 right-4 text-white font-medium">Cómo transformar desafíos en oportunidades</p>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <Link 
-                to="/videos" 
-                className="text-orange-500 hover:text-orange-400 font-medium transition-colors"
-              >
-                Ver todos los videos →
-              </Link>
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="testimonios" className="space-y-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-black/30 border border-gray-800">
-                <CardContent className="p-6">
-                  <p className="text-gray-300 italic mb-4">"{testimonial.text}"</p>
-                  <div className="flex items-center">
-                    <div className="h-10 w-10 rounded-full bg-orange-500 mr-3"></div>
-                    <div>
-                      <p className="font-medium">{testimonial.name}</p>
-                      <p className="text-sm text-gray-400">{testimonial.position}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </TabsContent>
-        </Tabs>
       </div>
     </section>
   );
