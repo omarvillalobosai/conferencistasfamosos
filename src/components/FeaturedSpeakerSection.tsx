@@ -91,30 +91,49 @@ const FeaturedSpeakerSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <Card className="bg-black/30 border border-gray-800">
-            <CardContent className="flex flex-col items-center text-center p-6">
-              <Award className="text-gold-500 h-12 w-12 mb-4" />
-              <h4 className="text-xl font-bold mb-2">Récord Guinness</h4>
-              <p className="text-gray-400">Por la conferencia de superación personal más grande del mundo</p>
-            </CardContent>
-          </Card>
-          
-          <Card className="bg-black/30 border border-gray-800">
-            <CardContent className="flex flex-col items-center text-center p-6">
-              <Users className="text-gold-500 h-12 w-12 mb-4" />
-              <h4 className="text-xl font-bold mb-2">+1,000,000</h4>
-              <p className="text-gray-400">Personas impactadas en eventos presenciales</p>
-            </CardContent>
-          </Card>
-          
-          <Card className="bg-black/30 border border-gray-800">
-            <CardContent className="flex flex-col items-center text-center p-6">
-              <Globe className="text-gold-500 h-12 w-12 mb-4" />
-              <h4 className="text-xl font-bold mb-2">25 países</h4>
-              <p className="text-gray-400">Con presencia internacional en eventos corporativos y masivos</p>
-            </CardContent>
-          </Card>
+        <div className="mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold">Contenido de Omar Villalobos</h3>
+              <p className="text-gray-400 mt-2">Últimos videos y reflexiones publicados en el blog.</p>
+            </div>
+            <Link
+              to="/blog"
+              className="text-orange-500 hover:text-orange-400 font-medium transition-colors"
+            >
+              Ver todo el blog →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogPosts
+              .filter((p) => p.speakerId === 'omar-villalobos')
+              .slice(0, 3)
+              .map((post) => (
+                <Link key={post.slug} to={`/blog/${post.slug}`} className="group">
+                  <Card className="bg-black/30 border border-gray-800 overflow-hidden h-full hover:border-orange-500/60 transition-colors">
+                    <div className="aspect-video relative overflow-hidden">
+                      <img
+                        src={`https://img.youtube.com/vi/${post.youtubeId}/hqdefault.jpg`}
+                        alt={post.title}
+                        className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <PlayCircle className="h-12 w-12 text-orange-500 absolute inset-0 m-auto" />
+                    </div>
+                    <CardContent className="p-5">
+                      <span className="text-xs uppercase tracking-wide text-orange-500 font-semibold">
+                        {post.category}
+                      </span>
+                      <h4 className="font-bold mt-2 mb-2 line-clamp-2 group-hover:text-orange-400 transition-colors">
+                        {post.title}
+                      </h4>
+                      <p className="text-sm text-gray-400 line-clamp-2">{post.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+          </div>
         </div>
         
         <Tabs defaultValue="videos" className="max-w-4xl mx-auto">
