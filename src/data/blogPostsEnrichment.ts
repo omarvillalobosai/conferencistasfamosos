@@ -571,6 +571,44 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:11:44Z",
   },
+  "gaby-vargas-la-vida-te-ama": {
+    summary: "La reflexión de Gaby Vargas, inspirada en las enseñanzas de Louis Hay, nos invita a despertar la conciencia sobre el amor profundo y constante que la vida nos profesa. A través de una anécdota personal sobre cómo un simple paseo por un parque puede transformarse bajo el lente de 'la vida te ama', la conferencista argumenta que el mundo no es un lugar oscuro, sino que nuestra percepción es la que define la calidad de nuestra existencia. El amor se manifiesta en detalles cotidianos, desde el sabor de una sopa hasta la calidez del agua, recordándonos que la belleza no está afuera, sino en nuestra capacidad de apreciarla.\n\nEl obstáculo principal para reconocer este amor incondicional es el ego y la personalidad, los cuales tienden a la desconfianza, la inseguridad y la separación. Vargas sostiene que somos uno con la naturaleza y con los demás, y que al habitar nuestra esencia —que es puro amor— nos volvemos naturalmente más atractivos y gozosos. El secreto reside en detener las prisas cotidianas para observar la generosidad desinteresada del universo, ejemplificada por el sol que da luz sin pedir nada a cambio, y entender que cada elemento natural fue creado para halagarnos y hacernos la vida más hermosa.",
+    keyPoints: [
+      "La vida siempre está de nuestro lado y nos ama a través de cada detalle de la naturaleza.",
+      "La belleza y el amor no son externos, sino que dependen enteramente de nuestra percepción mental.",
+      "El ego es incapaz de entender el amor incondicional y genera barreras de desconfianza.",
+      "El amor verdadero es un acto de generosidad absoluta que da sin pedir nada a cambio, como el sol a la tierra.",
+      "Apreciar conscientemente las cosas, como una flor o un gesto amable, les otorga un destino y un sentido.",
+      "No vemos la vida como es, sino que la vemos como somos nosotros mismos.",
+      "Reconocernos como amor esencial nos vuelve más atractivos y conecta nuestra existencia con la abundancia.",
+    ],
+    quotes: [
+      "Date cuenta de cuánto la vida te ama; te abre una puerta de conciencia hacia algo que en tu mente no existía.",
+      "No es la belleza lo que está afuera lo que importa, sino lo que importa es que nos demos cuenta de esa belleza.",
+      "El sol nunca le ha dicho a la Tierra 'me debes'; esa es la prueba más grande de amor.",
+      "No se puede vivir como si la belleza no existiera.",
+      "No vemos la vida como es, sino que la vemos como somos.",
+    ],
+    exercises: [
+      {
+        title: "Caminata de apreciación",
+        description: "Camina por un parque o calle observando cómo los árboles, el aire y el sol están ahí específicamente para darte gusto y halagarte.",
+      },
+      {
+        title: "La sopa consciente",
+        description: "Durante tu próxima comida, reconoce el amor de la vida a través de los ingredientes y el calor de los alimentos, agradeciendo su nutrición.",
+      },
+      {
+        title: "Detección de micro-actos de amor",
+        description: "Identifica durante el día gestos pequeños como una mirada cómplice, que alguien te ceda el paso o una palabra amable como manifestaciones del amor de la vida.",
+      },
+      {
+        title: "Pausa de la esencia vs ego",
+        description: "Ante una tarea cotidiana, pregúntate si la estás realizando desde tu esencia y amor por la vida o desde los intereses y prisas de tu personalidad.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:12:54Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
