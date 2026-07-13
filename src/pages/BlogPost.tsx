@@ -104,6 +104,78 @@ const BlogPost = () => {
 
           <p className="text-lg text-gray-700 leading-relaxed mb-10">{post.description}</p>
 
+          {enrichment && (
+            <section className="mb-12 space-y-10">
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="h-5 w-5 text-orange-500" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Resumen</h2>
+                </div>
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                  {enrichment.summary.split('\n').filter(Boolean).map((para, i) => (
+                    <p key={i} className="mb-4">{para}</p>
+                  ))}
+                </div>
+              </div>
+
+              {enrichment.keyPoints.length > 0 && (
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Puntos clave</h2>
+                  <ul className="space-y-3">
+                    {enrichment.keyPoints.map((kp, i) => (
+                      <li key={i} className="flex items-start gap-3 bg-orange-50 border border-orange-100 rounded-lg p-4">
+                        <CheckCircle2 className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-800">{kp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {enrichment.quotes.length > 0 && (
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Frases memorables</h2>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {enrichment.quotes.map((q, i) => (
+                      <blockquote
+                        key={i}
+                        className="relative bg-gray-900 text-white rounded-lg p-6 pl-12"
+                      >
+                        <Quote className="h-6 w-6 text-orange-500 absolute top-4 left-4" />
+                        <p className="italic leading-relaxed">"{q}"</p>
+                      </blockquote>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {enrichment.exercises.length > 0 && (
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    Ejercicios para aplicar
+                  </h2>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {enrichment.exercises.map((ex, i) => (
+                      <Card key={i} className="border-l-4 border-l-orange-500">
+                        <CardContent className="pt-6">
+                          <div className="flex items-start gap-3">
+                            <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-500 text-white font-bold flex items-center justify-center">
+                              {i + 1}
+                            </span>
+                            <div>
+                              <h3 className="font-bold text-gray-900 mb-1">{ex.title}</h3>
+                              <p className="text-gray-700 text-sm leading-relaxed">{ex.description}</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </section>
+          )}
+
           <div className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
               ¿Quieres contratar a {post.speakerName} para tu evento?

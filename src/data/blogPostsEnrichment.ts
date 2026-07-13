@@ -499,6 +499,78 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:11:31Z",
   },
+  "daniel-habif-empotrado-en-un-sillon": {
+    summary: "Daniel Habif nos invita a una profunda introspección sobre la letargia que provoca la comodidad excesiva y la inacción. A través de un llamado urgente a abandonar el sillón, el autor nos confronta con la brevedad de nuestra existencia, instándonos a priorizar nuestras necesidades de crecimiento personal y profesional por encima del confort inmediato.",
+    keyPoints: [
+      "La comodidad no debe anteponerse a las verdaderas necesidades de desarrollo personal.",
+      "Es fundamental establecer agendas con horas de trabajo completas para mejorar la productividad.",
+      "La falta de orden inicial no debe ser una excusa para no comenzar un proyecto.",
+      "La vida en la Tierra es extremadamente breve y no permite desperdiciar el tiempo en la inacción.",
+      "Quienes sienten un hambre voraz de crecer deben actuar de inmediato para alcanzar sus metas.",
+      "Terminar las tareas programadas es clave para desarrollar una verdadera capacidad de respuesta.",
+    ],
+    quotes: [
+      "No antepongas tus comodidades a tus necesidades.",
+      "¿Vas a seguir con tu cuerpo enfocado en el sofá hasta estar 40 años así?",
+      "Si tú te das cuenta de que nuestra existencia es lo más breve en esta tierra.",
+      "Si aún te consume un hambre voraz de crecer, explícame qué esperas para ir a devorarte la vida.",
+    ],
+    exercises: [
+      {
+        title: "Agenda de Enfoque Total",
+        description: "Programa bloques de tres horas de trabajo sin distracciones frente a la pantalla y comprométete a concluirlos sin interrupciones.",
+      },
+      {
+        title: "Arranque Imperfecto",
+        description: "Si te sientes bloqueado, inicia tu tarea por el final o por el medio, lo importante es romper la inercia del sofá.",
+      },
+      {
+        title: "Auditoría de Necesidades",
+        description: "Enumera tus comodidades actuales y compáralas con tus necesidades de crecimiento para identificar qué te está deteniendo.",
+      },
+      {
+        title: "Visualización de la Brevedad",
+        description: "Reflexiona diariamente sobre la brevedad de la vida para motivar la toma de decisiones audaces en lugar de permanecer empotrado en el sillón.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:11:37Z",
+  },
+  "daniel-habif-cuando-me-entierren": {
+    summary: "Daniel Habif reflexiona sobre la naturaleza efímera de la vida y la importancia de vivir con intensidad y propósito hasta el último aliento. El mensaje central gira en torno a la dignidad tanto en el ascenso como en el descenso de nuestras metas, recordando que la muerte es inevitable pero que el legado se construye en el esfuerzo diario, el agotamiento creativo y el impacto que dejamos en los demás.\n\nEl autor utiliza la metáfora del lienzo o 'canvas' para explicar que cada aspecto de nuestra existencia, desde el dolor y la enfermedad hasta la propia muerte, es un espacio para crear algo significativo. La propuesta invita a no reservar energía, sino a entregarlo todo, dejando una huella física y espiritual de haber trabajado arduamente por los sueños antes de partir.",
+    keyPoints: [
+      "Es fundamental nunca ahorrar reservas de energía al perseguir un propósito.",
+      "El éxito y los sueños requieren subir con esfuerzo, pero también bajar de ellos con la misma dignidad.",
+      "El cuerpo debe ser testigo del trabajo realizado, mostrando las marcas del esfuerzo y la creatividad.",
+      "Todo en la vida, incluyendo el dolor y la muerte, es un lienzo en blanco para expresarse.",
+      "El legado no son solo flores, sino el lenguaje y el conocimiento compartido con el mundo.",
+      "La vida debe vivirse a plenitud, aprovechando cada pequeña oportunidad para filosofar y reflexionar.",
+    ],
+    quotes: [
+      "Quiero que cuando me entierren no echen tierra por ataúd, quiero una hoja en blanco.",
+      "No se les olvide decirle al taxidermista que me maquille con manchas de pluma y lápiz.",
+      "Yo soy un canvas, todo es un canvas.",
+      "Subir cuesta, pero bajar con dignidad es igual de importante.",
+    ],
+    exercises: [
+      {
+        title: "El Canvas de la Adversidad",
+        description: "Identifica una situación dolorosa o difícil que estés atravesando y escribe cómo puedes convertir esa experiencia en una enseñanza o una obra positiva para otros.",
+      },
+      {
+        title: "Legado de Tinta",
+        description: "Dedica 15 minutos al día a escribir tus ideas, proyectos o reflexiones para asegurar que dejas un rastro de tu pensamiento y esfuerzo creativo.",
+      },
+      {
+        title: "Entrega de Energía Total",
+        description: "Elige una tarea importante hoy y realízala sin reservar esfuerzos, enfocándote en dar el máximo nivel de excelencia sin miedo al cansancio.",
+      },
+      {
+        title: "Dignidad en el Descenso",
+        description: "Reflexiona sobre un ciclo que esté terminando en tu vida y diseña un plan para cerrarlo con elegancia, gratitud y respeto hacia ti mismo y los demás.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:11:44Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
