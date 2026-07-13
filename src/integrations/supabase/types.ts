@@ -3179,6 +3179,60 @@ export type Database = {
         }
         Relationships: []
       }
+      speaker_management_applications: {
+        Row: {
+          country: string | null
+          created_at: string
+          email: string
+          experience_level: string | null
+          experience_years: string | null
+          full_name: string
+          id: string
+          management_types: string[] | null
+          message: string | null
+          status: string
+          topics: string | null
+          updated_at: string
+          video_url: string | null
+          website: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          email: string
+          experience_level?: string | null
+          experience_years?: string | null
+          full_name: string
+          id?: string
+          management_types?: string[] | null
+          message?: string | null
+          status?: string
+          topics?: string | null
+          updated_at?: string
+          video_url?: string | null
+          website?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          email?: string
+          experience_level?: string | null
+          experience_years?: string | null
+          full_name?: string
+          id?: string
+          management_types?: string[] | null
+          message?: string | null
+          status?: string
+          topics?: string | null
+          updated_at?: string
+          video_url?: string | null
+          website?: string | null
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
       speaker_pro_subscriptions: {
         Row: {
           created_at: string | null

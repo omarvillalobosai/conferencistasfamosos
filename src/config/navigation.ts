@@ -27,6 +27,10 @@ export const mainNavItems: NavigationItem[] = [
     title: "Cursos",
     path: "/cursos",
   },
+  {
+    title: "Management",
+    path: "/management",
+  },
 ];
 
 export const speakerNavItems: SpeakerNavItem[] = [

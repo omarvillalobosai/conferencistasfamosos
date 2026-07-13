@@ -1,53 +1,106 @@
 ## Objetivo
 
-Rediseñar la sección `/cursos` para que funcione como un sistema de **video-posts** basado en playlists de YouTube (mismo patrón que ya usa el blog), respetando los dos conceptos existentes:
+Crear una nueva página dedicada — `/management` — enfocada a conferencistas que buscan **management de carrera**: manejo profesional, difusión de contenido, alianzas y colaboraciones. Va dirigida tanto a **speakers establecidos** que quieren un partner que potencie su carrera, como a **speakers nuevos** que necesitan apoyo integral para arrancar y crecer.
 
-- **Soy cliente** → videos para quienes van a contratar conferencistas.
-- **Quiero ser conferencista** → videos para quienes quieren desarrollarse como speaker.
+Además, se enlaza desde la sección "Soy conferencista" en `/cursos` y desde el Navbar.
 
-## Alcance de este paso
+## Propuesta de contenido de la página
 
-Arrancamos con la pestaña **"Quiero ser conferencista"** usando la playlist de Omar Villalobos que compartiste (15 videos). La pestaña **"Soy cliente"** queda lista estructuralmente pero vacía hasta que envíes su playlist. Después iremos agregando más playlists conforme las mandes.
+Landing profesional orientada a captar aplicaciones de speakers:
 
-## Qué se construye
+1. **Hero**
+   - Título: *"Management para conferencistas de habla hispana"*
+   - Subtítulo: *"Impulsamos tu carrera como speaker — ya sea que estés empezando o que quieras llegar al siguiente nivel."*
+   - CTA principal: "Postúlate ahora" → scroll al formulario.
+   - CTA secundario: WhatsApp.
 
-1. **Nueva data source** `src/data/coursePosts.ts`
-   - Interfaz `CoursePost { slug, category: 'cliente' | 'conferencista', speakerId, youtubeId, title, description, publishedAt }`.
-   - Sembrado con los 15 videos de Omar Villalobos en categoría `conferencista`.
+2. **Para quién es** (2 columnas destacadas)
+   - **Speakers establecidos** → escalar bookings, expandir a nuevos mercados, contenido y alianzas estratégicas.
+   - **Speakers emergentes / nuevos** → construcción de carrera desde cero: posicionamiento, marca personal, primeras conferencias, mentoría.
 
-2. **Nueva ruta dinámica** `/cursos/:slug` → `src/pages/CoursePost.tsx`
-   - Reproductor embebido de YouTube, título, descripción, CTA de cotización (`QuoteWizard`), videos relacionados de la misma categoría, y SEO con `VideoObject` JSON-LD.
-   - Registrada en `src/App.tsx` antes del catch-all.
+3. **¿Qué incluye el management?** (grid de 6 tarjetas con iconos)
+   - Representación ante clientes corporativos.
+   - Estrategia de carrera y posicionamiento.
+   - Publicación de tu perfil y contenido en la plataforma.
+   - Difusión en blog, redes y newsletter.
+   - Alianzas con marcas y colaboraciones con otros speakers.
+   - Mentoría y formación (para speakers nuevos).
 
-3. **Refactor de `/cursos`** (`src/pages/Cursos.tsx` + `src/components/cursos/CoursesTabs.tsx`)
-   - Reemplazar el contenido actual estático de cursos por un grid de tarjetas de video (thumbnail de YouTube + título + speaker) filtradas por la pestaña activa (`cliente` / `conferencista`).
-   - Buscador simple por título (como en el Blog).
-   - Cada tarjeta linkea a `/cursos/:slug`.
-   - Se conservan `CursosHero`, `SoyConferencistaSection` y `CursosCta`.
-   - Se elimina el flujo de registro/gate premium (`CourseRegistrationDialog`, `useCourseRegistration`, confetti) de esta sección para que la experiencia sea la misma del blog: acceso directo al video. `/cursos-premium` no se toca.
+4. **Cómo trabajamos** (proceso en 4 pasos)
+   Aplicas → Evaluamos perfil → Diseñamos plan de management → Activamos tu carrera y contenido.
 
-4. **SEO**
-   - Agregar las 15 URLs `/cursos/omar-villalobos-...` a `public/sitemap.xml`.
-   - `<Helmet>` por post con canonical y OG únicos.
+5. **Modalidades de management** (3 tracks, sin precios)
+   - **Management integral** — gestión completa, exclusiva.
+   - **Management por proyecto** — colaboración caso por caso / por evento.
+   - **Programa Speaker Nuevo** — onboarding + mentoría + primeros bookings para speakers emergentes.
 
-## Detalles técnicos
+6. **Beneficios concretos** (bullets, con números placeholder que confirmarás luego).
 
-- Slug: `omar-villalobos-<slug-del-titulo>` (kebab-case, sin acentos, truncado ~60 chars) — mismo esquema del blog.
-- Los componentes actuales de "cursos premium" (`CursosPremium.tsx`, `premium/*`, `courseCategories.ts`) **no** se modifican.
-- Descripciones: para arrancar uso los títulos como descripción corta; podemos enriquecerlas después si quieres.
+7. **Testimonios cortos** (placeholder — se llenan después).
 
-## Diagrama
+8. **Formulario de aplicación** — corazón de la página. Campos:
+   - Nombre completo
+   - Email
+   - WhatsApp
+   - País / ciudad
+   - Nivel de experiencia: *Emergente / En crecimiento / Establecido* (select)
+   - Años de experiencia
+   - Sitio web / redes principales (URL)
+   - Temas / especialidad
+   - Link a video de conferencia (YouTube)
+   - Modalidad de management de interés (checkboxes: integral / por proyecto / programa speaker nuevo / alianza de contenido)
+   - Mensaje libre (textarea)
+   - Envío → guarda en Supabase (`speaker_management_applications`) + toast de éxito.
 
-```text
-/cursos
- ├── Hero
- ├── Tabs [Soy cliente | Quiero ser conferencista]
- │     └── Grid de VideoPostCard (filtrado por categoría)
- │           └── click → /cursos/:slug
- ├── SoyConferencistaSection
- └── CursosCta
-```
+9. **FAQ corto** (4–6 preguntas: ¿tiene costo?, ¿tiempo de respuesta?, ¿acepto speakers sin experiencia?, ¿puedo mantener otros representantes?, etc.).
 
-## Pregunta abierta (no bloqueante)
+10. **CTA final** con WhatsApp.
 
-La pestaña "Soy cliente" quedará vacía hasta que me pases su playlist. ¿La dejo con un placeholder ("Próximamente") o la oculto por ahora?
+## Backend (Supabase)
+
+Nueva tabla `public.speaker_management_applications`:
+
+- `id uuid pk`, `created_at timestamptz default now()`
+- `full_name text not null`, `email text not null`, `whatsapp text`, `country text`
+- `experience_level text` (`emergente` | `crecimiento` | `establecido`)
+- `experience_years text`
+- `website text`, `topics text`
+- `video_url text`
+- `management_types text[]`
+- `message text`
+- `status text default 'new'`
+
+Políticas RLS:
+- INSERT abierto a `anon` (formulario público).
+- SELECT solo con rol admin (reutiliza `has_role` + `user_roles`).
+- GRANTs: `INSERT` a `anon` y `authenticated`, `ALL` a `service_role`.
+
+## Cambios en código
+
+1. Crear `src/pages/SpeakerManagement.tsx`.
+2. Componentes bajo `src/components/management/`:
+   - `ManagementHero.tsx`
+   - `WhoIsItFor.tsx` (speakers establecidos vs emergentes)
+   - `WhatWeOffer.tsx`
+   - `HowWeWork.tsx`
+   - `ManagementTracks.tsx`
+   - `ManagementFAQ.tsx`
+   - `ManagementApplicationForm.tsx` (react-hook-form + zod, insert a Supabase).
+3. Ruta `/management` en `src/App.tsx` antes del catch-all.
+4. Enlaces:
+   - Botón "Ver todos los cursos" en `SoyConferencistaSection.tsx` → cambia a "Aplicar a Management" (a `/management`).
+   - Nuevo item **"Management"** en `mainNavItems` (`src/config/navigation.ts`).
+5. Agregar `/management` a `public/sitemap.xml` y a `public/llms.txt`.
+6. `<Helmet>` con título, meta description, canonical y OG únicos.
+
+## Diseño
+
+- Paleta actual: naranja / blanco / gris, tipografía Montserrat.
+- Hero con imagen o gradiente sutil naranja. Sin morados.
+- Cards con la misma estética del resto del sitio (bordes suaves, hover elevado).
+
+## Preguntas abiertas
+
+1. ¿Las aplicaciones deben notificarse también por correo/WhatsApp automáticamente (edge function), o basta con revisarlas desde Supabase?
+2. ¿Agrego "Management" al menú principal (Navbar) o solo desde la sección de conferencistas?
+3. Testimonios y beneficios numéricos: ¿placeholder o me pasas los reales antes?

@@ -20,6 +20,7 @@ import Privacy from "./pages/Privacy";
 import TravelPolicies from "./pages/TravelPolicies";
 import ScrollToTop from "./components/ScrollToTop";
 import Spa2 from "./pages/Spa2";
+import SpeakerManagement from "./pages/SpeakerManagement";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/privacidad" element={<Privacy />} />
             <Route path="/politicas-viaje" element={<TravelPolicies />} />
             <Route path="/spa2" element={<Spa2 />} />
+            <Route path="/management" element={<SpeakerManagement />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
