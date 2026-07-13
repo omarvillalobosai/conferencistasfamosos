@@ -158,17 +158,16 @@ SCHEMA = {
 }
 
 
-def call_ai(post: dict, transcript: str) -> dict:
-    # Cap transcript to keep tokens reasonable (~40k chars)
-    if len(transcript) > 40000:
-        transcript = transcript[:40000]
+def call_ai(post: dict, transcript: str | None) -> dict:
     system = (
         "Eres un editor experto de contenido motivacional en español. "
-        "A partir de la transcripción de un video de un conferencista, "
-        "generas un post enriquecido para un blog profesional. "
+        "Generas un post enriquecido para un blog profesional de conferencistas. "
         "Respondes SIEMPRE en español neutro, en JSON válido según el schema."
     )
-    user = f"""Video: "{post['title']}"
+    if transcript:
+        if len(transcript) > 40000:
+            transcript = transcript[:40000]
+        user = f"""Video: "{post['title']}"
 Conferencista: {post['speakerName']}
 Descripción original: {post['description']}
 
@@ -177,13 +176,25 @@ Transcripción del video:
 {transcript}
 \"\"\"
 
-Genera:
-- summary: resumen ejecutivo de 2 a 3 párrafos (máx 500 palabras) fiel al contenido del video.
-- keyPoints: entre 5 y 7 ideas clave, cada una en 1 frase clara.
-- quotes: entre 3 y 5 frases textuales o casi textuales impactantes del conferencista, en primera persona cuando aplique.
-- exercises: entre 3 y 5 ejercicios prácticos y accionables inspirados en el mensaje del video, cada uno con un título corto y una descripción breve (1-2 frases) de cómo aplicarlo.
+Genera contenido fiel a la transcripción:
+- summary: resumen ejecutivo de 2 a 3 párrafos (máx 500 palabras).
+- keyPoints: 5 a 7 ideas clave, cada una en 1 frase clara.
+- quotes: 3 a 5 frases textuales o casi textuales impactantes del conferencista.
+- exercises: 3 a 5 ejercicios prácticos accionables, cada uno con título corto y descripción breve (1-2 frases).
 
 No inventes datos que no aparezcan en la transcripción."""
+    else:
+        user = f"""Video: "{post['title']}"
+Conferencista: {post['speakerName']}
+Categoría: {post['category']}
+Descripción original: {post['description']}
+
+No se pudo obtener la transcripción del video. Genera contenido inspirador y útil basado en el título, la categoría y la descripción, en el estilo característico del conferencista, sin inventar cifras, fechas ni citas textuales específicas.
+
+- summary: resumen introductorio de 2 párrafos (máx 350 palabras) que contextualice el tema del video.
+- keyPoints: 5 ideas clave probables del tema tratado, en frases claras.
+- quotes: 3 frases inspiradoras genéricas relacionadas al tema (parafraseadas, no atribuidas como citas textuales del conferencista).
+- exercises: 4 ejercicios prácticos y accionables que el lector puede aplicar sobre el tema, cada uno con título corto y descripción breve."""
 
     body = {
         "model": MODEL,
