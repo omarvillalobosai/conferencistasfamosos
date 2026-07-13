@@ -193,6 +193,42 @@ export const coursePosts: CoursePost[] = [
     publishedAt: '2018-07-15',
     topic: 'Preparación',
   },
+  {
+    slug: 'omar-villalobos-lo-que-nadie-te-dice-sobre-organizar-eventos',
+    category: 'cliente',
+    speakerId: 'omar-villalobos',
+    speakerName: 'Omar Villalobos',
+    title: 'Lo que Nadie te Dice Sobre Organizar Eventos',
+    description:
+      'Omar Villalobos revela las verdades y errores comunes que casi nadie comparte a la hora de organizar un evento exitoso.',
+    youtubeId: '31jmwqKKmaE',
+    publishedAt: '2019-01-15',
+    topic: 'Organización de eventos',
+  },
+  {
+    slug: 'omar-villalobos-coaching-vip-organizacion-de-eventos-objetivo-claro',
+    category: 'cliente',
+    speakerId: 'omar-villalobos',
+    speakerName: 'Omar Villalobos',
+    title: 'Coaching VIP en Organización de Eventos: Objetivo Claro',
+    description:
+      'La clave para un evento exitoso empieza con un objetivo claro. Coaching VIP de Omar Villalobos para organizadores.',
+    youtubeId: 'xaO9GiKenP4',
+    publishedAt: '2019-02-01',
+    topic: 'Organización de eventos',
+  },
+  {
+    slug: 'omar-villalobos-como-elegir-speaker-perfecto-para-tu-evento',
+    category: 'cliente',
+    speakerId: 'omar-villalobos',
+    speakerName: 'Omar Villalobos',
+    title: 'Cómo Elegir al Speaker Perfecto para tu Evento',
+    description:
+      'Guía práctica de coaching VIP para elegir al conferencista ideal según los objetivos y la audiencia de tu evento.',
+    youtubeId: 'G4ez0ORLXdA',
+    publishedAt: '2019-02-15',
+    topic: 'Elegir speaker',
+  },
 ];
 
 export const findCoursePostBySlug = (slug?: string) =>
