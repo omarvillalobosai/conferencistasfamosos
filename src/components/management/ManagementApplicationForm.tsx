@@ -130,7 +130,7 @@ const ManagementApplicationForm: React.FC = () => {
                       ? 'bg-orange-500 border-orange-500 text-white'
                       : active
                       ? 'bg-white border-orange-500 text-orange-500 scale-110'
-                      : 'bg-white border-gray-300 text-gray-400'
+                      : 'bg-white border-gray-400 text-gray-600'
                   }`}
                 >
                   {done ? <CheckCircle2 className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
