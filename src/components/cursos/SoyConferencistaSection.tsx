@@ -84,11 +84,13 @@ const SoyConferencistaSection: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Button 
+            asChild
             size="lg" 
             className="bg-purple-600 hover:bg-purple-700 text-white font-semibold text-lg px-8"
           >
-            Ver todos los cursos
+            <Link to="/management">Postúlate al Management</Link>
           </Button>
+          
           
           <WhatsAppButton
             message="Me interesa información sobre los cursos para conferencistas."
