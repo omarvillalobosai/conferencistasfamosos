@@ -186,7 +186,7 @@ No inventes datos que no aparezcan en la transcripción."""
     else:
         user = f"""Video: "{post['title']}"
 Conferencista: {post['speakerName']}
-Categoría: {post['category']}
+Categoría: {post.get('category', '')}
 Descripción original: {post['description']}
 
 No se pudo obtener la transcripción del video. Genera contenido inspirador y útil basado en el título, la categoría y la descripción, en el estilo característico del conferencista, sin inventar cifras, fechas ni citas textuales específicas.
