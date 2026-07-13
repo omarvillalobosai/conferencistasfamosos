@@ -348,6 +348,43 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:10:56Z",
   },
+  "omar-villalobos-gente-dentro-de-un-volcan": {
+    summary: "En esta experiencia desde Quito, Ecuador, Omar Villalobos explora la fascinante dualidad de vivir en el centro del mundo y la resiliencia de quienes habitan entornos extremos. El relato comienza con la curiosa metafore del equilibrio físico y mental, ejemplificado en el experimento de balancear un huevo sobre un clavo en la línea ecuatorial, simbolizando la búsqueda de armonía que todo ser humano debe perseguir en su vida cotidiana. El viaje culmina con una visita al cráter del volcán Pululahua, un lugar único donde un pueblo entero ha decidido establecer sus vidas dentro de una estructura volcánica activa.\n\nLa narrativa destaca la identidad ecuatoriana como una amalgama de cuatro mundos en un solo país, sugiriendo que la ubicación geográfica influye directamente en la psicología y el autoestima de su gente. Al sentirse en el centro del mundo, el individuo desarrolla una perspectiva de seguridad y arraigo. El recorrido por sitios históricos como el Templo del Sol también permite una reflexión sobre las estructuras sociales antiguas, incluyendo el legado del matriarcado y la importancia de reconocer nuestras raíces para entender nuestra posición presente en el cosmos.",
+    keyPoints: [
+      "Ecuador se define por poseer cuatro mundos distintos en una extensión territorial pequeña.",
+      "La sensación de vivir en el centro del mundo puede potenciar significativamente el autoestima del individuo.",
+      "El equilibrio se manifiesta como un fenómeno físico y energético observable en la línea ecuatorial.",
+      "Existen comunidades capaces de prosperar y construir su hogar incluso dentro del cráter de un volcán activo.",
+      "La comunicación abierta y fluida es una característica cultural que facilita la conexión humana.",
+      "El reconocimiento de la historia local, como el matriarcado ancestral, ofrece una perspectiva valiosa sobre el liderazgo contemporáneo.",
+      "La vida es un recorrido rápido en el que debemos intentar ver y experimentar lo máximo posible en el tiempo disponible.",
+    ],
+    quotes: [
+      "Haber crecido en un lugar donde escuchas todos los días que estás en el centro del mundo, sin duda debe incrementar el autoestima de un individuo.",
+      "Lo que nunca me hubiese imaginado es que hay gente que vive dentro de un volcán en actividad.",
+      "Hay que recorrer lo más que se pueda en el menos tiempo posible, porque así es la vida.",
+      "En el ecuador se puede balancear un huevo sobre un clavo como un acto de energía y magnetismo.",
+    ],
+    exercises: [
+      {
+        title: "Anclaje de Identidad",
+        description: "Repite cada mañana la frase 'Soy el centro de mi propio mundo' para fortalecer tu sentido de pertenencia y seguridad personal.",
+      },
+      {
+        title: "Búsqueda de Equilibrio",
+        description: "Dedica cinco minutos al día a practicar una postura de equilibrio físico para centrar tu energía y mejorar tu enfoque mental.",
+      },
+      {
+        title: "Adaptación a la Adversidad",
+        description: "Identifica una situación volcánica o difícil en tu vida y escribe dos formas en las que podrías prosperar dentro de ella en lugar de huir.",
+      },
+      {
+        title: "Exploración de Micromundos",
+        description: "Visita un lugar nuevo en tu propia localidad este fin de semana para entrenar tu capacidad de asombro y apertura cultural.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:11:03Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
