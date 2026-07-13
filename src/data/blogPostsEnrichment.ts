@@ -1527,6 +1527,380 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:17:45Z",
   },
+  "cesar-lozano-como-hacer-que-te-guste-tu-trabajo": {
+    summary: "Encontrar la satisfacci3n laboral no siempre depende de cambiar de empleo, sino de transformar la actitud con la que enfrentamos nuestras responsabilidades diarias. El Dr. C3sar Lozano nos invita a reflexionar sobre c3mo la percepci3n personal moldea nuestra realidad profesional, sugiriendo que el disfrute es una decisi3n consciente que se cultiva a trav3s de la gratitud y el prop#sito.\r\n\r\nEsta perspectiva nos ense#a que incluso en entornos desafiantes, es posible rescatar el valor de lo que hacemos. Al enfocarnos en las relaciones interpersonales positivas y en el impacto de nuestras tareas, logramos reducir el estr3s y aumentar nuestra motivaci3n intr#nseca, convirtiendo el espacio de trabajo en un lugar de crecimiento personal en lugar de una carga agotadora.",
+    keyPoints: [
+      "La actitud es el filtro que determina si tu jornada ser! pesada o gratificante.",
+      "Enfocarse en la gratitud por tener una fuente de ingresos y desarrollo.",
+      "Identificar el prop#sito profundo de tus tareas para conectar con el servicio a los dem!s.",
+      "Fomentar un ambiente de compa#erismo y amabilidad para mejorar el clima organizacional.",
+      "Aceptar que no todos los d!as son perfectos, pero mantener el control sobre la propia reacci#n.",
+    ],
+    quotes: [
+      "Cuando cambias la forma de ver tu trabajo, el trabajo que ves cambia de forma.",
+      "El secreto de la felicidad laboral no es hacer siempre lo que quieres, sino amar lo que te toca hacer en el presente.",
+      "Tu energ!a en la oficina es tu mejor carta de presentaci#n ante la vida.",
+    ],
+    exercises: [
+      {
+        title: "Inventario de Beneficios",
+        description: "Escribe una lista de cinco cosas positivas que tu empleo actual aporta a tu vida m!s all! del sueldo.",
+      },
+      {
+        title: "El Ritual de la Ma#ana",
+        description: "Antes de entrar a tu lugar de trabajo, declara mentalmente una intenci#n positiva para ayudar a alguien durante el d!a.",
+      },
+      {
+        title: "Remodelaci#n de Espacio",
+        description: "Limpia y personaliza tu !rea de trabajo con algo que te inspire o te traiga paz visualmente.",
+      },
+      {
+        title: "C3mputo de Logros",
+        description: "Al final del d!a, anota tres tareas que completaste con 3xito en lugar de pensar solo en las pendientes.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:17:52Z",
+  },
+  "cesar-lozano-jefe-o-companero-insoportable": {
+    summary: "Las relaciones interpersonales en el entorno laboral representan uno de los mayores desafíos para el crecimiento profesional y la estabilidad emocional. Cuando nos enfrentamos a un jefe o compañero con una actitud difícil, el primer paso fundamental no es intentar cambiar la personalidad del otro, sino fortalecer nuestra propia inteligencia emocional. La clave reside en aprender a separar el comportamiento ajeno de nuestra autovaloración, estableciendo límites claros que impidan que la negatividad externa permee en nuestra paz interior y afecte nuestro desempeño diario. Mantener una actitud positiva no significa ignorar el conflicto, sino elegir sabiamente nuestras batallas. Al adoptar una postura de madurez y resiliencia, transformamos un entorno potencialmente hostil en una oportunidad para practicar la paciencia y la diplomacia. Este enfoque permite que el profesional se convierta en el dueño de sus reacciones, evitando que las actitudes insoportables de terceros dicten su estado de ánimo o el éxito de su jornada laboral.",
+    keyPoints: [
+      "La paz mental es una prioridad que no debe negociarse por conflictos laborales.",
+      "Diferenciar entre el comportamiento de la persona y su competencia profesional.",
+      "Establecer una distancia emocional saludable frente a los comentarios negativos.",
+      "Responder con asertividad en lugar de reaccionar de forma impulsiva o agresiva.",
+      "Enfocar la energía en las soluciones y en el propio crecimiento en lugar de en la queja.",
+    ],
+    quotes: [
+      "Nadie tiene el poder de arruinar tu día a menos que tú decidas entregarle las llaves de tus emociones.",
+      "La calidad de tu vida depende en gran medida de la calidad de tus respuestas ante las actitudes difíciles ajenas.",
+      "Ser amable con quien es difícil de tratar no es debilidad, sino una muestra de un carácter fuerte y equilibrado.",
+    ],
+    exercises: [
+      {
+        title: "La técnica del observador",
+        description: "Cuando ocurra un conflicto, imagina que sales de tu cuerpo y observas la situación desde afuera para analizarla con objetividad y sin carga emocional.",
+      },
+      {
+        title: "El registro de respuestas",
+        description: "Escribe una lista de frases asertivas y profesionales que puedas usar ante provocaciones, para no tener que improvisar bajo estrés.",
+      },
+      {
+        title: "Filtro de importancia",
+        description: "Pregúntate si el conflicto actual tendrá alguna relevancia dentro de un año; si la respuesta es no, dale solo la importancia mínima necesaria.",
+      },
+      {
+        title: "Desconexión consciente",
+        description: "Al finalizar la jornada, realiza un ritual simbólico para dejar los problemas del trabajo afuera y evitar que contaminen tu vida personal y familiar.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:17:59Z",
+  },
+  "cesar-lozano-tu-trabajo-te-esta-enfermando": {
+    summary: "El impacto del entorno laboral en nuestra salud integral es un tema urgente que a menudo ignoramos por inercia o compromiso desmedido. En esta enriquecedora charla, se exploran los s7ntomas silenciosos que indican que el estr9s profesional ha cruzado la l7nea del crecimiento personal para convertirse en un agente perjudicial para nuestra tranquilidad y bienestar f7sico. Reconocer estas se1ales no es un acto de debilidad, sino un paso valiente hacia la recuperaci3n de nuestra esencia y equilibrio personal.\n\nEs fundamental entender que ning7n 9xito profesional justifica el deterioro de nuestra energ7a vital ni de nuestras relaciones afectivas. Priorizar el autocuidado y establecer l7mites claros permite no solo rendir mejor, sino vivir con plenitud. Este contenido busca despertar la conciencia sobre la importancia de escucharnos a nosotros mismos antes de que el cuerpo decida alzar la voz a trav9s de la enfermedad.",
+    keyPoints: [
+      "El cuerpo manifiesta a trav9s de dolores f7sicos lo que la mente calla por cansancio.",
+      "La p9rdida del entusiasmo por actividades que antes resultaban gratificantes es una se1al de alerta.",
+      "La calidad de nuestro descanso nocturno es un indicador directo de nuestra salud laboral.",
+      "El aislamiento emocional y la irritabilidad constante afectan el c7rculo familiar del trabajador.",
+      "Aprender a delegar y decir 'no' es una herramienta de supervivencia indispensable en el entorno actual.",
+    ],
+    quotes: [
+      "Tu valor como ser humano es incalculable y no depende exclusivamente de un t7tulo o un puesto de trabajo.",
+      "La verdadera prosperidad comienza cuando logras mantener la paz mental en medio de tus responsabilidades diarias.",
+      "Escuchar a tu cuerpo hoy es la mejor inversi3n para asegurar tu bienestar el d7a de ma1ana.",
+    ],
+    exercises: [
+      {
+        title: "Registro de Energ7a",
+        description: "Anota durante tres d7as las tareas que te drenan y las que te revitalizan para identificar patrones de agotamiento.",
+      },
+      {
+        title: "La Pausa de Control",
+        description: "Realiza tres respiraciones profundas cada dos horas para reconectar con el presente y bajar los niveles de cortisol.",
+      },
+      {
+        title: "Cierre Ritual",
+        description: "Establece una acci3n simb3lica al terminar la jornada, como guardar la computadora, para separar el trabajo de la vida personal.",
+      },
+      {
+        title: "Auditor7a del Sue1o",
+        description: "Evita pantallas una hora antes de dormir y eval7a si tus pensamientos laborales interfieren con tu capacidad de descanso.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:06Z",
+  },
+  "cesar-lozano-conectar-con-la-energia-del-dinero": {
+    summary: "En esta enriquecedora conversación, el Dr. César Lozano junto a Martha Oliveira exploran la profunda conexión psicológica y emocional que mantenemos con la prosperidad financiera. El enfoque central radica en entender que el dinero no es solo una moneda de cambio, sino una energía que responde a nuestras creencias limitantes, miedos heredados y la actitud con la que enfrentamos nuestra realidad económica diaria.\n\nTransformar nuestra relación con la abundancia requiere un cambio de mentalidad radical: pasar de la queja y la escasez al agradecimiento y la apertura. A través de consejos prácticos y una visión optimista, se invita al público a limpiar sus pensamientos negativos para permitir que el flujo de la abundancia sane sus finanzas y mejore su calidad de vida integral.",
+    keyPoints: [
+      "Identificar y romper los patrones de escasez aprendidos durante la infancia.",
+      "La importancia de la gratitud como motor principal para atraer nuevas oportunidades económicas.",
+      "Cambiar el lenguaje interno: sustituir el 'no puedo' por 'estoy trabajando para lograrlo'.",
+      "El dinero como una herramienta de servicio y bienestar, no como un fin absoluto.",
+      "Mantener una actitud positiva y generosa para sintonizar con la frecuencia de la prosperidad.",
+    ],
+    quotes: [
+      "La abundancia no es algo que adquirimos, es algo con lo que nos sintonizamos a través de nuestra paz interior.",
+      "Cuando agradeces lo mucho o poco que tienes hoy, le abres la puerta a lo extraordinario que vendrá mañana.",
+      "Tu cuenta bancaria suele ser un reflejo del valor que te das a ti mismo y de la fe que tienes en tus capacidades.",
+    ],
+    exercises: [
+      {
+        title: "Diario de Prosperidad",
+        description: "Escribir cada noche tres cosas relacionadas con tus recursos o trabajo por las que te sientas agradecido.",
+      },
+      {
+        title: "Limpieza de Creencias",
+        description: "Redactar una lista de frases negativas que escuchaste sobre el dinero y transformarlas en afirmaciones positivas de crecimiento.",
+      },
+      {
+        title: "Orden Magnético",
+        description: "Organizar físicamente tu billetera y espacios de trabajo para proyectar respeto y orden hacia tu flujo financiero.",
+      },
+      {
+        title: "Visualización Creativa",
+        description: "Dedicar cinco minutos al despertar para visualizarte cumpliendo tus metas financieras con una sonrisa y sin ansiedad.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:13Z",
+  },
+  "cesar-lozano-3-peores-enemigos-del-exito": {
+    summary: "En este encuentro transformador, se exploran las barreras invisibles que nosotros mismos construimos y que nos impiden alcanzar la plenitud personal y profesional. A menudo, el éxito no se ve frenado por factores externos o falta de oportunidades, sino por bloqueos internos profundamente arraigados que actúan como anclas en nuestra evolución diaria. Es fundamental identificar estas conductas para recuperar el control de nuestro destino y dejar de ser nuestros propios saboteadores.\n\nLa charla profundiza en la psicología de la autosuperación, enfatizando que el cambio real comienza con una toma de conciencia radical. Al desmantelar estos enemigos internos, no solo mejoramos nuestra productividad, sino también nuestra calidad de vida y nuestras relaciones. Este contenido es una guía esencial para quienes buscan romper el ciclo de la frustración y desean adoptar una mentalidad de abundancia y resiliencia ante los desafíos del entorno actual.",
+    keyPoints: [
+      "La autocrítica excesiva y el diálogo interno negativo destruyen la confianza antes de intentar cualquier proyecto.",
+      "El miedo al fracaso paraliza la toma de decisiones y nos mantiene dentro de una zona de confort que limita el crecimiento.",
+      "La postergación de metas importantes debido a la búsqueda de una perfección inexistente desgasta nuestra energía vital.",
+      "Comparar nuestro proceso con el de los demás genera una amargura que nubla nuestros propios logros y fortalezas.",
+      "La falta de límites claros con los demás permite que las prioridades ajenas consuman el tiempo dedicado a nuestros sueños.",
+    ],
+    quotes: [
+      "No permitas que las sombras de tus dudas internas apaguen la luz de tu potencial infinito.",
+      "El éxito comienza cuando decides ser más grande que los pretextos que te impiden avanzar.",
+      "Transforma tus debilidades en peldaños y verás que la cima está más cerca de lo que imaginas.",
+    ],
+    exercises: [
+      {
+        title: "Inventario de Saboteadores",
+        description: "Escribe una lista de los tres pensamientos negativos más recurrentes que tienes al iniciar un nuevo reto y redacta una afirmación positiva para contrarrestar cada uno.",
+      },
+      {
+        title: "La Regla de los Cinco Minutos",
+        description: "Para combatir la postergación, comprométete a trabajar en esa tarea que has estado evitando durante solo cinco minutos; el impulso inicial reducirá la resistencia mental.",
+      },
+      {
+        title: "Ayuno de Comparación",
+        description: "Dedica una semana a evitar monitorear los logros de otros en redes sociales y enfócate exclusivamente en registrar tus propios avances diarios en un diario de éxitos.",
+      },
+      {
+        title: "Cuestionamiento del Miedo",
+        description: "Pregúntate formalmente: ¿Qué es lo peor que podría pasar si fallo? Al visualizar el escenario y crear un plan de contingencia, el miedo pierde su poder paralizante.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:21Z",
+  },
+  "cesar-lozano-vida-con-abundancia": {
+    summary: "Vivir en abundancia no se limita únicamente a la acumulación de bienes materiales, sino que representa un estado mental y espiritual que transforma nuestra percepción del entorno. El Dr. César Lozano nos invita a reflexionar sobre cómo nuestras actitudes diarias, el lenguaje que utilizamos y la calidad de nuestras relaciones personales determinan la riqueza real que experimentamos. Al adoptar una postura de apertura y merecimiento, comenzamos a atraer oportunidades que antes pasaban desapercibidas por estar enfocados en la carencia y la queja.\n\nEste enfoque integral propone que la verdadera prosperidad nace de un equilibrio entre la salud emocional, el propósito de vida y la capacidad de compartir con los demás. A través de principios prácticos y una filosofía optimista, se nos motiva a romper con las creencias limitantes que frenan nuestro crecimiento personal. Al final del día, la abundancia es una decisión consciente que se cultiva con gratitud, disciplina y una sonrisa ante las adversidades, permitiéndonos disfrutar plenamente del presente mientras construimos un futuro sólido.",
+    keyPoints: [
+      "La gratitud como imán principal para atraer prosperidad en todos los niveles.",
+      "El impacto del lenguaje positivo en la configuración de nuestra realidad diaria.",
+      "La importancia de soltar resentimientos para liberar espacio mental y emocional.",
+      "El valor del servicio a los demás como fuente inagotable de satisfacción personal.",
+      "La creencia del merecimiento como base para recibir las bendiciones del universo.",
+    ],
+    quotes: [
+      "La abundancia comienza cuando dejas de contar lo que te falta y empiezas a agradecer lo que tienes.",
+      "Tu actitud ante las dificultades determina si estas serán un obstáculo o un escalón hacia tu éxito.",
+      "Quien vive con el corazón generoso siempre encontrará mesas servidas y puertas abiertas.",
+    ],
+    exercises: [
+      {
+        title: "Diario de Agradecimiento",
+        description: "Escribe cada noche tres cosas positivas que ocurrieron en tu día, por pequeñas que parezcan.",
+      },
+      {
+        title: "Ayuno de Quejas",
+        description: "Rétate a pasar 24 horas sin emitir una sola queja, buscando soluciones en lugar de señalar problemas.",
+      },
+      {
+        title: "Visualización de Éxito",
+        description: "Dedica cinco minutos al despertar para imaginar tus metas cumplidas, sintiendo la alegría de haberlas alcanzado.",
+      },
+      {
+        title: "Acto de Generosidad",
+        description: "Realiza una acción desinteresada por alguien más sin esperar reconocimiento, reforzando tu sentido de abundancia compartida.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:27Z",
+  },
+  "marisa-lazo-tour-pastelerias-shark-tank": {
+    summary: "El recorrido por las entrañas de Pastelerías Marisa ofrece una visión privilegiada sobre cómo la pasión por la repostería y el compromiso con la excelencia pueden transformar un emprendimiento local en un referente empresarial nacional. A través de la historia de Marisa Lazo, se evidencia que el éxito en el mundo de los negocios no solo depende de la calidad del producto, sino de una cultura organizacional sólida que valora el factor humano y la mejora continua en cada etapa del proceso.\n\nEste vistazo al corazón de la empresa subraya la importancia de mantener la esencia y los valores familiares incluso en etapas de gran escalabilidad. La trayectoria presentada en Shark Tank México motiva a futuros emprendedores a construir sus proyectos sobre pilares de integridad, disciplina y una visión clara del impacto social que el liderazgo femenino y empresarial puede generar en el ecosistema económico actual.",
+    keyPoints: [
+      "La importancia de escalar un negocio manteniendo la calidad artesanal y el sabor que lo originó.",
+      "El liderazgo basado en la confianza y el empoderamiento de los equipos de trabajo.",
+      "La optimización de procesos productivos para garantizar la frescura y distribución eficiente del producto.",
+      "El papel fundamental de la perseverancia frente a los retos de expansión en el mercado competitivo.",
+      "La construcción de una marca personal auténtica que refleje los valores del fundador en cada sucursal.",
+    ],
+    quotes: [
+      "El éxito verdadero se construye compartiendo los logros con quienes ayudan a hacer realidad cada sueño.",
+      "La calidad no es un destino final, sino un compromiso diario con quienes confían en nuestra labor.",
+      "Emprender con el corazón permite que cada obstáculo se convierta en una oportunidad para fortalecer nuestra visión.",
+    ],
+    exercises: [
+      {
+        title: "Auditoría de Valores",
+        description: "Identifica los tres valores fundamentales de tu proyecto y evalúa si se reflejan en la atención al cliente actual.",
+      },
+      {
+        title: "Mapeo de Procesos",
+        description: "Dibuja el flujo de creación de tu producto e identifica un paso que pueda optimizarse sin sacrificar la calidad.",
+      },
+      {
+        title: "Diálogo de Liderazgo",
+        description: "Realiza una reunión breve con tu equipo para escuchar sus ideas sobre cómo mejorar el ambiente laboral y la eficiencia.",
+      },
+      {
+        title: "Proyección de Escala",
+        description: "Define una meta de crecimiento para el próximo semestre y enumera los recursos humanos necesarios para alcanzarla.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:35Z",
+  },
+  "marisa-lazo-shark-tank-equidad-genero": {
+    summary: "Marisa Lazo representa una visión refrescante del emprendimiento, basada en la premisa de que es posible construir un imperio empresarial desde la cocina del hogar mediante la pasión y la perseverancia. En su participación, explora cómo la generosidad y el enfoque en el bienestar de las personas pueden ser motores de crecimiento más sólidos que la simple búsqueda de capital externo, desafiando el mito de que se requiere de grandes inversionistas para escalar un negocio con éxito. A través de su experiencia en Shark Tank, Lazo enfatiza la importancia de la equidad de género en el mundo corporativo y la necesidad de confiar en la intuición propia por encima del ruido exterior. Su enfoque se centra en el crecimiento orgánico y consciente, donde cada paso adelante se financia con el propio esfuerzo y la excelencia del producto, demostrando que la cultura organizacional es el activo más valioso de cualquier compañía.",
+    keyPoints: [
+      "El crecimiento orgánico permite mantener el control total de la visión y los valores de la empresa.",
+      "La equidad de género no es solo un ideal ético, sino una estrategia que enriquece la toma de decisiones.",
+      "Aprender a filtrar las críticas externas es esencial para proteger la confianza en el proyecto propio.",
+      "La cultura empresarial basada en la felicidad de los colaboradores impulsa la productividad y lealtad.",
+      "La reinversión constante de las utilidades es una alternativa viable y potente frente a la inversión externa.",
+    ],
+    quotes: [
+      "El éxito más duradero se construye paso a paso, priorizando siempre la calidad y el lado humano.",
+      "Tu intuición es una brújula poderosa; aprende a escucharla incluso cuando el entorno sugiera otros caminos.",
+      "Emprender es un acto de valentía que florece cuando dejamos de buscar validación externa y confiamos en el valor de lo que ofrecemos.",
+    ],
+    exercises: [
+      {
+        title: "Auditoría de Crecimiento Orgánico",
+        description: "Analiza tus flujos de efectivo actuales e identifica tres áreas donde puedas optimizar recursos para reinvertir sin depender de préstamos.",
+      },
+      {
+        title: "Filtro de Opiniones",
+        description: "Escribe una lista de las críticas recibidas recientemente y clasifícalas entre constructivas y ruidos innecesarios para tu visión.",
+      },
+      {
+        title: "Mapa de Equidad",
+        description: "Evalúa la diversidad en tus equipos de trabajo y diseña una política interna que promueva la igualdad de oportunidades y voz.",
+      },
+      {
+        title: "Fortalecimiento de la Intuición",
+        description: "Toma una decisión pequeña basándote exclusivamente en tu instinto y documenta los resultados para fortalecer tu confianza personal.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:42Z",
+  },
+  "marisa-lazo-pensar-diferente-ataque": {
+    summary: "La reactividad emocional frente a las opiniones divergentes es un fenómeno común que surge de nuestra necesidad innata de validación y pertenencia. Cuando alguien cuestiona nuestras creencias, el cerebro a menudo interpreta esa discrepancia como una amenaza directa a nuestra identidad, activando mecanismos de defensa que nos impiden escuchar y aprender. Marisa Lazo nos invita a explorar por qué permitimos que la diferencia de ideas se convierta en una batalla personal, transformando nuestra inseguridad en una oportunidad de crecimiento introspectivo.\n\nPara superar esta barrera, es fundamental cultivar la madurez emocional y entender que el valor de una persona no reside en tener siempre la razón. Al separar nuestra identidad de nuestras opiniones, logramos navegar las conversaciones difíciles con una mentalidad de abundancia y apertura. Este enfoque no solo mejora nuestras relaciones interpersonales, sino que también nos libera del peso de la aprobación ajena, permitiéndonos vivir con mayor autenticidad y paz mental.",
+    keyPoints: [
+      "La diferencia de opinión no es un ataque a tu valor personal, sino una perspectiva alterna sobre la realidad.",
+      "El ego suele ser el filtro que distorsiona una conversación constructiva en un conflicto defensivo.",
+      "Practicar la escucha activa permite entender el origen de las ideas del otro sin necesidad de aceptarlas como propias.",
+      "La seguridad interna reduce la necesidad de convencer a los demás para sentirse validado.",
+      "El respeto hacia la diversidad de pensamiento es una herramienta poderosa para el liderazgo y el desarrollo humano.",
+    ],
+    quotes: [
+      "Tu paz mental es demasiado valiosa para permitir que una opinión distinta la perturbe.",
+      "Aprender a escuchar sin defenderse es el primer paso hacia la verdadera maestría emocional.",
+      "La inteligencia se demuestra en la capacidad de considerar una idea sin necesidad de adoptarla de inmediato.",
+    ],
+    exercises: [
+      {
+        title: "La Pausa de Tres Segundos",
+        description: "Antes de responder a una opinión que te moleste, respira profundamente durante tres segundos para desactivar la respuesta impulsiva de tu ego.",
+      },
+      {
+        title: "Mapeo de Creencias",
+        description: "Escribe una creencia fuerte que tengas y busca tres razones válidas por las cuales alguien responsable y educado podría pensar lo contrario.",
+      },
+      {
+        title: "Escucha Curiosa",
+        description: "En tu próxima conversación difícil, realiza al menos dos preguntas sobre el 'por qué' del pensamiento del otro antes de exponer tu punto de vista.",
+      },
+      {
+        title: "Separación de Identidad",
+        description: "Repite mentalmente la frase 'Yo no soy mis opiniones' cuando sientas que una discusión se está volviendo personal para mantener la objetividad.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:50Z",
+  },
+  "marisa-lazo-cultivar-confianza-organizaciones": {
+    summary: "En un entorno empresarial cada vez más orientado a los resultados cuantitativos, Marisa Lazo nos invita a reconectar con la esencia del éxito: las relaciones humanas basadas en la confianza. Este pilar no solo actúa como un pegamento social dentro de los equipos, sino que se convierte en el motor más eficiente para la productividad y la innovación, permitiendo que cada individuo se desarrolle en un ambiente de seguridad psicológica y respeto mutuo.\n\nConstruir una organización humana implica transitar desde el control rígido hacia la delegación consciente y el empoderamiento. La confianza no es un resultado pasivo, sino una práctica activa que comienza por el liderazgo y se expande a toda la cultura organizacional. Al priorizar el bienestar y la integridad de las personas, las empresas logran trascender los objetivos comerciales para convertirse en comunidades de propósito con un impacto positivo en la sociedad.",
+    keyPoints: [
+      "La confianza reduce los costos de fricción y agiliza la toma de decisiones en todos los niveles.",
+      "Liderar desde la vulnerabilidad permite crear espacios donde el error se ve como una oportunidad de aprendizaje.",
+      "La autonomía es el mayor voto de confianza que un líder puede otorgar a su equipo de trabajo.",
+      "Fomentar la transparencia en la comunicación fortalece la lealtad y el compromiso a largo plazo.",
+      "La coherencia entre las palabras y las acciones es el fundamento para construir credibilidad institucional.",
+    ],
+    quotes: [
+      "La confianza es el hilo invisible que convierte a un grupo de personas en un equipo imparable.",
+      "Una organización humana no se mide por sus activos, sino por la calidad de los vínculos que construye.",
+      "Cuando confiamos en el potencial ajeno, estamos sembrando la semilla de la verdadera innovación.",
+    ],
+    exercises: [
+      {
+        title: "Círculos de Escucha Activa",
+        description: "Implementar reuniones semanales donde se priorice la escucha mutua sin juicios, permitiendo que cada miembro exprese sus desafíos personales y profesionales.",
+      },
+      {
+        title: "Delegación Ciega Guiada",
+        description: "Asignar una tarea importante a un colaborador sin intervenir en el proceso, brindando apoyo solo si es solicitado, para fortalecer su autoconfianza.",
+      },
+      {
+        title: "Inventario de Coherencia",
+        description: "Realizar un ejercicio personal diario analizando si las acciones de la jornada estuvieron alineadas con los valores prometidos al equipo.",
+      },
+      {
+        title: "Reconocimiento a la Honestidad",
+        description: "Crear un espacio formal para premiar no solo los éxitos, sino también la valentía de quienes reportan errores a tiempo para corregirlos colectivamente.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:18:57Z",
+  },
+  "marisa-lazo-invertir-mas-alla-del-dinero": {
+    summary: "Invertir suele asociarse casi exclusivamente con el capital financiero, pero Marisa Lazo nos invita a expandir esta visión hacia activos mucho más valiosos y determinantes para el éxito integral. La verdadera riqueza se construye en la gestión consciente de nuestra energía, el tiempo que dedicamos a nuestras pasiones y la calidad de los vínculos que cultivamos día con día. Esta perspectiva transforma la inversión en un acto de amor propio y visión estratégica.\n\nAl entender que cada decisión es una colocación de recursos personales, aprendemos a priorizar el crecimiento interno y la resiliencia sobre la gratificación inmediata. No se trata solo de llenar una cuenta bancaria, sino de enriquecer nuestra experiencia de vida, permitiéndonos florecer en un entorno de abundancia que trasciende lo material y se refleja en nuestra capacidad de impacto y liderazgo humano.",
+    keyPoints: [
+      "La inversión más rentable a largo plazo es el desarrollo de nuestra propia mentalidad y habilidades.",
+      "El tiempo es un recurso no renovable que debe asignarse con intención y propósito claro.",
+      "Las relaciones auténticas funcionan como una red de seguridad y crecimiento compartido.",
+      "Aprender a decir 'no' es una forma de proteger nuestro capital energético y emocional.",
+      "El bienestar físico y mental es la base que sostiene cualquier proyecto profesional exitoso.",
+    ],
+    quotes: [
+      "El verdadero rendimiento de una inversión se mide en la paz mental y la plenitud que genera en tu vida diaria.",
+      "No permitas que la búsqueda de recursos materiales te haga olvidar el valor incalculable de tu propio tiempo.",
+      "Invertir en ti mismo no es un gasto, es la semilla que garantiza tu capacidad de crear un futuro brillante.",
+    ],
+    exercises: [
+      {
+        title: "Auditoría de Tiempo",
+        description: "Registra tus actividades durante tres días y evalúa qué porcentaje de tu tiempo inviertes en crecimiento personal versus actividades pasivas.",
+      },
+      {
+        title: "Mapa de Relaciones",
+        description: "Identifica a las cinco personas con las que más interactúas y analiza si esa inversión de energía te impulsa o te estanca.",
+      },
+      {
+        title: "El Fondo de Autocuidado",
+        description: "Dedica al menos treinta minutos diarios a una actividad que nutra tu mente o cuerpo, tratándolo como una cita financiera innegociable.",
+      },
+      {
+        title: "Declaración de Intención",
+        description: "Escribe tres metas no financieras para el próximo trimestre y define qué recursos de energía y tiempo asignarás para alcanzarlas.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:19:04Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
