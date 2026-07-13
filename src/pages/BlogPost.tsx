@@ -29,6 +29,10 @@ const BlogPost = () => {
   const related = getRelatedPosts(post);
   const canonical = `${BASE_URL}/blog/${post.slug}`;
   const thumbnail = getYoutubeThumbnail(post.youtubeId);
+  const enrichment = getPostEnrichment(post.slug);
+  const metaDescription = enrichment?.summary
+    ? enrichment.summary.split('\n')[0].slice(0, 160)
+    : post.description;
 
   const jsonLd = {
     '@context': 'https://schema.org',

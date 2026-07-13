@@ -423,6 +423,44 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:11:17Z",
   },
+  "yordi-rosado-te-graduas-como-papa": {
+    summary: "En esta reflexión, Yordi Rosado explora el verdadero propósito de la paternidad y la maternidad, cuestionando el deseo natural de los padres de sentirse indispensables. El autor explica que, aunque los padres suelen intentar evitar el sufrimiento de sus hijos, existe una necesidad subyacente de ser siempre necesitados por ellos, lo cual puede frenar su desarrollo emocional y operativo.\n\nEl núcleo del mensaje es que la verdadera 'graduación' de un padre ocurre cuando logra que sus hijos sean plenamente independientes. Rosado enfatiza que el objetivo fundamental es enseñarles a vivir y a resolver sus propios problemas, preparándolos para ser adultos autosuficientes capaces de formar, a su vez, a la siguiente generación. Resolverles todo, aunque nazca del amor, representa un retroceso en su formación como individuos resilientes.",
+    keyPoints: [
+      "El objetivo principal de ser padres es enseñar a los hijos a vivir y actuar por sí mismos.",
+      "La verdadera graduación de un padre consiste en lograr que sus hijos sean independientes.",
+      "El deseo de sentirse esencial para los hijos a menudo proviene de miedos y ausencias personales de los padres.",
+      "Resolver todos los problemas de los hijos en lugar de guiarlos representa un paso atrás en su desarrollo.",
+      "La autonomía debe fomentarse desde las tareas básicas de la infancia hasta las decisiones de la vida adulta.",
+      "Es fundamental observar a los hijos convertirse en personas capaces de salir adelante por su propia cuenta.",
+      "La comunicación con los hijos es crítica, especialmente ante señales de alerta emocionales en la adolescencia.",
+    ],
+    quotes: [
+      "La graduación de un padre es hacer a tus hijos independientes.",
+      "Queremos que nos necesiten, queremos que siempre seamos esenciales para ellos.",
+      "Cada vez que intentas resolverles todo, los echas un paso para atrás.",
+      "El ideal sería poderlos ver que salen adelante y que hacen las cosas ellos solo.",
+      "Nuestro objetivo debería de ser que puedan hacer las cosas ellos solos porque se van a convertir en adultos.",
+    ],
+    exercises: [
+      {
+        title: "Delegación de responsabilidades",
+        description: "Identifica una tarea diaria que actualmente haces por tu hijo y permite que mañana la realice él solo, brindando herramientas pero no la solución final.",
+      },
+      {
+        title: "Análisis de motivaciones",
+        description: "Antes de intervenir para resolver un problema de tu hijo, pregúntate si lo haces por su bienestar o por tu necesidad de sentirte útil e indispensable.",
+      },
+      {
+        title: "Escucha activa sin juicio",
+        description: "Dedica un espacio de tiempo para escuchar las preocupaciones de tu hijo sin ofrecer soluciones inmediatas, permitiendo que él mismo proponga cómo resolverlas.",
+      },
+      {
+        title: "Fomento de la autonomía progresiva",
+        description: "Documenta los logros de independencia de tu hijo y celébralos como éxitos de tu rol como formador, reforzando su confianza para actuar solo.",
+      },
+    ],
+    aiGeneratedAt: "2026-07-13T03:11:23Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>
