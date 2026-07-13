@@ -8,13 +8,15 @@ type SpeakersDropdownProps = {
   setShowDropdown: (show: boolean) => void;
   isMobile?: boolean;
   onNavItemClick?: () => void;
+  isScrolled?: boolean;
 };
 
-const SpeakersDropdown = ({ 
-  showDropdown, 
-  setShowDropdown, 
+const SpeakersDropdown = ({
+  showDropdown,
+  setShowDropdown,
   isMobile = false,
-  onNavItemClick
+  onNavItemClick,
+  isScrolled = false,
 }: SpeakersDropdownProps) => {
   const navigate = useNavigate();
   
