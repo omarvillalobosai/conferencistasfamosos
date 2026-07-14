@@ -22,6 +22,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Spa2 from "./pages/Spa2";
 import SpeakerManagement from "./pages/SpeakerManagement";
 import NewsletterUnsubscribe from "./pages/NewsletterUnsubscribe";
+import NewsletterAdmin from "./pages/NewsletterAdmin";
 
 const queryClient = new QueryClient();
 
