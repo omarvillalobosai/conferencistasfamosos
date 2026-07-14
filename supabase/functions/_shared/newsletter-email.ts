@@ -1,4 +1,4 @@
-export const FROM_EMAIL = 'agencia@conferencistasfamosos.com';
+export const FROM_EMAIL = 'direccion@conferencistasfamosos.com';
 export const FROM_NAME = 'Conferencistas Famosos';
 export const SITE_URL = 'https://conferencistasfamosos.com';
 
