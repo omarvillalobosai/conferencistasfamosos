@@ -357,6 +357,83 @@ export type Database = {
         }
         Relationships: []
       }
+      cf_newsletter_send_log: {
+        Row: {
+          error: string | null
+          id: string
+          post_slug: string | null
+          sent_at: string
+          speaker_slug: string | null
+          status: string
+          subscriber_id: string | null
+        }
+        Insert: {
+          error?: string | null
+          id?: string
+          post_slug?: string | null
+          sent_at?: string
+          speaker_slug?: string | null
+          status?: string
+          subscriber_id?: string | null
+        }
+        Update: {
+          error?: string | null
+          id?: string
+          post_slug?: string | null
+          sent_at?: string
+          speaker_slug?: string | null
+          status?: string
+          subscriber_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cf_newsletter_send_log_subscriber_id_fkey"
+            columns: ["subscriber_id"]
+            isOneToOne: false
+            referencedRelation: "cf_newsletter_subscribers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cf_newsletter_subscribers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          last_sent_at: string | null
+          last_speaker_slug: string | null
+          name: string
+          send_count: number
+          status: string
+          unsubscribe_token: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          last_sent_at?: string | null
+          last_speaker_slug?: string | null
+          name: string
+          send_count?: number
+          status?: string
+          unsubscribe_token?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          last_sent_at?: string | null
+          last_speaker_slug?: string | null
+          name?: string
+          send_count?: number
+          status?: string
+          unsubscribe_token?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       class_registrations: {
         Row: {
           confirmation_token: string | null
