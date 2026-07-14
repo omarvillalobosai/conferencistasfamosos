@@ -22,6 +22,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Spa2 from "./pages/Spa2";
 import SpeakerManagement from "./pages/SpeakerManagement";
 import NewsletterUnsubscribe from "./pages/NewsletterUnsubscribe";
+import NewsletterAdmin from "./pages/NewsletterAdmin";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/spa2" element={<Spa2 />} />
             <Route path="/management" element={<SpeakerManagement />} />
             <Route path="/newsletter/unsubscribe" element={<NewsletterUnsubscribe />} />
+            <Route path="/admin/newsletter" element={<NewsletterAdmin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
