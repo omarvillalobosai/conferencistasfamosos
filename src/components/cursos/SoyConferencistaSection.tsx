@@ -1,100 +1,91 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Mic, UserCircle, Rocket } from 'lucide-react';
+import { Mic, UserCircle, Rocket, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 interface CourseProps {
+  number: string;
   title: string;
   description: string;
   icon: React.ReactNode;
-  tag?: string;
 }
 
-const ConferencistaCourse: React.FC<CourseProps> = ({ title, description, icon, tag }) => {
-  return (
-    <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 border-purple-100">
-      <CardHeader>
-        <div className="flex justify-between items-start">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-purple-100 text-purple-600 rounded-full">
-              {icon}
-            </div>
-            <h3 className="text-xl font-bold">{title}</h3>
-          </div>
-          {tag && (
-            <Badge className="bg-purple-500 hover:bg-purple-600 text-white">
-              {tag}
-            </Badge>
-          )}
-        </div>
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="text-gray-600">{description}</p>
-      </CardContent>
-      <CardFooter className="pt-4 border-t">
-        <button className="text-purple-500 font-semibold hover:text-purple-700 transition-colors flex items-center">
-          Ver detalles del curso
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </CardFooter>
-    </Card>
-  );
-};
+const ConferencistaCourse: React.FC<CourseProps> = ({ number, title, description, icon }) => (
+  <div className="group relative bg-[#0a0a0a] border border-white/10 p-8 hover:border-orange-500 transition-all duration-500 flex flex-col">
+    <div className="flex items-start justify-between mb-8">
+      <span className="text-6xl font-bold text-white/10 group-hover:text-orange-500/30 transition-colors leading-none">
+        {number}
+      </span>
+      <div className="text-orange-500 opacity-70 group-hover:opacity-100 transition-opacity">
+        {icon}
+      </div>
+    </div>
+    <h3 className="text-2xl font-bold text-white mb-4 leading-tight">{title}</h3>
+    <p className="text-white/60 leading-relaxed flex-grow">{description}</p>
+    <div className="mt-8 pt-6 border-t border-white/10 flex items-center text-orange-500 text-sm uppercase tracking-widest font-medium">
+      <span>Ver detalles</span>
+      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+    </div>
+  </div>
+);
 
 const SoyConferencistaSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-purple-50 to-purple-100">
+    <section id="quiero-ser-conferencista" className="py-24 md:py-32 bg-[#050505] text-white border-t border-white/5">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <Badge className="mb-3 bg-purple-200 text-purple-800 hover:bg-purple-300">Nuevo</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Soy Conferencista</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Hemos creado estos cursos especialmente para ayudarte a convertirte en un conferencista de alto impacto y construir tu carrera como speaker.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-12 bg-orange-500" />
+              <span className="text-orange-500 uppercase tracking-[0.3em] text-xs font-medium">
+                Ruta profesional
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold leading-[1.05]">
+              Soy <br />
+              <span className="italic font-light text-white/60">conferencista.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:pt-16">
+            <p className="text-white/60 text-lg leading-relaxed">
+              Cursos diseñados para transformar tu carrera. De la construcción de tu marca personal a dominar el escenario — el mismo camino que han recorrido los speakers más influyentes de habla hispana.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 mb-16">
           <ConferencistaCourse
+            number="01"
             title="Tips para crear una conferencia de motivación"
-            description="Aprende las técnicas probadas para diseñar y entregar conferencias motivacionales que realmente impacten a tu audiencia."
-            icon={<Mic className="h-5 w-5" />}
-            tag="Básico"
+            description="Técnicas probadas para diseñar y entregar conferencias motivacionales que realmente impacten a tu audiencia."
+            icon={<Mic className="h-6 w-6" strokeWidth={1.5} />}
           />
-          
           <ConferencistaCourse
+            number="02"
             title="Explota tu marca personal"
-            description="Estrategias de posicionamiento y visibilidad para destacarte como conferencista y atraer más oportunidades profesionales."
-            icon={<UserCircle className="h-5 w-5" />}
-            tag="Popular"
+            description="Estrategias de posicionamiento y visibilidad para destacar como conferencista y atraer más oportunidades."
+            icon={<UserCircle className="h-6 w-6" strokeWidth={1.5} />}
           />
-          
           <ConferencistaCourse
+            number="03"
             title="Speaker Pro Academy by OMV"
             description="Programa completo y avanzado para dominar todos los aspectos de una carrera exitosa como conferencista profesional."
-            icon={<Rocket className="h-5 w-5" />}
-            tag="Premium"
+            icon={<Rocket className="h-6 w-6" strokeWidth={1.5} />}
           />
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button 
+          <Button
             asChild
-            size="lg" 
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold text-lg px-8"
+            size="lg"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base px-8 py-6 rounded-none"
           >
-            <Link to="/management">Postúlate al Management</Link>
+            <Link to="/management">Postúlate al Management →</Link>
           </Button>
-          
-          
           <WhatsAppButton
             message="Me interesa información sobre los cursos para conferencistas."
-            className="bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-50 font-semibold text-lg px-8"
+            className="bg-transparent border border-white/30 text-white hover:bg-white hover:text-black font-semibold text-base px-8 py-6 rounded-none"
             size="lg"
           >
             Consultar por WhatsApp

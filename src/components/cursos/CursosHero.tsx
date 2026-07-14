@@ -1,31 +1,56 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import heroImage from '@/assets/cursos-hero-cinematic.jpg';
 
 const CursosHero: React.FC = () => {
   return (
-    <section 
-      className="relative min-h-[500px] md:min-h-[600px] flex items-center bg-cover bg-center"
-      style={{ 
-        backgroundImage: 'url("https://images.unsplash.com/photo-1532452119098-a3650b3c46d3?q=80&w=1920&auto=format&fit=crop")',
-        backgroundBlendMode: 'overlay',
-      }}
-    >
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-      <div className="container relative z-10 mx-auto px-4 text-center text-white">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-          🎓 Aprende antes de contratar o de convertirte en un conferencista famoso
-        </h1>
-        <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-8 text-gray-100">
-          Cursos diseñados por expertos en eventos, branding y neuropsicología para elevar la calidad de tu decisión o tu carrera
-        </p>
-        <Button 
-          size="lg"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg text-lg"
-          asChild
-        >
-          <a href="#cursos">Explorar Cursos</a>
-        </Button>
+    <section className="relative min-h-screen flex items-end bg-[#0a0a0a] overflow-hidden">
+      <img
+        src={heroImage}
+        alt="Masterclass cinematográfica para conferencistas"
+        width={1920}
+        height={1080}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover opacity-70"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-transparent to-transparent" />
+
+      <div className="container relative z-10 mx-auto px-4 pb-20 md:pb-32">
+        <div className="max-w-4xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-12 bg-orange-500" />
+            <span className="text-orange-500 uppercase tracking-[0.3em] text-xs font-medium">
+              Masterclass · Formación
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-8 tracking-tight">
+            Aprende antes<br />
+            <span className="italic font-light text-white/80">de subir</span><br />
+            al escenario.
+          </h1>
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-10 leading-relaxed">
+            Cursos diseñados por expertos en eventos, branding y neuropsicología para elevar la calidad de tu decisión — o de tu carrera como speaker.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base rounded-none"
+              asChild
+            >
+              <a href="#cursos">Explorar cursos →</a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/30 bg-transparent text-white hover:bg-white hover:text-black font-semibold px-8 py-6 text-base rounded-none"
+              asChild
+            >
+              <a href="#quiero-ser-conferencista">Quiero ser conferencista</a>
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
