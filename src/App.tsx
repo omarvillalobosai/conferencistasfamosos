@@ -50,6 +50,7 @@ const App = () => (
             <Route path="/spa2" element={<Spa2 />} />
             <Route path="/management" element={<SpeakerManagement />} />
             <Route path="/newsletter/unsubscribe" element={<NewsletterUnsubscribe />} />
+            <Route path="/admin/newsletter" element={<NewsletterAdmin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
