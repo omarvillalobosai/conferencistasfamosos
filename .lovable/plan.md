@@ -1,49 +1,82 @@
-## Objetivo
 
-Enriquecer los posts del blog (`src/data/blogPosts.ts`) con contenido generado por IA a partir de la transcripción real de cada video de YouTube: resumen ejecutivo, puntos clave, frases memorables y ejercicios prácticos. Todo se genera una sola vez con un script y queda guardado como datos estáticos.
+# Newsletter "Frases que Inspiran"
 
-## Cómo funcionará
+Sistema de suscripción con captura de nombre + email y envío automático cada 3 días de una frase de un conferencista del blog, alternando entre Omar Villalobos y el resto de speakers. Todas las tablas nuevas usan el prefijo `cf_` para quedar agrupadas en el dashboard Supabase.
 
-1. **Ampliar el tipo `BlogPost`** con campos opcionales:
-   - `summary: string` (2-3 párrafos)
-   - `keyPoints: string[]` (5-7 bullets)
-   - `quotes: string[]` (3-5 frases)
-   - `exercises: { title: string; description: string }[]` (3-5)
-   - `aiGeneratedAt: string` para saber qué posts ya fueron procesados
+## 1. UI de suscripción (llamativa)
 
-2. **Script `scripts/enrich-blog-posts.ts`** (se corre localmente con `bun`, no en runtime):
-   - Recorre `blogPosts`.
-   - Para cada `youtubeId`, intenta descargar la transcripción automática con `youtube-transcript` (npm). Si no hay transcripción, marca el post como `skipped` y sigue.
-   - Envía la transcripción + título + speaker a Lovable AI Gateway (`google/gemini-3-flash-preview`) usando `generateText` con `Output.object` (schema sin bounds; límites en el prompt).
-   - Guarda el resultado directamente en `src/data/blogPosts.ts` regenerando el archivo con el nuevo contenido, respetando los posts que ya tienen `aiGeneratedAt` (idempotente, no regenera lo ya hecho salvo con flag `--force`).
-   - Delay entre requests para evitar rate limits (429) y manejo explícito de 402 (créditos).
+Nuevo componente `src/components/NewsletterSection.tsx` con estética cinematográfica alineada al sitio:
+- Fondo oscuro con glow naranja radial (mismo lenguaje visual que `CursosCta`)
+- Headline editorial: *"Una frase. Cada 3 días. De los mejores del escenario."*
+- Sub: beneficio breve
+- Form horizontal: input **Nombre** + input **Email** + botón "Suscribirme"
+- Validación con Zod (nombre min 2, email válido)
+- Estados: loading, éxito (mensaje + confetti sutil), error (toast)
+- Nota: "Puedes darte de baja cuando quieras"
 
-3. **Renderizar en `src/pages/BlogPost.tsx`**:
-   - Debajo del video y la descripción, si el post tiene `summary`, agregar secciones:
-     - "Resumen" (párrafos)
-     - "Puntos clave" (lista con checks)
-     - "Frases memorables" (blockquotes con estilo naranja)
-     - "Ejercicios para aplicar" (cards numeradas)
-   - Extender el JSON-LD `VideoObject` con `description` enriquecida para SEO.
-   - Los posts sin contenido IA siguen mostrándose igual que ahora (sin romper nada).
+Se inserta en:
+- `src/pages/Index.tsx` antes de `RequestQuoteSection`
+- `src/pages/Blog.tsx` al final del grid
 
-4. **Documentación breve en `README.md`** con cómo correr el script:
-   ```
-   LOVABLE_API_KEY=... bun run scripts/enrich-blog-posts.ts
-   bun run scripts/enrich-blog-posts.ts --only=daniel-habif-on-the-road-exma
-   bun run scripts/enrich-blog-posts.ts --force
-   ```
+## 2. Base de datos (prefijo `cf_`)
 
-## Detalles técnicos
+Migración con dos tablas nuevas:
 
-- **Fuente de transcripción**: `youtube-transcript` (npm). Solo depende del ID público; si YouTube no expone subtítulos para ese video, se salta.
-- **Modelo**: `google/gemini-3-flash-preview` vía Lovable AI Gateway (default, económico y con contexto grande para transcripciones largas).
-- **Schema `Output.object`**: plano, todos los campos requeridos y `nullable()` cuando aplique; los límites de cantidad ("5-7 puntos") van en el prompt y se recortan en código.
-- **Dónde vive `LOVABLE_API_KEY`**: el script se corre en el sandbox de desarrollo donde ya está disponible; no se expone al cliente.
-- **Idempotencia**: el script sólo escribe posts nuevos o con `--force`; el resto se preserva byte a byte.
+**`cf_newsletter_subscribers`**
+- `id` uuid pk
+- `name` text
+- `email` text unique
+- `status` text default `'active'` (active/unsubscribed)
+- `last_sent_at` timestamptz
+- `last_speaker_slug` text
+- `send_count` int default 0
+- `unsubscribe_token` uuid default `gen_random_uuid()`
+- `created_at`, `updated_at`
 
-## Alcance de esta iteración
+**`cf_newsletter_send_log`** (auditoría)
+- `id`, `subscriber_id`, `post_slug`, `speaker_slug`, `sent_at`, `status`, `error`
 
-- Se ejecuta el script sobre los posts existentes (Omar, Yordi, Daniel, Gaby, Vilma, Elsa, César, Marisa).
-- No se agrega panel admin, ni tabla en Supabase, ni generación bajo demanda (queda para una fase futura si lo pides).
-- Los cursos (`coursePosts.ts`) quedan fuera de esta iteración; se puede replicar el mismo patrón después si te sirve.
+RLS + GRANTs:
+- Escritura pública **solo** vía edge function (service_role). El INSERT desde el navegador pasa por la edge function, no por PostgREST directo.
+- Grants: `service_role` full; `anon` sin acceso.
+
+## 3. Edge functions
+
+**`newsletter-subscribe`** (`supabase/functions/newsletter-subscribe/index.ts`)
+- CORS + validación Zod (name, email)
+- Upsert por email (reactiva si estaba unsubscribed)
+- Envía email de bienvenida vía Brevo con la primera frase (Omar Villalobos)
+- Usa `BREVO_API_KEY` (ya configurada) desde `agencia@conferencistasfamosos.com`
+
+**`newsletter-send-scheduled`** (`supabase/functions/newsletter-send-scheduled/index.ts`)
+- Selecciona `cf_newsletter_subscribers` con `status='active'` y (`last_sent_at IS NULL` OR `last_sent_at < now() - interval '3 days'`)
+- Para cada suscriptor:
+  - Alternancia: si `last_speaker_slug = 'omar-villalobos'` → elige un post aleatorio de otro speaker; si no → un post de Omar Villalobos
+  - Envía email HTML brandeado (naranja/negro) con: frase destacada, nombre del conferencista, botón "Ver el video completo" → `https://conferencistasfamosos.com/blog/{slug}`, link de baja
+  - Update `last_sent_at`, `last_speaker_slug`, `send_count`; insert en `cf_newsletter_send_log`
+
+**`newsletter-unsubscribe`** (`supabase/functions/newsletter-unsubscribe/index.ts`)
+- Recibe `token`, marca `status='unsubscribed'`
+
+**Fuente de frases**: nuevo `supabase/functions/_shared/quotes.ts` con array `{ slug, speaker, speakerSlug, quote }` derivado de `blogPostsEnrichment.ts` (uso `keyPoints[0]` o el título del post como frase).
+
+## 4. Cron
+
+Vía `supabase--insert` (SQL con URL específica del proyecto, no migración) usando `pg_cron` + `pg_net`:
+- Habilitar extensiones si no están activas
+- Job diario a las 14:00 UTC que invoca `newsletter-send-scheduled`
+- La función respeta internamente el intervalo de 3 días por suscriptor
+
+## 5. Página de baja
+
+`src/pages/NewsletterUnsubscribe.tsx` en ruta `/newsletter/unsubscribe?token=...`:
+- Llama a `newsletter-unsubscribe`
+- Muestra confirmación con estética del sitio
+- Ruta agregada en `App.tsx` y `sitemap.xml`
+
+## Notas técnicas
+
+- Emails con HTML inline-styled (compatibilidad Gmail/Outlook)
+- `from: ConferencistasFamosos <agencia@conferencistasfamosos.com>` vía Brevo
+- Todas las llamadas del frontend van a edge functions (nunca escribe directo a la tabla), así RLS queda cerrada al público y no expongo datos
+- La tabla existente `newsletter_subscribers` (compartida con otros proyectos) no se toca
