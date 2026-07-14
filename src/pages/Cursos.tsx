@@ -48,14 +48,14 @@ const Cursos: React.FC = () => {
       </Helmet>
       
       <Navbar />
-      
-      <main>
+
+      <main className="bg-[#0a0a0a]">
         <CursosHero />
         <CoursesTabs />
         <SoyConferencistaSection />
         <CursosCta />
       </main>
-      
+
       <Footer />
     </>
   );
