@@ -1,4 +1,4 @@
-export const FROM_EMAIL = 'agencia@conferencistasfamosos.com';
+export const FROM_EMAIL = 'direccion@conferencistasfamosos.com';
 export const FROM_NAME = 'Conferencistas Famosos';
 export const SITE_URL = 'https://conferencistasfamosos.com';
 
@@ -101,32 +101,34 @@ export function renderQuoteEmail({
 </html>`;
 }
 
-export async function sendBrevoEmail(params: {
+export async function sendResendEmail(params: {
   to: string;
   toName: string;
   subject: string;
   html: string;
 }): Promise<void> {
-  const apiKey = Deno.env.get('BREVO_API_KEY');
-  if (!apiKey) throw new Error('BREVO_API_KEY not configured');
+  const apiKey = Deno.env.get('RESEND_API_KEY');
+  if (!apiKey) throw new Error('RESEND_API_KEY not configured');
 
-  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+  const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
-      'accept': 'application/json',
-      'api-key': apiKey,
-      'content-type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      sender: { name: FROM_NAME, email: FROM_EMAIL },
-      to: [{ email: params.to, name: params.toName }],
+      from: `${FROM_NAME} <${FROM_EMAIL}>`,
+      to: [params.toName ? `${params.toName} <${params.to}>` : params.to],
       subject: params.subject,
-      htmlContent: params.html,
+      html: params.html,
     }),
   });
 
   if (!res.ok) {
     const body = await res.text();
-    throw new Error(`Brevo send failed [${res.status}]: ${body}`);
+    throw new Error(`Resend send failed [${res.status}]: ${body}`);
   }
 }
+
+// Backwards-compatible alias so existing callers keep working.
+export const sendBrevoEmail = sendResendEmail;
