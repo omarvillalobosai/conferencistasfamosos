@@ -8,6 +8,7 @@ import SpeakersSection from '@/components/SpeakersSection';
 import FeaturedSpeakerSection from '@/components/FeaturedSpeakerSection';
 
 import BlogSection from '@/components/BlogSection';
+import NewsletterSection from '@/components/NewsletterSection';
 import RequestQuoteSection from '@/components/RequestQuoteSection';
 import Footer from '@/components/Footer';
 
@@ -32,6 +33,7 @@ const Index = () => {
         <FeaturedSpeakerSection />
         
         <BlogSection />
+        <NewsletterSection />
         <RequestQuoteSection />
       </main>
       <Footer />
