@@ -227,6 +227,13 @@ export type Database = {
             foreignKeyName: "blog_newsletter_schedule_post_id_fkey"
             columns: ["post_id"]
             isOneToOne: true
+            referencedRelation: "tedx_quote_inventory"
+            referencedColumns: ["blog_post_id"]
+          },
+          {
+            foreignKeyName: "blog_newsletter_schedule_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: true
             referencedRelation: "youtube_blog_posts"
             referencedColumns: ["id"]
           },
@@ -268,6 +275,13 @@ export type Database = {
             foreignKeyName: "blog_post_comments_blog_post_id_fkey"
             columns: ["blog_post_id"]
             isOneToOne: false
+            referencedRelation: "tedx_quote_inventory"
+            referencedColumns: ["blog_post_id"]
+          },
+          {
+            foreignKeyName: "blog_post_comments_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
             referencedRelation: "youtube_blog_posts"
             referencedColumns: ["id"]
           },
@@ -282,44 +296,53 @@ export type Database = {
       }
       cash_payment_coupons: {
         Row: {
+          access_source: string | null
           activated_at: string | null
           activated_by: string | null
           amount_mxn: number
+          client_notes: string | null
           coupon_code: string
           created_at: string
           email: string
           id: string
           name: string
-          password_hash: string
+          paid_amount_mxn: number | null
           product_id: string
+          revoke_token: string | null
           status: Database["public"]["Enums"]["cash_payment_status"]
           user_id: string | null
         }
         Insert: {
+          access_source?: string | null
           activated_at?: string | null
           activated_by?: string | null
           amount_mxn?: number
+          client_notes?: string | null
           coupon_code: string
           created_at?: string
           email: string
           id?: string
           name: string
-          password_hash: string
+          paid_amount_mxn?: number | null
           product_id: string
+          revoke_token?: string | null
           status?: Database["public"]["Enums"]["cash_payment_status"]
           user_id?: string | null
         }
         Update: {
+          access_source?: string | null
           activated_at?: string | null
           activated_by?: string | null
           amount_mxn?: number
+          client_notes?: string | null
           coupon_code?: string
           created_at?: string
           email?: string
           id?: string
           name?: string
-          password_hash?: string
+          paid_amount_mxn?: number | null
           product_id?: string
+          revoke_token?: string | null
           status?: Database["public"]["Enums"]["cash_payment_status"]
           user_id?: string | null
         }
@@ -430,6 +453,66 @@ export type Database = {
           send_count?: number
           status?: string
           unsubscribe_token?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      cf_quote_requests: {
+        Row: {
+          budget: string | null
+          company: string | null
+          created_at: string
+          email: string
+          event_intentions: string | null
+          event_type: string | null
+          id: string
+          name: string
+          notified_at: string | null
+          notify_error: string | null
+          phone: string | null
+          pitch: string | null
+          social_media: string | null
+          speaker_focus: string | null
+          specific_objectives: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          budget?: string | null
+          company?: string | null
+          created_at?: string
+          email: string
+          event_intentions?: string | null
+          event_type?: string | null
+          id?: string
+          name: string
+          notified_at?: string | null
+          notify_error?: string | null
+          phone?: string | null
+          pitch?: string | null
+          social_media?: string | null
+          speaker_focus?: string | null
+          specific_objectives?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          budget?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string
+          event_intentions?: string | null
+          event_type?: string | null
+          id?: string
+          name?: string
+          notified_at?: string | null
+          notify_error?: string | null
+          phone?: string | null
+          pitch?: string | null
+          social_media?: string | null
+          speaker_focus?: string | null
+          specific_objectives?: string | null
+          status?: string
           updated_at?: string
         }
         Relationships: []
@@ -632,6 +715,51 @@ export type Database = {
         }
         Relationships: []
       }
+      consultorio_casos: {
+        Row: {
+          contact_id: string | null
+          created_at: string
+          display_name: string
+          display_order: number
+          featured: boolean
+          id: string
+          is_anonymous: boolean
+          mensaje: string
+          project_id: string
+          status: string
+          tipo: string
+          updated_at: string
+        }
+        Insert: {
+          contact_id?: string | null
+          created_at?: string
+          display_name?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          is_anonymous?: boolean
+          mensaje: string
+          project_id?: string
+          status?: string
+          tipo?: string
+          updated_at?: string
+        }
+        Update: {
+          contact_id?: string | null
+          created_at?: string
+          display_name?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          is_anonymous?: boolean
+          mensaje?: string
+          project_id?: string
+          status?: string
+          tipo?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           created_at: string
@@ -741,6 +869,63 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      corporate_leads: {
+        Row: {
+          answers: Json
+          company: string
+          company_size: string | null
+          created_at: string
+          dashboard_token: string
+          dnc_activated_at: string | null
+          dnc_active: boolean
+          email: string
+          employees_count: number | null
+          id: string
+          industry: string | null
+          name: string
+          phone: string | null
+          scores: Json
+          slug: string | null
+          updated_at: string
+        }
+        Insert: {
+          answers?: Json
+          company: string
+          company_size?: string | null
+          created_at?: string
+          dashboard_token?: string
+          dnc_activated_at?: string | null
+          dnc_active?: boolean
+          email: string
+          employees_count?: number | null
+          id?: string
+          industry?: string | null
+          name: string
+          phone?: string | null
+          scores?: Json
+          slug?: string | null
+          updated_at?: string
+        }
+        Update: {
+          answers?: Json
+          company?: string
+          company_size?: string | null
+          created_at?: string
+          dashboard_token?: string
+          dnc_activated_at?: string | null
+          dnc_active?: boolean
+          email?: string
+          employees_count?: number | null
+          id?: string
+          industry?: string | null
+          name?: string
+          phone?: string | null
+          scores?: Json
+          slug?: string | null
+          updated_at?: string
+        }
+        Relationships: []
       }
       course_lesson_progress: {
         Row: {
@@ -890,6 +1075,84 @@ export type Database = {
           name?: string
           updated_at?: string
           vimeo_folder_id?: string
+        }
+        Relationships: []
+      }
+      course_nudge_log: {
+        Row: {
+          course_slug: string | null
+          email: string
+          error_message: string | null
+          id: string
+          message_id: string | null
+          nudge_type: string
+          reference_key: string
+          sent_at: string
+          status: string
+          user_id: string | null
+        }
+        Insert: {
+          course_slug?: string | null
+          email: string
+          error_message?: string | null
+          id?: string
+          message_id?: string | null
+          nudge_type: string
+          reference_key?: string
+          sent_at?: string
+          status?: string
+          user_id?: string | null
+        }
+        Update: {
+          course_slug?: string | null
+          email?: string
+          error_message?: string | null
+          id?: string
+          message_id?: string | null
+          nudge_type?: string
+          reference_key?: string
+          sent_at?: string
+          status?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      course_nudge_settings: {
+        Row: {
+          course_path: string
+          course_slug: string
+          created_at: string
+          display_name: string
+          inactivity_days: number
+          is_active: boolean
+          lessons_per_week: number
+          onboarding_sequence_id: string | null
+          product_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          course_path?: string
+          course_slug: string
+          created_at?: string
+          display_name: string
+          inactivity_days?: number
+          is_active?: boolean
+          lessons_per_week?: number
+          onboarding_sequence_id?: string | null
+          product_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          course_path?: string
+          course_slug?: string
+          created_at?: string
+          display_name?: string
+          inactivity_days?: number
+          is_active?: boolean
+          lessons_per_week?: number
+          onboarding_sequence_id?: string | null
+          product_id?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
@@ -1097,6 +1360,9 @@ export type Database = {
           next_touch_at: string | null
           project_id: string
           status: Database["public"]["Enums"]["crm_contact_status"]
+          suppressed: boolean
+          suppressed_at: string | null
+          suppressed_reason: string | null
           tags: string[] | null
           updated_at: string
         }
@@ -1110,6 +1376,9 @@ export type Database = {
           next_touch_at?: string | null
           project_id: string
           status?: Database["public"]["Enums"]["crm_contact_status"]
+          suppressed?: boolean
+          suppressed_at?: string | null
+          suppressed_reason?: string | null
           tags?: string[] | null
           updated_at?: string
         }
@@ -1123,6 +1392,9 @@ export type Database = {
           next_touch_at?: string | null
           project_id?: string
           status?: Database["public"]["Enums"]["crm_contact_status"]
+          suppressed?: boolean
+          suppressed_at?: string | null
+          suppressed_reason?: string | null
           tags?: string[] | null
           updated_at?: string
         }
@@ -1332,24 +1604,27 @@ export type Database = {
           created_at: string
           id: string
           token: string
+          used_at: string | null
         }
         Insert: {
           contact_id: string
           created_at?: string
           id?: string
           token: string
+          used_at?: string | null
         }
         Update: {
           contact_id?: string
           created_at?: string
           id?: string
           token?: string
+          used_at?: string | null
         }
         Relationships: [
           {
             foreignKeyName: "crm_unsubscribe_tokens_contact_id_fkey"
             columns: ["contact_id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "crm_contacts"
             referencedColumns: ["id"]
           },
@@ -1421,6 +1696,56 @@ export type Database = {
         }
         Relationships: []
       }
+      dnc_responses: {
+        Row: {
+          answers: Json
+          barreras: Json
+          company_id: string
+          created_at: string
+          cultura_score: number | null
+          department: string
+          ejecucion_score: number | null
+          id: string
+          scores: Json
+          seniority: string
+          total_score: number | null
+        }
+        Insert: {
+          answers?: Json
+          barreras?: Json
+          company_id: string
+          created_at?: string
+          cultura_score?: number | null
+          department: string
+          ejecucion_score?: number | null
+          id?: string
+          scores?: Json
+          seniority?: string
+          total_score?: number | null
+        }
+        Update: {
+          answers?: Json
+          barreras?: Json
+          company_id?: string
+          created_at?: string
+          cultura_score?: number | null
+          department?: string
+          ejecucion_score?: number | null
+          id?: string
+          scores?: Json
+          seniority?: string
+          total_score?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "dnc_responses_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ebook_leads: {
         Row: {
           created_at: string
@@ -1450,6 +1775,72 @@ export type Database = {
           subscribed_newsletter?: boolean
         }
         Relationships: []
+      }
+      email_events: {
+        Row: {
+          campaign_id: string | null
+          contact_id: string | null
+          created_at: string
+          email: string
+          enrollment_id: string | null
+          event_type: string
+          id: string
+          message_id: string | null
+          occurred_at: string
+          project_id: string
+          raw: Json | null
+          sequence_id: string | null
+          step_id: string | null
+          url: string | null
+        }
+        Insert: {
+          campaign_id?: string | null
+          contact_id?: string | null
+          created_at?: string
+          email: string
+          enrollment_id?: string | null
+          event_type: string
+          id?: string
+          message_id?: string | null
+          occurred_at?: string
+          project_id?: string
+          raw?: Json | null
+          sequence_id?: string | null
+          step_id?: string | null
+          url?: string | null
+        }
+        Update: {
+          campaign_id?: string | null
+          contact_id?: string | null
+          created_at?: string
+          email?: string
+          enrollment_id?: string | null
+          event_type?: string
+          id?: string
+          message_id?: string | null
+          occurred_at?: string
+          project_id?: string
+          raw?: Json | null
+          sequence_id?: string | null
+          step_id?: string | null
+          url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "email_events_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "crm_contacts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "email_events_enrollment_id_fkey"
+            columns: ["enrollment_id"]
+            isOneToOne: false
+            referencedRelation: "funnel_enrollments"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       email_send_log: {
         Row: {
@@ -1501,6 +1892,7 @@ export type Database = {
           html_body: string
           id: string
           is_active: boolean | null
+          offset_minutes_from_anchor: number | null
           sequence_id: string | null
           step_order: number
           subject: string
@@ -1514,6 +1906,7 @@ export type Database = {
           html_body: string
           id?: string
           is_active?: boolean | null
+          offset_minutes_from_anchor?: number | null
           sequence_id?: string | null
           step_order: number
           subject: string
@@ -1527,6 +1920,7 @@ export type Database = {
           html_body?: string
           id?: string
           is_active?: boolean | null
+          offset_minutes_from_anchor?: number | null
           sequence_id?: string | null
           step_order?: number
           subject?: string
@@ -1545,11 +1939,13 @@ export type Database = {
       }
       email_sequences: {
         Row: {
+          anchor_at: string | null
           audience: string | null
           created_at: string | null
           created_by: string | null
           default_channel: string
           description: string | null
+          from_email: string | null
           goal: string | null
           id: string
           is_active: boolean | null
@@ -1561,11 +1957,13 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          anchor_at?: string | null
           audience?: string | null
           created_at?: string | null
           created_by?: string | null
           default_channel?: string
           description?: string | null
+          from_email?: string | null
           goal?: string | null
           id?: string
           is_active?: boolean | null
@@ -1577,11 +1975,13 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          anchor_at?: string | null
           audience?: string | null
           created_at?: string | null
           created_by?: string | null
           default_channel?: string
           description?: string | null
+          from_email?: string | null
           goal?: string | null
           id?: string
           is_active?: boolean | null
@@ -1591,6 +1991,39 @@ export type Database = {
           service_type?: string | null
           tone?: string | null
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      email_suppressions: {
+        Row: {
+          created_at: string
+          details: Json | null
+          email: string
+          id: string
+          message_id: string | null
+          project_id: string | null
+          reason: string
+          source: string
+        }
+        Insert: {
+          created_at?: string
+          details?: Json | null
+          email: string
+          id?: string
+          message_id?: string | null
+          project_id?: string | null
+          reason?: string
+          source?: string
+        }
+        Update: {
+          created_at?: string
+          details?: Json | null
+          email?: string
+          id?: string
+          message_id?: string | null
+          project_id?: string | null
+          reason?: string
+          source?: string
         }
         Relationships: []
       }
@@ -1661,31 +2094,43 @@ export type Database = {
           content: string
           created_at: string
           id: string
+          is_official: boolean
           like_count: number | null
           parent_id: string | null
           post_id: string
+          resource_links: Json
           updated_at: string
           user_id: string
+          video_id: string | null
+          video_type: string | null
         }
         Insert: {
           content: string
           created_at?: string
           id?: string
+          is_official?: boolean
           like_count?: number | null
           parent_id?: string | null
           post_id: string
+          resource_links?: Json
           updated_at?: string
           user_id: string
+          video_id?: string | null
+          video_type?: string | null
         }
         Update: {
           content?: string
           created_at?: string
           id?: string
+          is_official?: boolean
           like_count?: number | null
           parent_id?: string | null
           post_id?: string
+          resource_links?: Json
           updated_at?: string
           user_id?: string
+          video_id?: string | null
+          video_type?: string | null
         }
         Relationships: [
           {
@@ -1700,6 +2145,13 @@ export type Database = {
             columns: ["post_id"]
             isOneToOne: false
             referencedRelation: "forum_posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "forum_comments_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "vw_forum_post_catalog"
             referencedColumns: ["id"]
           },
         ]
@@ -1731,10 +2183,19 @@ export type Database = {
             referencedRelation: "forum_posts"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "forum_post_likes_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "vw_forum_post_catalog"
+            referencedColumns: ["id"]
+          },
         ]
       }
       forum_posts: {
         Row: {
+          answered_at: string | null
+          answered_by: string | null
           category_id: string | null
           comment_count: number | null
           content: string
@@ -1744,6 +2205,7 @@ export type Database = {
           is_pinned: boolean | null
           level_number: number | null
           like_count: number | null
+          status: string
           title: string
           updated_at: string
           user_id: string
@@ -1754,6 +2216,8 @@ export type Database = {
           view_count: number | null
         }
         Insert: {
+          answered_at?: string | null
+          answered_by?: string | null
           category_id?: string | null
           comment_count?: number | null
           content: string
@@ -1763,6 +2227,7 @@ export type Database = {
           is_pinned?: boolean | null
           level_number?: number | null
           like_count?: number | null
+          status?: string
           title: string
           updated_at?: string
           user_id: string
@@ -1773,6 +2238,8 @@ export type Database = {
           view_count?: number | null
         }
         Update: {
+          answered_at?: string | null
+          answered_by?: string | null
           category_id?: string | null
           comment_count?: number | null
           content?: string
@@ -1782,6 +2249,7 @@ export type Database = {
           is_pinned?: boolean | null
           level_number?: number | null
           like_count?: number | null
+          status?: string
           title?: string
           updated_at?: string
           user_id?: string
@@ -1933,6 +2401,87 @@ export type Database = {
           },
         ]
       }
+      hub_events: {
+        Row: {
+          attempts: number
+          created_at: string
+          dedupe_key: string | null
+          delivered_at: string | null
+          delivery_status: string
+          event_type: string
+          id: string
+          last_error: string | null
+          occurred_at: string
+          payload: Json
+          project_id: string
+          schema_version: number
+          source_domain: string
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          dedupe_key?: string | null
+          delivered_at?: string | null
+          delivery_status?: string
+          event_type: string
+          id?: string
+          last_error?: string | null
+          occurred_at?: string
+          payload?: Json
+          project_id?: string
+          schema_version?: number
+          source_domain?: string
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          dedupe_key?: string | null
+          delivered_at?: string | null
+          delivery_status?: string
+          event_type?: string
+          id?: string
+          last_error?: string | null
+          occurred_at?: string
+          payload?: Json
+          project_id?: string
+          schema_version?: number
+          source_domain?: string
+        }
+        Relationships: []
+      }
+      hub_sync_failures: {
+        Row: {
+          attempts: number
+          created_at: string
+          error: string | null
+          id: string
+          payload: Json
+          resolved_at: string | null
+          status: number | null
+          sync_type: string
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          error?: string | null
+          id?: string
+          payload: Json
+          resolved_at?: string | null
+          status?: number | null
+          sync_type: string
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          error?: string | null
+          id?: string
+          payload?: Json
+          resolved_at?: string | null
+          status?: number | null
+          sync_type?: string
+        }
+        Relationships: []
+      }
       landing_events: {
         Row: {
           country: string | null
@@ -1943,6 +2492,7 @@ export type Database = {
           page: string
           referrer: string | null
           session_id: string
+          site: string | null
           user_agent: string | null
           utm_campaign: string | null
           utm_content: string | null
@@ -1959,6 +2509,7 @@ export type Database = {
           page: string
           referrer?: string | null
           session_id: string
+          site?: string | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
@@ -1975,6 +2526,7 @@ export type Database = {
           page?: string
           referrer?: string | null
           session_id?: string
+          site?: string | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
@@ -2071,11 +2623,15 @@ export type Database = {
       }
       lead_email_history: {
         Row: {
+          bounced_at: string | null
           clicked_at: string | null
+          complained_at: string | null
           created_at: string | null
+          email: string | null
           error_message: string | null
           id: string
           lead_id: string | null
+          message_id: string | null
           opened_at: string | null
           sent_at: string | null
           sequence_id: string | null
@@ -2083,11 +2639,15 @@ export type Database = {
           step_id: string | null
         }
         Insert: {
+          bounced_at?: string | null
           clicked_at?: string | null
+          complained_at?: string | null
           created_at?: string | null
+          email?: string | null
           error_message?: string | null
           id?: string
           lead_id?: string | null
+          message_id?: string | null
           opened_at?: string | null
           sent_at?: string | null
           sequence_id?: string | null
@@ -2095,11 +2655,15 @@ export type Database = {
           step_id?: string | null
         }
         Update: {
+          bounced_at?: string | null
           clicked_at?: string | null
+          complained_at?: string | null
           created_at?: string | null
+          email?: string | null
           error_message?: string | null
           id?: string
           lead_id?: string | null
+          message_id?: string | null
           opened_at?: string | null
           sent_at?: string | null
           sequence_id?: string | null
@@ -2227,6 +2791,7 @@ export type Database = {
           name_es: string
           purpose: string | null
           stage_number: number
+          vimeo_folder_id: string | null
         }
         Insert: {
           color?: string | null
@@ -2241,6 +2806,7 @@ export type Database = {
           name_es: string
           purpose?: string | null
           stage_number: number
+          vimeo_folder_id?: string | null
         }
         Update: {
           color?: string | null
@@ -2255,6 +2821,7 @@ export type Database = {
           name_es?: string
           purpose?: string | null
           stage_number?: number
+          vimeo_folder_id?: string | null
         }
         Relationships: []
       }
@@ -2700,34 +3267,560 @@ export type Database = {
             referencedRelation: "forum_posts"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "mantra_videos_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "vw_forum_post_catalog"
+            referencedColumns: ["id"]
+          },
         ]
+      }
+      mkt_import_batches: {
+        Row: {
+          batch_name: string
+          created_at: string
+          duplicates: number
+          enrolled: number
+          id: string
+          imported_by: string | null
+          new_contacts: number
+          project_id: string | null
+          sequence_id: string | null
+          total_parsed: number
+          updated_at: string
+        }
+        Insert: {
+          batch_name: string
+          created_at?: string
+          duplicates?: number
+          enrolled?: number
+          id?: string
+          imported_by?: string | null
+          new_contacts?: number
+          project_id?: string | null
+          sequence_id?: string | null
+          total_parsed?: number
+          updated_at?: string
+        }
+        Update: {
+          batch_name?: string
+          created_at?: string
+          duplicates?: number
+          enrolled?: number
+          id?: string
+          imported_by?: string | null
+          new_contacts?: number
+          project_id?: string | null
+          sequence_id?: string | null
+          total_parsed?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mkt_import_batches_sequence_id_fkey"
+            columns: ["sequence_id"]
+            isOneToOne: false
+            referencedRelation: "email_sequences"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      newsletter_posts: {
+        Row: {
+          content: string
+          cover_prompt: string | null
+          cover_url: string | null
+          created_at: string
+          excerpt: string | null
+          id: string
+          key_points: string[]
+          published_at: string
+          reading_time_minutes: number
+          seo_description: string | null
+          seo_title: string | null
+          slug: string
+          status: string
+          title: string
+          topic: string | null
+          updated_at: string
+          view_count: number
+        }
+        Insert: {
+          content?: string
+          cover_prompt?: string | null
+          cover_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          key_points?: string[]
+          published_at?: string
+          reading_time_minutes?: number
+          seo_description?: string | null
+          seo_title?: string | null
+          slug: string
+          status?: string
+          title: string
+          topic?: string | null
+          updated_at?: string
+          view_count?: number
+        }
+        Update: {
+          content?: string
+          cover_prompt?: string | null
+          cover_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          key_points?: string[]
+          published_at?: string
+          reading_time_minutes?: number
+          seo_description?: string | null
+          seo_title?: string | null
+          slug?: string
+          status?: string
+          title?: string
+          topic?: string | null
+          updated_at?: string
+          view_count?: number
+        }
+        Relationships: []
       }
       newsletter_subscribers: {
         Row: {
           email: string
           id: string
           name: string | null
+          project_id: string | null
+          source: string | null
           status: string | null
           subscribed_at: string | null
+          unsubscribe_token: string
           unsubscribed_at: string | null
         }
         Insert: {
           email: string
           id?: string
           name?: string | null
+          project_id?: string | null
+          source?: string | null
           status?: string | null
           subscribed_at?: string | null
+          unsubscribe_token?: string
           unsubscribed_at?: string | null
         }
         Update: {
           email?: string
           id?: string
           name?: string | null
+          project_id?: string | null
+          source?: string | null
           status?: string | null
           subscribed_at?: string | null
+          unsubscribe_token?: string
           unsubscribed_at?: string | null
         }
         Relationships: []
+      }
+      omv_passes: {
+        Row: {
+          consumed_at: string | null
+          created_at: string
+          destination: string
+          expires_at: string
+          id: string
+          lead_id: string
+          source_domain: string
+          token_hash: string
+        }
+        Insert: {
+          consumed_at?: string | null
+          created_at?: string
+          destination: string
+          expires_at?: string
+          id?: string
+          lead_id: string
+          source_domain?: string
+          token_hash: string
+        }
+        Update: {
+          consumed_at?: string | null
+          created_at?: string
+          destination?: string
+          expires_at?: string
+          id?: string
+          lead_id?: string
+          source_domain?: string
+          token_hash?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omv_passes_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "speaker_leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      omv_quote_campaigns: {
+        Row: {
+          auto_approve_enabled: boolean
+          auto_refill_enabled: boolean
+          autopilot_authorized_at: string | null
+          autopilot_authorized_by: string | null
+          created_at: string
+          created_by: string | null
+          cta_url: string
+          daily_publish_time: string
+          daily_quote_target: number
+          id: string
+          instagram_feed_daily_limit: number
+          instagram_feed_enabled: boolean
+          instagram_story_daily_limit: number
+          instagram_story_enabled: boolean
+          last_error: string | null
+          last_refill_at: string | null
+          last_worker_at: string | null
+          minimum_approved_stock: number
+          name: string
+          publish_times: string[]
+          starts_on: string | null
+          status: string
+          timezone: string
+          updated_at: string
+          website_daily_limit: number
+          website_enabled: boolean
+        }
+        Insert: {
+          auto_approve_enabled?: boolean
+          auto_refill_enabled?: boolean
+          autopilot_authorized_at?: string | null
+          autopilot_authorized_by?: string | null
+          created_at?: string
+          created_by?: string | null
+          cta_url?: string
+          daily_publish_time?: string
+          daily_quote_target?: number
+          id?: string
+          instagram_feed_daily_limit?: number
+          instagram_feed_enabled?: boolean
+          instagram_story_daily_limit?: number
+          instagram_story_enabled?: boolean
+          last_error?: string | null
+          last_refill_at?: string | null
+          last_worker_at?: string | null
+          minimum_approved_stock?: number
+          name: string
+          publish_times?: string[]
+          starts_on?: string | null
+          status?: string
+          timezone?: string
+          updated_at?: string
+          website_daily_limit?: number
+          website_enabled?: boolean
+        }
+        Update: {
+          auto_approve_enabled?: boolean
+          auto_refill_enabled?: boolean
+          autopilot_authorized_at?: string | null
+          autopilot_authorized_by?: string | null
+          created_at?: string
+          created_by?: string | null
+          cta_url?: string
+          daily_publish_time?: string
+          daily_quote_target?: number
+          id?: string
+          instagram_feed_daily_limit?: number
+          instagram_feed_enabled?: boolean
+          instagram_story_daily_limit?: number
+          instagram_story_enabled?: boolean
+          last_error?: string | null
+          last_refill_at?: string | null
+          last_worker_at?: string | null
+          minimum_approved_stock?: number
+          name?: string
+          publish_times?: string[]
+          starts_on?: string | null
+          status?: string
+          timezone?: string
+          updated_at?: string
+          website_daily_limit?: number
+          website_enabled?: boolean
+        }
+        Relationships: []
+      }
+      omv_quote_publication_jobs: {
+        Row: {
+          asset_url: string | null
+          attempts: number
+          campaign_id: string
+          caption: string | null
+          channel: string
+          created_at: string
+          id: string
+          idempotency_key: string
+          last_error: string | null
+          locked_at: string | null
+          max_attempts: number
+          position: number
+          provider_container_id: string | null
+          provider_media_id: string | null
+          published_at: string | null
+          quote_id: string
+          scheduled_for: string | null
+          slot: number | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          asset_url?: string | null
+          attempts?: number
+          campaign_id: string
+          caption?: string | null
+          channel: string
+          created_at?: string
+          id?: string
+          idempotency_key: string
+          last_error?: string | null
+          locked_at?: string | null
+          max_attempts?: number
+          position: number
+          provider_container_id?: string | null
+          provider_media_id?: string | null
+          published_at?: string | null
+          quote_id: string
+          scheduled_for?: string | null
+          slot?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          asset_url?: string | null
+          attempts?: number
+          campaign_id?: string
+          caption?: string | null
+          channel?: string
+          created_at?: string
+          id?: string
+          idempotency_key?: string
+          last_error?: string | null
+          locked_at?: string | null
+          max_attempts?: number
+          position?: number
+          provider_container_id?: string | null
+          provider_media_id?: string | null
+          published_at?: string | null
+          quote_id?: string
+          scheduled_for?: string | null
+          slot?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omv_quote_publication_jobs_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "omv_quote_campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "omv_quote_publication_jobs_quote_id_fkey"
+            columns: ["quote_id"]
+            isOneToOne: false
+            referencedRelation: "omv_quotes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      omv_quote_source_queue: {
+        Row: {
+          attempts: number
+          blog_post_id: string
+          created_at: string
+          extracted_quote_count: number
+          id: string
+          last_attempt_at: string | null
+          last_error: string | null
+          priority: number
+          source_published_at: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          attempts?: number
+          blog_post_id: string
+          created_at?: string
+          extracted_quote_count?: number
+          id?: string
+          last_attempt_at?: string | null
+          last_error?: string | null
+          priority?: number
+          source_published_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          attempts?: number
+          blog_post_id?: string
+          created_at?: string
+          extracted_quote_count?: number
+          id?: string
+          last_attempt_at?: string | null
+          last_error?: string | null
+          priority?: number
+          source_published_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omv_quote_source_queue_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: true
+            referencedRelation: "tedx_quote_inventory"
+            referencedColumns: ["blog_post_id"]
+          },
+          {
+            foreignKeyName: "omv_quote_source_queue_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: true
+            referencedRelation: "youtube_blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      omv_quotes: {
+        Row: {
+          approved_at: string | null
+          approved_by: string | null
+          blog_post_id: string
+          category: string
+          context: string
+          created_at: string
+          download_count: number
+          end_seconds: number | null
+          featured: boolean
+          id: string
+          instagram_media_id: string | null
+          instagram_published_at: string | null
+          instagram_status: string
+          published_at: string | null
+          quote_text: string
+          quote_type: string
+          review_notes: string | null
+          reviewed_at: string | null
+          scheduled_for: string | null
+          seo_description: string | null
+          seo_title: string | null
+          share_count: number
+          slug: string
+          start_seconds: number | null
+          status: string
+          tags: string[]
+          template_key: string
+          transcript_excerpt: string | null
+          transcript_id: string | null
+          updated_at: string
+          view_count: number
+        }
+        Insert: {
+          approved_at?: string | null
+          approved_by?: string | null
+          blog_post_id: string
+          category?: string
+          context?: string
+          created_at?: string
+          download_count?: number
+          end_seconds?: number | null
+          featured?: boolean
+          id?: string
+          instagram_media_id?: string | null
+          instagram_published_at?: string | null
+          instagram_status?: string
+          published_at?: string | null
+          quote_text: string
+          quote_type?: string
+          review_notes?: string | null
+          reviewed_at?: string | null
+          scheduled_for?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          share_count?: number
+          slug: string
+          start_seconds?: number | null
+          status?: string
+          tags?: string[]
+          template_key?: string
+          transcript_excerpt?: string | null
+          transcript_id?: string | null
+          updated_at?: string
+          view_count?: number
+        }
+        Update: {
+          approved_at?: string | null
+          approved_by?: string | null
+          blog_post_id?: string
+          category?: string
+          context?: string
+          created_at?: string
+          download_count?: number
+          end_seconds?: number | null
+          featured?: boolean
+          id?: string
+          instagram_media_id?: string | null
+          instagram_published_at?: string | null
+          instagram_status?: string
+          published_at?: string | null
+          quote_text?: string
+          quote_type?: string
+          review_notes?: string | null
+          reviewed_at?: string | null
+          scheduled_for?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          share_count?: number
+          slug?: string
+          start_seconds?: number | null
+          status?: string
+          tags?: string[]
+          template_key?: string
+          transcript_excerpt?: string | null
+          transcript_id?: string | null
+          updated_at?: string
+          view_count?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omv_quotes_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
+            referencedRelation: "tedx_quote_inventory"
+            referencedColumns: ["blog_post_id"]
+          },
+          {
+            foreignKeyName: "omv_quotes_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
+            referencedRelation: "youtube_blog_posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "omv_quotes_transcript_id_fkey"
+            columns: ["transcript_id"]
+            isOneToOne: false
+            referencedRelation: "tedx_quote_inventory"
+            referencedColumns: ["transcript_id"]
+          },
+          {
+            foreignKeyName: "omv_quotes_transcript_id_fkey"
+            columns: ["transcript_id"]
+            isOneToOne: false
+            referencedRelation: "video_transcripts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       onboarding_progress: {
         Row: {
@@ -2765,30 +3858,162 @@ export type Database = {
         }
         Relationships: []
       }
-      payments: {
+      ov_newsletter_digest_log: {
         Row: {
-          amount: number
+          created_at: string
+          error: string | null
+          failed_count: number
           id: string
-          paid_at: string | null
-          status: string | null
-          stripe_id: string | null
-          user_id: string
+          post_ids: string[]
+          posts_count: number
+          recipients_count: number
+          sent_at: string
+          status: string
+          subject: string | null
         }
         Insert: {
-          amount: number
+          created_at?: string
+          error?: string | null
+          failed_count?: number
           id?: string
-          paid_at?: string | null
-          status?: string | null
-          stripe_id?: string | null
-          user_id: string
+          post_ids?: string[]
+          posts_count?: number
+          recipients_count?: number
+          sent_at?: string
+          status?: string
+          subject?: string | null
         }
         Update: {
-          amount?: number
+          created_at?: string
+          error?: string | null
+          failed_count?: number
           id?: string
+          post_ids?: string[]
+          posts_count?: number
+          recipients_count?: number
+          sent_at?: string
+          status?: string
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      ov_trend_posts: {
+        Row: {
+          analysis: string
+          category: string
+          context: string
+          created_at: string
+          digest_sent_at: string | null
+          edition_date: string
+          id: string
+          image_url: string | null
+          lens_tags: string[]
+          newsletter_sent_at: string | null
+          published_at: string | null
+          slug: string
+          sources: Json
+          status: string
+          summary: string | null
+          title: string
+          video_url: string | null
+        }
+        Insert: {
+          analysis?: string
+          category: string
+          context?: string
+          created_at?: string
+          digest_sent_at?: string | null
+          edition_date?: string
+          id?: string
+          image_url?: string | null
+          lens_tags?: string[]
+          newsletter_sent_at?: string | null
+          published_at?: string | null
+          slug: string
+          sources?: Json
+          status?: string
+          summary?: string | null
+          title: string
+          video_url?: string | null
+        }
+        Update: {
+          analysis?: string
+          category?: string
+          context?: string
+          created_at?: string
+          digest_sent_at?: string | null
+          edition_date?: string
+          id?: string
+          image_url?: string | null
+          lens_tags?: string[]
+          newsletter_sent_at?: string | null
+          published_at?: string | null
+          slug?: string
+          sources?: Json
+          status?: string
+          summary?: string | null
+          title?: string
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          activated_by: string | null
+          amount: number
+          created_at: string
+          currency: string
+          email: string | null
+          external_ref: string | null
+          id: string
+          is_backfill: boolean
+          metadata: Json
+          method: string
+          paid_at: string | null
+          product_id: string | null
+          product_name: string | null
+          source: string | null
+          status: string | null
+          stripe_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          activated_by?: string | null
+          amount: number
+          created_at?: string
+          currency?: string
+          email?: string | null
+          external_ref?: string | null
+          id?: string
+          is_backfill?: boolean
+          metadata?: Json
+          method?: string
           paid_at?: string | null
+          product_id?: string | null
+          product_name?: string | null
+          source?: string | null
           status?: string | null
           stripe_id?: string | null
-          user_id?: string
+          user_id?: string | null
+        }
+        Update: {
+          activated_by?: string | null
+          amount?: number
+          created_at?: string
+          currency?: string
+          email?: string | null
+          external_ref?: string | null
+          id?: string
+          is_backfill?: boolean
+          metadata?: Json
+          method?: string
+          paid_at?: string | null
+          product_id?: string | null
+          product_name?: string | null
+          source?: string | null
+          status?: string | null
+          stripe_id?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -3466,6 +4691,51 @@ export type Database = {
         }
         Relationships: []
       }
+      test_personaje_leads: {
+        Row: {
+          answers: Json
+          created_at: string
+          email: string
+          id: string
+          name: string | null
+          newsletter_opt_in: boolean
+          personaje: string | null
+          personaje_slug: string | null
+          project_id: string | null
+          scores: Json
+          source: string
+          synced_to_newsletter: boolean
+        }
+        Insert: {
+          answers?: Json
+          created_at?: string
+          email: string
+          id?: string
+          name?: string | null
+          newsletter_opt_in?: boolean
+          personaje?: string | null
+          personaje_slug?: string | null
+          project_id?: string | null
+          scores?: Json
+          source?: string
+          synced_to_newsletter?: boolean
+        }
+        Update: {
+          answers?: Json
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string | null
+          newsletter_opt_in?: boolean
+          personaje?: string | null
+          personaje_slug?: string | null
+          project_id?: string | null
+          scores?: Json
+          source?: string
+          synced_to_newsletter?: boolean
+        }
+        Relationships: []
+      }
       translations: {
         Row: {
           created_at: string | null
@@ -3492,6 +4762,35 @@ export type Database = {
           updated_at?: string | null
         }
         Relationships: []
+      }
+      trend_digest_deliveries: {
+        Row: {
+          delivered_at: string
+          message_id: string | null
+          post_id: string
+          recipient: string
+        }
+        Insert: {
+          delivered_at?: string
+          message_id?: string | null
+          post_id: string
+          recipient: string
+        }
+        Update: {
+          delivered_at?: string
+          message_id?: string | null
+          post_id?: string
+          recipient?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "trend_digest_deliveries_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "ov_trend_posts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_achievements: {
         Row: {
@@ -3822,6 +5121,84 @@ export type Database = {
           },
         ]
       }
+      video_transcripts: {
+        Row: {
+          blog_post_id: string
+          candidate_count: number
+          created_at: string
+          error_message: string | null
+          extracted_at: string | null
+          extraction_model: string | null
+          extraction_status: string
+          full_text: string
+          id: string
+          language: string
+          segments: Json
+          source: string
+          source_url: string | null
+          source_video_id: string | null
+          speaker_scope: string
+          status: string
+          transcript_notes: string | null
+          updated_at: string
+        }
+        Insert: {
+          blog_post_id: string
+          candidate_count?: number
+          created_at?: string
+          error_message?: string | null
+          extracted_at?: string | null
+          extraction_model?: string | null
+          extraction_status?: string
+          full_text?: string
+          id?: string
+          language?: string
+          segments?: Json
+          source?: string
+          source_url?: string | null
+          source_video_id?: string | null
+          speaker_scope?: string
+          status?: string
+          transcript_notes?: string | null
+          updated_at?: string
+        }
+        Update: {
+          blog_post_id?: string
+          candidate_count?: number
+          created_at?: string
+          error_message?: string | null
+          extracted_at?: string | null
+          extraction_model?: string | null
+          extraction_status?: string
+          full_text?: string
+          id?: string
+          language?: string
+          segments?: Json
+          source?: string
+          source_url?: string | null
+          source_video_id?: string | null
+          speaker_scope?: string
+          status?: string
+          transcript_notes?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "video_transcripts_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
+            referencedRelation: "tedx_quote_inventory"
+            referencedColumns: ["blog_post_id"]
+          },
+          {
+            foreignKeyName: "video_transcripts_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
+            referencedRelation: "youtube_blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       video_watch_history: {
         Row: {
           created_at: string | null
@@ -3856,6 +5233,13 @@ export type Database = {
             columns: ["post_id"]
             isOneToOne: false
             referencedRelation: "forum_posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "video_watch_history_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "vw_forum_post_catalog"
             referencedColumns: ["id"]
           },
         ]
@@ -4224,6 +5608,34 @@ export type Database = {
         }
         Relationships: []
       }
+      tedx_quote_inventory: {
+        Row: {
+          approved_quotes: number | null
+          blog_post_id: string | null
+          blog_status: string | null
+          candidate_quotes: number | null
+          duration_seconds: number | null
+          extracted_at: string | null
+          extraction_model: string | null
+          extraction_status: string | null
+          pending_quotes: number | null
+          published_at: string | null
+          published_quotes: number | null
+          rejected_quotes: number | null
+          slug: string | null
+          source_url: string | null
+          source_video_id: string | null
+          speaker_scope: string | null
+          title: string | null
+          transcript_id: string | null
+          transcript_notes: string | null
+          transcript_segments: number | null
+          transcript_source: string | null
+          transcript_status: string | null
+          video_id: string | null
+        }
+        Relationships: []
+      }
       vw_all_leads: {
         Row: {
           captured_at: string | null
@@ -4236,8 +5648,73 @@ export type Database = {
         }
         Relationships: []
       }
+      vw_forum_post_catalog: {
+        Row: {
+          category_id: string | null
+          comment_count: number | null
+          created_at: string | null
+          id: string | null
+          is_locked: boolean | null
+          is_pinned: boolean | null
+          like_count: number | null
+          status: string | null
+          title: string | null
+          updated_at: string | null
+          view_count: number | null
+        }
+        Insert: {
+          category_id?: string | null
+          comment_count?: number | null
+          created_at?: string | null
+          id?: string | null
+          is_locked?: boolean | null
+          is_pinned?: boolean | null
+          like_count?: number | null
+          status?: string | null
+          title?: string | null
+          updated_at?: string | null
+          view_count?: number | null
+        }
+        Update: {
+          category_id?: string | null
+          comment_count?: number | null
+          created_at?: string | null
+          id?: string | null
+          is_locked?: boolean | null
+          is_pinned?: boolean | null
+          like_count?: number | null
+          status?: string | null
+          title?: string | null
+          updated_at?: string | null
+          view_count?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "forum_posts_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "forum_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
+      activate_dnc: {
+        Args: { p_token: string }
+        Returns: {
+          company_id: string
+          dnc_active: boolean
+        }[]
+      }
+      activate_omv_quote_campaign: {
+        Args: { p_campaign_id: string; p_confirm?: boolean }
+        Returns: boolean
+      }
+      append_omv_quote_campaign_jobs: {
+        Args: { p_campaign_id: string }
+        Returns: number
+      }
       award_user_xp: {
         Args: {
           p_action_type: string
@@ -4259,13 +5736,150 @@ export type Database = {
         Args: { p_stage_number: number; p_user_id: string }
         Returns: boolean
       }
+      claim_cash_coupon: {
+        Args: { p_code: string; p_name: string }
+        Returns: {
+          amount_mxn: number
+          coupon_code: string
+          course_name: string
+          message: string
+          ok: boolean
+          status: string
+        }[]
+      }
+      claim_due_enrollments: {
+        Args: { p_limit?: number; p_lock_minutes?: number }
+        Returns: {
+          contact_id: string
+          created_at: string
+          current_step: number
+          enrolled_at: string
+          id: string
+          last_email_at: string | null
+          last_error: string | null
+          lead_email: string | null
+          lead_name: string | null
+          lead_phone: string | null
+          lead_source: string | null
+          next_email_at: string | null
+          paused_at: string | null
+          sequence_id: string
+          status: string
+          updated_at: string
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "funnel_enrollments"
+          isOneToOne: false
+          isSetofReturn: true
+        }
+      }
+      classify_speaker_lead_tier: {
+        Args: {
+          p_audience_size: string
+          p_budget_range: string
+          p_company: string
+          p_event_date: string
+          p_lead_score: number
+          p_organization_type: string
+          p_phone: string
+          p_urgency: string
+        }
+        Returns: string
+      }
+      consume_omv_pass: {
+        Args: { p_destination: string; p_token_hash: string }
+        Returns: {
+          email: string
+          first_name: string
+          last_name: string
+        }[]
+      }
       create_admin_user: {
         Args: { admin_email: string; admin_name?: string }
         Returns: Json
       }
+      create_corporate_lead: {
+        Args: {
+          p_answers?: Json
+          p_company: string
+          p_company_size?: string
+          p_email: string
+          p_employees_count?: number
+          p_industry?: string
+          p_name: string
+          p_phone?: string
+          p_scores?: Json
+        }
+        Returns: {
+          dashboard_token: string
+          id: string
+        }[]
+      }
+      crm_tag_counts: {
+        Args: { p_project_id: string }
+        Returns: {
+          cnt: number
+          tag: string
+        }[]
+      }
+      get_admin_pulse: { Args: { p_days?: number }; Returns: Json }
+      get_admin_pulse_feed: {
+        Args: { p_limit?: number }
+        Returns: {
+          detail: string
+          kind: string
+          label: string
+          occurred_at: string
+        }[]
+      }
+      get_course_students: {
+        Args: { p_product_id: string }
+        Returns: {
+          email: string
+          name: string
+          user_id: string
+        }[]
+      }
       get_current_user_role: {
         Args: never
         Returns: Database["public"]["Enums"]["app_role"]
+      }
+      get_dnc_company_by_ref: {
+        Args: { p_ref: string }
+        Returns: {
+          company: string
+          company_id: string
+          dnc_active: boolean
+          slug: string
+        }[]
+      }
+      get_dnc_company_public: {
+        Args: { p_company_id: string }
+        Returns: {
+          company: string
+          dnc_active: boolean
+        }[]
+      }
+      get_dnc_progress: {
+        Args: { p_token: string }
+        Returns: {
+          department: string
+          seniority: string
+          total: number
+        }[]
+      }
+      get_dnc_report: {
+        Args: { p_token: string }
+        Returns: {
+          company: string
+          company_id: string
+          director_scores: Json
+          dnc_active: boolean
+          employees_count: number
+          responses: Json
+          slug: string
+        }[]
       }
       get_lead_capture_timeseries: {
         Args: { p_days?: number }
@@ -4286,6 +5900,14 @@ export type Database = {
           total: number
         }[]
       }
+      get_live_event_attendees: {
+        Args: { p_event_id: string }
+        Returns: {
+          email: string
+          name: string
+          user_id: string
+        }[]
+      }
       get_live_event_stream: {
         Args: { _event_id: string }
         Returns: {
@@ -4300,6 +5922,19 @@ export type Database = {
           file_url: string
         }[]
       }
+      get_trends_cron_status: {
+        Args: never
+        Returns: {
+          active: boolean
+          jobname: string
+          last_message: string
+          last_start: string
+          last_status: string
+          schedule: string
+        }[]
+      }
+      get_trends_system_status: { Args: never; Returns: Json }
+      has_hbl_access: { Args: { p_email: string }; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -4307,9 +5942,82 @@ export type Database = {
         }
         Returns: boolean
       }
+      hbl_on_access_granted: {
+        Args: { p_email: string; p_name: string }
+        Returns: undefined
+      }
+      increment_omv_quote_metric: {
+        Args: { metric: string; quote_id: string }
+        Returns: undefined
+      }
+      lookup_public_coupon: {
+        Args: { p_code: string }
+        Returns: {
+          amount_mxn: number
+          claimed: boolean
+          course_name: string
+          found: boolean
+          product_id: string
+          status: string
+        }[]
+      }
+      prepare_omv_quote_campaign: {
+        Args: {
+          p_campaign_id: string
+          p_daily_publish_time: string
+          p_publish_times?: string[]
+          p_starts_on: string
+          p_timezone?: string
+        }
+        Returns: number
+      }
+      public_unsubscribe: {
+        Args: { p_action?: string; p_token: string }
+        Returns: {
+          email: string
+          found: boolean
+          kind: string
+          status: string
+        }[]
+      }
       recompute_speaker_pro_consultation_unlock: {
         Args: { p_user_id: string }
         Returns: boolean
+      }
+      submit_dnc_response: {
+        Args: {
+          p_answers: Json
+          p_barreras?: Json
+          p_company_id: string
+          p_cultura_score?: number
+          p_department: string
+          p_ejecucion_score?: number
+          p_scores: Json
+          p_seniority: string
+          p_total_score?: number
+        }
+        Returns: boolean
+      }
+      submit_hbl_lead: {
+        Args: { p_email: string; p_name: string }
+        Returns: string
+      }
+      submit_press_feed_lead: {
+        Args: {
+          p_company: string
+          p_email: string
+          p_message?: string
+          p_name: string
+          p_type: string
+        }
+        Returns: string
+      }
+      submit_speaker_lead: {
+        Args: { p_payload: Json }
+        Returns: {
+          deduped: boolean
+          lead_id: string
+        }[]
       }
       track_video_watch: {
         Args: {
@@ -4323,6 +6031,7 @@ export type Database = {
           xp_awarded: number
         }[]
       }
+      unaccent_safe: { Args: { txt: string }; Returns: string }
       user_owns_course: {
         Args: { _course_slug: string; _user_id: string }
         Returns: boolean
