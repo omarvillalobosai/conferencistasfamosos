@@ -32,14 +32,15 @@ const SpeakerDetail = () => {
     return <Navigate to="/not-found" />;
   }
 
-  // Example topics/conferences for each speaker
-  const topics = [
+  // Topics/conferences specific to each speaker, with a generic fallback
+  const defaultTopics = [
     "Liderazgo transformacional",
     "Comunicación efectiva",
     "Inteligencia emocional",
     "Desarrollo de equipos de alto rendimiento",
     "Motivación y superación personal"
   ];
+  const topics = speaker.topics && speaker.topics.length > 0 ? speaker.topics : defaultTopics;
   
   // Get previous and next speaker info
   const prevSpeakerSlug = getSpeakerSlug(speakers[prevSpeakerIndex].name);
