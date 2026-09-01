@@ -15,6 +15,7 @@ import ConferenceTopics from '@/components/speaker-detail/ConferenceTopics';
 import ContactCTA from '@/components/speaker-detail/ContactCTA';
 import WhatsAppContact from '@/components/speaker-detail/WhatsAppContact';
 import SpeakerNavigation from '@/components/speaker-detail/SpeakerNavigation';
+import NewsletterSection from '@/components/NewsletterSection';
 
 const SpeakerDetail = () => {
   const { slug } = useParams();
@@ -94,7 +95,14 @@ const SpeakerDetail = () => {
         
         {/* Conference Topics Section */}
         <ConferenceTopics topics={topics} />
-        
+
+        {/* Newsletter Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <NewsletterSection compact speakerName={speaker.name} />
+          </div>
+        </section>
+
         {/* Contact CTA Section */}
         <ContactCTA speakerName={speaker.name} />
         
