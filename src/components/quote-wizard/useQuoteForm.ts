@@ -144,6 +144,11 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
 
       console.log('Form submitted successfully');
       setShowConfetti(true);
+      if (formData.subscribeNewsletter) {
+        supabase.functions
+          .invoke('newsletter-subscribe', { body: { name: formData.name, email: formData.email } })
+          .catch((err) => console.error('newsletter opt-in failed', err));
+      }
       toast({
         title: "Solicitud enviada",
         description: "Tu información ha sido recibida. Nos pondremos en contacto contigo pronto.",
@@ -165,6 +170,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
           eventIntentions: [],
           budget: '',
           pitch: '',
+          subscribeNewsletter: false,
         });
         setStep(1);
         onClose();
@@ -191,6 +197,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
     handleInputChange,
     handleCheckboxChange,
     nextStep,
+    setNewsletterSubscribe,
     setFormData
   };
 };
