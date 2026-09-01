@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ArrowRight } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
 import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 interface ContactInfoStepProps {
@@ -16,9 +17,11 @@ interface ContactInfoStepProps {
   };
   onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onNext: () => void;
+  subscribeNewsletter: boolean;
+  onToggleNewsletter: (checked: boolean) => void;
 }
 
-const ContactInfoStep = ({ formData, onInputChange, onNext }: ContactInfoStepProps) => {
+const ContactInfoStep = ({ formData, onInputChange, onNext, subscribeNewsletter, onToggleNewsletter }: ContactInfoStepProps) => {
   const prefilledMessage = 'Me interesa solicitar una cotización para un conferencista.';
   
   return (
@@ -87,6 +90,15 @@ const ContactInfoStep = ({ formData, onInputChange, onNext }: ContactInfoStepPro
           />
         </div>
       </div>
+      <label className="flex items-start gap-3 cursor-pointer bg-orange-50 border border-orange-100 rounded-lg p-4">
+        <Checkbox
+          checked={subscribeNewsletter}
+          onCheckedChange={(checked) => onToggleNewsletter(checked === true)}
+        />
+        <span className="text-sm text-gray-700">
+          Quiero recibir frases inspiradoras de conferencistas cada 3 días por correo (opcional)
+        </span>
+      </label>
       <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
         <Button
           onClick={onNext}

@@ -18,6 +18,7 @@ interface FormData {
   eventIntentions: string[];
   budget: string;
   pitch: string;
+  subscribeNewsletter: boolean;
 }
 
 interface UseQuoteFormProps {
@@ -40,6 +41,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
     eventIntentions: [],
     budget: '',
     pitch: '',
+    subscribeNewsletter: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -91,6 +93,10 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
     });
   };
 
+  const setNewsletterSubscribe = (checked: boolean) => {
+    setFormData((prev) => ({ ...prev, subscribeNewsletter: checked }));
+  };
+
   const nextStep = () => {
     if (step === 2 && (!formData.name || !formData.email || !formData.phone || !formData.company)) {
       toast({
@@ -138,6 +144,11 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
 
       console.log('Form submitted successfully');
       setShowConfetti(true);
+      if (formData.subscribeNewsletter) {
+        supabase.functions
+          .invoke('newsletter-subscribe', { body: { name: formData.name, email: formData.email } })
+          .catch((err) => console.error('newsletter opt-in failed', err));
+      }
       toast({
         title: "Solicitud enviada",
         description: "Tu información ha sido recibida. Nos pondremos en contacto contigo pronto.",
@@ -159,6 +170,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
           eventIntentions: [],
           budget: '',
           pitch: '',
+          subscribeNewsletter: false,
         });
         setStep(1);
         onClose();
@@ -185,6 +197,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
     handleInputChange,
     handleCheckboxChange,
     nextStep,
+    setNewsletterSubscribe,
     setFormData
   };
 };
