@@ -15,6 +15,7 @@ import ConferenceTopics from '@/components/speaker-detail/ConferenceTopics';
 import ContactCTA from '@/components/speaker-detail/ContactCTA';
 import WhatsAppContact from '@/components/speaker-detail/WhatsAppContact';
 import SpeakerNavigation from '@/components/speaker-detail/SpeakerNavigation';
+import NewsletterSection from '@/components/NewsletterSection';
 
 const SpeakerDetail = () => {
   const { slug } = useParams();
