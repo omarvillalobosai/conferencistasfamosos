@@ -18,6 +18,7 @@ interface FormData {
   eventIntentions: string[];
   budget: string;
   pitch: string;
+  subscribeNewsletter: boolean;
 }
 
 interface UseQuoteFormProps {
@@ -40,6 +41,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
     eventIntentions: [],
     budget: '',
     pitch: '',
+    subscribeNewsletter: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -89,6 +91,10 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
         };
       }
     });
+  };
+
+  const setNewsletterSubscribe = (checked: boolean) => {
+    setFormData((prev) => ({ ...prev, subscribeNewsletter: checked }));
   };
 
   const nextStep = () => {
