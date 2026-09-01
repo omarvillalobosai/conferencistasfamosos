@@ -1,12 +1,21 @@
+export interface RankingItem {
+  position: number;
+  speakerId: string;
+  reason: string;
+}
+
 export interface BlogPost {
   slug: string;
-  speakerId: string; // matches slug in speakersData helpers
+  speakerId: string;
   speakerName: string;
   title: string;
   description: string;
-  youtubeId: string;
-  publishedAt: string; // ISO date
+  youtubeId?: string;
+  publishedAt: string;
   category: string;
+  type?: 'video' | 'ranking';
+  coverImage?: string;
+  ranking?: RankingItem[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -604,6 +613,138 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-09-01',
     category: 'Emprendimiento',
   },
+  {
+    slug: 'mejores-conferencistas-motivacion-latinoamerica',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'Los mejores conferencistas de motivación en Latinoamérica',
+    description:
+      'Un ranking de los speakers de motivación con mayor trayectoria e impacto en Latinoamérica: alcance internacional, contenido propio y capacidad real de transformar audiencias.',
+    publishedAt: '2026-09-01',
+    category: 'Motivación',
+    type: 'ranking',
+    coverImage:
+      'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//daniel%20habif%20conferencista%20famosos.png',
+    ranking: [
+      {
+        position: 1,
+        speakerId: 'daniel-habif',
+        reason:
+          'De origen cubano y con formación como actor, Daniel Habif construyó una de las comunidades más grandes de habla hispana en torno al desarrollo personal. Es autor de Inquebrantables, una de las obras de desarrollo personal más vendidas en español de los últimos años, y de RUGE. Sus giras "Ascender" han recorrido México, Estados Unidos, Puerto Rico y el resto de Latinoamérica.',
+      },
+      {
+        position: 2,
+        speakerId: 'omar-villalobos',
+        reason:
+          'Reconocido como uno de los tres speakers más influyentes de Latinoamérica en desarrollo humano, liderazgo y ventas, Omar Villalobos acumula más de 1,000 conferencias en 15+ países, un récord Guinness y tres doctorados Honoris Causa. Es autor de más de 30 libros, entre ellos el bestseller Ser Chingón Sin Ir a Harvard.',
+      },
+      {
+        position: 3,
+        speakerId: 'cesar-lozano',
+        reason:
+          'Médico cirujano y conductor, el Dr. César Lozano es la voz detrás de Por el placer de vivir, presente en radio, podcast y televisión. Su estilo cercano y lleno de humor lo ha convertido en uno de los conferencistas más queridos de México en temas de actitud y bienestar emocional.',
+      },
+    ],
+  },
+  {
+    slug: 'mejores-conferencistas-liderazgo-empresas',
+    speakerId: 'ismael-cala',
+    speakerName: 'Ismael Cala',
+    title: 'Los mejores conferencistas de liderazgo para empresas',
+    description:
+      'Speakers con trayectoria comprobada en liderazgo organizacional: desde exdirectivos de medios internacionales hasta empresarias que construyeron compañías desde cero.',
+    publishedAt: '2026-09-01',
+    category: 'Liderazgo',
+    type: 'ranking',
+    coverImage:
+      'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//ismael-cala-conferencistas%20famosos.png',
+    ranking: [
+      {
+        position: 1,
+        speakerId: 'ismael-cala',
+        reason:
+          'Periodista cubano que condujo durante casi 15 años el programa CALA en CNN en Español, entrevistando a algunas de las figuras más influyentes del mundo. Hoy dirige Ismael Cala Foundation, impulsando programas de educación emocional en Latinoamérica, y combina inteligencia emocional con liderazgo consciente.',
+      },
+      {
+        position: 2,
+        speakerId: 'omar-villalobos',
+        reason:
+          'Con formación en Business Psychology y una maestría en Terapia Gestalt, Omar Villalobos ha asesorado a organizaciones en más de 15 países, personalizando cada conferencia según los retos específicos de liderazgo de la audiencia que lo contrata.',
+      },
+      {
+        position: 3,
+        speakerId: 'marisa-lazo',
+        reason:
+          'Fundadora de Pastelerías Marisa, que construyó desde la cocina de su casa en 1992 hasta más de cien sucursales, sin recurrir jamás a un préstamo bancario. Fue la primera mujer en presidir el consejo del Tecnológico de Monterrey campus Guadalajara y formó parte del jurado de Shark Tank México.',
+      },
+    ],
+  },
+  {
+    slug: 'mejores-conferencistas-ventas-alto-rendimiento',
+    speakerId: 'omar-villalobos',
+    speakerName: 'Omar Villalobos',
+    title: 'Los mejores conferencistas de ventas y alto rendimiento',
+    description:
+      'Speakers enfocados en mentalidad de ventas, conversión y alto rendimiento comercial, con resultados medibles detrás de su mensaje.',
+    publishedAt: '2026-09-01',
+    category: 'Ventas',
+    type: 'ranking',
+    coverImage:
+      'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//a_photo_of_omv%20(14).png',
+    ranking: [
+      {
+        position: 1,
+        speakerId: 'omar-villalobos',
+        reason:
+          'Ventas y mentalidad de éxito son uno de los ejes centrales del trabajo de Omar Villalobos desde hace más de 25 años, combinando psicología aplicada y estrategias de negocio para equipos comerciales en toda Latinoamérica.',
+      },
+      {
+        position: 2,
+        speakerId: 'vilma-nunez',
+        reason:
+          'Con un doctorado en Publicidad y Relaciones Públicas y más de una década construyendo Grupo Convierte Más, Vilma Núñez fue reconocida en 2025 con cuatro premios Emmy regionales por una campaña centrada en liderazgo humano frente a la inteligencia artificial.',
+      },
+      {
+        position: 3,
+        speakerId: 'cesar-lozano',
+        reason:
+          'Además de sus temas de bienestar, el Dr. César Lozano lleva a audiencias comerciales su enfoque sobre la relación con el dinero y la abundancia, ayudando a equipos de ventas a transformar su actitud frente a las metas.',
+      },
+    ],
+  },
+  {
+    slug: 'mejores-conferencistas-transformacion-personal',
+    speakerId: 'daniel-habif',
+    speakerName: 'Daniel Habif',
+    title: 'Los mejores conferencistas de transformación personal',
+    description:
+      'Historias reales de superación y reinvención que convierten cada conferencia en una experiencia transformadora para la audiencia.',
+    publishedAt: '2026-09-01',
+    category: 'Desarrollo Personal',
+    type: 'ranking',
+    coverImage:
+      'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//daniel%20habif%20conferencista%20famosos.png',
+    ranking: [
+      {
+        position: 1,
+        speakerId: 'daniel-habif',
+        reason:
+          'Autor de Inquebrantables y RUGE, el mensaje de Daniel Habif sobre resiliencia y reinvención nace de su propia trayectoria, desde el trabajo como actor hasta convertirse en una de las voces de desarrollo personal más seguidas en español.',
+      },
+      {
+        position: 2,
+        speakerId: 'omar-villalobos',
+        reason:
+          'Con maestría en Terapia Gestalt, Omar Villalobos combina psicología aplicada con relatos de transformación profunda, abordando autoestima y desarrollo humano en más de 30 libros publicados.',
+      },
+      {
+        position: 3,
+        speakerId: 'adriana-macias',
+        reason:
+          'Abogada mexicana que nació sin brazos, Adriana Macías obtuvo un Récord Guinness en 2017 y recibió el Pase de Oro en Got Talent España. Es autora de Abrazar el éxito y su mensaje invita a cuestionar los propios pretextos frente a la adversidad.',
+      },
+    ],
+  },
 ];
 
 export const findPostBySlug = (slug?: string) =>
@@ -614,6 +755,9 @@ export const getRelatedPosts = (post: BlogPost, limit = 3) =>
 
 export const getYoutubeThumbnail = (id: string) =>
   `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+
+export const getPostThumbnail = (post: BlogPost) =>
+  post.type === 'ranking' && post.coverImage ? post.coverImage : getYoutubeThumbnail(post.youtubeId || '');
 
 export const formatBlogDate = (iso: string) =>
   new Date(iso).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });

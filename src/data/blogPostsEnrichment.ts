@@ -1901,6 +1901,56 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     ],
     aiGeneratedAt: "2026-07-13T03:19:04Z",
   },
+  "mejores-conferencistas-motivacion-latinoamerica": {
+    summary: "Para armar este ranking evaluamos trayectoria internacional, contenido propio (libros, plataformas, comunidad) y evidencia real de impacto en audiencias masivas, no solo presencia en redes sociales. Los tres nombres de esta lista representan, hoy, algunos de los conferencistas de motivación más solicitados para eventos corporativos y masivos en español.\n\nLos tres han construido su mensaje durante décadas de trabajo, publicaciones propias y giras internacionales, lo que los distingue de perfiles con presencia únicamente digital. Si buscas un conferencista de motivación con trayectoria comprobable, cualquiera de estos tres es una apuesta segura.",
+    keyPoints: [
+      "Trayectoria internacional real: los tres han presentado en múltiples países de Latinoamérica, no solo en su país de origen.",
+      "Contenido propio: cada uno es autor de libros o proyectos editoriales que sostienen su mensaje más allá del escenario.",
+      "Daniel Habif es autor de Inquebrantables y RUGE, con giras \"Ascender\" por varios países.",
+      "Omar Villalobos acumula más de 1,000 conferencias en 15+ países y un récord Guinness oficial.",
+      "César Lozano combina formación médica con un estilo cercano, presente en radio, podcast y TV.",
+    ],
+    quotes: [],
+    exercises: [],
+    aiGeneratedAt: "2026-09-01T00:00:00Z",
+  },
+  "mejores-conferencistas-liderazgo-empresas": {
+    summary: "Para este ranking priorizamos experiencia real liderando equipos u organizaciones, además de la capacidad de traducir esa experiencia en herramientas aplicables para directivos y empresas. No es lo mismo hablar de liderazgo en teoría que haberlo ejercido.\n\nLos tres perfiles de esta lista combinan una trayectoria de liderazgo verificable —al frente de medios, organizaciones o empresas propias— con la capacidad de personalizar su mensaje según el reto específico de cada audiencia corporativa.",
+    keyPoints: [
+      "Experiencia real liderando equipos, medios u organizaciones, no solo teoría de liderazgo.",
+      "Ismael Cala dirigió durante casi 15 años el programa CALA en CNN en Español.",
+      "Omar Villalobos combina psicología organizacional con más de 25 años asesorando equipos en 15+ países.",
+      "Marisa Lazo escaló una empresa familiar a más de 100 sucursales sin financiamiento bancario.",
+      "Los tres personalizan su mensaje según el reto específico de liderazgo de cada organización.",
+    ],
+    quotes: [],
+    exercises: [],
+    aiGeneratedAt: "2026-09-01T00:00:00Z",
+  },
+  "mejores-conferencistas-ventas-alto-rendimiento": {
+    summary: "Ventas y alto rendimiento son temas donde los resultados hablan más que el discurso. Este ranking prioriza a speakers cuyo mensaje está respaldado por trayectoria comercial comprobable, ya sea propia o de las organizaciones que han asesorado.\n\nLos tres combinan formación o resultados de negocio reales con la capacidad de transmitir esa mentalidad a equipos comerciales, lo que los distingue de conferencistas motivacionales genéricos sin trayectoria comercial de fondo.",
+    keyPoints: [
+      "Priorizamos trayectoria comercial comprobable, no solo discurso motivacional genérico.",
+      "Omar Villalobos lleva más de 25 años enfocado en mentalidad de ventas y alto rendimiento.",
+      "Vilma Núñez ganó 4 premios Emmy regionales en 2025 por una campaña sobre liderazgo humano en la era de la IA.",
+      "César Lozano aplica su enfoque de actitud y bienestar directamente a equipos comerciales.",
+    ],
+    quotes: [],
+    exercises: [],
+    aiGeneratedAt: "2026-09-01T00:00:00Z",
+  },
+  "mejores-conferencistas-transformacion-personal": {
+    summary: "La transformación personal es, quizás, el tema más exigente de todos: requiere que el propio conferencista haya atravesado y superado algo genuinamente difícil. Los tres speakers de este ranking construyen su mensaje desde experiencias reales de reinvención.\n\nMás allá del discurso, cada uno respalda su mensaje con una historia de vida verificable: libros publicados, reconocimientos internacionales y trayectorias que anteceden por años su carrera como conferencistas.",
+    keyPoints: [
+      "Los tres construyen su mensaje desde experiencias de reinvención propias, no solo teoría.",
+      "Daniel Habif es autor de Inquebrantables, referente de la resiliencia en español.",
+      "Omar Villalobos combina formación en Terapia Gestalt con más de 30 libros de desarrollo humano.",
+      "Adriana Macías obtuvo un Récord Guinness y el Pase de Oro en Got Talent España con su historia de superación.",
+    ],
+    quotes: [],
+    exercises: [],
+    aiGeneratedAt: "2026-09-01T00:00:00Z",
+  },
 };
 
 export const getPostEnrichment = (slug: string): BlogPostEnrichment | undefined =>

@@ -9,12 +9,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import QuoteWizard from '@/components/QuoteWizard';
 import NewsletterSection from '@/components/NewsletterSection';
 import {
+  blogPosts,
   findPostBySlug,
   getRelatedPosts,
-  getYoutubeThumbnail,
+  getPostThumbnail,
   formatBlogDate,
 } from '@/data/blogPosts';
 import { getPostEnrichment } from '@/data/blogPostsEnrichment';
+import { speakers } from '@/data/speakersData';
+import { getSpeakerSlug } from '@/utils/speakerUtils';
 
 const BASE_URL = 'https://conferencistasfamosos.com';
 
@@ -27,28 +30,46 @@ const BlogPost = () => {
     return <Navigate to="/not-found" replace />;
   }
 
-  const related = getRelatedPosts(post);
+  const related = post.type === 'ranking'
+    ? blogPosts.filter((p) => p.type === 'ranking' && p.slug !== post.slug)
+    : getRelatedPosts(post);
   const canonical = `${BASE_URL}/blog/${post.slug}`;
-  const thumbnail = getYoutubeThumbnail(post.youtubeId);
+  const thumbnail = getPostThumbnail(post);
   const enrichment = getPostEnrichment(post.slug);
   const metaDescription = enrichment?.summary
     ? enrichment.summary.split('\n')[0].slice(0, 160)
     : post.description;
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'VideoObject',
-    name: post.title,
-    description: post.description,
-    thumbnailUrl: [thumbnail],
-    uploadDate: post.publishedAt,
-    embedUrl: `https://www.youtube.com/embed/${post.youtubeId}`,
-    contentUrl: `https://www.youtube.com/watch?v=${post.youtubeId}`,
-    publisher: {
-      '@type': 'Organization',
-      name: 'Conferencistas Famosos',
-    },
-  };
+  const jsonLd = post.type === 'ranking' && post.ranking
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: post.title,
+        description: post.description,
+        itemListElement: post.ranking.map((item) => {
+          const s = speakers.find((sp) => getSpeakerSlug(sp.name) === item.speakerId);
+          return {
+            '@type': 'ListItem',
+            position: item.position,
+            name: s?.name ?? item.speakerId,
+            url: `${BASE_URL}/speaker/${item.speakerId}`,
+          };
+        }),
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: post.title,
+        description: post.description,
+        thumbnailUrl: [thumbnail],
+        uploadDate: post.publishedAt,
+        embedUrl: `https://www.youtube.com/embed/${post.youtubeId}`,
+        contentUrl: `https://www.youtube.com/watch?v=${post.youtubeId}`,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Conferencistas Famosos',
+        },
+      };
 
   return (
     <>
@@ -91,17 +112,50 @@ const BlogPost = () => {
             </span>
           </div>
 
-          <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-black mb-8" style={{ paddingTop: '56.25%' }}>
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${post.youtubeId}`}
-              title={post.title}
-              frameBorder={0}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
+          {post.type === 'ranking' && post.ranking ? (
+            <div className="space-y-6 mb-10">
+              {post.ranking.map((item) => {
+                const s = speakers.find((sp) => getSpeakerSlug(sp.name) === item.speakerId);
+                if (!s) return null;
+                return (
+                  <Link
+                    key={item.speakerId}
+                    to={`/speaker/${item.speakerId}`}
+                    className="flex flex-col sm:flex-row gap-5 items-start bg-gray-50 hover:bg-orange-50 border border-gray-100 rounded-lg p-5 transition-colors group"
+                  >
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 text-white font-bold flex items-center justify-center text-lg">
+                      {item.position}
+                    </span>
+                    <img
+                      src={s.image}
+                      alt={s.name}
+                      loading="lazy"
+                      className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+                    />
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-orange-500 mb-1">
+                        {item.position}. {s.name}
+                      </h3>
+                      <p className="text-sm text-orange-600 font-medium mb-2">{s.specialty}</p>
+                      <p className="text-gray-700 leading-relaxed">{item.reason}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="relative w-full rounded-lg overflow-hidden shadow-lg bg-black mb-8" style={{ paddingTop: '56.25%' }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${post.youtubeId}`}
+                title={post.title}
+                frameBorder={0}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          )}
 
           <p className="text-lg text-gray-700 leading-relaxed mb-10">{post.description}</p>
 
@@ -183,7 +237,9 @@ const BlogPost = () => {
 
           <div className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              ¿Quieres contratar a {post.speakerName} para tu evento?
+              {post.type === 'ranking'
+                ? '¿Quieres contratar a uno de estos conferencistas para tu evento?'
+                : `¿Quieres contratar a ${post.speakerName} para tu evento?`}
             </h2>
             <p className="mb-6 opacity-95">
               Solicita una cotización personalizada y llevemos esta experiencia a tu empresa.
@@ -196,21 +252,23 @@ const BlogPost = () => {
               >
                 Solicitar cotización
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-orange-600"
-              >
-                <Link to={`/speaker/${post.speakerId}`}>Ver perfil del speaker</Link>
-              </Button>
+              {post.type !== 'ranking' && (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="bg-transparent border-white text-white hover:bg-white hover:text-orange-600"
+                >
+                  <Link to={`/speaker/${post.speakerId}`}>Ver perfil del speaker</Link>
+                </Button>
+              )}
             </div>
           </div>
 
           {related.length > 0 && (
             <section>
               <h2 className="text-2xl font-bold mb-6 text-gray-900">
-                Más videos de {post.speakerName}
+                {post.type === 'ranking' ? 'Más rankings de conferencistas' : `Más videos de ${post.speakerName}`}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {related.map((r) => (
@@ -218,7 +276,7 @@ const BlogPost = () => {
                     <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow">
                       <div className="aspect-video overflow-hidden bg-gray-100">
                         <img
-                          src={getYoutubeThumbnail(r.youtubeId)}
+                          src={getPostThumbnail(r)}
                           alt={r.title}
                           loading="lazy"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
