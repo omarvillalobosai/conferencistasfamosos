@@ -177,6 +177,10 @@ const BlogPost = () => {
             </section>
           )}
 
+          <div className="mb-12">
+            <NewsletterSection compact speakerName={post.speakerName} />
+          </div>
+
           <div className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
               ¿Quieres contratar a {post.speakerName} para tu evento?

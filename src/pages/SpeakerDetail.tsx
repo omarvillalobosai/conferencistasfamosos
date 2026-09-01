@@ -95,7 +95,14 @@ const SpeakerDetail = () => {
         
         {/* Conference Topics Section */}
         <ConferenceTopics topics={topics} />
-        
+
+        {/* Newsletter Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <NewsletterSection compact speakerName={speaker.name} />
+          </div>
+        </section>
+
         {/* Contact CTA Section */}
         <ContactCTA speakerName={speaker.name} />
         
