@@ -176,7 +176,7 @@ const Privacy = () => {
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
                 <li>Email: privacidad@conferencistasfamosos.com</li>
-                <li>Teléfono: +52 55 1234 5678</li>
+                <li>Teléfono: +52 3324166849</li>
                 <li>Dirección: Ciudad de México, México</li>
               </ul>
             </section>
