@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+
 
 interface FormData {
   name: string;
@@ -110,46 +112,37 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
   const handleSubmit = async () => {
     try {
       setIsSubmitting(true);
-      
-      // Prepare the data for the webhook
-      const webhookData = {
-        nombre: formData.name,
+
+      const payload = {
+        name: formData.name,
         email: formData.email,
-        whatsapp: formData.phone,
-        empresa: formData.company,
-        "redes o web": formData.socialMedia,
-        "TIPO DE EVENTO": formData.eventType === 'Otro' ? formData.eventTypeOther : formData.eventType,
-        enfoque: formData.speakerFocus,
-        intencion: formData.eventIntentions.join(', '),
-        "objetivo especifico": formData.specificObjectives.includes('Otro') 
+        phone: formData.phone,
+        company: formData.company,
+        socialMedia: formData.socialMedia,
+        eventType: formData.eventType === 'Otro' ? formData.eventTypeOther : formData.eventType,
+        speakerFocus: formData.speakerFocus,
+        eventIntentions: formData.eventIntentions.join(', '),
+        specificObjectives: formData.specificObjectives.includes('Otro')
           ? [...formData.specificObjectives.filter(obj => obj !== 'Otro'), formData.specificObjectivesOther].join(', ')
           : formData.specificObjectives.join(', '),
-        presupuesto: formData.budget,
-        "sobre tu evento": formData.pitch
+        budget: formData.budget,
+        pitch: formData.pitch,
       };
-      
-      console.log('Submitting data to webhook:', webhookData);
-      
-      // Send data to webhook
-      const response = await fetch('https://hook.us2.make.com/zp37js1lpc28c5id5ne8d0kaw8b6a6z6', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(webhookData),
+
+      const { data, error } = await supabase.functions.invoke('quote-request-submit', {
+        body: payload,
       });
-      
-      if (!response.ok) {
-        throw new Error('Error al enviar el formulario');
-      }
-      
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+
       console.log('Form submitted successfully');
       setShowConfetti(true);
       toast({
         title: "Solicitud enviada",
         description: "Tu información ha sido recibida. Nos pondremos en contacto contigo pronto.",
       });
-      
+
       // Reset form and close dialog after delay
       setTimeout(() => {
         setFormData({
@@ -170,7 +163,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
         setStep(1);
         onClose();
       }, 5000);
-      
+
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
