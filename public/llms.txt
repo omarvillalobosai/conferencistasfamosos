@@ -9,15 +9,26 @@
 - [Blog](/blog): Artículos sobre conferencistas, eventos y motivación.
 - [Videos](/videos): Videos destacados de conferencias y speakers.
 - [Cursos](/cursos): Cursos para contratar conferencistas o convertirte en uno.
+- [Cursos Premium](/cursos-premium): Formación avanzada para conferencistas profesionales.
 - [SpeakerPro.AI](/spa2): Academia de marca personal con inteligencia artificial de Omar Villalobos.
+- [Management](/management): Representación y management para speakers y conferencistas.
 
 ## Speakers
 
 - [Omar Villalobos](/speaker/omar-villalobos): Liderazgo y transformación personal.
 - [Yordi Rosado](/speaker/yordi-rosado): Autoestima y comunicación.
 - [Daniel Habif](/speaker/daniel-habif): Motivación y propósito.
+- [Odin Dupeyron](/speaker/odin-dupeyron): Creatividad y desarrollo humano.
+- [César Lozano](/speaker/cesar-lozano): Actitud y calidad de vida.
+- [Ismael Cala](/speaker/ismael-cala): Liderazgo y mindfulness.
+- [Carlos Páez](/speaker/carlos-paez): Resiliencia y supervivencia.
+- [Victor Küppers](/speaker/victor-kuppers): Entusiasmo y actitud positiva.
+- [Adriana Macías](/speaker/adriana-macias): Superación y motivación.
 - [Gaby Vargas](/speaker/gaby-vargas): Reinvención y crecimiento personal.
+- [Elsa Punset](/speaker/elsa-punset): Inteligencia emocional.
+- [Marisa Lazo](/speaker/marisa-lazo): Emprendimiento y liderazgo.
 - [Vilma Núñez](/speaker/vilma-nunez): Marketing digital y liderazgo femenino.
+- [Claudia Lizaldi](/speaker/claudia-lizaldi): Bienestar integral y mindfulness.
 
 ## Optional
 
