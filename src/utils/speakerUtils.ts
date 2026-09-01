@@ -1,26 +1,27 @@
 
 import { speakers } from '@/data/speakersData';
 
+const stripAccents = (value: string) => value.normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+export const getSpeakerSlug = (speakerName: string) => {
+  return stripAccents(speakerName.toLowerCase()).replace(/\s+/g, '-');
+};
+
 export const findSpeakerBySlug = (slug?: string) => {
   if (!slug) return { speakerIndex: -1, speaker: null };
-  
-  const speakerIndex = speakers.findIndex(s => {
-    const speakerSlug = s.name.toLowerCase().replace(/\s+/g, '-');
-    return speakerSlug === slug;
-  });
-  
+
+  const normalizedSlug = stripAccents(slug.toLowerCase());
+
+  const speakerIndex = speakers.findIndex(s => getSpeakerSlug(s.name) === normalizedSlug);
+
   const speaker = speakerIndex !== -1 ? speakers[speakerIndex] : null;
-  
+
   return {
     speakerIndex,
     speaker,
     prevSpeakerIndex: speakerIndex > 0 ? speakerIndex - 1 : speakers.length - 1,
     nextSpeakerIndex: speakerIndex < speakers.length - 1 ? speakerIndex + 1 : 0,
   };
-};
-
-export const getSpeakerSlug = (speakerName: string) => {
-  return speakerName.toLowerCase().replace(/\s+/g, '-');
 };
 
 export const getVideoIdForSpeaker = (speakerName: string) => {
@@ -32,7 +33,7 @@ export const getVideoIdForSpeaker = (speakerName: string) => {
     "César Lozano": "pI3EgEamWWA",
     "Ismael Cala": "yjIAshJsVBc",
     "Carlos Páez": "hVAkxJqQdHE",
-    "Victor Kuppers": "nWecIwtN2ho",
+    "Victor Kuppers": "V34T8UhaI9A",
     "Adriana Macías": "i5X0HF6W_6Y",
     "Gaby Vargas": "gUTQMINYcGg",
     "Elsa Punset": "VNWFw8eojv8",
