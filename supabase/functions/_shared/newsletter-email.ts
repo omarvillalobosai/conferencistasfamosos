@@ -132,3 +132,102 @@ export async function sendResendEmail(params: {
 
 // Backwards-compatible alias so existing callers keep working.
 export const sendBrevoEmail = sendResendEmail;
+
+export interface QuoteRequestEmailArgs {
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  socialMedia?: string;
+  eventType?: string;
+  speakerFocus?: string;
+  specificObjectives?: string;
+  eventIntentions?: string;
+  budget?: string;
+  pitch?: string;
+  isHighBudget: boolean;
+}
+
+const BUDGET_LABELS: Record<string, string> = {
+  'less-than-3000': 'Menos de $3,000 USD',
+  '3000-8000': 'Entre $3,000 y $8,000 USD',
+  '8000-15000': 'Entre $8,000 y $15,000 USD',
+  '15000-30000': 'Entre $15,000 y $30,000 USD',
+  'more-than-30000': 'Más de $30,000 USD',
+  'quality-investment': 'Listo para invertir en calidad',
+};
+
+function emailRow(label: string, value?: string): string {
+  if (!value) return '';
+  return `
+    <tr>
+      <td style="padding:10px 0;border-top:1px solid rgba(255,255,255,0.06);color:#ffffff60;font-size:12px;text-transform:uppercase;letter-spacing:1px;width:170px;vertical-align:top;">${escapeHtml(label)}</td>
+      <td style="padding:10px 0;border-top:1px solid rgba(255,255,255,0.06);color:#ffffff;font-size:14px;vertical-align:top;">${escapeHtml(value)}</td>
+    </tr>`;
+}
+
+export function renderQuoteRequestEmail(args: QuoteRequestEmailArgs): string {
+  const budgetLabel = args.budget ? (BUDGET_LABELS[args.budget] ?? args.budget) : '';
+
+  const banner = args.isHighBudget
+    ? `<tr><td style="padding:16px 40px;background:#f97316;text-align:center;">
+         <span style="color:#0a0a0a;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;">🔥 Lead de alto presupuesto — responder cuanto antes</span>
+       </td></tr>`
+    : '';
+
+  const rows = [
+    emailRow('Nombre', args.name),
+    emailRow('Email', args.email),
+    emailRow('WhatsApp', args.phone),
+    emailRow('Empresa', args.company),
+    emailRow('Redes / web', args.socialMedia),
+    emailRow('Tipo de evento', args.eventType),
+    emailRow('Enfoque buscado', args.speakerFocus),
+    emailRow('Objetivos específicos', args.specificObjectives),
+    emailRow('Intención del evento', args.eventIntentions),
+    emailRow('Presupuesto', budgetLabel),
+    emailRow('Sobre el evento', args.pitch),
+  ].join('');
+
+  return `<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Nueva solicitud de cotización</title>
+  </head>
+  <body style="margin:0;padding:0;background:#0a0a0a;font-family:'Helvetica Neue',Arial,sans-serif;color:#ffffff;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0a;">
+      ${banner}
+      <tr>
+        <td align="center" style="padding:40px 20px;">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#111111;border:1px solid rgba(255,255,255,0.06);">
+            <tr>
+              <td style="padding:32px 40px 8px 40px;">
+                <div style="color:#f97316;font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:600;">
+                  Nueva solicitud de cotización
+                </div>
+                <div style="height:1px;background:#f97316;width:40px;margin:16px 0 0;"></div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 40px 32px 40px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  ${rows}
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 40px 32px 40px;border-top:1px solid rgba(255,255,255,0.06);">
+                <a href="mailto:${escapeHtml(args.email)}" style="display:inline-block;background:#f97316;color:#ffffff;text-decoration:none;padding:14px 28px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">
+                  Responder a ${escapeHtml(args.name)} →
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
