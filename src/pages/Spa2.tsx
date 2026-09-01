@@ -15,7 +15,7 @@ const Spa2 = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>SpeakerPro.AI | Omar Villalobos</title>
         <meta name="description" content="Academia donde construyes tu marca personal con inteligencia artificial y emocional, creada por Omar Villalobos." />
         <link rel="canonical" href="https://conferencistasfamosos.com/spa2" />

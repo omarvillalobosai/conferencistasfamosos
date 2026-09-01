@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 const Privacy = () => {
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Política de Privacidad | ConferencistasFamosos</title>
         <meta name="description" content="Cómo recopilamos, utilizamos y protegemos tu información personal." />
         <link rel="canonical" href="https://conferencistasfamosos.com/privacidad" />

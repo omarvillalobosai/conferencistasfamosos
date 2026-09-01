@@ -15,7 +15,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <script type="application/ld+json">
           {`
             {

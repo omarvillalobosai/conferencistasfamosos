@@ -9,7 +9,7 @@ interface SpeakersSchemaProps {
 
 const SpeakersSchema: React.FC<SpeakersSchemaProps> = ({ speakers }) => {
   return (
-    <Helmet>
+    <Helmet defer={false}>
       <script type="application/ld+json">
         {`
           {

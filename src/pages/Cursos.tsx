@@ -37,7 +37,7 @@ const Cursos: React.FC = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Cursos para Speakers | ConferencistasFamosos</title>
         <meta name="description" content="Aprende a contratar conferencistas profesionales o conviértete en uno con nuestros cursos especializados." />
         <link rel="canonical" href="https://conferencistasfamosos.com/cursos" />

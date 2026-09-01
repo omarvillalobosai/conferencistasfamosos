@@ -35,7 +35,7 @@ const Blog = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Blog de Videos | Conferencistas Famosos</title>
         <meta
           name="description"
