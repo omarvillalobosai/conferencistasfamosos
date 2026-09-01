@@ -29,6 +29,7 @@ const QuoteWizard = ({ open, onClose }: QuoteWizardProps) => {
     handleInputChange,
     handleCheckboxChange,
     nextStep,
+    setNewsletterSubscribe,
     setFormData
   } = useQuoteForm({ onClose });
 
@@ -42,6 +43,8 @@ const QuoteWizard = ({ open, onClose }: QuoteWizardProps) => {
             formData={formData} 
             onInputChange={handleInputChange} 
             onNext={nextStep} 
+            subscribeNewsletter={formData.subscribeNewsletter}
+            onToggleNewsletter={setNewsletterSubscribe}
           />
         );
       case 3:
