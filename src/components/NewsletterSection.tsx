@@ -16,7 +16,12 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-const NewsletterSection: React.FC = () => {
+interface NewsletterSectionProps {
+  speakerName?: string;
+  compact?: boolean;
+}
+
+const NewsletterSection: React.FC<NewsletterSectionProps> = ({ speakerName, compact = false }) => {
   const [success, setSuccess] = useState(false);
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -42,28 +47,52 @@ const NewsletterSection: React.FC = () => {
     }
   };
 
+  const eyebrow = speakerName ? `Más de ${speakerName}` : 'Newsletter exclusiva';
+
   return (
-    <section className="relative py-32 md:py-40 bg-[#0a0a0a] text-white overflow-hidden border-t border-white/5">
+    <section
+      className={
+        compact
+          ? 'relative rounded-2xl bg-[#0a0a0a] text-white overflow-hidden py-14 px-6 md:px-12'
+          : 'relative py-32 md:py-40 bg-[#0a0a0a] text-white overflow-hidden border-t border-white/5'
+      }
+    >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[900px] h-[900px] rounded-full bg-orange-500/20 blur-[180px]" />
+        <div
+          className={
+            compact
+              ? 'w-[500px] h-[500px] rounded-full bg-orange-500/20 blur-[140px]'
+              : 'w-[900px] h-[900px] rounded-full bg-orange-500/20 blur-[180px]'
+          }
+        />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 max-w-3xl text-center">
-        <div className="flex items-center justify-center gap-3 mb-8">
+      <div className={`container relative z-10 mx-auto px-4 ${compact ? 'max-w-2xl' : 'max-w-3xl'} text-center`}>
+        <div className="flex items-center justify-center gap-3 mb-6">
           <div className="h-px w-12 bg-orange-500" />
           <span className="text-orange-500 uppercase tracking-[0.3em] text-xs font-medium inline-flex items-center gap-2">
-            <Sparkles className="h-3 w-3" /> Newsletter exclusiva
+            <Sparkles className="h-3 w-3" /> {eyebrow}
           </span>
           <div className="h-px w-12 bg-orange-500" />
         </div>
 
-        <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">
-          Una frase. Cada 3 días.<br />
-          <span className="italic font-light text-white/70">De los mejores del escenario.</span>
+        <h2 className={`font-bold mb-6 leading-[1.05] ${compact ? 'text-2xl md:text-4xl' : 'text-4xl md:text-6xl'}`}>
+          {speakerName ? (
+            <>
+              Frases como esta.<br />
+              <span className="italic font-light text-white/70">Cada 3 días en tu correo.</span>
+            </>
+          ) : (
+            <>
+              Una frase. Cada 3 días.<br />
+              <span className="italic font-light text-white/70">De los mejores del escenario.</span>
+            </>
+          )}
         </h2>
-        <p className="text-lg text-white/60 mb-12 max-w-xl mx-auto leading-relaxed">
-          Recibe cada tres días una frase inspiradora de Omar Villalobos y de los conferencistas más
-          influyentes de Latam, con el video completo detrás de la idea.
+        <p className={`text-white/60 mb-10 max-w-xl mx-auto leading-relaxed ${compact ? 'text-base' : 'text-lg mb-12'}`}>
+          {speakerName
+            ? `Suscríbete y recibe la próxima frase de ${speakerName} — y de los demás conferencistas de Latam — directo a tu correo.`
+            : 'Recibe cada tres días una frase inspiradora de Omar Villalobos y de los conferencistas más influyentes de Latam, con el video completo detrás de la idea.'}
         </p>
 
         {success ? (
