@@ -32,7 +32,7 @@ export const getVideoIdForSpeaker = (speakerName: string) => {
     "César Lozano": "pI3EgEamWWA",
     "Ismael Cala": "yjIAshJsVBc",
     "Carlos Páez": "hVAkxJqQdHE",
-    "Victor Kuppers": "V34T8UhaI9A",
+    "Victor Kuppers": "nWecIwtN2ho",
     "Adriana Macías": "i5X0HF6W_6Y",
     "Gaby Vargas": "gUTQMINYcGg",
     "Elsa Punset": "VNWFw8eojv8",
