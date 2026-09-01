@@ -49,7 +49,7 @@ const CoursePost = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>{`${post.title} | Cursos`}</title>
         <meta name="description" content={post.description} />
         <link rel="canonical" href={canonical} />

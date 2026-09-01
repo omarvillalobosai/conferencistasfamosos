@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 const TravelPolicies = () => {
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Políticas de Viaje | ConferencistasFamosos</title>
         <meta name="description" content="Condiciones de viaje, alojamiento y traslados para nuestros conferencistas." />
         <link rel="canonical" href="https://conferencistasfamosos.com/politicas-viaje" />

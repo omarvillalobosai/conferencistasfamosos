@@ -15,7 +15,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Conferencistas Famosos | Speakers de Latinoamérica</title>
         <meta name="description" content="Agencia representante de los mejores speakers de habla hispana. Omar Villalobos y conferencistas de alto impacto para tu evento." />
         <meta name="keywords" content="conferencistas, speakers, Omar Villalobos, motivación, liderazgo, conferencias, eventos corporativos" />

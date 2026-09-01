@@ -51,7 +51,7 @@ const BlogPost = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>{`${post.title} | ${post.speakerName}`}</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonical} />

@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 const Terms = () => {
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Términos y Condiciones | ConferencistasFamosos</title>
         <meta name="description" content="Términos y condiciones para la contratación de conferencistas famosos." />
         <link rel="canonical" href="https://conferencistasfamosos.com/terminos" />

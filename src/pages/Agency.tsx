@@ -14,7 +14,7 @@ import CallToActionSection from '@/components/agency/CallToActionSection';
 const Agency = () => {
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Agencia de Conferencistas | ConferencistasFamosos</title>
         <meta name="description" content="Agencia que garantiza el resultado del evento y la calidad del conferencista, con resultados medibles para tu marca." />
         <link rel="canonical" href="https://conferencistasfamosos.com/agencia" />

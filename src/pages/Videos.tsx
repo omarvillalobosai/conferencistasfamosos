@@ -85,7 +85,7 @@ const VideoCard: React.FC<{video: typeof featuredVideos[0]}> = ({ video }) => {
 const Videos = () => {
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Videos de Conferencias | ConferencistasFamosos</title>
         <meta name="description" content="Videos de los mejores conferencistas de habla hispana: motivación, liderazgo y desarrollo personal." />
         <link rel="canonical" href="https://conferencistasfamosos.com/videos" />

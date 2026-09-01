@@ -21,7 +21,7 @@ const CursosPremium: React.FC = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Cursos Premium | ConferencistasFamosos</title>
         <meta name="description" content="Contenido exclusivo para desarrollar habilidades específicas según tu rol o aspiración como speaker." />
         <link rel="canonical" href="https://conferencistasfamosos.com/cursos-premium" />

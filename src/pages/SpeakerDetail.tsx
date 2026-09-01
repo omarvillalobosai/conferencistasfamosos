@@ -50,7 +50,7 @@ const SpeakerDetail = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>{`${speaker.name} | Conferencista`}</title>
         <meta
           name="description"

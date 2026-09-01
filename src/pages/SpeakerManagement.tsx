@@ -13,7 +13,7 @@ import ManagementApplicationForm from '@/components/management/ManagementApplica
 const SpeakerManagement: React.FC = () => {
   return (
     <>
-      <Helmet>
+      <Helmet defer={false}>
         <title>Management para Conferencistas | Conferencistas Famosos</title>
         <meta
           name="description"
