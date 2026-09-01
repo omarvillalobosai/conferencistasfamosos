@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { StarIcon } from 'lucide-react';
 import type { Speaker } from '@/data/speakersData';
+import { getSpeakerSlug } from '@/utils/speakerUtils';
 
 interface SpeakerCardProps {
   speaker: Speaker;
 }
 
 const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
-  // Create a URL-friendly slug from the speaker's name
-  const speakerSlug = speaker.name.toLowerCase().replace(/\s+/g, '-');
+  const speakerSlug = getSpeakerSlug(speaker.name);
   
   return (
     <Link to={`/speaker/${speakerSlug}`}>
