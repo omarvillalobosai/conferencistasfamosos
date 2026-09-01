@@ -31,8 +31,10 @@ const SpeakerDetail = () => {
   if (!speaker) {
     return <Navigate to="/not-found" />;
   }
+  const canonicalSlug = getSpeakerSlug(speaker.name);
 
   // Topics/conferences specific to each speaker, with a generic fallback
+
   const defaultTopics = [
     "Liderazgo transformacional",
     "Comunicación efectiva",
@@ -57,10 +59,10 @@ const SpeakerDetail = () => {
           name="description"
           content={`${speaker.name}, conferencista en ${speaker.specialty}. Contrátalo para tu próximo evento.`}
         />
-        <link rel="canonical" href={`https://conferencistasfamosos.com/speaker/${slug}`} />
+        <link rel="canonical" href={`https://conferencistasfamosos.com/speaker/${canonicalSlug}`} />
         <meta property="og:title" content={`${speaker.name} | Conferencista`} />
         <meta property="og:description" content={`${speaker.shortBio}`} />
-        <meta property="og:url" content={`https://conferencistasfamosos.com/speaker/${slug}`} />
+        <meta property="og:url" content={`https://conferencistasfamosos.com/speaker/${canonicalSlug}`} />
         <meta property="og:image" content={speaker.image} />
         <meta name="keywords" content={`${speaker.name}, conferencista, ${speaker.tags.join(', ')}, conferencias, eventos, charlas`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -70,7 +72,7 @@ const SpeakerDetail = () => {
           jobTitle: "Conferencista",
           description: speaker.shortBio,
           image: speaker.image,
-          url: `https://conferencistasfamosos.com/speaker/${slug}`,
+          url: `https://conferencistasfamosos.com/speaker/${canonicalSlug}`,
           knowsAbout: speaker.tags,
           worksFor: {
             "@type": "Organization",
