@@ -3474,11 +3474,16 @@ export type Database = {
           cta_url: string
           daily_publish_time: string
           daily_quote_target: number
+          facebook_page_daily_limit: number
+          facebook_page_enabled: boolean
           id: string
           instagram_feed_daily_limit: number
           instagram_feed_enabled: boolean
           instagram_story_daily_limit: number
           instagram_story_enabled: boolean
+          instagram_token_last_checked_at: string | null
+          instagram_token_last_error: string | null
+          instagram_token_refreshed_at: string | null
           last_error: string | null
           last_refill_at: string | null
           last_worker_at: string | null
@@ -3502,11 +3507,16 @@ export type Database = {
           cta_url?: string
           daily_publish_time?: string
           daily_quote_target?: number
+          facebook_page_daily_limit?: number
+          facebook_page_enabled?: boolean
           id?: string
           instagram_feed_daily_limit?: number
           instagram_feed_enabled?: boolean
           instagram_story_daily_limit?: number
           instagram_story_enabled?: boolean
+          instagram_token_last_checked_at?: string | null
+          instagram_token_last_error?: string | null
+          instagram_token_refreshed_at?: string | null
           last_error?: string | null
           last_refill_at?: string | null
           last_worker_at?: string | null
@@ -3530,11 +3540,16 @@ export type Database = {
           cta_url?: string
           daily_publish_time?: string
           daily_quote_target?: number
+          facebook_page_daily_limit?: number
+          facebook_page_enabled?: boolean
           id?: string
           instagram_feed_daily_limit?: number
           instagram_feed_enabled?: boolean
           instagram_story_daily_limit?: number
           instagram_story_enabled?: boolean
+          instagram_token_last_checked_at?: string | null
+          instagram_token_last_error?: string | null
+          instagram_token_refreshed_at?: string | null
           last_error?: string | null
           last_refill_at?: string | null
           last_worker_at?: string | null
@@ -5915,6 +5930,7 @@ export type Database = {
           youtube_stream_url: string
         }[]
       }
+      get_omv_instagram_token: { Args: never; Returns: string }
       get_owned_plan_file: {
         Args: { _plan_id: string }
         Returns: {
@@ -5984,6 +6000,7 @@ export type Database = {
         Args: { p_user_id: string }
         Returns: boolean
       }
+      set_omv_instagram_token: { Args: { p_token: string }; Returns: undefined }
       submit_dnc_response: {
         Args: {
           p_answers: Json
