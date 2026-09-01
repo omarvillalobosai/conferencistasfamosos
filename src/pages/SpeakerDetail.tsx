@@ -55,10 +55,10 @@ const SpeakerDetail = () => {
   return (
     <>
       <Helmet defer={false}>
-        <title>{`${speaker.name} | Conferencista`}</title>
+        <title>{`${speaker.name}, Conferencista: Biografía y Conferencias`}</title>
         <meta
           name="description"
-          content={`${speaker.name}, conferencista en ${speaker.specialty}. Contrátalo para tu próximo evento.`}
+          content={`${speaker.shortBio} Conoce su biografía completa, temas de conferencia y contrátalo para tu evento.`}
         />
         <link rel="canonical" href={`https://conferencistasfamosos.com/speaker/${canonicalSlug}`} />
         <meta property="og:title" content={`${speaker.name} | Conferencista`} />
