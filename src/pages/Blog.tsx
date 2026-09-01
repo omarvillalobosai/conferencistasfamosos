@@ -8,14 +8,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Calendar, Search, PlayCircle, User } from 'lucide-react';
-import { blogPosts, getYoutubeThumbnail, formatBlogDate } from '@/data/blogPosts';
+import { blogPosts, getPostThumbnail, formatBlogDate } from '@/data/blogPosts';
 
 const Blog = () => {
   const [query, setQuery] = useState('');
   const [speaker, setSpeaker] = useState<string>('Todos');
 
   const speakerOptions = useMemo(() => {
-    const set = new Set(blogPosts.map((p) => p.speakerName));
+    const set = new Set(blogPosts.filter((p) => p.type !== 'ranking').map((p) => p.speakerName));
     return ['Todos', ...Array.from(set)];
   }, []);
 
@@ -100,20 +100,22 @@ const Blog = () => {
                     <Card className="overflow-hidden h-full flex flex-col hover:shadow-xl transition-shadow">
                       <div className="relative aspect-video overflow-hidden bg-gray-100">
                         <img
-                          src={getYoutubeThumbnail(post.youtubeId)}
+                          src={getPostThumbnail(post)}
                           alt={post.title}
                           loading="lazy"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <PlayCircle className="h-16 w-16 text-white drop-shadow-lg" />
-                        </div>
+                        {post.type !== 'ranking' && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <PlayCircle className="h-16 w-16 text-white drop-shadow-lg" />
+                          </div>
+                        )}
                       </div>
 
                       <CardContent className="pt-6 flex-grow flex flex-col">
                         <div className="flex items-center text-sm text-gray-600 mb-3 gap-4">
                           <span className="inline-flex items-center">
-                            <User className="h-4 w-4 mr-1" /> {post.speakerName}
+                            <User className="h-4 w-4 mr-1" /> {post.type === 'ranking' ? 'Ranking' : post.speakerName}
                           </span>
                           <span className="inline-flex items-center">
                             <Calendar className="h-4 w-4 mr-1" />
