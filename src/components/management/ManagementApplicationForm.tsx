@@ -45,6 +45,7 @@ const ManagementApplicationForm: React.FC = () => {
     message: '',
   });
   const [types, setTypes] = useState<string[]>([]);
+  const [subscribeNewsletter, setSubscribeNewsletter] = useState(false);
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
   const toggleType = (id: string) =>
@@ -92,6 +93,12 @@ const ManagementApplicationForm: React.FC = () => {
     if (error) {
       toast({ title: 'No se pudo enviar tu aplicación', description: error.message, variant: 'destructive' });
       return;
+    }
+
+    if (subscribeNewsletter) {
+      supabase.functions
+        .invoke('newsletter-subscribe', { body: { name: form.full_name.trim(), email: form.email.trim().toLowerCase() } })
+        .catch((err) => console.error('newsletter opt-in failed', err));
     }
 
     setSuccess(true);
@@ -184,6 +191,12 @@ const ManagementApplicationForm: React.FC = () => {
                 <Label htmlFor="country">País / ciudad</Label>
                 <Input id="country" value={form.country} onChange={(e) => update('country', e.target.value)} maxLength={100} />
               </div>
+              <label className="flex items-start gap-3 cursor-pointer bg-orange-50 border border-orange-100 rounded-lg p-4 md:col-span-2">
+                <Checkbox checked={subscribeNewsletter} onCheckedChange={(checked) => setSubscribeNewsletter(checked === true)} />
+                <span className="text-sm text-gray-700">
+                  Quiero recibir frases inspiradoras de conferencistas cada 3 días por correo (opcional)
+                </span>
+              </label>
             </div>
           </div>
         )}
