@@ -83,6 +83,34 @@ const Blog = () => {
 
         <section className="py-12">
           <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              {categoryOptions.map((name) => {
+                const isActive = category === name;
+                if (name === 'Rankings') {
+                  return (
+                    <Button
+                      key={name}
+                      asChild
+                      variant={isActive ? 'default' : 'outline'}
+                      className={isActive ? 'bg-orange-500 hover:bg-orange-600' : ''}
+                    >
+                      <Link to={`/blog/categoria/${getCategorySlug(name)}`}>{name}</Link>
+                    </Button>
+                  );
+                }
+                return (
+                  <Button
+                    key={name}
+                    variant={isActive ? 'default' : 'outline'}
+                    className={isActive ? 'bg-orange-500 hover:bg-orange-600' : ''}
+                    onClick={() => setCategory(name)}
+                  >
+                    {name}
+                  </Button>
+                );
+              })}
+            </div>
+
             <div className="flex flex-wrap justify-center gap-3 mb-12">
               {speakerOptions.map((name) => (
                 <Button
