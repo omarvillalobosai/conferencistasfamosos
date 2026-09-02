@@ -621,7 +621,7 @@ export const blogPosts: BlogPost[] = [
     description:
       'Un ranking de los speakers de motivación con mayor trayectoria e impacto en Latinoamérica: alcance internacional, contenido propio y capacidad real de transformar audiencias.',
     publishedAt: '2026-09-01',
-    category: 'Motivación',
+    category: 'Rankings',
     type: 'ranking',
     coverImage:
       'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//daniel%20habif%20conferencista%20famosos.png',
@@ -654,7 +654,7 @@ export const blogPosts: BlogPost[] = [
     description:
       'Speakers con trayectoria comprobada en liderazgo organizacional: desde exdirectivos de medios internacionales hasta empresarias que construyeron compañías desde cero.',
     publishedAt: '2026-09-01',
-    category: 'Liderazgo',
+    category: 'Rankings',
     type: 'ranking',
     coverImage:
       'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//ismael-cala-conferencistas%20famosos.png',
@@ -687,7 +687,7 @@ export const blogPosts: BlogPost[] = [
     description:
       'Speakers enfocados en mentalidad de ventas, conversión y alto rendimiento comercial, con resultados medibles detrás de su mensaje.',
     publishedAt: '2026-09-01',
-    category: 'Ventas',
+    category: 'Rankings',
     type: 'ranking',
     coverImage:
       'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//a_photo_of_omv%20(14).png',
@@ -720,7 +720,7 @@ export const blogPosts: BlogPost[] = [
     description:
       'Historias reales de superación y reinvención que convierten cada conferencia en una experiencia transformadora para la audiencia.',
     publishedAt: '2026-09-01',
-    category: 'Desarrollo Personal',
+    category: 'Rankings',
     type: 'ranking',
     coverImage:
       'https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//daniel%20habif%20conferencista%20famosos.png',
@@ -761,3 +761,14 @@ export const getPostThumbnail = (post: BlogPost) =>
 
 export const formatBlogDate = (iso: string) =>
   new Date(iso).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+
+export const getCategorySlug = (category: string) =>
+  category
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+export const getPostsByCategorySlug = (slug: string) =>
+  blogPosts.filter((p) => getCategorySlug(p.category) === slug);

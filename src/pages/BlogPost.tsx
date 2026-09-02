@@ -13,6 +13,7 @@ import {
   findPostBySlug,
   getRelatedPosts,
   getPostThumbnail,
+  getCategorySlug,
   formatBlogDate,
 } from '@/data/blogPosts';
 import { getPostEnrichment } from '@/data/blogPostsEnrichment';
@@ -94,9 +95,12 @@ const BlogPost = () => {
             <ArrowLeft className="h-4 w-4 mr-2" /> Volver al blog
           </Link>
 
-          <span className="inline-block bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-1 rounded mb-3 uppercase tracking-wide">
+          <Link
+            to={`/blog/categoria/${getCategorySlug(post.category)}`}
+            className="inline-block bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-1 rounded mb-3 uppercase tracking-wide hover:bg-orange-200"
+          >
             {post.category}
-          </span>
+          </Link>
           <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-gray-900">
             {post.title}
           </h1>

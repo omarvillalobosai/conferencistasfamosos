@@ -8,14 +8,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Calendar, Search, PlayCircle, User } from 'lucide-react';
-import { blogPosts, getPostThumbnail, formatBlogDate } from '@/data/blogPosts';
+import { blogPosts, getPostThumbnail, getCategorySlug, formatBlogDate } from '@/data/blogPosts';
 
 const Blog = () => {
   const [query, setQuery] = useState('');
   const [speaker, setSpeaker] = useState<string>('Todos');
+  const [category, setCategory] = useState<string>('Todos');
 
   const speakerOptions = useMemo(() => {
     const set = new Set(blogPosts.filter((p) => p.type !== 'ranking').map((p) => p.speakerName));
+    return ['Todos', ...Array.from(set)];
+  }, []);
+
+  const categoryOptions = useMemo(() => {
+    const set = new Set(blogPosts.map((p) => p.category));
     return ['Todos', ...Array.from(set)];
   }, []);
 
@@ -23,15 +29,16 @@ const Blog = () => {
     const q = query.trim().toLowerCase();
     return blogPosts.filter((p) => {
       const matchesSpeaker = speaker === 'Todos' || p.speakerName === speaker;
+      const matchesCategory = category === 'Todos' || p.category === category;
       const matchesQuery =
         !q ||
         p.title.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q) ||
         p.speakerName.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q);
-      return matchesSpeaker && matchesQuery;
+      return matchesSpeaker && matchesCategory && matchesQuery;
     });
-  }, [query, speaker]);
+  }, [query, speaker, category]);
 
   return (
     <>
@@ -76,6 +83,34 @@ const Blog = () => {
 
         <section className="py-12">
           <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              {categoryOptions.map((name) => {
+                const isActive = category === name;
+                if (name === 'Rankings') {
+                  return (
+                    <Button
+                      key={name}
+                      asChild
+                      variant={isActive ? 'default' : 'outline'}
+                      className={isActive ? 'bg-orange-500 hover:bg-orange-600' : ''}
+                    >
+                      <Link to={`/blog/categoria/${getCategorySlug(name)}`}>{name}</Link>
+                    </Button>
+                  );
+                }
+                return (
+                  <Button
+                    key={name}
+                    variant={isActive ? 'default' : 'outline'}
+                    className={isActive ? 'bg-orange-500 hover:bg-orange-600' : ''}
+                    onClick={() => setCategory(name)}
+                  >
+                    {name}
+                  </Button>
+                );
+              })}
+            </div>
+
             <div className="flex flex-wrap justify-center gap-3 mb-12">
               {speakerOptions.map((name) => (
                 <Button
