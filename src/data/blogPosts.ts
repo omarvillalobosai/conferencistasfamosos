@@ -761,3 +761,14 @@ export const getPostThumbnail = (post: BlogPost) =>
 
 export const formatBlogDate = (iso: string) =>
   new Date(iso).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+
+export const getCategorySlug = (category: string) =>
+  category
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+export const getPostsByCategorySlug = (slug: string) =>
+  blogPosts.filter((p) => getCategorySlug(p.category) === slug);
