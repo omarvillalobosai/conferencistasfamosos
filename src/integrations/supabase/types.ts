@@ -3565,6 +3565,66 @@ export type Database = {
         }
         Relationships: []
       }
+      omv_quote_email_deliveries: {
+        Row: {
+          attempts: number
+          created_at: string
+          id: string
+          last_error: string | null
+          provider_message_id: string | null
+          quote_id: string
+          recipient: string
+          sent_at: string | null
+          status: string
+          subject: string | null
+          subscription_id: string
+          updated_at: string
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          id?: string
+          last_error?: string | null
+          provider_message_id?: string | null
+          quote_id: string
+          recipient: string
+          sent_at?: string | null
+          status?: string
+          subject?: string | null
+          subscription_id: string
+          updated_at?: string
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          id?: string
+          last_error?: string | null
+          provider_message_id?: string | null
+          quote_id?: string
+          recipient?: string
+          sent_at?: string | null
+          status?: string
+          subject?: string | null
+          subscription_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omv_quote_email_deliveries_quote_id_fkey"
+            columns: ["quote_id"]
+            isOneToOne: false
+            referencedRelation: "omv_quotes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "omv_quote_email_deliveries_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "omv_quote_subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       omv_quote_publication_jobs: {
         Row: {
           asset_url: string | null
@@ -3702,6 +3762,82 @@ export type Database = {
             columns: ["blog_post_id"]
             isOneToOne: true
             referencedRelation: "youtube_blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      omv_quote_subscriptions: {
+        Row: {
+          cadence_days: number
+          contact_id: string
+          created_at: string
+          email: string
+          id: string
+          last_quote_id: string | null
+          last_sent_at: string | null
+          metadata: Json
+          name: string | null
+          next_send_at: string
+          send_count: number
+          signup_quote_id: string | null
+          source: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          cadence_days?: number
+          contact_id: string
+          created_at?: string
+          email: string
+          id?: string
+          last_quote_id?: string | null
+          last_sent_at?: string | null
+          metadata?: Json
+          name?: string | null
+          next_send_at?: string
+          send_count?: number
+          signup_quote_id?: string | null
+          source?: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          cadence_days?: number
+          contact_id?: string
+          created_at?: string
+          email?: string
+          id?: string
+          last_quote_id?: string | null
+          last_sent_at?: string | null
+          metadata?: Json
+          name?: string | null
+          next_send_at?: string
+          send_count?: number
+          signup_quote_id?: string | null
+          source?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "omv_quote_subscriptions_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: true
+            referencedRelation: "crm_contacts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "omv_quote_subscriptions_last_quote_id_fkey"
+            columns: ["last_quote_id"]
+            isOneToOne: false
+            referencedRelation: "omv_quotes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "omv_quote_subscriptions_signup_quote_id_fkey"
+            columns: ["signup_quote_id"]
+            isOneToOne: false
+            referencedRelation: "omv_quotes"
             referencedColumns: ["id"]
           },
         ]
@@ -3924,7 +4060,12 @@ export type Database = {
           image_url: string | null
           lens_tags: string[]
           newsletter_sent_at: string | null
+          origin: string
           published_at: string | null
+          radar_target_id: string | null
+          review_status: string
+          reviewed_at: string | null
+          reviewed_by: string | null
           slug: string
           sources: Json
           status: string
@@ -3943,7 +4084,12 @@ export type Database = {
           image_url?: string | null
           lens_tags?: string[]
           newsletter_sent_at?: string | null
+          origin?: string
           published_at?: string | null
+          radar_target_id?: string | null
+          review_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
           slug: string
           sources?: Json
           status?: string
@@ -3962,7 +4108,12 @@ export type Database = {
           image_url?: string | null
           lens_tags?: string[]
           newsletter_sent_at?: string | null
+          origin?: string
           published_at?: string | null
+          radar_target_id?: string | null
+          review_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
           slug?: string
           sources?: Json
           status?: string
@@ -3970,7 +4121,15 @@ export type Database = {
           title?: string
           video_url?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "ov_trend_posts_radar_target_id_fkey"
+            columns: ["radar_target_id"]
+            isOneToOne: false
+            referencedRelation: "radar_targets"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       payments: {
         Row: {
@@ -4230,6 +4389,92 @@ export type Database = {
           referrer_id?: string | null
           updated_at?: string | null
           user_id?: string
+        }
+        Relationships: []
+      }
+      radar_sources: {
+        Row: {
+          created_at: string | null
+          id: string
+          kind: string
+          last_read_at: string | null
+          target_id: string
+          url: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          kind: string
+          last_read_at?: string | null
+          target_id: string
+          url: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          kind?: string
+          last_read_at?: string | null
+          target_id?: string
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "radar_sources_target_id_fkey"
+            columns: ["target_id"]
+            isOneToOne: false
+            referencedRelation: "radar_targets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      radar_targets: {
+        Row: {
+          angulo: string
+          ciudad: string | null
+          created_at: string | null
+          created_by: string | null
+          handle: string | null
+          id: string
+          nicho: string | null
+          nombre: string
+          notas: string | null
+          pais: string | null
+          prioridad: number | null
+          published_at: string | null
+          status: string | null
+          tipo: string
+        }
+        Insert: {
+          angulo: string
+          ciudad?: string | null
+          created_at?: string | null
+          created_by?: string | null
+          handle?: string | null
+          id?: string
+          nicho?: string | null
+          nombre: string
+          notas?: string | null
+          pais?: string | null
+          prioridad?: number | null
+          published_at?: string | null
+          status?: string | null
+          tipo: string
+        }
+        Update: {
+          angulo?: string
+          ciudad?: string | null
+          created_at?: string | null
+          created_by?: string | null
+          handle?: string | null
+          id?: string
+          nicho?: string | null
+          nombre?: string
+          notas?: string | null
+          pais?: string | null
+          prioridad?: number | null
+          published_at?: string | null
+          status?: string | null
+          tipo?: string
         }
         Relationships: []
       }
@@ -4806,6 +5051,57 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      trend_generation_runs: {
+        Row: {
+          category_counts: Json | null
+          created_at: string
+          degraded: boolean | null
+          discovered_count: number | null
+          edition_date: string
+          error: string | null
+          finished_at: string | null
+          id: string
+          inserted_count: number | null
+          started_at: string | null
+          status_code: number | null
+          success: boolean
+          trigger_source: string | null
+          validated_count: number | null
+        }
+        Insert: {
+          category_counts?: Json | null
+          created_at?: string
+          degraded?: boolean | null
+          discovered_count?: number | null
+          edition_date: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          inserted_count?: number | null
+          started_at?: string | null
+          status_code?: number | null
+          success?: boolean
+          trigger_source?: string | null
+          validated_count?: number | null
+        }
+        Update: {
+          category_counts?: Json | null
+          created_at?: string
+          degraded?: boolean | null
+          discovered_count?: number | null
+          edition_date?: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          inserted_count?: number | null
+          started_at?: string | null
+          status_code?: number | null
+          success?: boolean
+          trigger_source?: string | null
+          validated_count?: number | null
+        }
+        Relationships: []
       }
       user_achievements: {
         Row: {
@@ -5570,6 +5866,54 @@ export type Database = {
         }
         Relationships: []
       }
+      youtube_sync_runs: {
+        Row: {
+          created_at: string
+          errores: Json | null
+          finished_at: string | null
+          id: string
+          partial: boolean | null
+          per_playlist: Json | null
+          playlists_con_error: number | null
+          playlists_procesadas: number | null
+          started_at: string | null
+          status_code: number | null
+          success: boolean
+          trigger_source: string | null
+          videos_nuevos: number | null
+        }
+        Insert: {
+          created_at?: string
+          errores?: Json | null
+          finished_at?: string | null
+          id?: string
+          partial?: boolean | null
+          per_playlist?: Json | null
+          playlists_con_error?: number | null
+          playlists_procesadas?: number | null
+          started_at?: string | null
+          status_code?: number | null
+          success?: boolean
+          trigger_source?: string | null
+          videos_nuevos?: number | null
+        }
+        Update: {
+          created_at?: string
+          errores?: Json | null
+          finished_at?: string | null
+          id?: string
+          partial?: boolean | null
+          per_playlist?: Json | null
+          playlists_con_error?: number | null
+          playlists_procesadas?: number | null
+          started_at?: string | null
+          status_code?: number | null
+          success?: boolean
+          trigger_source?: string | null
+          videos_nuevos?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       live_events_public: {
@@ -5996,6 +6340,15 @@ export type Database = {
           status: string
         }[]
       }
+      public_unsubscribe_quote: {
+        Args: { p_action?: string; p_token: string }
+        Returns: {
+          email: string
+          found: boolean
+          kind: string
+          status: string
+        }[]
+      }
       recompute_speaker_pro_consultation_unlock: {
         Args: { p_user_id: string }
         Returns: boolean
@@ -6112,12 +6465,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -6141,11 +6494,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -6166,11 +6519,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -6191,11 +6544,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -6208,11 +6561,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
