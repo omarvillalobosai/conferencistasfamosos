@@ -13,6 +13,7 @@ import {
   findPostBySlug,
   getRelatedPosts,
   getPostThumbnail,
+  getCategorySlug,
   formatBlogDate,
 } from '@/data/blogPosts';
 import { getPostEnrichment } from '@/data/blogPostsEnrichment';
