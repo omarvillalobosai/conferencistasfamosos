@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import BlogCategory from "./pages/BlogCategory";
 import Videos from "./pages/Videos";
 import Agency from "./pages/Agency";
 import Cursos from "./pages/Cursos";
