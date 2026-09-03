@@ -20,7 +20,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
           <img 
             src={speaker.image}
             alt={speaker.name}
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-300 hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-top transition duration-300 hover:scale-105"
           />
           {speaker.featured && (
             <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center">
