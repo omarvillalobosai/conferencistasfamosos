@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Calendar, MessageSquare } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import QuoteWizard from './QuoteWizard';
+import WhatsAppButton from '@/components/shared/WhatsAppButton';
 
 const RequestQuoteSection: React.FC = () => {
   const [wizardOpen, setWizardOpen] = useState(false);
@@ -32,20 +33,14 @@ const RequestQuoteSection: React.FC = () => {
                 Solicitar información
               </Button>
               
-              <Button
+              <WhatsAppButton
                 variant="outline"
-                className="text-lg py-6 px-8 border-2 border-gray-300 h-auto"
                 size="lg"
-                asChild
+                className="text-lg py-6 px-8 border-2 border-gray-300 h-auto"
+                source="request_quote_section"
               >
-                <a href="https://wa.me/523324166849?text=Me%20interesa%20más%20información%20sobre%20ConferencistasFamosos" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <MessageSquare className="mr-2 h-5 w-5" />
-                  Contáctanos por WhatsApp
-                </a>
-              </Button>
+                Contáctanos por WhatsApp
+              </WhatsAppButton>
             </div>
           </div>
         </div>
