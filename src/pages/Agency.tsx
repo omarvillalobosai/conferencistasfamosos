@@ -10,6 +10,17 @@ import CeoSection from '@/components/agency/CeoSection';
 import TeamSection from '@/components/agency/TeamSection';
 import FaqSection from '@/components/agency/FaqSection';
 import CallToActionSection from '@/components/agency/CallToActionSection';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
+const RevealSection: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const { ref, animationClass } = useScrollReveal();
+
+  return (
+    <div ref={ref} className={animationClass}>
+      {children}
+    </div>
+  );
+};
 
 const Agency = () => {
   return (
@@ -25,11 +36,11 @@ const Agency = () => {
       <Navbar />
       <main className="bg-[#0a0a0a]">
         <AgencyHero />
-        <AboutAgencySection />
-        <ClientsSection />
-        <CeoSection />
-        <TeamSection />
-        <FaqSection />
+        <RevealSection><AboutAgencySection /></RevealSection>
+        <RevealSection><ClientsSection /></RevealSection>
+        <RevealSection><CeoSection /></RevealSection>
+        <RevealSection><TeamSection /></RevealSection>
+        <RevealSection><FaqSection /></RevealSection>
         <CallToActionSection />
       </main>
       <Footer />

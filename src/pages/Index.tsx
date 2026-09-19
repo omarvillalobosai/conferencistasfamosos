@@ -11,6 +11,17 @@ import BlogSection from '@/components/BlogSection';
 import NewsletterSection from '@/components/NewsletterSection';
 import RequestQuoteSection from '@/components/RequestQuoteSection';
 import Footer from '@/components/Footer';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
+const RevealSection: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const { ref, animationClass } = useScrollReveal();
+
+  return (
+    <div ref={ref} className={animationClass}>
+      {children}
+    </div>
+  );
+};
 
 const Index = () => {
   return (
@@ -28,11 +39,10 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <SpeakersSection />
-        <FeaturedSpeakerSection />
-        
-        <BlogSection />
+        <RevealSection><AboutSection /></RevealSection>
+        <RevealSection><SpeakersSection /></RevealSection>
+        <RevealSection><FeaturedSpeakerSection /></RevealSection>
+        <RevealSection><BlogSection /></RevealSection>
         <NewsletterSection />
         <RequestQuoteSection />
       </main>
