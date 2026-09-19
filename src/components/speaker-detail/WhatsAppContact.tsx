@@ -22,9 +22,10 @@ const WhatsAppContact: React.FC = () => {
             <p className="text-lg text-gray-700 mb-8">
               En conferencistasfamosos.com, creemos en ti y en tu evento!
             </p>
-            <WhatsAppButton 
-              message={prefilledMessage} 
-              className="font-bold py-3 px-8 rounded-full" 
+            <WhatsAppButton
+              message={prefilledMessage}
+              source="speaker_whatsapp_contact"
+              className="font-bold py-3 px-8 rounded-full"
               size="lg"
             >
               Enviar mensaje
