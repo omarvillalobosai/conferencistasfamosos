@@ -34,6 +34,8 @@ const ContactCTA: React.FC<ContactCTAProps> = ({ speakerName }) => {
             
             <WhatsAppButton
               message={prefilledMessage}
+              source="speaker_contact_cta"
+              page={speakerName}
               className="font-bold py-3 px-8 rounded-full"
             />
           </div>

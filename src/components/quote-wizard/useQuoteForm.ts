@@ -107,6 +107,18 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
       return;
     }
 
+    if (step === 2) {
+      supabase.functions.invoke('quote-request-submit', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          stage: 'partial',
+        },
+      }).catch(console.error);
+    }
+
     if (step === 4) {
       handleSubmit();
       return;
@@ -133,6 +145,7 @@ export const useQuoteForm = ({ onClose }: UseQuoteFormProps) => {
           : formData.specificObjectives.join(', '),
         budget: formData.budget,
         pitch: formData.pitch,
+        stage: 'completed',
       };
 
       const { data, error } = await supabase.functions.invoke('quote-request-submit', {
