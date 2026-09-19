@@ -6321,6 +6321,10 @@ export type Database = {
           status: string
         }[]
       }
+      pause_conference_funnels_for_email: {
+        Args: { p_email: string; p_reason?: string }
+        Returns: number
+      }
       prepare_omv_quote_campaign: {
         Args: {
           p_campaign_id: string
