@@ -462,16 +462,18 @@ export type Database = {
           budget: string | null
           company: string | null
           created_at: string
-          email: string
+          email: string | null
           event_intentions: string | null
           event_type: string | null
           id: string
+          lead_stage: string
           name: string
           notified_at: string | null
           notify_error: string | null
           phone: string | null
           pitch: string | null
           social_media: string | null
+          source: string
           speaker_focus: string | null
           specific_objectives: string | null
           status: string
@@ -481,16 +483,18 @@ export type Database = {
           budget?: string | null
           company?: string | null
           created_at?: string
-          email: string
+          email?: string | null
           event_intentions?: string | null
           event_type?: string | null
           id?: string
+          lead_stage?: string
           name: string
           notified_at?: string | null
           notify_error?: string | null
           phone?: string | null
           pitch?: string | null
           social_media?: string | null
+          source?: string
           speaker_focus?: string | null
           specific_objectives?: string | null
           status?: string
@@ -500,16 +504,18 @@ export type Database = {
           budget?: string | null
           company?: string | null
           created_at?: string
-          email?: string
+          email?: string | null
           event_intentions?: string | null
           event_type?: string | null
           id?: string
+          lead_stage?: string
           name?: string
           notified_at?: string | null
           notify_error?: string | null
           phone?: string | null
           pitch?: string | null
           social_media?: string | null
+          source?: string
           speaker_focus?: string | null
           specific_objectives?: string | null
           status?: string
