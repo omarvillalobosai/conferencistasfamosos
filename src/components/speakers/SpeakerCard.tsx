@@ -14,13 +14,13 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
   const speakerSlug = getSpeakerSlug(speaker.name);
   
   return (
-    <Link to={`/speaker/${speakerSlug}`}>
-      <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow bg-white">
+    <Link to={`/speaker/${speakerSlug}`} className="block h-full">
+      <Card className="group overflow-hidden h-full border border-border bg-white transition-shadow duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)]">
         <div className="relative pb-[75%] overflow-hidden">
           <img 
             src={speaker.image}
             alt={speaker.name}
-            className="absolute inset-0 h-full w-full object-cover object-top transition duration-300 hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
           />
           {speaker.featured && (
             <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center">
