@@ -7,18 +7,19 @@ import { db } from './data';
 export const LOGIN_EMAIL: string =
   (import.meta.env.VITE_CF_APP_EMAIL as string | undefined) ?? 'eventos@conferencistasfamosos.com';
 
-export const PIN_PROFILES = [
-  { id: 'sandra', name: 'Sandra', email: LOGIN_EMAIL },
-  { id: 'neto', name: 'NETO', email: 'agencia@conferencistasfamosos.com' },
+// Cuentas que entran con PIN. Cualquier agente teclea su PIN sin elegir nombre: se prueba
+// primero la cuenta recordada en este dispositivo y luego las demás.
+export const PIN_ACCOUNTS = [
+  { id: 'eventos', email: LOGIN_EMAIL },
+  { id: 'agencia', email: 'agencia@conferencistasfamosos.com' },
 ] as const;
-const PROFILE_KEY = 'cf_app_pin_profile';
-export const savedPinProfile = () => {
-  try { return PIN_PROFILES.find((p) => p.id === localStorage.getItem(PROFILE_KEY)) ?? PIN_PROFILES[0]; }
-  catch { return PIN_PROFILES[0]; }
-};
-export const rememberPinProfile = (id: string) => {
-  try { localStorage.setItem(PROFILE_KEY, id); } catch { /* almacenamiento opcional */ }
-};
+const ACCOUNT_KEY = 'cf_app_pin_profile';
+const NAME_KEY = 'cf_app_last_name';
+const savedAccountId = () => { try { return localStorage.getItem(ACCOUNT_KEY); } catch { return null; } };
+const rememberAccount = (id: string) => { try { localStorage.setItem(ACCOUNT_KEY, id); } catch { /* opcional */ } };
+/** Nombre de la última persona que entró desde este dispositivo (para el saludo). */
+export const rememberedName = (): string | null => { try { return localStorage.getItem(NAME_KEY); } catch { return null; } };
+const rememberName = (name: string) => { try { localStorage.setItem(NAME_KEY, name); } catch { /* opcional */ } };
 
 export async function currentProfileName(): Promise<string | null> {
   const { data: { user } } = await supabase.auth.getUser();
@@ -70,7 +71,7 @@ export interface LoginResult {
 // La persona solo teclea los 6 dígitos.
 export const pinToPassword = (pin: string) => `Cf${pin}Pin`;
 
-export async function loginWithPin(pin: string, email: string = LOGIN_EMAIL): Promise<LoginResult> {
+export async function loginWithPin(pin: string): Promise<LoginResult> {
   const remaining = lockRemaining();
   if (remaining > 0) {
     return { ok: false, reason: 'locked', message: `Espera ${remaining} segundos para volver a intentar.` };
@@ -79,9 +80,18 @@ export async function loginWithPin(pin: string, email: string = LOGIN_EMAIL): Pr
     return { ok: false, reason: 'offline', message: 'Sin conexión. Revisa tu internet e intenta de nuevo.' };
   }
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password: pinToPassword(pin) });
-  if (error) {
-    const status = (error as { status?: number }).status;
+  const saved = savedAccountId();
+  const order = [...PIN_ACCOUNTS].sort((a, b) => (a.id === saved ? -1 : b.id === saved ? 1 : 0));
+  let error: { status?: number } | null = null;
+  let matched: (typeof PIN_ACCOUNTS)[number] | null = null;
+  for (const account of order) {
+    const r = await supabase.auth.signInWithPassword({ email: account.email, password: pinToPassword(pin) });
+    error = r.error as { status?: number } | null;
+    if (!error) { matched = account; break; }
+    if (error.status === 429) break;
+  }
+  if (error || !matched) {
+    const status = error?.status;
     if (status === 429) {
       writeLock({ fails: MAX_ATTEMPTS, lockedUntil: Date.now() + LOCK_SECONDS * 1000 });
       return { ok: false, reason: 'locked', message: 'Demasiados intentos. Espera un minuto.' };
@@ -116,6 +126,9 @@ export async function loginWithPin(pin: string, email: string = LOGIN_EMAIL): Pr
   }
 
   writeLock({ fails: 0, lockedUntil: 0 });
+  rememberAccount(matched.id);
+  const name = await currentProfileName();
+  if (name) rememberName(name);
   return { ok: true };
 }
 
@@ -132,6 +145,8 @@ export async function loginWithEmail(email: string, password: string): Promise<L
     await supabase.auth.signOut();
     return { ok: false, reason: 'not-allowed', message: 'Esta cuenta todavía no tiene acceso al hub. Pide a Omar que la dé de alta.' };
   }
+  const name = await currentProfileName();
+  if (name) rememberName(name);
   return { ok: true };
 }
 

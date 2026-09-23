@@ -1,18 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PinPad from './PinPad';
 import StageLogo from './StageLogo';
-import { loginWithPin, loginWithEmail, lockRemaining, PIN_PROFILES, savedPinProfile, rememberPinProfile } from '../auth';
-
-// Frases cortas para entrar de buen humor; rota una por día para que no canse.
-const SPARKS = [
-  'Hoy alguien va a subir a un escenario gracias a ti.',
-  'Las luces ya están encendidas. Solo falta tu PIN.',
-  'Cada mensaje que contestas es una sala que se llena.',
-  'Vender una conferencia es regalarle una idea a mil personas.',
-  'Los grandes conferencistas tienen a alguien grande detrás. Hoy te toca a ti.',
-  'Que el café esté fuerte y el cliente esté contestando.',
-  'Un cliente feliz cuenta la historia. Uno muy feliz la cuenta dos veces.',
-];
+import { loginWithPin, loginWithEmail, lockRemaining, rememberedName } from '../auth';
+import { fraseDelDia, type Frase } from '../frases';
 
 const greetingFor = (d: Date) => {
   const h = d.getHours();
@@ -37,7 +27,7 @@ const useStageVideo = () => {
 };
 
 const Login = () => {
-  const [profile, setProfile] = useState(savedPinProfile);
+  const [name, setName] = useState<string | null>(null);
   const [message, setMessage] = useState<string>('');
   const [isError, setIsError] = useState(false);
   const [locked, setLocked] = useState(lockRemaining());
@@ -47,14 +37,14 @@ const Login = () => {
   const [busy, setBusy] = useState(false);
   const [opened, setOpened] = useState(false);
   const [greeting, setGreeting] = useState('Hola');
-  const [spark, setSpark] = useState(SPARKS[0]);
+  const [frase, setFrase] = useState<Frase | null>(null);
   const videoOn = useStageVideo();
 
   useEffect(() => {
-    const now = new Date();
-    setGreeting(greetingFor(now));
-    const day = Math.floor(now.getTime() / 86_400_000);
-    setSpark(SPARKS[day % SPARKS.length]);
+    // Todo en el cliente: el nombre viene del último acceso en este dispositivo.
+    setGreeting(greetingFor(new Date()));
+    setName(rememberedName());
+    setFrase(fraseDelDia());
   }, []);
 
   useEffect(() => {
@@ -75,7 +65,7 @@ const Login = () => {
     setIsError(false);
     setBusy(true);
     let result;
-    try { result = await loginWithPin(pin, profile.email); }
+    try { result = await loginWithPin(pin); }
     catch { result = { ok: false, message: 'No se pudo conectar. Intenta de nuevo.', reason: 'error' as const }; }
     finally { setBusy(false); }
     if (!result.ok) {
@@ -87,7 +77,7 @@ const Login = () => {
     setMessage('');
     setOpened(true); // la luz sube a tope mientras llega la sesión
     return true;
-  }, [profile.email]);
+  }, []);
 
   const submitEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -120,21 +110,19 @@ const Login = () => {
       <div className="cf-login__box cf-stage__box">
         <StageLogo />
         <h1 className="cf-welcome cf-stage__in" style={{ animationDelay: '1.25s' }}>
-          {mode === 'pin' ? `${greeting}, ${profile.name}.` : 'Te damos la bienvenida.'}
+          {mode === 'pin' ? (name ? `${greeting}, ${name}.` : `${greeting}.`) : 'Te damos la bienvenida.'}
         </h1>
-        <p className="cf-spark cf-stage__in" style={{ animationDelay: '1.45s' }}>{spark}</p>
+        {frase && (
+          <figure className="cf-spark cf-stage__in" style={{ animationDelay: '1.45s' }}>
+            <blockquote>“{frase.texto}”</blockquote>
+            <figcaption>{frase.autor}</figcaption>
+          </figure>
+        )}
         <div className="cf-stage__in" style={{ animationDelay: '1.65s' }}>
           {mode === 'pin' ? (
             <>
-              <div className="cf-profile-picker" role="group" aria-label="¿Quién entra?">
-                {PIN_PROFILES.map((person) => (
-                  <button type="button" key={person.id} aria-pressed={person.id === profile.id}
-                    disabled={busy} onClick={() => {
-                      setProfile(person); rememberPinProfile(person.id); setMessage(''); setIsError(false);
-                    }}>{person.name}</button>
-                ))}
-              </div>
-              <PinPad key={profile.id} onComplete={handlePin} disabled={locked > 0 || busy || opened} />
+              <p className="cf-note" style={{ marginTop: 6 }}>Escribe tu PIN para entrar.</p>
+              <PinPad onComplete={handlePin} disabled={locked > 0 || busy || opened} />
             </>
           ) : (
             <form className="cf-form" style={{ marginTop: 22, textAlign: 'left' }} onSubmit={submitEmail}>

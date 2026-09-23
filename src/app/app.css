@@ -396,7 +396,9 @@
   transition: transform 600ms var(--cf-ease), opacity 500ms;
 }
 .cf-stage__in { opacity: 0; animation: cf-enter 520ms var(--cf-ease) both; }
-.cf-spark { color: rgba(255, 255, 255, 0.78); font-size: 17px; line-height: 1.45; max-width: 30ch; margin: 0 auto; }
+.cf-spark { color: rgba(255, 255, 255, 0.8); font-size: 17px; line-height: 1.45; max-width: 32ch; margin: 0 auto; }
+.cf-spark blockquote { margin: 0; font-style: italic; }
+.cf-spark figcaption { margin-top: 8px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cf-orange); font-weight: 600; }
 .cf-stage .cf-welcome { margin-top: 22px; }
 .cf-stage .cf-profile-picker { margin-top: 20px; }
 .cf-stage .cf-key { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.1); }
