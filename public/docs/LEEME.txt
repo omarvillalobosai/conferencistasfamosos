@@ -4,6 +4,7 @@ Documentos que manda el hub (/app → Enviar). Sube aquí los PDF definitivos co
   rider-internacional-es.pdf            Rider internacional en español (honorarios en dólares)
   rider-international-en.pdf            International rider (English)
   presentacion-conferencistas-famosos.pdf   Presentación de la agencia y catálogo
+  precio-mercado-2026.pdf               Precio Mercado 2026 (honorarios estimados, USD)
   contrato-conferencia.pdf              Contrato modelo
 
 Mientras un archivo no exista, el hub lo marca como pendiente y no deja mandarlo.
