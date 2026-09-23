@@ -188,7 +188,10 @@ const ClienteFicha = () => {
                 <Phone size={20} /> Llamar
               </a>
             )}
-            <Link className="cf-btn cf-btn--primary" to={`/app/enviar?contacto=${contact.id}`}>
+            <Link className="cf-btn cf-btn--primary" to={`/app/enviar?contacto=${contact.id}&documento=info-agencia`}>
+              Enviar presentación de la agencia
+            </Link>
+            <Link className="cf-btn cf-btn--ghost" to={`/app/enviar?contacto=${contact.id}`}>
               Mandar rider, información o contrato
             </Link>
           </section>

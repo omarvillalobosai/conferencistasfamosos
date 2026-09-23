@@ -20,8 +20,10 @@ const Enviar = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [contact, setContact] = useState<Contact | null>(null);
   const [query, setQuery] = useState('');
-  const [kind, setKind] = useState<DocKind>('rider');
-  const [docId, setDocId] = useState<string>(documents.find((d) => d.kind === 'rider')!.id);
+  // ?documento=info-agencia abre Enviar con ese documento ya elegido (atajo "Enviar presentación").
+  const presetDoc = documents.find((d) => d.id === params.get('documento'));
+  const [kind, setKind] = useState<DocKind>(presetDoc?.kind ?? 'rider');
+  const [docId, setDocId] = useState<string>(presetDoc?.id ?? documents.find((d) => d.kind === 'rider')!.id);
   const [speakerId, setSpeakerId] = useState(params.get('conferencista') || '');
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
   const [speakerError, setSpeakerError] = useState('');
@@ -78,8 +80,10 @@ const Enviar = () => {
   }, []);
 
   useEffect(() => {
-    const first = documents.find((d) => d.kind === kind);
-    if (first) setDocId(first.id);
+    setDocId((current) => {
+      if (documents.find((d) => d.id === current)?.kind === kind) return current;
+      return documents.find((d) => d.kind === kind)?.id ?? current;
+    });
   }, [kind]);
 
   const doc: HubDocument = documents.find((d) => d.id === docId) ?? documents[0];

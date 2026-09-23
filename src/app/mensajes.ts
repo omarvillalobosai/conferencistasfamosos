@@ -23,6 +23,9 @@ export const sendDocument = (doc: HubDocument, name: string | null, speaker?: st
   if (doc.lang === 'en') {
     return `${greet(name, 'en')} here is the ${doc.label.toLowerCase()} for ${speaker ?? 'our speakers'}: ${doc.url}\nLet me know if you have any questions.`;
   }
+  if (doc.id === 'precio-mercado-2026') {
+    return `${greet(name)} te comparto los precios estimados según mercado 2026 de nuestros conferencistas: ${doc.url}\nSon rangos de referencia en dólares. Dime fecha, ciudad y formato de tu evento y te cotizo en firme.`;
+  }
   switch (doc.kind) {
     case 'rider':
       return `${greet(name)} te comparto el ${doc.label.toLowerCase()} de ${who}: ${doc.url}\nAhí vienen honorarios, logística y condiciones. Cualquier duda, me dices.`;

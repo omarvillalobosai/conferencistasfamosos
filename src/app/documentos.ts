@@ -49,6 +49,14 @@ export const documents: HubDocument[] = [
     lang: 'es',
   },
   {
+    id: 'precio-mercado-2026',
+    kind: 'info',
+    label: 'Precio Mercado 2026',
+    description: 'Tabla de honorarios estimados según mercado 2026 (USD por evento)',
+    url: `${SITE}/docs/precio-mercado-2026.pdf`,
+    lang: 'es',
+  },
+  {
     id: 'info-omar',
     kind: 'info',
     label: 'Dossier de Omar Villalobos',
