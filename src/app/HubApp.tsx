@@ -10,6 +10,9 @@ import SolicitudDetalle from './pages/SolicitudDetalle';
 import Clientes from './pages/Clientes';
 import ClienteFicha from './pages/ClienteFicha';
 import Enviar from './pages/Enviar';
+import Conferencistas from './pages/Conferencistas';
+import ConferencistaFicha from './pages/ConferencistaFicha';
+import Instalar from './pages/Instalar';
 
 // Punto de entrada de conferencistasfamosos.com/app (se carga aparte del sitio público).
 const HubApp = () => {
@@ -74,6 +77,9 @@ const HubApp = () => {
         <Route path="clientes" element={<Clientes />} />
         <Route path="clientes/nuevo" element={<ClienteFicha />} />
         <Route path="clientes/:id" element={<ClienteFicha />} />
+        <Route path="conferencistas" element={<Conferencistas />} />
+        <Route path="conferencistas/:id" element={<ConferencistaFicha />} />
+        <Route path="instalar" element={<Instalar />} />
         <Route path="enviar" element={<Enviar />} />
         <Route path="*" element={<Navigate to="/app" replace />} />
       </Routes>

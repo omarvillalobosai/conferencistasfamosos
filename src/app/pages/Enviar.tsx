@@ -4,8 +4,8 @@ import { MessageCircle, Mail, Copy, Share2, FileText } from 'lucide-react';
 import Shell from '../components/Shell';
 import { fetchContacts, fetchContact, addEvent, waLink, mailLink, type Contact } from '../data';
 import { documents, type DocKind, type HubDocument } from '../documentos';
-import { sendDocument, subjectFor } from '../mensajes';
-import { speakers } from '@/data/speakersData';
+import { sendSpeakerMessage, subjectFor } from '../mensajes';
+import { fetchSpeakers, fetchSpeakerFiles, speakerLoadError, type Speaker, type SpeakerFile } from '../speakers';
 
 const kinds: { id: DocKind; label: string; hint: string }[] = [
   { id: 'rider', label: 'Rider', hint: 'Honorarios y condiciones' },
@@ -22,7 +22,31 @@ const Enviar = () => {
   const [query, setQuery] = useState('');
   const [kind, setKind] = useState<DocKind>('rider');
   const [docId, setDocId] = useState<string>(documents.find((d) => d.kind === 'rider')!.id);
-  const [speaker, setSpeaker] = useState<string>('');
+  const [speakerId, setSpeakerId] = useState(params.get('conferencista') || '');
+  const [speakers, setSpeakers] = useState<Speaker[]>([]);
+  const [speakerError, setSpeakerError] = useState('');
+  const [filesState, setFilesState] = useState<{ speakerId: string; files: SpeakerFile[] }>({ speakerId: '', files: [] });
+  const [fileId, setFileId] = useState('');
+  const [fileError, setFileError] = useState('');
+  const [includeDoc, setIncludeDoc] = useState(true);
+  const speaker = speakers.find(s => s.id === speakerId);
+  const files = filesState.speakerId === speakerId ? filesState.files : [];
+  const attachment = files.find(f => f.id === fileId);
+
+  useEffect(() => {
+    fetchSpeakers().then(setSpeakers).catch(() => setSpeakerError(speakerLoadError));
+  }, []);
+  useEffect(() => {
+    setSpeakerId(params.get('conferencista') || contact?.speaker_id || '');
+  }, [contact?.id, contact?.speaker_id, params]);
+  useEffect(() => {
+    let alive = true;
+    setFileId(''); setFileError('');
+    if (speakerId) fetchSpeakerFiles(speakerId).then(files => {
+      if (alive) setFilesState({ speakerId, files });
+    }).catch(() => { if (alive) setFileError('No se cargaron los archivos. Vuelve a elegir al conferencista para reintentar.'); });
+    return () => { alive = false; };
+  }, [speakerId]);
   const [msg, setMsg] = useState<string | null>(null);
   const [checked, setChecked] = useState<Record<string, boolean>>({});
 
@@ -48,7 +72,7 @@ const Enviar = () => {
         }
       })();
       fetch(sameOrigin, { method: 'HEAD' })
-        .then((r) => setChecked((c) => ({ ...c, [d.id]: r.ok })))
+        .then((r) => setChecked((c) => ({ ...c, [d.id]: r.ok && (r.headers.get('content-type') || '').includes('application/pdf') })))
         .catch(() => setChecked((c) => ({ ...c, [d.id]: false })));
     });
   }, []);
@@ -59,9 +83,9 @@ const Enviar = () => {
   }, [kind]);
 
   const doc: HubDocument = documents.find((d) => d.id === docId) ?? documents[0];
-  const ready = checked[doc.id] === true;
-  const text = sendDocument(doc, contact?.name ?? null, speaker || undefined);
-  const subject = subjectFor(doc, speaker || undefined);
+  const ready = (!speakerId || !!speaker) && (includeDoc ? checked[doc.id] === true : !!speaker || !!attachment);
+  const text = sendSpeakerMessage(contact?.name ?? null, speaker, includeDoc ? doc : undefined, attachment);
+  const subject = includeDoc ? subjectFor(doc, speaker?.name) : `Información${speaker ? ` · ${speaker.name}` : ''} · Conferencistas Famosos`;
 
   const filtered = useMemo(() => {
     const q = query.trim().toLocaleLowerCase('es-MX');
@@ -72,7 +96,7 @@ const Enviar = () => {
   const log = async (via: string) => {
     if (!contact) return;
     try {
-      await addEvent(contact.id, doc.kind, `${doc.label}${speaker ? ` · ${speaker}` : ''} por ${via}`);
+      await addEvent(contact.id, includeDoc ? doc.kind : 'info', `${includeDoc ? doc.label : 'Información'}${speaker ? ` · ${speaker.name}` : ''}${attachment ? ` · ${attachment.name}` : ''} por ${via}`);
       setMsg(`Registrado en la ficha de ${contact.name}.`);
     } catch {
       setMsg('Se abrió el envío, pero no se pudo anotar en la ficha.');
@@ -140,7 +164,8 @@ const Enviar = () => {
 
       <section style={{ marginTop: 22 }}>
         <p className="cf-kicker" style={{ color: 'var(--cf-muted)' }}>2 · Qué</p>
-        <div className="cf-chips" style={{ marginTop: 8 }}>
+        <label className="cf-include"><input type="checkbox" checked={includeDoc} onChange={e => setIncludeDoc(e.target.checked)} /> Incluir documento general</label>
+        {includeDoc && <><div className="cf-chips" style={{ marginTop: 8 }}>
           {kinds.map((k) => (
             <button key={k.id} type="button" className="cf-chip" aria-pressed={kind === k.id} onClick={() => setKind(k.id)}>
               {k.label}
@@ -162,29 +187,40 @@ const Enviar = () => {
             );
           })}
         </div>
+        </>}
         <label className="cf-form" style={{ marginTop: 12 }}>
           <span style={{ fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--cf-muted)', fontWeight: 700 }}>Conferencista (opcional)</span>
-          <select value={speaker} onChange={(e) => setSpeaker(e.target.value)}>
+          <select value={speakerId} onChange={(e) => setSpeakerId(e.target.value)}>
             <option value="">Sin especificar</option>
-            {speakers.map((s) => <option key={s.id} value={s.name}>{s.name}</option>)}
+            {speakers.filter(s => s.active || s.id === speakerId).map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
         </label>
+        {speakerError && <p className="cf-msg cf-msg--error" role="alert">{speakerError}</p>}
+        {speakerId && <div className="cf-form cf-section"><label>Archivo del conferencista (por enlace)
+          <select value={fileId} disabled={filesState.speakerId !== speakerId || !!fileError} onChange={e => { setFileId(e.target.value); if (e.target.value) setIncludeDoc(false); }}>
+            <option value="">{filesState.speakerId !== speakerId && !fileError ? 'Cargando archivos…' : 'Sin archivo'}</option>
+            {files.map(f => <option key={f.id} value={f.id}>{f.name} · {f.kind}</option>)}
+          </select></label>
+          {fileError && <p className="cf-msg cf-msg--error" role="alert">{fileError}</p>}
+          {filesState.speakerId === speakerId && !files.length && <p className="cf-note">No hay archivos guardados en esta ficha.</p>}
+          <Link className="cf-btn cf-btn--ghost" to={`/app/conferencistas/${speakerId}`}>Abrir ficha y archivos</Link>
+        </div>}
       </section>
 
       <section style={{ marginTop: 22 }}>
         <p className="cf-kicker" style={{ color: 'var(--cf-muted)' }}>3 · Mensaje</p>
         <pre className="cf-card" style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', fontSize: 14, margin: '8px 0 12px', lineHeight: 1.5 }}>{text}</pre>
-        {!ready && <p className="cf-msg cf-msg--error">Este documento aún no está en el sitio. Sube el PDF a <code>public/docs/</code> con ese nombre y aparecerá listo.</p>}
+        {!ready && <p className="cf-msg cf-msg--error">{includeDoc ? "Este documento general aún no está disponible. Desmarca la opción y elige un conferencista o su archivo." : "Elige un conferencista para preparar el mensaje."}</p>}
         <div style={{ display: 'grid', gap: 10 }}>
-          <a className="cf-btn cf-btn--whatsapp" href={contact?.phone ? waLink(contact.phone, text) : `https://wa.me/?text=${encodeURIComponent(text)}`} target="_blank" rel="noreferrer" onClick={() => log('WhatsApp')} aria-disabled={!ready} style={!ready ? { pointerEvents: 'none', opacity: 0.45 } : undefined}>
+          <a className="cf-btn cf-btn--whatsapp" href={contact?.phone ? waLink(contact.phone, text) : `https://wa.me/?text=${encodeURIComponent(text)}`} target="_blank" rel="noreferrer" onClick={e => { if (!ready) e.preventDefault(); else log('WhatsApp'); }} aria-disabled={!ready} style={!ready ? { pointerEvents: 'none', opacity: 0.45 } : undefined}>
             <MessageCircle size={20} /> Enviar por WhatsApp
           </a>
-          <a className="cf-btn" href={mailLink(contact?.email, subject, text)} onClick={() => log('correo')} aria-disabled={!ready} style={!ready ? { pointerEvents: 'none', opacity: 0.45 } : undefined}>
+          <a className="cf-btn" href={mailLink(contact?.email, subject, text)} onClick={e => { if (!ready) e.preventDefault(); else log('correo'); }} aria-disabled={!ready} style={!ready ? { pointerEvents: 'none', opacity: 0.45 } : undefined}>
             <Mail size={20} /> Enviar por correo
           </a>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
             <button type="button" className="cf-btn cf-btn--ghost" onClick={copy} disabled={!ready}><Copy size={18} /> Copiar</button>
-            <button type="button" className="cf-btn cf-btn--ghost" onClick={share} disabled={!ready || !('share' in navigator)}><Share2 size={18} /> Compartir</button>
+            <button type="button" className="cf-btn cf-btn--ghost" onClick={share} disabled={!ready || !(typeof navigator !== 'undefined' && 'share' in navigator)}><Share2 size={18} /> Compartir</button>
           </div>
         </div>
         <p className="cf-msg cf-msg--ok" aria-live="polite" style={{ marginTop: 10 }}>{msg ?? ''}</p>

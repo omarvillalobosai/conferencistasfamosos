@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Inbox, Users, Send, Home, LogOut, ChevronLeft } from 'lucide-react';
+import { Inbox, Users, Send, Home, Mic, LogOut, ChevronLeft } from 'lucide-react';
 import { logout } from '../auth';
 
 interface ShellProps {
@@ -56,6 +56,10 @@ const Shell = ({ title, back, children }: ShellProps) => {
         <NavLink to="/app/clientes">
           <Users size={20} />
           Clientes
+        </NavLink>
+        <NavLink to="/app/conferencistas">
+          <Mic size={20} />
+          Conferencistas
         </NavLink>
         <NavLink to="/app/enviar">
           <Send size={20} />

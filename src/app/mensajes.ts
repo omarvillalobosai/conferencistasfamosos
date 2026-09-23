@@ -44,3 +44,18 @@ export const subjectFor = (doc: HubDocument, speaker?: string) => {
       return `Información${s} · Conferencistas Famosos`;
   }
 };
+
+// No incluye notas internas ni datos del manager.
+export const sendSpeakerMessage = (
+  name: string | null,
+  speaker?: import('./speakers').Speaker,
+  doc?: HubDocument,
+  file?: import('./speakers').SpeakerFile,
+) => {
+  const parts = [doc ? sendDocument(doc, name, speaker?.name) : `${greet(name)} te comparto la información${speaker ? ` de ${speaker.name}` : ''}.`];
+  if (speaker?.fee_amount != null) parts.push(`Honorarios: $${Number(speaker.fee_amount).toLocaleString('es-MX', { maximumFractionDigits: 2 })} ${speaker.fee_currency}.`);
+  if (speaker?.fee_note?.trim()) parts.push(`Detalle de honorarios: ${speaker.fee_note.trim()}`);
+  if (speaker?.conditions?.trim()) parts.push(`Incluye y requiere: ${speaker.conditions.trim()}`);
+  if (file) parts.push(`${file.name}: ${file.url}`);
+  return parts.join('\n\n');
+};

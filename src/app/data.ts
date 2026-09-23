@@ -66,6 +66,7 @@ export interface Contact {
   notes: string | null;
   source: string;
   quote_request_id: string | null;
+  speaker_id: string | null;
   last_contact_at: string | null;
   status_updated_at: string;
   created_at: string;
@@ -161,13 +162,22 @@ export async function findContactByQuote(quoteId: string): Promise<Contact | nul
     .eq('quote_request_id', quoteId)
     .maybeSingle();
   if (error) throw error;
-  return (data as Contact) ?? null;
+  if (data) return data as Contact;
+  // Un cliente puede enviar varias solicitudes; quote_request_id apunta a la más reciente.
+  const { data: quote, error: quoteError } = await db.from('cf_quote_requests').select('email').eq('id', quoteId).maybeSingle();
+  if (quoteError) throw quoteError;
+  if (!quote?.email) return null;
+  const { data: contacts, error: contactError } = await db.from('cf_contacts').select('*')
+    .ilike('email', quote.email.replace(/[\\%_]/g, '\\$&')).limit(1);
+  if (contactError) throw contactError;
+  return (contacts?.[0] as Contact) ?? null;
 }
 
-export type ContactInput = Pick<Contact, 'name' | 'company' | 'phone' | 'email' | 'city' | 'notes'>;
+export type ContactInput = Pick<Contact, 'name' | 'company' | 'phone' | 'email' | 'city' | 'notes'> & { speaker_id?: string | null };
 
 export async function saveContact(input: ContactInput, id?: string): Promise<Contact> {
   const payload = {
+    ...(input.speaker_id !== undefined ? { speaker_id: input.speaker_id } : {}),
     name: input.name.trim(),
     company: input.company?.trim() || null,
     phone: input.phone?.trim() || null,

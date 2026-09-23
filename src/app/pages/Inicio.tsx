@@ -65,6 +65,9 @@ const Inicio = () => {
         </Link>
       </div>
 
+      <Link to="/app/conferencistas" className="cf-tile cf-section"><div><strong>Conferencistas</strong><small>Honorarios, archivos y mensajes del manager</small></div></Link>
+      <Link to="/app/instalar" className="cf-btn cf-btn--ghost cf-section">Añadir a pantalla de inicio</Link>
+
       {installHint && (
         <p className="cf-note" style={{ marginTop: 22 }}>
           Para tenerla como app: en Safari toca «Compartir» y luego «Añadir a pantalla de inicio». En
