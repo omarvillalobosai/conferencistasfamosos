@@ -1,15 +1,13 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BrandLogo from '@/components/BrandLogo';
 
 type NavLogoProps = { isScrolled?: boolean };
 
 const NavLogo = ({ isScrolled = false }: NavLogoProps) => {
   return (
-    <Link to="/" className="flex items-center">
-      <span className={`text-xl md:text-2xl font-bold transition-colors ${isScrolled ? 'text-gray-900' : 'text-white drop-shadow-md'}`}>
-        Conferencistas<span className="text-orange-500">Famosos</span>
-      </span>
+    <Link to="/" className={`flex items-center ${isScrolled ? '' : 'drop-shadow-md'}`} aria-label="Conferencistas Famosos, inicio">
+      <BrandLogo tone={isScrolled ? 'dark' : 'light'} height={40} />
     </Link>
   );
 };

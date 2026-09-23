@@ -267,7 +267,8 @@
   background: rgba(10, 10, 10, 0.92);
   backdrop-filter: blur(14px);
 }
-.cf-top .cf-brand { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+.cf-top .cf-brand { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 10px; }
+.cf-top .cf-brand img { display: block; width: 12px; height: 30px; }
 .cf-top .cf-brand span { color: var(--cf-orange); }
 .cf-back {
   display: inline-flex; align-items: center; gap: 6px;
