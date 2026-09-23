@@ -19,7 +19,7 @@ const CeoSection: React.FC = () => {
             "El contenido tiene que emocionar antes de convertir. Un conferencista bien elegido cambia la historia de un evento."
           </blockquote>
           <p className="text-gray-400 leading-relaxed mb-10">
-            Fundador y CEO de Conferencistas Famosos. Más de 30 años en escenarios de todo el mundo y +900 clientes satisfechos. Lidera personalmente la promesa de valor y la garantía de resultados de la agencia.
+            Fundador y CEO de Conferencistas Famosos. Más de 30 años en escenarios, más de 3,500 conferencias en 30+ países. Lidera personalmente la promesa de valor y la garantía de resultados de la agencia.
           </p>
           <Button
             asChild
