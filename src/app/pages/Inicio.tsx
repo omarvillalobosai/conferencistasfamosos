@@ -55,10 +55,10 @@ const Inicio = () => {
           </div>
           {badge(counts?.enConversacion)}
         </Link>
-        <Link to="/app/enviar" className="cf-tile">
+        <Link to="/app/enviar?documento=info-agencia" className="cf-tile">
           <div>
             <strong>Enviar</strong>
-            <small>Rider, información o contrato por WhatsApp o correo</small>
+            <small>Presentación de la agencia, rider o contrato por WhatsApp o correo</small>
           </div>
           <span className="cf-count cf-count--zero">→</span>
         </Link>
