@@ -61,7 +61,7 @@ export function feeLabel(speaker: Pick<Speaker, 'fee_amount' | 'fee_currency'>) 
 export type Stage = 'candidato' | 'evaluacion' | 'listo' | 'publicado';
 export const stageLabel: Record<Stage, string> = { candidato: 'Candidato', evaluacion: 'En evaluación', listo: 'Listo para publicar', publicado: 'Publicado' };
 export interface SpeakerProfile {
-  stage: Stage; youtube_channel: string | null; website: string | null; specialty: string | null;
+  stage: Stage; youtube_channel: string | null; instagram: string | null; website: string | null; specialty: string | null;
   short_bio: string | null; bio: string | null; topics: string[]; photo_url: string | null;
 }
 export type FullSpeaker = Speaker & SpeakerProfile;
@@ -71,14 +71,14 @@ export interface SpeakerRequest { id: string; speaker_id: string; contact_id: st
 const slugify = (name: string) => name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /** Crea el candidato (inactivo, etapa candidato) y lo liga al cliente que lo pidió. */
-export async function createCandidate(input: { name: string; youtube_channel?: string; contactId: string }): Promise<FullSpeaker> {
+export async function createCandidate(input: { name: string; youtube_channel: string; instagram?: string; website?: string; contactId: string }): Promise<FullSpeaker> {
   const name = input.name.trim();
   const base = slugify(name) || 'candidato';
   const { data: taken } = await db.from('cf_speakers').select('slug').like('slug', `${base}%`);
   const slugs = new Set((taken ?? []).map((r: { slug: string }) => r.slug));
   let slug = base; let n = 2;
   while (slugs.has(slug)) slug = `${base}-${n++}`;
-  const { data, error } = await db.from('cf_speakers').insert({ name, slug, active: false, stage: 'candidato', youtube_channel: input.youtube_channel?.trim() || null }).select('*').single();
+  const { data, error } = await db.from('cf_speakers').insert({ name, slug, active: false, stage: 'candidato', youtube_channel: input.youtube_channel.trim(), instagram: input.instagram?.trim() || null, website: input.website?.trim() || null }).select('*').single();
   if (error) throw error;
   const { error: reqError } = await db.from('cf_speaker_requests').insert({ speaker_id: data.id, contact_id: input.contactId });
   if (reqError) throw reqError;

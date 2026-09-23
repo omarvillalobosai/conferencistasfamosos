@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { missingFields, PROFILE_FIELDS, saveProfile, setStage, stageLabel, type FullSpeaker, type ProfileInput, type SpeakerRequest, type Stage } from '../speakers';
 
 interface Props { speaker: FullSpeaker; requests: SpeakerRequest[]; hasPhoto: boolean; onChange: (s: FullSpeaker) => void }
-interface Form { specialty: string; short_bio: string; bio: string; topics: string; youtube_channel: string; website: string; photo_url: string }
-const toForm = (s: FullSpeaker): Form => ({ specialty: s.specialty || '', short_bio: s.short_bio || '', bio: s.bio || '', topics: (s.topics ?? []).join('\n'), youtube_channel: s.youtube_channel || '', website: s.website || '', photo_url: s.photo_url || '' });
+interface Form { specialty: string; short_bio: string; bio: string; topics: string; youtube_channel: string; instagram: string; website: string; photo_url: string }
+const toForm = (s: FullSpeaker): Form => ({ specialty: s.specialty || '', short_bio: s.short_bio || '', bio: s.bio || '', topics: (s.topics ?? []).join('\n'), youtube_channel: s.youtube_channel || '', instagram: s.instagram || '', website: s.website || '', photo_url: s.photo_url || '' });
 
 /** Perfil del candidato: avance, quién lo pidió, datos públicos y el paso a publicación. */
 export default function CandidateProfile({ speaker, requests, hasPhoto, onChange }: Props) {
@@ -21,7 +21,7 @@ export default function CandidateProfile({ speaker, requests, hasPhoto, onChange
     setSaving(true); setMessage('');
     const input: ProfileInput = {
       specialty: form.specialty.trim() || null, short_bio: form.short_bio.trim() || null, bio: form.bio.trim() || null,
-      topics: form.topics.split('\n').map(t => t.trim()).filter(Boolean), youtube_channel: form.youtube_channel.trim() || null,
+      topics: form.topics.split('\n').map(t => t.trim()).filter(Boolean), youtube_channel: form.youtube_channel.trim() || null, instagram: form.instagram.trim() || null,
       website: form.website.trim() || null, photo_url: form.photo_url.trim() || null,
     };
     try { const saved = await saveProfile(speaker.id, input); onChange(saved); setForm(toForm(saved)); setDirty(false); setMessage('Perfil guardado.'); }
@@ -55,6 +55,7 @@ export default function CandidateProfile({ speaker, requests, hasPhoto, onChange
         <label>Bio completa<textarea {...field('bio')} rows={6} placeholder="Trayectoria, libros, reconocimientos. Solo datos comprobables." /></label>
         <label>Temas (uno por línea)<textarea {...field('topics')} rows={4} placeholder={'Liderazgo consciente\nVentas con propósito\nResiliencia'} /></label>
         <label>Canal de YouTube<input {...field('youtube_channel')} inputMode="url" placeholder="https://youtube.com/@canal" /></label>
+        <label>Instagram<input {...field('instagram')} inputMode="url" placeholder="@usuario o enlace" /></label>
         <label>Sitio web<input {...field('website')} inputMode="url" placeholder="https://" /></label>
         <label>Foto (enlace)<input {...field('photo_url')} inputMode="url" placeholder="O súbela abajo como archivo tipo foto" /></label>
       </fieldset>

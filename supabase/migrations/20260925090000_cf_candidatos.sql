@@ -6,6 +6,7 @@ ALTER TABLE public.cf_speakers
   ADD COLUMN IF NOT EXISTS stage text NOT NULL DEFAULT 'publicado',
   ADD COLUMN IF NOT EXISTS youtube_channel text,
   ADD COLUMN IF NOT EXISTS website text,
+  ADD COLUMN IF NOT EXISTS instagram text,
   ADD COLUMN IF NOT EXISTS specialty text,
   ADD COLUMN IF NOT EXISTS short_bio text,
   ADD COLUMN IF NOT EXISTS bio text,
