@@ -21,9 +21,11 @@ import {
   type ContactInput,
   type ContactStatus,
 } from '../data';
+import SpeakerSelect from '../components/SpeakerSelect';
+import { setContactSpeaker } from '../speakers';
 import { followUp } from '../mensajes';
 
-const empty: ContactInput = { name: '', company: '', phone: '', email: '', city: '', notes: '' };
+const empty: ContactInput = { name: '', company: '', phone: '', email: '', city: '', notes: '', speaker_id: null };
 
 const ClienteFicha = () => {
   const { id } = useParams();
@@ -43,7 +45,7 @@ const ClienteFicha = () => {
     const c = await fetchContact(cid);
     setContact(c);
     if (c) {
-      setForm({ name: c.name, company: c.company ?? '', phone: c.phone ?? '', email: c.email ?? '', city: c.city ?? '', notes: c.notes ?? '' });
+      setForm({ name: c.name, company: c.company ?? '', phone: c.phone ?? '', email: c.email ?? '', city: c.city ?? '', notes: c.notes ?? '', speaker_id: c.speaker_id ?? null });
       setEvents(await fetchEvents(cid));
     }
   };
@@ -195,7 +197,13 @@ const ClienteFicha = () => {
           </section>
 
           <section className="cf-card" style={{ marginTop: 16 }}>
-            <dl className="cf-dl">
+            <SpeakerSelect value={contact.speaker_id} disabled={saving} onChange={async speakerId => {
+              setSaving(true);
+              try { const saved = await setContactSpeaker(contact.id, speakerId); setContact(saved); setForm(f => ({ ...f, speaker_id: speakerId })); setMsg({ text: "Conferencista guardado.", ok: true }); }
+              catch { setMsg({ text: "No se guardó el conferencista. Intenta otra vez.", ok: false }); }
+              finally { setSaving(false); }
+            }} />
+            <dl className="cf-dl cf-section">
               <div><dt>Empresa</dt><dd>{contact.company || '—'}</dd></div>
               <div><dt>Teléfono</dt><dd>{contact.phone || '—'}</dd></div>
               <div><dt>Correo</dt><dd>{contact.email || '—'}</dd></div>
@@ -222,6 +230,7 @@ const ClienteFicha = () => {
           <label>Teléfono / WhatsApp<input {...field('phone')} inputMode="tel" maxLength={50} placeholder="52 33 1234 5678" /></label>
           <label>Correo<input {...field('email')} inputMode="email" type="email" maxLength={254} /></label>
           <label>Ciudad<input {...field('city')} maxLength={100} /></label>
+          <SpeakerSelect value={form.speaker_id} disabled={saving} onChange={speaker_id => { setForm(f => ({ ...f, speaker_id })); setDirty(true); }} />
           <label>Notas<textarea {...field('notes')} rows={3} maxLength={2000} /></label>
           <p className={`cf-msg ${msg ? (msg.ok ? 'cf-msg--ok' : 'cf-msg--error') : ''}`} aria-live="polite">{msg?.text ?? ''}</p>
           <div style={{ display: 'grid', gap: 10, gridTemplateColumns: isNew ? '1fr' : '1fr 1fr' }}>

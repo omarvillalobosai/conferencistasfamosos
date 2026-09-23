@@ -20,6 +20,8 @@ import {
   type QuoteStatus,
   type Contact,
 } from '../data';
+import SpeakerSelect from '../components/SpeakerSelect';
+import { setContactSpeaker } from '../speakers';
 import { replyToQuote } from '../mensajes';
 
 const SolicitudDetalle = () => {
@@ -134,6 +136,24 @@ const SolicitudDetalle = () => {
       </section>
 
       <section className="cf-card" style={{ marginTop: 12 }}>
+        <SpeakerSelect value={contact?.speaker_id ?? null} disabled={saving} onChange={async speakerId => {
+          setSaving(true);
+          try {
+            let linked = contact;
+            if (!linked) {
+              // Solicitudes antiguas pueden no tener contacto o compartir correo con otra solicitud.
+              linked = await findContactByQuote(q.id);
+              if (!linked) {
+                const { data, error } = await db.from("cf_contacts").insert({ name: q.name, email: q.email, phone: q.phone, company: q.company, source: "web", quote_request_id: q.id, speaker_id: speakerId }).select("*").single();
+                if (error) throw error;
+                linked = data as Contact;
+              }
+            }
+            setContact(await setContactSpeaker(linked.id, speakerId));
+            setMsg({ text: "Conferencista guardado en el cliente.", ok: true });
+          } catch { setMsg({ text: "No se guardó. Intenta otra vez.", ok: false }); }
+          finally { setSaving(false); }
+        }} />
         <dl className="cf-dl">
           <div><dt>Empresa</dt><dd>{q.company || '—'}</dd></div>
           <div><dt>WhatsApp</dt><dd>{q.phone || '—'}</dd></div>

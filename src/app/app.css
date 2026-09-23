@@ -229,7 +229,7 @@
   left: 0; right: 0; bottom: 0;
   z-index: 40;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 4px;
   padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
   background: rgba(10, 10, 10, 0.92);
@@ -242,9 +242,9 @@
   gap: 4px;
   min-height: 56px;
   border-radius: 12px;
-  font-size: 11px;
+  font-size: clamp(8px, 2.3vw, 11px);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   color: var(--cf-muted);
   text-decoration: none;
   transition: color 160ms, background 160ms;
@@ -327,3 +327,24 @@
 @media (min-width: 720px) {
   .cf-tiles { grid-template-columns: 1fr 1fr; }
 }
+
+/* Fichas de conferencista y uso con una mano */
+.cf-section { margin-top: 22px; }
+.cf-h2 { font-size: 18px; font-weight: 800; margin-bottom: 12px; }
+.cf-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.cf-form { scroll-margin-top: 80px; }
+.cf-prewrap { white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 10px; }
+.cf-file-link { display: flex; align-items: center; gap: 12px; text-decoration: none; overflow-wrap: anywhere; }
+.cf-file-link span { min-width: 0; }
+.cf-file-link small { display: block; margin-top: 4px; }
+.cf-file-link img { width: 100px; height: 100px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+.cf-file-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.cf-install { counter-reset: step; list-style: none; padding: 0; display: grid; gap: 16px; }
+.cf-install li { padding: 18px; background: var(--cf-card); border: 1px solid var(--cf-line); border-radius: 14px; }
+.cf-install li::before { counter-increment: step; content: counter(step); display: inline-grid; place-items: center; width: 32px; height: 32px; margin-right: 10px; background: var(--cf-orange); border-radius: 50%; font-weight: 800; }
+.cf-install p { margin-top: 10px; line-height: 1.6; }
+.cf-app .cf-btn { white-space: normal; overflow-wrap: anywhere; padding-top: 10px; padding-bottom: 10px; }
+.cf-nav a { min-width: 0; }
+
+.cf-include { display: flex; gap: 12px; align-items: center; min-height: 54px; font-size: 14px; }
+.cf-include input { width: 24px; height: 24px; accent-color: var(--cf-orange); }
