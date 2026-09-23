@@ -52,7 +52,12 @@ export const routes: RouteRecord[] = [
       { path: 'admin/newsletter', lazy: page(() => import('./pages/NewsletterAdmin')) },
       // Hub interno: solo cliente (sesión de Supabase); el HTML prerenderizado es el cascarón de carga.
       { path: 'app', lazy: page(() => import('./app/HubApp')) },
-      { path: 'app/*', lazy: page(() => import('./app/HubApp')) },
+      {
+        path: 'app/*',
+        lazy: page(() => import('./app/HubApp')),
+        // Páginas fijas del hub prerenderizadas: así al abrirlas directo en el iPhone no llega el HTML de la portada.
+        getStaticPaths: () => ['app/solicitudes', 'app/clientes', 'app/conferencistas', 'app/enviar', 'app/instalar'],
+      },
       // ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE
       { path: '*', lazy: page(() => import('./pages/NotFound')) },
     ],
