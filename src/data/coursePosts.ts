@@ -246,4 +246,6 @@ export const getYoutubeThumbnail = (id: string) =>
   `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
 export const formatCourseDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+  // timeZone UTC: la fecha ISO se interpreta igual en el servidor de prerender (UTC) y en el navegador (México),
+  // si no, el HTML y la hidratación muestran días distintos.
+  new Date(iso).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
