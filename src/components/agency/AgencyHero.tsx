@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import heroImg from '@/assets/agency-hero-cinematic.jpg';
+const heroImg = '/img/hero/agency-hero-cinematic-1600.webp';
 
 const AgencyHero: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const AgencyHero: React.FC = () => {
         alt="Escenario cinematográfico con conferencista frente a una audiencia masiva"
         width={1920}
         height={1080}
-        fetchPriority="high"
+        {...{ fetchpriority: "high" }}
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-60"
       />

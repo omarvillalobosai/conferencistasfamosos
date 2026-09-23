@@ -1,12 +1,16 @@
-
 import React from 'react';
 
+// Antes: foto de banco de Unsplash con el alt «Omar Villalobos - Director». Ahora, foto real de Omar en escenario.
 const AboutImage = () => {
   return (
     <div>
-      <img 
-        src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80"
-        alt="Omar Villalobos - Director" 
+      <img
+        src="/img/speakers/omar-villalobos-destacado.webp"
+        alt="Omar Villalobos, director de Conferencistas Famosos, en el escenario"
+        width={1000}
+        height={563}
+        loading="lazy"
+        decoding="async"
         className="rounded-lg shadow-xl object-cover h-[500px] w-full"
       />
     </div>

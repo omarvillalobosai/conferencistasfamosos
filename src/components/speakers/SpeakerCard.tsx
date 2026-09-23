@@ -20,6 +20,10 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
           <img 
             src={speaker.image}
             alt={speaker.name}
+            width={900}
+            height={675}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
           />
           {speaker.featured && (

@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
 import QuoteWizard from './QuoteWizard';
-import heroBg from '@/assets/hero-speakers-latam.jpg';
+const heroBg = '/img/hero/hero-speakers-latam-1600.webp';
+const heroBgSmall = '/img/hero/hero-speakers-latam-960.webp';
 
 const HeroSection = () => {
   const [wizardOpen, setWizardOpen] = useState(false);
@@ -42,10 +43,12 @@ const HeroSection = () => {
         {/* Background image */}
         <img
           src={heroBg}
+          srcSet={`${heroBgSmall} 960w, ${heroBg} 1600w`}
+          sizes="100vw"
           alt="Conferencista influyente de Latinoamérica frente a una audiencia masiva"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
+          width={1600}
+          height={900}
+          {...{ fetchpriority: "high" }}
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -58,15 +61,15 @@ const HeroSection = () => {
         
         <div className="container mx-auto relative z-10 pt-20">
           <div className="text-center space-y-6 max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+            <h1 className="hero-in text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
               ¿Buscas a los conferencistas famosos más influyentes de <span className="text-gradient">Latinoamérica?</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="hero-in text-lg md:text-xl text-gray-200 max-w-2xl mx-auto" style={{ ["--hero-delay" as string]: "120ms" }}>
               Conectamos a tu empresa con los mejores expertos en motivación, liderazgo y desarrollo personal para transformar tu evento en una experiencia inolvidable.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+            <div className="hero-in flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4" style={{ ["--hero-delay" as string]: "240ms" }}>
               <a href="#conferencistas" className="w-full sm:w-auto">
                 <Button size="lg" className="btn-primary w-full sm:w-auto">
                   Conoce a nuestros expertos
@@ -81,7 +84,7 @@ const HeroSection = () => {
           </div>
           
           {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center animate-bounce">
             <span className="text-white text-sm font-medium mb-2">Descubre más</span>
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>

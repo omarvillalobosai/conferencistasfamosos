@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SpeakersDropdown from './SpeakersDropdown';
 import { mainNavItems } from '@/config/navigation';
-import QuoteWizard from '@/components/QuoteWizard';
 
 type MobileMenuProps = {
   isOpen: boolean;
@@ -14,13 +13,10 @@ type MobileMenuProps = {
 
 const MobileMenu = ({ isOpen, onClose, onQuoteClick }: MobileMenuProps) => {
   const [showSpeakersDropdown, setShowSpeakersDropdown] = useState(false);
-  const [wizardOpen, setWizardOpen] = useState(false);
-  
   if (!isOpen) return null;
   
   const handleQuoteClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setWizardOpen(true);
     onQuoteClick(e);
     onClose();
   };
@@ -56,9 +52,7 @@ const MobileMenu = ({ isOpen, onClose, onQuoteClick }: MobileMenuProps) => {
           </a>
         </div>
       </div>
-      
-      <QuoteWizard open={wizardOpen} onClose={() => setWizardOpen(false)} />
-    </>
+          </>
   );
 };
 

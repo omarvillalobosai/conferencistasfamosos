@@ -1,0 +1,10 @@
+Documentos que manda el hub (/app → Enviar). Sube aquí los PDF definitivos con estos nombres exactos:
+
+  rider-mexico.pdf                      Rider México (honorarios en pesos)
+  rider-internacional-es.pdf            Rider internacional en español (honorarios en dólares)
+  rider-international-en.pdf            International rider (English)
+  presentacion-conferencistas-famosos.pdf   Presentación de la agencia y catálogo
+  contrato-conferencia.pdf              Contrato modelo
+
+Mientras un archivo no exista, el hub lo marca como pendiente y no deja mandarlo.
+La lista y los textos de los mensajes están en src/app/documentos.ts y src/app/mensajes.ts.

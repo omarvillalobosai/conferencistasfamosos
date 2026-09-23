@@ -1,53 +1,56 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { toast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import { Sparkles, Check } from 'lucide-react';
-
-const schema = z.object({
-  name: z.string().trim().min(2, 'Escribe tu nombre').max(100),
-  email: z.string().trim().email('Email inválido').max(254),
-});
-
-type FormValues = z.infer<typeof schema>;
 
 interface NewsletterSectionProps {
   speakerName?: string;
   compact?: boolean;
 }
 
+// Formulario sin librerías: validación nativa + import diferido del cliente de Supabase
+// (la portada no necesita cargar react-hook-form ni zod para dos campos).
 const NewsletterSection: React.FC<NewsletterSectionProps> = ({ speakerName, compact = false }) => {
   const [success, setSuccess] = useState(false);
-  const form = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    defaultValues: { name: '', email: '' },
-  });
+  const [submitting, setSubmitting] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = async (values: FormValues) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const n = name.trim();
+    const m = email.trim();
+    if (n.length < 2) return setError('Escribe tu nombre');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m)) return setError('Email inválido');
+    setError(null);
+    setSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke('newsletter-subscribe', {
-        body: values,
+      const { supabase } = await import('@/integrations/supabase/client');
+      const { data, error: fnError } = await supabase.functions.invoke('newsletter-subscribe', {
+        body: { name: n, email: m },
       });
-      if (error) throw error;
+      if (fnError) throw fnError;
       if (data?.error) throw new Error(data.error);
       setSuccess(true);
-      form.reset();
-    } catch (err: any) {
+      setName('');
+      setEmail('');
+    } catch (err) {
       console.error('newsletter-subscribe failed:', err);
       toast({
         title: 'No pudimos suscribirte',
         description: 'Intenta de nuevo en unos segundos.',
         variant: 'destructive',
       });
+    } finally {
+      setSubmitting(false);
     }
   };
 
   const eyebrow = speakerName ? `Más de ${speakerName}` : 'Newsletter exclusiva';
+  const inputClass =
+    'flex-1 bg-white/5 border-white/20 text-white placeholder:text-white/40 h-14 rounded-none focus-visible:ring-orange-500';
 
   return (
     <section
@@ -76,7 +79,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ speakerName, comp
           <div className="h-px w-12 bg-orange-500" />
         </div>
 
-        <h2 className={`font-bold mb-6 leading-[1.05] ${compact ? 'text-2xl md:text-4xl' : 'text-4xl md:text-6xl'}`}>
+        <h2 className={`reveal font-bold mb-6 leading-[1.05] ${compact ? 'text-2xl md:text-4xl' : 'text-4xl md:text-6xl'}`}>
           {speakerName ? (
             <>
               Frases como esta.<br />
@@ -104,55 +107,18 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ speakerName, comp
             </p>
           </div>
         ) : (
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="max-w-2xl mx-auto flex flex-col md:flex-row gap-3"
-            >
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem className="flex-1 text-left">
-                    <FormControl>
-                      <Input
-                        placeholder="Tu nombre"
-                        aria-label="Nombre"
-                        className="bg-white/5 border-white/20 text-white placeholder:text-white/40 h-14 rounded-none focus-visible:ring-orange-500"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem className="flex-1 text-left">
-                    <FormControl>
-                      <Input
-                        type="email"
-                        placeholder="tu@email.com"
-                        aria-label="Email"
-                        className="bg-white/5 border-white/20 text-white placeholder:text-white/40 h-14 rounded-none focus-visible:ring-orange-500"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button
-                type="submit"
-                disabled={form.formState.isSubmitting}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold h-14 px-8 rounded-none uppercase tracking-widest text-sm"
-              >
-                {form.formState.isSubmitting ? 'Enviando...' : 'Suscribirme'}
-              </Button>
-            </form>
-          </Form>
+          <form onSubmit={onSubmit} noValidate className="max-w-2xl mx-auto flex flex-col md:flex-row gap-3">
+            <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tu nombre" aria-label="Nombre" autoComplete="name" maxLength={100} className={inputClass} />
+            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="tu@email.com" aria-label="Email" autoComplete="email" maxLength={254} className={inputClass} />
+            <Button type="submit" disabled={submitting} className="bg-orange-500 hover:bg-orange-600 text-white font-semibold h-14 px-8 rounded-none uppercase tracking-widest text-sm">
+              {submitting ? 'Enviando...' : 'Suscribirme'}
+            </Button>
+          </form>
+        )}
+        {error && (
+          <p className="text-sm text-red-400 mt-3" role="alert">
+            {error}
+          </p>
         )}
 
         <p className="text-xs text-white/40 mt-6 uppercase tracking-widest">
