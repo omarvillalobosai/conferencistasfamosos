@@ -1,6 +1,8 @@
 import type { SpeakerFile } from './speakers';
-const cloud = import.meta.env.VITE_CLOUDINARY_CLOUD?.trim();
-const preset = import.meta.env.VITE_CLOUDINARY_PRESET?.trim();
+// Cloud name y preset sin firma son datos públicos (van en la URL de subida); Lovable construye sin variables propias,
+// así que quedan como valor por defecto y se pueden cambiar con VITE_CLOUDINARY_CLOUD / VITE_CLOUDINARY_PRESET.
+const cloud = (import.meta.env.VITE_CLOUDINARY_CLOUD ?? 'dwtgiupye').trim();
+const preset = (import.meta.env.VITE_CLOUDINARY_PRESET ?? 'cf_hub').trim();
 export const cloudinaryReady = Boolean(cloud && preset);
 export interface UploadedAsset { url: string; public_id: string; resource_type: string; bytes: number }
 export async function uploadSpeakerFile(file: File, slug: string): Promise<UploadedAsset> {
