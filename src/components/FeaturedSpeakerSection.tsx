@@ -40,7 +40,7 @@ const FeaturedSpeakerSection = () => {
               height={563}
               loading="lazy"
               decoding="async"
-              className="reveal rounded-lg shadow-2xl object-cover w-full h-[500px]"
+              className="rounded-lg shadow-2xl object-cover w-full h-[500px]"
             />
           </div>
           

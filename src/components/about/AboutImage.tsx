@@ -11,7 +11,7 @@ const AboutImage = () => {
         height={563}
         loading="lazy"
         decoding="async"
-        className="reveal rounded-lg shadow-xl object-cover h-[500px] w-full"
+        className="rounded-lg shadow-xl object-cover h-[500px] w-full"
       />
     </div>
   );

@@ -82,7 +82,7 @@
   }
 
   .section-title {
-    @apply reveal text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 lg:mb-10 text-gray-900;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 lg:mb-10 text-gray-900;
   }
 
   .section-subtitle {

@@ -15,7 +15,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
   
   return (
     <Link to={`/speaker/${speakerSlug}`} className="block h-full">
-      <Card className="reveal group overflow-hidden h-full border border-border bg-white transition-shadow duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)]">
+      <Card className="group overflow-hidden h-full border border-border bg-white transition-shadow duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)]">
         <div className="relative pb-[75%] overflow-hidden">
           <img 
             src={speaker.image}
