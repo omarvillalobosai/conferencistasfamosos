@@ -3,14 +3,16 @@ import { Link, useParams } from 'react-router-dom';
 import Shell from '../components/Shell';
 import SpeakerFiles from '../components/SpeakerFiles';
 import SpeakerNotes from '../components/SpeakerNotes';
+import CandidateProfile from '../components/CandidateProfile';
 import type { Contact } from '../data';
-import { fetchSpeaker, fetchSpeakerFiles, fetchSpeakerNotes, fetchSpeakerContacts, saveSpeaker, speakerLoadError, type Speaker, type SpeakerFile, type SpeakerNote } from '../speakers';
+import { fetchSpeaker, fetchSpeakerFiles, fetchSpeakerNotes, fetchSpeakerContacts, fetchSpeakerRequests, saveSpeaker, speakerLoadError, stageLabel, type FullSpeaker, type SpeakerFile, type SpeakerNote, type SpeakerRequest } from '../speakers';
 interface Form { fee_amount: string; fee_currency: string; fee_note: string; conditions: string; manager_name: string; manager_phone: string; manager_email: string; notes: string }
-const toForm = (s: Speaker): Form => ({ fee_amount: s.fee_amount == null ? '' : String(s.fee_amount), fee_currency: s.fee_currency, fee_note: s.fee_note || '', conditions: s.conditions || '', manager_name: s.manager_name || '', manager_phone: s.manager_phone || '', manager_email: s.manager_email || '', notes: s.notes || '' });
+const toForm = (s: FullSpeaker): Form => ({ fee_amount: s.fee_amount == null ? '' : String(s.fee_amount), fee_currency: s.fee_currency, fee_note: s.fee_note || '', conditions: s.conditions || '', manager_name: s.manager_name || '', manager_phone: s.manager_phone || '', manager_email: s.manager_email || '', notes: s.notes || '' });
 export default function ConferencistaFicha() {
   const { id } = useParams();
   const formRef = useRef<HTMLFormElement>(null);
-  const [speaker, setSpeaker] = useState<Speaker | null>(null);
+  const [speaker, setSpeaker] = useState<FullSpeaker | null>(null);
+  const [requests, setRequests] = useState<SpeakerRequest[]>([]);
   const [form, setForm] = useState<Form | null>(null);
   const [files, setFiles] = useState<SpeakerFile[]>([]);
   const [notes, setNotes] = useState<SpeakerNote[]>([]);
@@ -23,9 +25,9 @@ export default function ConferencistaFicha() {
   useEffect(() => {
     let alive = true;
     setLoading(true); setError(''); setDirty(false); setMessage('');
-    Promise.all([fetchSpeaker(id!), fetchSpeakerFiles(id!), fetchSpeakerNotes(id!), fetchSpeakerContacts(id!)]).then(([s, f, n, c]) => {
+    Promise.all([fetchSpeaker(id!), fetchSpeakerFiles(id!), fetchSpeakerNotes(id!), fetchSpeakerContacts(id!), fetchSpeakerRequests(id!).catch(() => [] as SpeakerRequest[])]).then(([s, f, n, c, r]) => {
       if (!alive) return;
-      setSpeaker(s); setForm(toForm(s)); setFiles(f); setNotes(n); setContacts(c);
+      setSpeaker(s as FullSpeaker); setForm(toForm(s as FullSpeaker)); setFiles(f); setNotes(n); setContacts(c); setRequests(r);
     }).catch(() => { if (alive) setError(speakerLoadError); }).finally(() => { if (alive) setLoading(false); });
     return () => { alive = false; };
   }, [id]);
@@ -43,7 +45,7 @@ export default function ConferencistaFicha() {
     if (amount != null && (!Number.isFinite(amount) || amount < 0)) { setMessage('Revisa el monto de honorarios.'); return; }
     setSaving(true); setMessage('');
     try {
-      const saved = await saveSpeaker(speaker.id, { ...form, fee_amount: amount, fee_currency: form.fee_currency.trim().toUpperCase() || 'MXN' });
+      const saved = await saveSpeaker(speaker.id, { ...form, fee_amount: amount, fee_currency: form.fee_currency.trim().toUpperCase() || 'MXN' }) as FullSpeaker;
       setSpeaker(saved); setForm(toForm(saved)); setDirty(false); setMessage('Cambios guardados.');
     } catch { setMessage('No se guardó. Revisa tu conexión e intenta otra vez.'); } finally { setSaving(false); }
   };
@@ -53,8 +55,9 @@ export default function ConferencistaFicha() {
   };
   return <Shell back="/app/conferencistas">
     {loading ? <div className="cf-spinner" aria-label="Cargando" /> : error ? <p className="cf-msg cf-msg--error" role="alert">{error}</p> : speaker && form && <>
-      <p className="cf-kicker">Ficha del conferencista</p><h1 className="cf-h1">{speaker.name}</h1>
-      <Link className="cf-btn cf-section" to={`/app/enviar?conferencista=${speaker.id}`}>Enviar información o archivo</Link>
+      <p className="cf-kicker">{speaker.stage === 'publicado' ? 'Ficha del conferencista' : `Candidato · ${stageLabel[speaker.stage]}`}</p><h1 className="cf-h1">{speaker.name}</h1>
+      {speaker.stage !== 'publicado' && <CandidateProfile key={`cand-${speaker.id}-${speaker.stage}`} speaker={speaker} requests={requests} hasPhoto={files.some(f => f.kind === 'foto')} onChange={s => setSpeaker(s)} />}
+      {speaker.stage === 'publicado' && <Link className="cf-btn cf-section" to={`/app/enviar?conferencista=${speaker.id}`}>Enviar información o archivo</Link>}
       <form ref={formRef} className="cf-form cf-card cf-section" onSubmit={save}>
         <h2 className="cf-h2">Honorarios y contacto</h2>
         <fieldset disabled={saving} className="cf-form cf-fieldset">

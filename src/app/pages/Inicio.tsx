@@ -11,16 +11,18 @@ const Inicio = () => {
     currentProfileName().then((value) => { if (alive) setName(value); }).catch(() => {});
     return () => { alive = false; };
   }, []);
-  const [counts, setCounts] = useState<{ nuevas: number; enConversacion: number } | null>(null);
+  const [counts, setCounts] = useState<{ nuevas: number; enConversacion: number; candidatos: number; listos: number } | null>(null);
   const [installHint, setInstallHint] = useState(false);
 
   useEffect(() => {
     Promise.all([
       db.from('cf_quote_requests').select('id', { count: 'exact', head: true }).eq('status', 'new'),
       db.from('cf_contacts').select('id', { count: 'exact', head: true }).in('status', ['nuevo', 'en_conversacion']),
+      db.from('cf_speakers').select('id', { count: 'exact', head: true }).in('stage', ['candidato', 'evaluacion']),
+      db.from('cf_speakers').select('id', { count: 'exact', head: true }).eq('stage', 'listo'),
     ])
-      .then(([q, c]) => setCounts({ nuevas: q.count ?? 0, enConversacion: c.count ?? 0 }))
-      .catch(() => setCounts({ nuevas: 0, enConversacion: 0 }));
+      .then(([q, c, k, l]) => setCounts({ nuevas: q.count ?? 0, enConversacion: c.count ?? 0, candidatos: k.count ?? 0, listos: l.count ?? 0 }))
+      .catch(() => setCounts({ nuevas: 0, enConversacion: 0, candidatos: 0, listos: 0 }));
 
     const standalone =
       (navigator as Navigator & { standalone?: boolean }).standalone === true ||
@@ -69,7 +71,7 @@ const Inicio = () => {
         </Link>
       </div>
 
-      <Link to="/app/conferencistas" className="cf-tile cf-section"><div><strong>Conferencistas</strong><small>Honorarios, archivos y mensajes del manager</small></div></Link>
+      <Link to="/app/conferencistas" className="cf-tile cf-section"><div><strong>Conferencistas</strong><small>{counts?.listos ? `${counts.listos} ${counts.listos === 1 ? 'candidato listo' : 'candidatos listos'} para que Omar apruebe` : counts?.candidatos ? `${counts.candidatos} ${counts.candidatos === 1 ? 'candidato en evaluación' : 'candidatos en evaluación'}` : 'Honorarios, archivos y mensajes del manager'}</small></div>{counts?.listos ? badge(counts.listos) : null}</Link>
       <Link to="/app/instalar" className="cf-btn cf-btn--ghost cf-section">Añadir a pantalla de inicio</Link>
 
       {installHint && (
