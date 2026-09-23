@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Shell from '../components/Shell';
+import { currentProfileName } from '../auth';
 import { db } from '../data';
 
 const Inicio = () => {
+  const [name, setName] = useState<string | null>(null);
+  useEffect(() => {
+    let alive = true;
+    currentProfileName().then((value) => { if (alive) setName(value); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
   const [counts, setCounts] = useState<{ nuevas: number; enConversacion: number } | null>(null);
   const [installHint, setInstallHint] = useState(false);
 
@@ -28,12 +35,12 @@ const Inicio = () => {
   return (
     <Shell>
       <p className="cf-kicker">La app de la agencia</p>
-      <h1 className="cf-h1">¿Qué necesitas hacer?</h1>
+      <h1 className="cf-welcome">{name ? `Hola, ${name}` : 'Te damos la bienvenida'}</h1>
+      <p className="cf-welcome-note">Qué gusto verte. ¿Qué necesitas hacer hoy?</p>
 
       <div className="cf-tiles">
         <Link to="/app/solicitudes" className="cf-tile">
           <div>
-            <b>01</b>
             <strong>Solicitudes</strong>
             <small>Quién pidió cotización y a quién falta contestar</small>
           </div>
@@ -41,7 +48,6 @@ const Inicio = () => {
         </Link>
         <Link to="/app/clientes" className="cf-tile">
           <div>
-            <b>02</b>
             <strong>Clientes</strong>
             <small>Todos los contactos, en un sitio, con su seguimiento</small>
           </div>
@@ -49,7 +55,6 @@ const Inicio = () => {
         </Link>
         <Link to="/app/enviar" className="cf-tile">
           <div>
-            <b>03</b>
             <strong>Enviar</strong>
             <small>Rider, información o contrato por WhatsApp o correo</small>
           </div>
@@ -57,7 +62,6 @@ const Inicio = () => {
         </Link>
         <Link to="/app/clientes/nuevo" className="cf-tile">
           <div>
-            <b>04</b>
             <strong>Nuevo contacto</strong>
             <small>Alta a mano de alguien que llegó por teléfono o en un evento</small>
           </div>
