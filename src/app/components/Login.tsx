@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PinPad from './PinPad';
-import { loginWithPin, loginWithEmail, lockRemaining } from '../auth';
+import { loginWithPin, loginWithEmail, lockRemaining, PIN_PROFILES, savedPinProfile, rememberPinProfile } from '../auth';
 
 const Login = () => {
+  const [profile, setProfile] = useState(savedPinProfile);
   const [message, setMessage] = useState<string>('');
   const [isError, setIsError] = useState(false);
   const [locked, setLocked] = useState(lockRemaining());
@@ -27,7 +28,11 @@ const Login = () => {
   const handlePin = useCallback(async (pin: string) => {
     setMessage('Comprobando…');
     setIsError(false);
-    const result = await loginWithPin(pin);
+    setBusy(true);
+    let result;
+    try { result = await loginWithPin(pin, profile.email); }
+    catch { result = { ok: false, message: 'No se pudo conectar. Intenta de nuevo.', reason: 'error' as const }; }
+    finally { setBusy(false); }
     if (!result.ok) {
       setIsError(true);
       setMessage(result.message ?? 'No se pudo entrar.');
@@ -36,7 +41,7 @@ const Login = () => {
     }
     setMessage('');
     return true;
-  }, []);
+  }, [profile.email]);
 
   const submitEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,16 +61,22 @@ const Login = () => {
   return (
     <div className="cf-app cf-login">
       <div className="cf-login__box cf-enter">
-        <p className="cf-kicker">Acceso privado · Equipo</p>
-        <h1 className="cf-h1">
-          Conferencistas<span style={{ color: 'var(--cf-orange)' }}>Famosos</span>
-        </h1>
+        <p className="cf-kicker">Conferencistas Famosos</p>
+        <h1 className="cf-welcome">{mode === 'pin' ? `Hola, ${profile.name}` : 'Te damos la bienvenida'}</h1>
         {mode === 'pin' ? (
           <>
             <p className="cf-note" style={{ marginTop: 8 }}>
-              Escribe tu PIN de 6 dígitos (cuenta de Dirección de Eventos).
+              Escribe tu PIN para entrar.
             </p>
-            <PinPad onComplete={handlePin} disabled={locked > 0} />
+            <div className="cf-profile-picker" role="group" aria-label="¿Quién entra?">
+              {PIN_PROFILES.map((person) => (
+                <button type="button" key={person.id} aria-pressed={person.id === profile.id}
+                  disabled={busy} onClick={() => {
+                    setProfile(person); rememberPinProfile(person.id); setMessage(''); setIsError(false);
+                  }}>{person.name}</button>
+              ))}
+            </div>
+            <PinPad key={profile.id} onComplete={handlePin} disabled={locked > 0 || busy} />
           </>
         ) : (
           <form className="cf-form" style={{ marginTop: 22, textAlign: 'left' }} onSubmit={submitEmail}>
@@ -92,6 +103,7 @@ const Login = () => {
         <button
           type="button"
           className="cf-back"
+          disabled={busy}
           style={{ margin: '18px auto 0' }}
           onClick={() => {
             setMode(mode === 'pin' ? 'email' : 'pin');

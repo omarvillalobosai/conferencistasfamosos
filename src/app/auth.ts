@@ -3,10 +3,30 @@ import type { Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { db } from './data';
 
-// Entrada con PIN: la cuenta del equipo es un usuario de Supabase Auth cuyo password es un PIN de 6 dígitos.
-// El correo de esa cuenta se fija aquí (o en VITE_CF_APP_EMAIL). Quien entra además debe estar en cf_app_users.
+// Los perfiles solo eligen el correo; Supabase verifica el PIN y la allowlist autoriza el acceso.
 export const LOGIN_EMAIL: string =
   (import.meta.env.VITE_CF_APP_EMAIL as string | undefined) ?? 'eventos@conferencistasfamosos.com';
+
+export const PIN_PROFILES = [
+  { id: 'sandra', name: 'Sandra', email: LOGIN_EMAIL },
+  { id: 'neto', name: 'NETO', email: 'agencia@conferencistasfamosos.com' },
+] as const;
+const PROFILE_KEY = 'cf_app_pin_profile';
+export const savedPinProfile = () => {
+  try { return PIN_PROFILES.find((p) => p.id === localStorage.getItem(PROFILE_KEY)) ?? PIN_PROFILES[0]; }
+  catch { return PIN_PROFILES[0]; }
+};
+export const rememberPinProfile = (id: string) => {
+  try { localStorage.setItem(PROFILE_KEY, id); } catch { /* almacenamiento opcional */ }
+};
+
+export async function currentProfileName(): Promise<string | null> {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return null;
+  const { data, error } = await db.from('cf_app_users').select('name').eq('user_id', user.id).maybeSingle();
+  if (error || !data?.name) return null;
+  return data.name.trim().split(/\s+/)[0];
+}
 
 const LOCK_KEY = 'cf_app_lock';
 export const MAX_ATTEMPTS = 5;

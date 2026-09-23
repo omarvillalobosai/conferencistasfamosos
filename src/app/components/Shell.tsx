@@ -30,7 +30,7 @@ const Shell = ({ title, back, children }: ShellProps) => {
             Conferencistas<span>Famosos</span> · App
           </NavLink>
         )}
-        {title && <span className="cf-note" style={{ fontWeight: 700 }}>{title}</span>}
+        {title && <span className="cf-note" style={{ fontWeight: 500 }}>{title}</span>}
         <button
           type="button"
           className="cf-back"
