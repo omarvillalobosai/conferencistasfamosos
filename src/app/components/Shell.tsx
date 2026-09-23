@@ -26,7 +26,8 @@ const Shell = ({ title, back, children }: ShellProps) => {
             <ChevronLeft size={18} /> Volver
           </button>
         ) : (
-          <NavLink to="/app" className="cf-brand" style={{ textDecoration: 'none' }}>
+          <NavLink to="/app" className="cf-brand" style={{ textDecoration: 'none' }} aria-label="Conferencistas Famosos, inicio del hub">
+            <img src="/img/logo/cf-simbolo.svg" alt="" width={12} height={30} />
             Conferencistas<span>Famosos</span> · App
           </NavLink>
         )}

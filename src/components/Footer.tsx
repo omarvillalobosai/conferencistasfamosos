@@ -1,4 +1,5 @@
 import React from 'react';
+import BrandLogo from '@/components/BrandLogo';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { getSpeakerSlug } from '@/utils/speakerUtils';
@@ -21,8 +22,8 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <h3 className="text-white text-xl font-bold mb-6">
-              Conferencistas<span className="text-orange-500">Famosos</span>
+            <h3 className="mb-6">
+              <BrandLogo tone="light" height={44} />
             </h3>
             <p className="mb-6">
               Conectamos a los mejores conferencistas de habla hispana con los eventos más importantes de Latinoamérica y el mundo.
