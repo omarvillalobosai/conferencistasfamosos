@@ -16,7 +16,14 @@ const CursosPremium: React.FC = () => {
   const { isAuthorized } = usePremiumAuth();
 
   if (!isAuthorized) {
-    return null; // Don't render anything until authorization check completes
+    // Página privada: el HTML prerenderizado solo lleva título y noindex; el contenido se muestra tras comprobar el registro.
+    return (
+      <Helmet defer={false}>
+        <title>Cursos Premium | ConferencistasFamosos</title>
+        <meta name="description" content="Contenido exclusivo para desarrollar habilidades específicas según tu rol o aspiración como speaker." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
+    );
   }
 
   return (

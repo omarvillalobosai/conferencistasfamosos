@@ -36,7 +36,7 @@ const DesktopNav = ({ onQuoteClick, isScrolled = false }: DesktopNavProps) => {
           isScrolled={isScrolled}
         />
 
-        <a href="#contacto" onClick={handleQuoteClick}>
+        <a href="/#contacto" onClick={handleQuoteClick}>
           <Button className="bg-orange-500 hover:bg-orange-600 text-white">Cotizar ahora</Button>
         </a>
       </nav>

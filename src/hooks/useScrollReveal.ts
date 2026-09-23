@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export const useScrollReveal = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const element = ref.current;
@@ -15,6 +15,10 @@ export const useScrollReveal = () => {
       setIsVisible(true);
       return;
     }
+
+    // Lo que ya está en pantalla al cargar se queda visible; lo que está más abajo se revela al llegar.
+    if (element.getBoundingClientRect().top <= window.innerHeight) return;
+    setIsVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {

@@ -11,8 +11,8 @@ const norm = (s: string) => s.toLocaleLowerCase('es-MX').normalize('NFD').replac
 const Clientes = () => {
   const [rows, setRows] = useState<Contact[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [filter, setFilter] = useState<Filter>(() => (sessionStorage.getItem('cf_c_filter') as Filter) || 'todos');
-  const [query, setQuery] = useState(() => sessionStorage.getItem('cf_c_query') ?? '');
+  const [filter, setFilter] = useState<Filter>(() => (typeof window === 'undefined' ? 'todos' : (sessionStorage.getItem('cf_c_filter') as Filter) || 'todos'));
+  const [query, setQuery] = useState(() => (typeof window === 'undefined' ? '' : sessionStorage.getItem('cf_c_query') ?? ''));
 
   useEffect(() => {
     fetchContacts().then(setRows).catch((e) => setError(e.message ?? String(e)));

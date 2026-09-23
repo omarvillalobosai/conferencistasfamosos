@@ -41,7 +41,7 @@ interface OverviewData {
 type Tab = "subscribers" | "recent" | "failed";
 
 export default function NewsletterAdmin() {
-  const [token, setToken] = useState<string>(() => localStorage.getItem(TOKEN_KEY) ?? "");
+  const [token, setToken] = useState<string>(() => (typeof window === "undefined" ? "" : localStorage.getItem(TOKEN_KEY) ?? ""));
   const [input, setInput] = useState("");
   const [data, setData] = useState<OverviewData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -92,7 +92,7 @@ export default function NewsletterAdmin() {
   if (!token) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
-        <Helmet defer={false}><title>Admin · Newsletter</title><meta name="robots" content="noindex" /></Helmet>
+        <Helmet defer={false}><title>Admin · Newsletter</title><meta name="description" content="Panel interno de la newsletter." /><meta name="robots" content="noindex" /></Helmet>
         <form onSubmit={submitToken} className="w-full max-w-md bg-neutral-900 border border-white/10 p-8">
           <h1 className="text-xs tracking-[0.3em] text-orange-500 uppercase mb-6">Admin · Newsletter</h1>
           <label className="block text-sm text-white/70 mb-2">Token de acceso</label>
@@ -119,7 +119,7 @@ export default function NewsletterAdmin() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Helmet defer={false}><title>Admin · Newsletter</title><meta name="robots" content="noindex" /></Helmet>
+      <Helmet defer={false}><title>Admin · Newsletter</title><meta name="description" content="Panel interno de la newsletter." /><meta name="robots" content="noindex" /></Helmet>
 
       <header className="border-b border-white/10 px-6 md:px-12 py-6 flex items-center justify-between">
         <div>
