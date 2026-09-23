@@ -6,15 +6,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { blogPosts } from '@/data/blogPosts';
 
 const achievements = [
-  "Record Guinness por el abrazo más grande del mundo",
-  "Creador del movimiento de Abrazoterapia.tv",
-  "Creador del movimiento Es posible lo imposible en TEDx",
-  "Autor latino con más participaciones en el movimiento TED",
-  "Autor de dos bestsellers internacionales",
-  "Más de 900 empresas han contratado sus servicios",
-  "Más de 10 empresas de Fortune 500",
+  "Récord Guinness por la mayor cantidad de personas abrazadas simultáneamente (Arena México, 2010; Ayacucho, Perú, 2012)",
+  "Creador del movimiento Abrazoterapia.tv",
+  "Conferencista TEDx",
+  "Autor del bestseller Ser Chingón Sin Ir a Harvard y de más de 40 audiolibros",
+  "Más de 3,500 conferencias impartidas",
+  "Más de 30 países y 150 ciudades con eventos en vivo",
   "Más de 30 años de experiencia en escenarios internacionales",
-  "Más de 2 millones de personas han asistido a eventos en vivo"
+  "Tres doctorados honoris causa",
+  "Más de 50 millones de vistas y 350,000 seguidores en redes"
 ];
 
 
@@ -27,7 +27,7 @@ const FeaturedSpeakerSection = () => {
             Omar Villalobos <span className="text-gradient">Speaker Destacado</span>
           </h2>
           <p className="text-lg text-gray-300">
-            El conferencista más solicitado de Latinoamérica para eventos corporativos y masivos.
+            Fundador de la agencia y conferencista con más de 30 años en escenarios de 30+ países.
           </p>
         </div>
         
@@ -48,10 +48,10 @@ const FeaturedSpeakerSection = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Biografía</h3>
               <p className="text-gray-300 mb-4">
-                Omar Villalobos es considerado el conferencista de alto impacto más importante de habla hispana. Con una trayectoria de más de 30 años transformando la vida de personas y organizaciones en todo el mundo, Omar ha llevado su mensaje de superación, liderazgo y excelencia a más de 25 países.
+                Omar Villalobos es conferencista internacional, autor y fundador de Conferencistas Famosos. Con una trayectoria de más de 30 años transformando la vida de personas y organizaciones en todo el mundo, Omar ha llevado su mensaje de superación, liderazgo y excelencia a más de 25 países.
               </p>
               <p className="text-gray-300">
-                Su experiencia trabajando con empresas Fortune 500, gobiernos y eventos masivos le ha permitido desarrollar una metodología única que combina la psicología del éxito, estrategias de alto rendimiento y técnicas de transformación personal que generan resultados inmediatos y medibles.
+                Su experiencia en más de 3,500 conferencias para empresas, gobiernos y eventos masivos le ha permitido desarrollar una metodología única que combina la psicología del éxito, estrategias de alto rendimiento y técnicas de transformación personal que generan resultados inmediatos y medibles.
               </p>
             </div>
             

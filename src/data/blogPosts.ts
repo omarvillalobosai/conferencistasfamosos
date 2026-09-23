@@ -636,7 +636,7 @@ export const blogPosts: BlogPost[] = [
         position: 2,
         speakerId: 'omar-villalobos',
         reason:
-          'Reconocido como uno de los tres speakers más influyentes de Latinoamérica en desarrollo humano, liderazgo y ventas, Omar Villalobos acumula más de 1,000 conferencias en 15+ países, un récord Guinness y tres doctorados Honoris Causa. Es autor de más de 30 libros, entre ellos el bestseller Ser Chingón Sin Ir a Harvard.',
+          'Con más de 30 años de trayectoria en desarrollo humano, liderazgo y ventas, Omar Villalobos acumula más de 3,500 conferencias en más de 30 países, un récord Guinness y tres doctorados honoris causa. Es autor del bestseller Ser Chingón Sin Ir a Harvard y de más de 40 audiolibros.',
       },
       {
         position: 3,
@@ -669,7 +669,7 @@ export const blogPosts: BlogPost[] = [
         position: 2,
         speakerId: 'omar-villalobos',
         reason:
-          'Con formación en Business Psychology y una maestría en Terapia Gestalt, Omar Villalobos ha asesorado a organizaciones en más de 15 países, personalizando cada conferencia según los retos específicos de liderazgo de la audiencia que lo contrata.',
+          'Con formación en Business Psychology y una maestría en Terapia Gestalt, Omar Villalobos ha asesorado a organizaciones en más de 30 países, personalizando cada conferencia según los retos específicos de liderazgo de la audiencia que lo contrata.',
       },
       {
         position: 3,
@@ -696,7 +696,7 @@ export const blogPosts: BlogPost[] = [
         position: 1,
         speakerId: 'omar-villalobos',
         reason:
-          'Ventas y mentalidad de éxito son uno de los ejes centrales del trabajo de Omar Villalobos desde hace más de 25 años, combinando psicología aplicada y estrategias de negocio para equipos comerciales en toda Latinoamérica.',
+          'Ventas y mentalidad de éxito son uno de los ejes centrales del trabajo de Omar Villalobos desde hace más de 30 años, combinando psicología aplicada y estrategias de negocio para equipos comerciales en toda Latinoamérica.',
       },
       {
         position: 2,

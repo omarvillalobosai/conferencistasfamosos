@@ -1907,7 +1907,7 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
       "Trayectoria internacional real: los tres han presentado en múltiples países de Latinoamérica, no solo en su país de origen.",
       "Contenido propio: cada uno es autor de libros o proyectos editoriales que sostienen su mensaje más allá del escenario.",
       "Daniel Habif es autor de Inquebrantables y RUGE, con giras \"Ascender\" por varios países.",
-      "Omar Villalobos acumula más de 1,000 conferencias en 15+ países y un récord Guinness oficial.",
+      "Omar Villalobos acumula más de 3,500 conferencias en 30+ países y un récord Guinness oficial.",
       "César Lozano combina formación médica con un estilo cercano, presente en radio, podcast y TV.",
     ],
     quotes: [],
@@ -1919,7 +1919,7 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     keyPoints: [
       "Experiencia real liderando equipos, medios u organizaciones, no solo teoría de liderazgo.",
       "Ismael Cala dirigió durante casi 15 años el programa CALA en CNN en Español.",
-      "Omar Villalobos combina psicología organizacional con más de 25 años asesorando equipos en 15+ países.",
+      "Omar Villalobos combina psicología organizacional con más de 30 años asesorando equipos en 30+ países.",
       "Marisa Lazo escaló una empresa familiar a más de 100 sucursales sin financiamiento bancario.",
       "Los tres personalizan su mensaje según el reto específico de liderazgo de cada organización.",
     ],
@@ -1931,7 +1931,7 @@ export const blogPostsEnrichment: Record<string, BlogPostEnrichment> = {
     summary: "Ventas y alto rendimiento son temas donde los resultados hablan más que el discurso. Este ranking prioriza a speakers cuyo mensaje está respaldado por trayectoria comercial comprobable, ya sea propia o de las organizaciones que han asesorado.\n\nLos tres combinan formación o resultados de negocio reales con la capacidad de transmitir esa mentalidad a equipos comerciales, lo que los distingue de conferencistas motivacionales genéricos sin trayectoria comercial de fondo.",
     keyPoints: [
       "Priorizamos trayectoria comercial comprobable, no solo discurso motivacional genérico.",
-      "Omar Villalobos lleva más de 25 años enfocado en mentalidad de ventas y alto rendimiento.",
+      "Omar Villalobos lleva más de 30 años enfocado en mentalidad de ventas y alto rendimiento.",
       "Vilma Núñez ganó 4 premios Emmy regionales en 2025 por una campaña sobre liderazgo humano en la era de la IA.",
       "César Lozano aplica su enfoque de actitud y bienestar directamente a equipos comerciales.",
     ],
