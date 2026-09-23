@@ -51,8 +51,9 @@ test('sube con asset_folder, sin folder ni public_id; conserva la respuesta', as
     assert.equal(result.bytes, 1200);
   } finally { globalThis.fetch = original; }
 });
-test('sin variables no se habilita Cloudinary; fallos de subida no dan un éxito falso', async () => {
-  const missing = await load('src/app/cloudinary.ts', {});
+test('con el cloud vacío no se habilita Cloudinary; fallos de subida no dan un éxito falso', async () => {
+  // Sin variables se usa la cuenta de Omar por defecto; solo un valor vacío explícito apaga la subida.
+  const missing = await load('src/app/cloudinary.ts', { VITE_CLOUDINARY_CLOUD: '', VITE_CLOUDINARY_PRESET: '' });
   assert.equal(missing.cloudinaryReady, false);
   await assert.rejects(() => missing.uploadSpeakerFile(new File(['a'], 'a.pdf'), 'prueba'), /Falta configurar/);
   const original = globalThis.fetch;

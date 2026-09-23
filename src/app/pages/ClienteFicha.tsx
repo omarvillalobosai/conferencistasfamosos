@@ -22,7 +22,8 @@ import {
   type ContactStatus,
 } from '../data';
 import SpeakerSelect from '../components/SpeakerSelect';
-import { setContactSpeaker } from '../speakers';
+import { setContactSpeaker, fetchContactRequests, stageLabel, type SpeakerRequest } from '../speakers';
+import RequestCandidate from '../components/RequestCandidate';
 import { followUp } from '../mensajes';
 
 const empty: ContactInput = { name: '', company: '', phone: '', email: '', city: '', notes: '', speaker_id: null };
@@ -35,6 +36,7 @@ const ClienteFicha = () => {
   const [contact, setContact] = useState<Contact | null | undefined>(isNew ? null : undefined);
   const [form, setForm] = useState<ContactInput>(empty);
   const [events, setEvents] = useState<ContactEvent[]>([]);
+  const [requests, setRequests] = useState<SpeakerRequest[]>([]);
   const [note, setNote] = useState('');
   const [editing, setEditing] = useState(isNew);
   const [saving, setSaving] = useState(false);
@@ -47,6 +49,7 @@ const ClienteFicha = () => {
     if (c) {
       setForm({ name: c.name, company: c.company ?? '', phone: c.phone ?? '', email: c.email ?? '', city: c.city ?? '', notes: c.notes ?? '', speaker_id: c.speaker_id ?? null });
       setEvents(await fetchEvents(cid));
+      setRequests(await fetchContactRequests(cid).catch(() => []));
     }
   };
 
@@ -219,6 +222,15 @@ const ClienteFicha = () => {
             <button type="button" className="cf-btn cf-btn--ghost cf-btn--sm" style={{ marginTop: 14 }} onClick={() => setEditing(true)}>
               Editar datos
             </button>
+          </section>
+
+          <section className="cf-card" style={{ marginTop: 16 }}>
+            <h2 className="cf-h2">Conferencistas que pidió</h2>
+            <div className="cf-list">
+              {requests.map(r => r.speaker && <Link className="cf-row" key={r.id} to={`/app/conferencistas/${r.speaker.id}`}><div><strong>{r.speaker.name}</strong><small>{stageLabel[r.speaker.stage]}</small></div><span className="cf-arrow">→</span></Link>)}
+              {!requests.length && <p className="cf-note">Ninguno fuera del catálogo, por ahora.</p>}
+            </div>
+            <div style={{ marginTop: 12 }}><RequestCandidate contactId={contact.id} /></div>
           </section>
         </>
       )}

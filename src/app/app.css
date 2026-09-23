@@ -428,3 +428,8 @@
   .cf-stagelogo__stem, .cf-stagelogo__foot { stroke-dashoffset: 0; }
   .cf-stage__beam { opacity: 0.6; }
 }
+
+/* Candidatos: avance del perfil */
+.cf-progress { height: 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.cf-progress i { display: block; height: 100%; background: var(--cf-orange); border-radius: 99px; transition: width 400ms var(--cf-ease); }
+.cf-chips .cf-chip { text-decoration: none; }
