@@ -1,0 +1,16 @@
+{
+  "name": "Conferencistas Famosos · App",
+  "short_name": "CF App",
+  "description": "Solicitudes, clientes y envíos de la agencia.",
+  "start_url": "/app",
+  "scope": "/app",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "es-MX",
+  "icons": [
+    { "src": "/img/app/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

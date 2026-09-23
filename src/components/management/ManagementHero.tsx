@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import heroImg from '@/assets/management-hero-cinematic.jpg';
+const heroImg = '/img/hero/management-hero-cinematic-1600.webp';
 
 const ManagementHero: React.FC = () => {
   const scrollToForm = () => {
@@ -14,7 +14,7 @@ const ManagementHero: React.FC = () => {
         alt="Conferencista backstage listo para tomar el escenario"
         width={1920}
         height={1080}
-        fetchPriority="high"
+        {...{ fetchpriority: "high" }}
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-70"
       />

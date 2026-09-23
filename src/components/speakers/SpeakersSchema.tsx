@@ -24,7 +24,7 @@ const SpeakersSchema: React.FC<SpeakersSchemaProps> = ({ speakers }) => {
                   "@type": "Person",
                   "name": "${speaker.name}",
                   "description": "${speaker.shortBio}",
-                  "image": "${speaker.image}",
+                  "image": "https://conferencistasfamosos.com${speaker.image}",
                   "jobTitle": "Conferencista",
                   "specialty": "${speaker.specialty}"
                 }

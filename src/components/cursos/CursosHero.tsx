@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/cursos-hero-cinematic.jpg';
+const heroImage = '/img/hero/cursos-hero-cinematic-1600.webp';
 
 const CursosHero: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const CursosHero: React.FC = () => {
         alt="Masterclass cinematográfica para conferencistas"
         width={1920}
         height={1080}
-        fetchPriority="high"
+        {...{ fetchpriority: "high" }}
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-70"
       />

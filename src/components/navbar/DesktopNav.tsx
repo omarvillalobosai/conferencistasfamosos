@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SpeakersDropdown from './SpeakersDropdown';
 import { mainNavItems } from '@/config/navigation';
-import QuoteWizard from '@/components/QuoteWizard';
 
 type DesktopNavProps = {
   onQuoteClick: (e: React.MouseEvent) => void;
@@ -13,11 +12,8 @@ type DesktopNavProps = {
 
 const DesktopNav = ({ onQuoteClick, isScrolled = false }: DesktopNavProps) => {
   const [showSpeakersDropdown, setShowSpeakersDropdown] = useState(false);
-  const [wizardOpen, setWizardOpen] = useState(false);
-
   const handleQuoteClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setWizardOpen(true);
     onQuoteClick(e);
   };
 
@@ -44,8 +40,6 @@ const DesktopNav = ({ onQuoteClick, isScrolled = false }: DesktopNavProps) => {
           <Button className="bg-orange-500 hover:bg-orange-600 text-white">Cotizar ahora</Button>
         </a>
       </nav>
-
-      <QuoteWizard open={wizardOpen} onClose={() => setWizardOpen(false)} />
     </>
   );
 };

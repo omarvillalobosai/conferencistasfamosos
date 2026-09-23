@@ -64,7 +64,7 @@ const SpeakerDetail = () => {
         <meta property="og:title" content={`${speaker.name} | Conferencista`} />
         <meta property="og:description" content={`${speaker.shortBio}`} />
         <meta property="og:url" content={`https://conferencistasfamosos.com/speaker/${canonicalSlug}`} />
-        <meta property="og:image" content={speaker.image} />
+        <meta property="og:image" content={`https://conferencistasfamosos.com${speaker.image}`} />
         <meta name="keywords" content={`${speaker.name}, conferencista, ${speaker.tags.join(', ')}, conferencias, eventos, charlas`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -72,7 +72,7 @@ const SpeakerDetail = () => {
           name: speaker.name,
           jobTitle: "Conferencista",
           description: speaker.shortBio,
-          image: speaker.image,
+          image: `https://conferencistasfamosos.com${speaker.image}`,
           url: `https://conferencistasfamosos.com/speaker/${canonicalSlug}`,
           knowsAbout: speaker.tags,
           worksFor: {

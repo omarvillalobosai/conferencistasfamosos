@@ -34,9 +34,13 @@ const FeaturedSpeakerSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img 
-              src="https://ythqjhiyavgpghmoreiz.supabase.co/storage/v1/object/public/confamosos//omarvillalobos%20conferencista%20famosos%201.png" 
-              alt="Omar Villalobos en conferencia" 
-              className="rounded-lg shadow-2xl object-cover w-full h-[500px]"
+              src="/img/speakers/omar-villalobos-destacado.webp"
+              alt="Omar Villalobos en conferencia"
+              width={1000}
+              height={563}
+              loading="lazy"
+              decoding="async"
+              className="reveal rounded-lg shadow-2xl object-cover w-full h-[500px]"
             />
           </div>
           

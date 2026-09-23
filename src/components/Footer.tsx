@@ -8,34 +8,13 @@ const Footer = () => {
   const prefilledMessage = encodeURIComponent('Me interesa más información sobre ConferencistasFamosos.');
   const emailAddress = 'agencia@conferencistasfamosos.com';
   
-  const shareOnSocial = (platform: string) => {
-    const url = window.location.href;
-    const text = "Descubre a los mejores conferencistas para tu próximo evento en ConferencistasFamosos.com";
-    
-    let shareUrl = '';
-    
-    switch(platform) {
-      case 'facebook':
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-        break;
-      case 'twitter':
-        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-        break;
-      case 'linkedin':
-        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-        break;
-      case 'instagram':
-        // Instagram doesn't have a direct sharing URL, can only open Instagram
-        shareUrl = 'https://www.instagram.com/';
-        break;
-      case 'youtube':
-        // YouTube doesn't have a direct sharing URL, can only open YouTube
-        shareUrl = 'https://www.youtube.com/';
-        break;
-    }
-    
-    window.open(shareUrl, '_blank');
-  };
+  const socials = [
+    { name: 'Facebook', href: 'https://www.facebook.com/conferencistasfamosos', Icon: Facebook },
+    { name: 'Instagram', href: 'https://www.instagram.com/conferencistasfamosos', Icon: Instagram },
+    { name: 'X (Twitter)', href: 'https://twitter.com/conferencistasfamosos', Icon: Twitter },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/conferencistasfamosos', Icon: Linkedin },
+    { name: 'YouTube', href: 'https://www.youtube.com/@conferencistasfamosos', Icon: Youtube },
+  ];
 
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
@@ -49,21 +28,18 @@ const Footer = () => {
               Conectamos a los mejores conferencistas de habla hispana con los eventos más importantes de Latinoamérica y el mundo.
             </p>
             <div className="flex space-x-4">
-              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('facebook'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('instagram'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('twitter'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('linkedin'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" onClick={(e) => { e.preventDefault(); shareOnSocial('youtube'); }} className="text-gray-400 hover:text-orange-500 transition-colors">
-                <Youtube size={20} />
-              </a>
+              {socials.map(({ name, href, Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${name} de Conferencistas Famosos`}
+                  className="text-gray-400 hover:text-orange-500 transition-colors"
+                >
+                  <Icon size={20} aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
           
@@ -71,22 +47,22 @@ const Footer = () => {
             <h4 className="text-white text-lg font-medium mb-6">Enlaces rápidos</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="hover:text-orange-500 transition-colors">Quiénes somos</Link>
+                <Link to="/agencia" className="hover:text-orange-500 transition-colors">Quiénes somos</Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-orange-500 transition-colors">Conferencistas</Link>
+                <a href="/#conferencistas" className="hover:text-orange-500 transition-colors">Conferencistas</a>
               </li>
               <li>
-                <Link to="/" className="hover:text-orange-500 transition-colors">Omar Villalobos</Link>
+                <Link to="/speaker/omar-villalobos" className="hover:text-orange-500 transition-colors">Omar Villalobos</Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-orange-500 transition-colors">Testimonios</Link>
+                <a href="/#destacado" className="hover:text-orange-500 transition-colors">Speaker destacado</a>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-orange-500 transition-colors">Blog</Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-orange-500 transition-colors">Contacto</Link>
+                <a href="/#contacto" className="hover:text-orange-500 transition-colors">Contacto</a>
               </li>
             </ul>
           </div>
