@@ -40,6 +40,7 @@ const NewsletterUnsubscribe: React.FC = () => {
     <>
       <Helmet defer={false}>
         <title>Darse de baja | Conferencistas Famosos</title>
+        <meta name="description" content="Cancela tu suscripción a las frases de Conferencistas Famosos." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Navbar />

@@ -18,7 +18,7 @@ type Filter = 'todas' | QuoteStatus;
 const Solicitudes = () => {
   const [rows, setRows] = useState<QuoteRequest[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [filter, setFilter] = useState<Filter>(() => (sessionStorage.getItem('cf_q_filter') as Filter) || 'todas');
+  const [filter, setFilter] = useState<Filter>(() => (typeof window === 'undefined' ? 'todas' : (sessionStorage.getItem('cf_q_filter') as Filter) || 'todas'));
 
   useEffect(() => {
     fetchQuotes().then(setRows).catch((e) => setError(e.message ?? String(e)));

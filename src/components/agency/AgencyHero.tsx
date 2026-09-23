@@ -41,7 +41,7 @@ const AgencyHero: React.FC = () => {
           Representamos a los conferencistas más influyentes de habla hispana y garantizamos que cada evento se convierta en un momento inolvidable.
         </p>
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contacto">
+          <a href="/#contacto">
             <Button
               size="lg"
               className="bg-orange-500 hover:bg-white hover:text-black text-white font-bold uppercase tracking-widest px-10 py-6 transition-all duration-500 shadow-[0_0_30px_rgba(249,115,22,0.35)]"

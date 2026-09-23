@@ -44,7 +44,7 @@ const MobileMenu = ({ isOpen, onClose, onQuoteClick }: MobileMenuProps) => {
           />
           
           <a 
-            href="#contacto"
+            href="/#contacto"
             onClick={handleQuoteClick}
             className="block"
           >

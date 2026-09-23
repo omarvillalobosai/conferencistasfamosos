@@ -35,6 +35,7 @@ const HubApp = () => {
   const head = (
     <Helmet>
       <title>App · Conferencistas Famosos</title>
+      <meta name="description" content="Hub interno de la agencia: solicitudes, clientes y envíos." />
       <meta name="robots" content="noindex, nofollow" />
       <meta name="theme-color" content="#0a0a0a" />
       <link rel="manifest" href="/app.webmanifest" />
