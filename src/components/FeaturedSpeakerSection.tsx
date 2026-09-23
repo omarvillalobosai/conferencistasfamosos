@@ -8,8 +8,9 @@ import { blogPosts } from '@/data/blogPosts';
 const achievements = [
   "Récord Guinness por la mayor cantidad de personas abrazadas simultáneamente (Arena México, 2010; Ayacucho, Perú, 2012)",
   "Creador del movimiento Abrazoterapia.tv",
-  "Conferencista TEDx",
+  "Autor latino con más participaciones en el movimiento TEDx, con cuatro charlas",
   "Autor del bestseller Ser Chingón Sin Ir a Harvard y de más de 40 audiolibros",
+  "Top 3 speakers de Latinoamérica",
   "Más de 3,500 conferencias impartidas",
   "Más de 30 países y 150 ciudades con eventos en vivo",
   "Más de 30 años de experiencia en escenarios internacionales",

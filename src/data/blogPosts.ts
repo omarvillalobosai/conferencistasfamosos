@@ -636,7 +636,7 @@ export const blogPosts: BlogPost[] = [
         position: 2,
         speakerId: 'omar-villalobos',
         reason:
-          'Con más de 30 años de trayectoria en desarrollo humano, liderazgo y ventas, Omar Villalobos acumula más de 3,500 conferencias en más de 30 países, un récord Guinness y tres doctorados honoris causa. Es autor del bestseller Ser Chingón Sin Ir a Harvard y de más de 40 audiolibros.',
+          'Reconocido entre los tres speakers más influyentes de Latinoamérica, con más de 30 años de trayectoria en desarrollo humano, liderazgo y ventas, Omar Villalobos acumula más de 3,500 conferencias en más de 30 países, un récord Guinness y tres doctorados honoris causa. Es autor del bestseller Ser Chingón Sin Ir a Harvard y de más de 40 audiolibros.',
       },
       {
         position: 3,
