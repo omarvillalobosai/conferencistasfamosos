@@ -128,3 +128,8 @@
     .hero-in, .reveal, .marquee, .animate-bounce { animation: none !important; }
   }
 }
+
+/* Video del hero: aparece en fundido cuando ya puede reproducirse, sobre la imagen fija */
+.hero-video { opacity: 0; animation: hero-video-in 1.2s ease-out 0.2s forwards; }
+@keyframes hero-video-in { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
