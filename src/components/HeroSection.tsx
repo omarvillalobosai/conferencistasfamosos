@@ -1,13 +1,34 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
 import QuoteWizard from './QuoteWizard';
-const heroBg = '/img/hero/hero-speakers-latam-1600.webp';
-const heroBgSmall = '/img/hero/hero-speakers-latam-960.webp';
+// Escenario vacío con un micrófono bajo el reflector: el titular dice quién falta ahí.
+const heroBg = '/img/hero/hero-escenario-1600.webp';
+const heroSrcSet = '/img/hero/hero-escenario-480.webp 480w, /img/hero/hero-escenario-800.webp 800w, /img/hero/hero-escenario-1200.webp 1200w, /img/hero/hero-escenario-1600.webp 1600w';
+const heroVideoMp4 = '/img/hero/hero-escenario.mp4';
+const heroVideoWebm = '/img/hero/hero-escenario.webm';
+
+// El video (5 s en bucle, sin audio) solo en pantallas grandes, sin "menos movimiento" y después de cargar la página:
+// la imagen sigue siendo el LCP y en móvil no se descarga ni un byte de video.
+const useHeroVideo = () => {
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined' || !('matchMedia' in window)) return;
+    const ok = window.matchMedia('(min-width: 768px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (!ok || conn?.saveData) return;
+    const start = () => setEnabled(true);
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
+    return () => window.removeEventListener('load', start);
+  }, []);
+  return enabled;
+};
 
 const HeroSection = () => {
   const [wizardOpen, setWizardOpen] = useState(false);
+  const videoOn = useHeroVideo();
 
   const handleQuoteClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -43,20 +64,33 @@ const HeroSection = () => {
         {/* Background image */}
         <img
           src={heroBg}
-          srcSet={`${heroBgSmall} 960w, ${heroBg} 1600w`}
+          srcSet={heroSrcSet}
           sizes="100vw"
-          alt="Conferencista influyente de Latinoamérica frente a una audiencia masiva"
+          alt="Escenario de teatro vacío con un micrófono bajo el reflector y las butacas rojas al fondo"
           width={1600}
           height={900}
           {...{ fetchpriority: "high" }}
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
-        {/* Dark overlay for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/85 z-0"></div>
-
-        {/* Decorative accent */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/20 to-transparent z-0"></div>
+        {videoOn && (
+          <video
+            className="hero-video absolute inset-0 w-full h-full object-cover z-0"
+            poster={heroBg}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            tabIndex={-1}
+          >
+            <source src={heroVideoWebm} type="video/webm" />
+            <source src={heroVideoMp4} type="video/mp4" />
+          </video>
+        )}
+        {/* Velo para que el titular se lea sobre la escena */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80 z-0"></div>
 
         
         <div className="container mx-auto relative z-10 pt-20">
@@ -83,13 +117,14 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center animate-bounce">
-            <span className="text-white text-sm font-medium mb-2">Descubre más</span>
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
+        </div>
+
+        {/* Indicador de scroll: anclado a la sección (no al contenedor) para que no pise el texto en pantallas bajas */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center animate-bounce z-10 pointer-events-none">
+          <span className="text-white text-sm font-medium mb-2">Descubre más</span>
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
         </div>
       </section>
 
